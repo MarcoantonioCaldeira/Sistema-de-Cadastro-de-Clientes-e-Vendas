@@ -1,19 +1,4 @@
-# sistema-de-cadastro-tigestor
+Sistema de Cadastro de usuario 
+para a empresa T.I Gestor
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
