@@ -1,5 +1,5 @@
 <template>
-    <h2>Classificacao do Cliente</h2>
+    <h2>Selecione sua classificacao</h2>
 </template>
 <script>
 export default{
