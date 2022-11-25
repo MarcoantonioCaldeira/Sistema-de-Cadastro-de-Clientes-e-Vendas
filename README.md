@@ -3,5 +3,12 @@ para a empresa T.I Gestor</h1>
 
 <p>Aplicação ainda está em desenvolvimento, então algumas alterações ainda podem ser feitas</p>
 
+<<<<<<< HEAD
 <img src="Pranchetas/prototipo1.png">
 
+=======
+
+
+![Apresentação_final](https://user-images.githubusercontent.com/88919003/203991375-dfb462fc-edc0-42b7-bc3d-88f286391574.png)
+
+>>>>>>> 15aed4ba9887a9c24089035a1555f64445e7d954
