@@ -22,7 +22,7 @@
         <input type="number" placeholder="Seu telefone" class="input">
         <input type="number" placeholder="Celular" class="input">
         <div> 
-            <input type="text" v-model="pessoa">
+            <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" />
         </div>
         <br>Seu RG:<input type="text" style="display: inline">
         <br>Data de Nascimento: <input type="date" style="display: inline">
@@ -35,7 +35,8 @@ export default{
     name: 'Informacoes_Cliente',
     data(){
         return{
-            pessoa:'CNPJ'
+            pessoa:"CNPJ",
+            pessoas: null
         };
     }
 }

@@ -2,7 +2,6 @@
   <div>
     <h1>Cadastro de cliente(teste)</h1>
     <p>Preencha os campos para cadastrar um novo cliente!!!</p>
-    <!--<Classificacao />-->
     <Informacoes_Cliente />
     <Tipo_Suframa />
     <Input_observacoes />
