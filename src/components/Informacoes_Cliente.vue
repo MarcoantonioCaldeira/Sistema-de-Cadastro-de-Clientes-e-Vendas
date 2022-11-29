@@ -18,7 +18,15 @@
         <input type="text" placeholder="Nome apelido" class="input">
         <input type="text" placeholder="Seu email principal" class="input">
         <input type="text" placeholder="Seu email nfe" class="input">
-        <input type="button" value="Adicionar outro email" class="input">
+
+
+        <div  v-for="(input, index) in inputs">
+            <input type="text" :name="'contact[' + index + '][email]'" placeholder="Seu email">
+            <button type="button" @click="deletar_email(index)"><i class="fa fa-times"></i></button>
+        </div>    
+
+        <button  type="button" @click="adicionar_email" class="input">Adicionar outro email</button>
+      
         <input type="number" placeholder="Seu telefone" class="input">
         <input type="number" placeholder="Celular" class="input">
         <div> 
@@ -33,11 +41,25 @@
 
 export default{
     name: 'Informacoes_Cliente',
+    created() {
+        this.adicionar_email();
+    }, 
     data(){
         return{
             pessoa:"CNPJ",
-            pessoas: null
+            pessoas: null,
+            inputs: []
         };
+    },
+    mathods: {
+        adicionar_email(){
+            this.inputs.push({
+                email: ""
+            });
+        },
+        deletar_email(index) {
+            this.inputs.splice(index, 1);
+        }
     }
 }
 </script>
