@@ -22,10 +22,10 @@
 
         <div  v-for="(input, index) in inputs">
             <input type="text" :name="'contact[' + index + '][email]'" placeholder="Seu email">
-            <button type="button" v-on:click="deletar_email(index)"><i class="fa fa-times"></i></button>
+            <button type="button" @click:once="deletar_email(index)"><i class="fa fa-times"></i></button>
         </div>    
 
-        <button  type="button" v-on:click="adicionar_email" class="input">Adicionar outro email</button>
+        <button  type="button" @click="addRow" class="input">Adicionar outro email</button>
       
         <input type="number" placeholder="Seu telefone" class="input">
         <input type="number" placeholder="Celular" class="input">
@@ -40,24 +40,25 @@
 
 
 export default{
-    name: 'Informacoes_Cliente',
-    async created() {
-        this.adicionar_email();
-    }, 
+    name: 'Informacoes_Cliente', 
     data(){
         return{
             pessoa:"CNPJ",
             pessoas: null,
-            inputs: []
+            inputs: [
+                {
+                   email: ""
+                }
+            ]
         };
     },
     mathods: {
-        adicionar_email: function(){
+        addRow(){
             this.inputs.push({
                 email: ""
             });
         },
-        deletar_email: function(index) {
+        deletar_email(index) {
             this.inputs.splice(index, 1);
         }
     }
