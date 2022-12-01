@@ -7,12 +7,12 @@
         <input type="radio"  v-model="pessoa" value="CNPJ"/>
         <label>Pessoa Juridica</label><br>
 
-        <input type="radio" v-model="pessoa" value="CPF Pessoa Estrangeira"/>
+        <input type="radio" v-model="pessoa" value="DOC"/>
         <label>Pessoa Estrangeira</label><br>
     </div>
 
     <div>
-        <input type="text" placeholder="Digite o seu nome"  class="input">
+        <input type="text" v-model="nome_fatansia" :placeholder="[[ nome_fatasia ]]" />
         <input type="text" placeholder="Nome apelido" class="input">
         <input type="text" placeholder="Seu email principal" class="input">
         <input type="text" placeholder="Seu email nfe" class="input">
@@ -42,6 +42,7 @@ export default{
         return{
             pessoa:"CNPJ",
             pessoas: null,
+            nome_fatasia: "Nome Fantasia",
             input: 1
         };
     },

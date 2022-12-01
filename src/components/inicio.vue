@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="corpo_formulario">
     <h1>Cadastro de cliente(teste)</h1>
     <p>Preencha os campos para cadastrar um novo cliente!!!</p>
     <Informacoes_Cliente />
@@ -25,6 +25,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+
+#corpo_formulario{
+  width: 100%;
+  height: 800px;
+}
 
 </style>
