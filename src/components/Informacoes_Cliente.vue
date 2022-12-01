@@ -20,12 +20,11 @@
         <input type="text" placeholder="Seu email nfe" class="input">
 
 
-        <div  v-for="(input, index) in inputs">
-            <input type="text" :name="'contact[' + index + '][email]'" placeholder="Seu email">
-            <button type="button" @click:once="deletar_email(index)"><i class="fa fa-times"></i></button>
+        <div>
+            <input v-for="i in input" :key="i"  type="text" :id='"item"+i' :placeholder="'Seu email' + i" style="display: block">
         </div>    
 
-        <button  type="button" @click="addRow" class="input">Adicionar outro email</button>
+        <button  type="button" @click="input++" class="input">Adicionar outro email</button>
       
         <input type="number" placeholder="Seu telefone" class="input">
         <input type="number" placeholder="Celular" class="input">
@@ -45,22 +44,11 @@ export default{
         return{
             pessoa:"CNPJ",
             pessoas: null,
-            inputs: [
-                {
-                   email: ""
-                }
-            ]
+            input: 1
         };
     },
     mathods: {
-        addRow(){
-            this.inputs.push({
-                email: ""
-            });
-        },
-        deletar_email(index) {
-            this.inputs.splice(index, 1);
-        }
+        
     }
 }
 </script>

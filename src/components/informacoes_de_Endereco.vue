@@ -36,6 +36,8 @@
         <input type="text" placeholder="Estado" class="input">
     </div>
 
+    <button>Comcluir cadastro</button>
+
 </template>
 <script>
  export default{
