@@ -1,5 +1,4 @@
 <template>
-
     <h2>Selecione sua classificacao</h2>
     <div id="tipo_pessoa">
         <input type="radio"  v-model="pessoa" value="CPF"/>
@@ -13,7 +12,6 @@
     </div>
 
     <div>
-
         <input type="text" placeholder="Digite o seu nome"  class="input">
         <input type="text" placeholder="Nome apelido" class="input">
         <input type="text" placeholder="Seu email principal" class="input">

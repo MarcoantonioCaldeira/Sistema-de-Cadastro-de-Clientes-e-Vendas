@@ -36,10 +36,13 @@
         <input type="text" placeholder="Estado" class="input">
     </div>
 
-    <button>Comcluir cadastro</button>
+    <router-link to="/Cadastro_pt_1"><button>Comcluir cadastro</button></router-link>
+    
 
 </template>
 <script>
+
+
  export default{
     name: 'Informacoes_Endereco'
  }
