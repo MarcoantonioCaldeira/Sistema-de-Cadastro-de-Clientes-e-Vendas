@@ -22,9 +22,6 @@
 
         <div>
             <input v-for="i in input" :key="i"  type="text" :id='"item"+i' :placeholder="'Seu email' + i" style="display: block">
-           
-                <img src="close-icon.png" @click="delTodo(todo)" alt="fechar">
-
         </div>    
 
         <button  type="button" @click="input++" class="input">Adicionar outro email</button>
@@ -51,9 +48,7 @@ export default{
         };
     },
     mathods: {
-        delTodo(todo) {
-            this.input = this.input.filter(el => el.text !== todo.text);
-        },
+
     }
 }
 </script>
