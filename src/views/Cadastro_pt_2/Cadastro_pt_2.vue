@@ -9,7 +9,7 @@
 
 <script>
 
-import Inicio from '@/components/inicio.vue'
+import Inicio from '@/components/Inicio/inicio.vue'
 import Footer from '@/components/Footer.vue'
 import Informacoes_Endereco from '@/components/informacoes_de_Endereco.vue'
 
