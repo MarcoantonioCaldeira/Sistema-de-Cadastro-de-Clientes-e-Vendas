@@ -4,13 +4,15 @@
     <div id="etapas">
       <h3>Aqui vai ficar as etapas</h3>
     </div>
-
     <h1 id="h1-titulo">Cadastro do cliente</h1>
     <p>(Preencha os campos para cadastrar um novo cliente)</p>
     <Informacoes_Cliente />
-    <Tipo_Suframa />
-    <Input_observacoes />
-    <router-link to="Cadastro_p1_2/Cadastro_pt_2">Proxima etapa</router-link>
+
+    <div id="parte2">
+      <Tipo_Suframa />
+      <Input_observacoes />
+    </div>
+    <router-link to="Cadastro_p1_2/Cadastro_pt_2"><button class="btn_proxima_etapa">Proxima etapa</button></router-link>
   </div>
 </template>
 

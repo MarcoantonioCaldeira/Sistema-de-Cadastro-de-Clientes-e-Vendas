@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
-@import "@/assets/scss/cores.scss"; 
-@import "@/assets/scss/buttons.scss"; 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import "@/assets/scss/index.scss"; 
 
   #etapas{
     color: $cor_1;
@@ -13,11 +12,19 @@
     width: 100%;
     height: 1200px;
   }
-  
+
+
   #h1-titulo{
     font-family:'Poppins', sans-serif;
     margin-left: 5%;
     color: $cor_2;
+    margin-top: 6%;
+  }
+
+  #h1-informacoes{
+    font-family:'Poppins', sans-serif;
+    margin-left: 5%;
+    color: $cor_3;
     margin-top: 6%;
   }
   
@@ -27,6 +34,24 @@
     color: #9B9A9A;
   }
 
-  button{
+  .btn_adicionar_email{
     @include button-add-email;
   }
+
+  .btn_proxima_etapa{
+    @include button-add-processeguir;
+  }
+
+  .input{
+    @include input;
+  }
+
+  #parte2{
+    width: 30%;
+    margin-left: 60%;
+    margin-top: -30%;
+    height: 400px;
+    background-color: red;
+  }
+
+

@@ -1,7 +1,7 @@
 <template>
     <h2>Selecione sua classificacao</h2>
     <div id="tipo_pessoa">
-        <input type="radio"  v-model="pessoa" value="CPF"/>
+        <input type="radio"  v-model="pessoa" value="CPF" />
         <label>Pessoa Fisica</label><br>
         
         <input type="radio"  v-model="pessoa" value="CNPJ"/>
@@ -11,26 +11,28 @@
         <label>Pessoa Estrangeira</label><br>
     </div>
 
+    <h1 id="h1-informacoes">Informações do cliente</h1>
+
     <div>
-        <input type="text" v-model="nome_fatansia" :placeholder="[[ nome_fatasia ]]" />
+        <input type="text" v-model="nome_fatansia" :placeholder="[[ nome_fatasia ]]" class="input"/>
         <input type="text" placeholder="Nome apelido" class="input">
         <input type="text" placeholder="Seu email principal" class="input">
         <input type="text" placeholder="Seu email nfe" class="input">
 
 
         <div>
-            <input v-for="i in input" :key="i"  type="text" :id='"item"+i' :placeholder="'Seu email' + i" style="display: block">
+            <input v-for="i in input" :key="i"  type="text" :id='"item"+i' :placeholder="'Seu email' + i" style="display: block" class="input">
         </div>    
 
-        <button  type="button" @click="input++" class="input">Adicionar outro email</button>
+        <button  type="button" @click="input++" class="btn_adicionar_email">Adicionar outro email</button>
       
         <input type="number" placeholder="Seu telefone" class="input">
         <input type="number" placeholder="Celular" class="input">
         <div> 
-            <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" />
+            <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" class="input"/>
         </div>
-        <br>Seu RG:<input type="text" style="display: inline">
-        <br>Data de Nascimento: <input type="date" style="display: inline">
+        <br>Seu RG:<input type="text" style="display: inline" class="input">
+        <br>Data de Nascimento: <input type="date" style="display: inline" class="input">
     </div>
 </template>
 <script>

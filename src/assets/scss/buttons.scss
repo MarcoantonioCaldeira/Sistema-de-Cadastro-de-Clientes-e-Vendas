@@ -1,14 +1,31 @@
 @import "./cores.scss";
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@500&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 
 @mixin button-add-email{
     background: $cor_4;
+    margin-left: 5%;
     font-family: 'Poppins', sans-serif;
     border-radius: 5px;
     border-color: $cor_4;
     border: 1px solid #CECCCC;
     font-family: arial;
     color: $cor_2;
+    text-align: 20%;
+    height: 20px;
     padding: 15px;
 } 
+
+@mixin button-add-processeguir{
+    background: $cor_1;
+    margin-left: 5%;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 5px;
+    border-color: $cor_1;
+    border: 1px solid #003A4C;
+    font-family: arial;
+    color: $cor_5;
+    text-align: 20%;
+    height: 20px;
+    padding: 15px;
+}

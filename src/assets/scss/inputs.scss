@@ -1,0 +1,8 @@
+@import './cores.scss';
+
+@mixin input{
+    background-color: $cor_4;
+    border-radius: 5px;
+    margin-left: 5%;
+    width: 20%;
+}
