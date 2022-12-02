@@ -25,24 +25,5 @@ export default {
 }
 </script>
 
-<style>
+<style src="./estilo_inicio.scss"  lang="scss" />
 
-#corpo_formulario{
-  width: 100%;
-  height: 1200px;
-}
-
-#h1-titulo{
-  font-family: Arial, Helvetica, sans-serif;
-  margin-left: 5%;
-  color: #9B9A9A;
-  margin-top: 13%;
-}
-
-p{
-  font-family: Arial, Helvetica, sans-serif;
-  margin-left: 5%;
-  color: #9B9A9A;
-}
-
-</style>
