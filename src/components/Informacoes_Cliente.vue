@@ -53,14 +53,3 @@ export default{
     }
 }
 </script>
-<style>
-#tipo_pessoa{
-    width: 20%;
-    height: 200px;
-    background-color: rgb(170, 170, 170);
-}
-
-.input{
-    display:block
-}
-</style>
