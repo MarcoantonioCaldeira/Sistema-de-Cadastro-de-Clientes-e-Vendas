@@ -1,5 +1,5 @@
 <template>
-    <h2>Selecione sua classificacao</h2>
+    <h2 class="h2">Selecione sua classificação</h2>
     <div id="tipo_pessoa">
         <input type="radio"  v-model="pessoa" value="CPF" />
         <label>Pessoa Fisica</label><br>

@@ -13,19 +13,31 @@
     height: 1200px;
   }
 
-  #tipo_pessoa{
-    width: 20%;
-    height: 200px;
-    margin-left: 5%;
-    background-color: rgb(214, 57, 57);
-  }
-
+  
   #h1-titulo{
     font-family:'Poppins', sans-serif;
     margin-left: 5%;
     color: $cor_2;
-    margin-top: 6%;
+    margin-top: 3%;
   }
+
+
+  #tipo_pessoa{
+    width: 12%;
+    height: 110px;
+    border-radius: 5px;
+    margin-left: 5%;
+    background-color: $cor_4;
+  }
+
+  .h2{
+    margin-left: 5%;
+    color: #9B9A9A;
+    font-weight: 500;
+    margin-top: 3%;
+    font-family: 'Poppins';
+  }
+
 
   #h1-informacoes{
     font-family:'Poppins', sans-serif;
@@ -55,9 +67,11 @@
   #parte2{
     width: 30%;
     margin-left: 60%;
-    margin-top: -30%;
+    margin-top: -40%;
     height: 400px;
     background-color: red;
   }
+
+
 
 
