@@ -1,17 +1,19 @@
 <template>
     <h2 class="h2">Selecione sua classificação</h2>
     <div id="tipo_pessoa">
-        <input type="radio"  v-model="pessoa" value="CPF" />
-        <label>Pessoa Fisica</label><br>
+       
+        <label style="margin-left:2%">Pessoa Fisica</label>
+        <input type="radio"  v-model="pessoa" value="CPF" class="radio_1"/><br>
         
-        <input type="radio"  v-model="pessoa" value="CNPJ"/>
-        <label>Pessoa Juridica</label><br>
+       
+        <label style="margin-left:2%">Pessoa Juridica</label>
+        <input type="radio"  v-model="pessoa" value="CNPJ" class="radio_2"/><br>
 
-        <input type="radio" v-model="pessoa" value="DOC"/>
-        <label>Pessoa Estrangeira</label><br>
+        <label style="margin-left:2%">Pessoa Estrangeira</label>
+        <input type="radio" v-model="pessoa" value="DOC"   class="radio_3"/><br>
     </div>
 
-    <h1 id="h1-informacoes">Informações do cliente</h1>
+    <h2 id="h2-informacoes">Informações do cliente</h2>
 
     <div>
         <input type="text" v-model="nome_fatansia" :placeholder="[[ nome_fatasia ]]" class="input"/>
@@ -53,3 +55,6 @@ export default{
     }
 }
 </script>
+<style >
+@import "@/assets/scss/index.scss"; 
+</style>

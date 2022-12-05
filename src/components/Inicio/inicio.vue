@@ -8,7 +8,7 @@
     <p>(Preencha os campos para cadastrar um novo cliente)</p>
     <Informacoes_Cliente />
 
-    <div id="parte2">
+    <div id="suframa">
       <Tipo_Suframa />
       <Input_observacoes />
     </div>
