@@ -71,6 +71,10 @@
     color: #9B9A9A;
   }
 
+  label{
+    font-family: $font_1;
+  }
+
   .btn_adicionar_email{
     @include button-add-email;
   }
@@ -81,6 +85,10 @@
 
   .input{
     @include input;
+  }
+
+  .input_apelido{
+    @include input_apelido;
   }
 
   #suframa{

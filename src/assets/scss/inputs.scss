@@ -1,11 +1,28 @@
 @import './cores.scss';
+@import './fonts.scss';
 
 @mixin input{
     background-color: $cor_4;
+    border: 1px solid;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
+    font-family: $font_2;
+    border-color: $cor_4;
     display: block;
     margin-left: 5%;
-    height: 28px;
+    height: 30px;
+    width: 20%;
+}
+
+@mixin input_apelido{
+    background-color: $cor_4;
+    border: 1px solid;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: $cor_4;
+    display: block;
+    margin-left: 5%;
+    height: 35px;
     width: 20%;
 }

@@ -17,7 +17,7 @@
 
     <div>
         <input type="text" v-model="nome_fatansia" :placeholder="[[ nome_fatasia ]]" class="input"/>
-        <input type="text" placeholder="Nome apelido" class="input">
+        <input type="text" placeholder="Nome apelido" class="input_apelido">
         <input type="text" placeholder="Seu email principal" class="input">
         <input type="text" placeholder="Seu email nfe" class="input">
 
@@ -33,8 +33,8 @@
         <div> 
             <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" class="input"/>
         </div>
-        <br>Seu RG:<input type="text" style="display: inline" class="input">
-        <br>Data de Nascimento: <input type="date" style="display: inline" class="input">
+        <br><label>Seu RG:</label><input type="text" style="display: inline" class="input">
+        <br><label>Data de Nascimento:</label><input type="date" style="display: inline" class="input">
     </div>
 </template>
 <script>
