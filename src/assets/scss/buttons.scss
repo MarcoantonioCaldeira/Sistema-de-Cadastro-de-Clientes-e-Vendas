@@ -19,13 +19,15 @@
 @mixin button-add-processeguir{
     background: $cor_1;
     margin-left: 5%;
-    font-family: 'Poppins', sans-serif;
+    margin-top: 17%;
+    font-weight: 100;
+    font-family: 'Poppins';
     border-radius: 5px;
     border-color: $cor_1;
     border: 1px solid #003A4C;
     font-family: arial;
     color: $cor_5;
     text-align: 20%;
-    height: 20px;
-    padding: 15px;
+    height: 56px;
+    width: 11%;
 }

@@ -10,7 +10,7 @@
 
   #corpo_formulario{
     width: 100%;
-    height: 1200px;
+    height: 1350px;
   }
 
   
@@ -91,12 +91,37 @@
     @include input_apelido;
   }
 
+  .input_secundario_rg{
+    @include input_separado_rg;
+  }
+
+  .input_secundario_data{
+    @include input_separado_data;
+  }
+
   #suframa{
-    width: 30%;
-    margin-left: 60%;
-    margin-top: -40%;
-    height: 400px;
-    background-color: red;
+    width: 45%;
+    margin-left: 55%;
+    margin-top: -70%;
+    height: 600px;
+  }
+
+  .h2_suframa{
+    font-family: $font_1;
+    color: $cor_2;
+  }
+
+  .select{
+    @include select;
+  }
+
+  .label_num_incricao{
+    font-family: $font_2;
+    color: $cor_2;
+  }
+
+  .input_suframa{
+    @include input_suframa;
   }
 
 

@@ -33,8 +33,8 @@
         <div> 
             <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" class="input"/>
         </div>
-        <br><label>Seu RG:</label><input type="text" style="display: inline" class="input">
-        <br><label>Data de Nascimento:</label><input type="date" style="display: inline" class="input">
+        <br><label style="margin-left: 5%">Seu RG:</label><input type="text" style="display: inline" class="input_secundario_rg">
+        <br><label style="margin-left: 5%">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data">
     </div>
 </template>
 <script>

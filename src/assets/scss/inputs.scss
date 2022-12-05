@@ -3,26 +3,85 @@
 
 @mixin input{
     background-color: $cor_4;
+    padding: 0px 12px;
     border: 1px solid;
+    margin: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     font-family: $font_2;
     border-color: $cor_4;
     display: block;
     margin-left: 5%;
-    height: 30px;
+    height: 40px;
     width: 20%;
 }
 
 @mixin input_apelido{
     background-color: $cor_4;
+    padding: 0px 12px;
     border: 1px solid;
+    margin: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
     font-family: $font_2;
     border-color: $cor_4;
     display: block;
     margin-left: 5%;
-    height: 35px;
+    height: 40px;
     width: 20%;
+}
+
+@mixin input_separado_rg{
+    background-color: $cor_4;
+    padding: 0px 12px;
+    margin: 10px;
+    border: 1px solid;
+    box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: $cor_4;
+    display: block;
+    height: 40px;
+    width:15.5%;
+}
+
+@mixin input_separado_data{
+    background-color: $cor_4;
+    padding: 0px 12px;
+    margin: 10px;
+    border: 1px solid;
+    box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: $cor_4;
+    display: block;
+    height: 40px;
+    width:8.5%;
+}
+
+@mixin select{
+    background-color: $cor_4;
+    padding: 0px 12px;
+    border: 1px solid;
+    box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: $cor_4;
+    display: block;
+    height: 40px;
+    width:62%;
+}
+
+@mixin input_suframa{
+    background-color: $cor_4;
+    padding: 0px 12px;
+    margin-top: 3%;
+    border: 1px solid;
+    box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: $cor_4;
+    display: block;
+    height: 40px;
+    width:40%;
 }
