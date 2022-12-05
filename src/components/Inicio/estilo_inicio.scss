@@ -15,7 +15,7 @@
 
   
   #h1-titulo{
-    font-family:'Poppins', sans-serif;
+    font-family: $font_1;
     margin-left: 5%;
     color: $cor_2;
     margin-top: 3%;
@@ -37,7 +37,7 @@
 
   #tipo_pessoa{
     width: 13%;
-    font-family: 'Poppins', sans-serif;
+    font-family: $font_2;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-weight: 200;
     margin-top: 1%;
@@ -53,12 +53,12 @@
     color: $cor_2;
     font-weight: 500;
     margin-top: 3%;
-    font-family: 'Poppins';
+    font-family: $font_2;
   }
 
 
   #h2-informacoes{
-    font-family:'Poppins';
+    font-family:$font_2;
     margin-left: 5%;
     font-weight: 500;
     color: $cor_2;
@@ -66,7 +66,7 @@
   }
   
   p{
-    font-family: 'Poppins', sans-serif;
+    font-family: $font_1;
     margin-left: 5%;
     color: #9B9A9A;
   }
@@ -85,7 +85,6 @@
 
   #suframa{
     width: 30%;
-    font-family:  'Poppins', sans-serif;
     margin-left: 60%;
     margin-top: -40%;
     height: 400px;
