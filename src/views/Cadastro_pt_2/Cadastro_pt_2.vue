@@ -1,9 +1,10 @@
 <template>
-  <div class="sobre-nos">
+
     <h1>Informações de endereço</h1>
+    <h2>Aqui</h2>
     <Informacoes_Endereco />
     <Footer />  
-  </div>
+
 </template>
 
 
@@ -22,3 +23,6 @@ export default {
   }
 }
 </script>
+<style  src="./estilo.scss"  lang="scss">
+@import "@/assets/scss/index.scss"; 
+</style>

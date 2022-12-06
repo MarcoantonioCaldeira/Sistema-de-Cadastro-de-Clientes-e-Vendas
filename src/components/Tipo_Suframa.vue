@@ -9,7 +9,7 @@
 
 <br><label class="label_num_incricao">Codigo SUFRAMA:</label><input type="text" style="display: inline" class="input_suframa">
 
-<br><label class="label_num_incricao">Numero de inscrição municipal: </label><input type="text" style="display: inline">
+<br><label class="label_num_incricao">Numero de inscrição municipal: </label><input type="text" style="display: inline" class="input_inscricao">
 </template>
 
 

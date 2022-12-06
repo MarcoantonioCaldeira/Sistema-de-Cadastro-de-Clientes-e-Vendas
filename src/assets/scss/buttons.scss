@@ -4,22 +4,21 @@
 
 @mixin button-add-email{
     background: $cor_4;
-    margin-left: 5%;
+    margin-left: 10%;
     font-family: 'Poppins', sans-serif;
     border-radius: 5px;
     border-color: $cor_4;
     border: 1px solid #CECCCC;
     font-family: arial;
     color: $cor_2;
-    text-align: 20%;
-    height: 20px;
-    padding: 15px;
+    height: 40px;
+    padding: 15px 30px;
 } 
 
 @mixin button-add-processeguir{
     background: $cor_1;
     margin-left: 5%;
-    margin-top: 17%;
+    margin-top: 34%;
     font-weight: 100;
     font-family: 'Poppins';
     border-radius: 5px;

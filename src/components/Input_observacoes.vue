@@ -1,6 +1,6 @@
 <template> 
-<p>Observações</p>
-<textarea>
+<p class="p_obs">Observações</p>
+<textarea class="text_area">
     
 </textarea>
 </template>

@@ -26,7 +26,10 @@
             <input v-for="i in input" :key="i"  type="text" :id='"item"+i' :placeholder="'Seu email' + i" style="display: block" class="input">
         </div>    
 
-        <button  type="button" @click="input++" class="btn_adicionar_email">Adicionar outro email</button>
+        <button  type="button" @click="input++" class="btn_adicionar_email">
+            Adicionar outro email
+            <img src="src/assets/images/icon_add.png" />
+        </button>
       
         <input type="number" placeholder="Seu telefone" class="input">
         <input type="number" placeholder="Celular" class="input">

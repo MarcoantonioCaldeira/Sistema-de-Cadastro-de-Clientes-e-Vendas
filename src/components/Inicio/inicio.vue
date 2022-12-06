@@ -12,7 +12,7 @@
       <Tipo_Suframa />
       <Input_observacoes />
     </div>
-    <router-link to="Cadastro_p1_2/Cadastro_pt_2"><button class="btn_proxima_etapa">Proxima etapa</button></router-link>
+    <router-link to="Cadastro_pt_2"><button class="btn_proxima_etapa">Proxima etapa</button></router-link>
   </div>
 </template>
 
