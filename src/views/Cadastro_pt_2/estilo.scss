@@ -2,13 +2,29 @@
 
 #conteudo{
     width: 100%;
-    height: 1000px;
+    height: 700px;
 }
 
-#endereco_1, #endereco_2, #endereco_3{
+#endereco_1{
+    width: 100%;
     display: inline-block;
 }
 
 .input{
     @include input;
+}
+
+.input_cep{
+    @include input_cep;
+}
+
+.h2_endereco{
+    font-family: $font_1;
+}
+
+.btn_concluir{
+    display: block;
+    margin-left: 5%;
+    margin-top: 3%;
+    @include button-add-processeguir;
 }

@@ -12,6 +12,12 @@ const routes = [
     name: 'Cadastro_pt_2',
    
     component: () => import(/* webpackChunkName: "Cadastro_pt_2" */ '../views/Cadastro_pt_2/Cadastro_pt_2.vue')
+  },
+  {
+    path: '/Cadastro_concluido',
+    name: 'Cadastro_concluido',
+
+    component: () => import('../views/Cadastro_concluido/Cadastro_concluido.vue')
   }
 ]
 
