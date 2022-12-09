@@ -28,7 +28,8 @@
 
 
         <div>
-            <input v-for="i in input" :key="i"  type="text" :id='"item"+i' :placeholder="'Seu email' + i" style="display: block" class="input">
+            <input   v-for="i in input"  :key="i"  type="text" :id='"item"+i' :placeholder="'Seu email' + i" style="display: block" class="input">
+            <button type="button" @click="deleteRow(index)">Deletar</button>
         </div>    
 
         <button  type="button" @click="input++" class="btn_adicionar_email">
@@ -59,7 +60,9 @@ export default{
         };
     },
     mathods: {
-
+        deleteRow(index) {
+            this.input.splice(index, 1);
+        }
     }
 }
 </script>
