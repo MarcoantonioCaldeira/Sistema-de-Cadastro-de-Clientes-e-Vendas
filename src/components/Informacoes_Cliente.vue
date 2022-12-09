@@ -16,7 +16,12 @@
     <h2 id="h2-informacoes">Informações do cliente</h2>
 
     <div>
-        <input type="text" v-model="nome_fatansia" :placeholder="[[ nome_fatasia ]]" class="input"/>
+        <div v-if="radio_1 == true">
+            <input type="text" placeholder="Seu Nome" class="input"/>
+        </div>
+        <div>
+            <input type="text" placeholder="Seu Nome Fantasia" class="input"/>
+        </div>
         <input type="text" placeholder="Nome apelido" class="input_apelido">
         <input type="text" placeholder="Seu email principal" class="input">
         <input type="text" placeholder="Seu email nfe" class="input">
