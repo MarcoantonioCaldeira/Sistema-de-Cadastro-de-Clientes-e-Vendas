@@ -17,14 +17,14 @@
 
     <div>
         <div v-if="radio_1 == true">
-            <input type="text" placeholder="Seu Nome" class="input"/>
+            <input type="text" for="nome"  placeholder="Seu Nome" class="input" v-model.trim="$v.nome.$model" :class="{ 'error': $v.nome.$error, 'success': !$v.nome.$error }"/>
         </div>
         <div>
             <input type="text" placeholder="Seu Nome Fantasia" class="input"/>
         </div>
-        <input type="text" placeholder="Nome apelido" class="input_apelido">
-        <input type="text" placeholder="Seu email principal" class="input">
-        <input type="text" placeholder="Seu email nfe" class="input">
+        <input type="text"  placeholder="Nome apelido" class="input_apelido">
+        <input type="text"  placeholder="Seu email principal" class="input">
+        <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input">
 
 
         <div>
@@ -48,6 +48,7 @@
 </template>
 <script>
 
+import { required, minLength, between } from 'vuelidate/lib/validators';
 
 export default{
     name: 'Informacoes_Cliente', 
@@ -62,8 +63,15 @@ export default{
     mathods: {
         deleteRow(index) {
             this.input.splice(index, 1);
+        },
+        validations: {
+        nome: {
+            required,
+            minLength: minLength(4)
         }
     }
+    }
+   
 }
 </script>
 <style >

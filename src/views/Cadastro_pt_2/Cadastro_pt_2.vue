@@ -1,8 +1,8 @@
 <template>
-
-    <h1>Informações de endereço</h1>
-    <h2>Aqui</h2>
-    <Informacoes_Endereco />
+    <div id="corpo_info_endereco">
+      <h1 class="h1_info_endereco">Informações de endereço</h1>
+      <Informacoes_Endereco />
+    </div>
     <Footer />  
 
 </template>

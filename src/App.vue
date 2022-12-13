@@ -11,4 +11,11 @@ nav{
   height: 100px;
   background-color: #003A4C;
 }
+
+@media screen and (max-width: 300px) {
+    
+  nav{
+    height: 80px;
+  }
+}
 </style>

@@ -4,6 +4,7 @@
 
   #etapas{
     color: $cor_1;
+    background-image: url('/src/assets/images/cronograma.png');
     margin-left: 45%;
     margin-top: 5%;
   }
@@ -88,6 +89,7 @@
   }
 
   .input{
+    width: 20%;
     @include input;
   }
 
@@ -154,6 +156,61 @@
     font-size: 16px;
     resize: none;
   }
+
+  @media screen and (max-width: 300px) {
+    
+
+    #corpo_formulario{
+      height: 1700px;
+    }
+
+    #h1-titulo{
+      font-size: 20px;
+    }
+
+    .h2{
+      position:absolute;
+      top: 30%;
+      font-size: 19px;
+    }
+
+    #tipo_pessoa{
+      width: 90%;
+      margin-top: 10%;
+      height: 150px;
+    }
+
+    .radio_1{
+      margin-top: 60px;
+    }
+
+    #h2-informacoes{
+      font-size: 19px;
+    }
+
+    #suframa{
+      background-color: aqua;
+      margin-top: 20%;
+    }
+
+    .input{
+      width: 80%;
+    }
+
+    .input_apelido{
+      width: 80%;
+      opacity : 0.8;
+    }
+
+    .btn_adicionar_email{
+      margin-left: 15%;
+    }
+
+    .input_secundario_rg{
+      width: 55%;
+    }
+    
+   }
 
 
 

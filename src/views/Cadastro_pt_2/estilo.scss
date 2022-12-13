@@ -2,29 +2,74 @@
 
 #conteudo{
     width: 100%;
-    height: 700px;
+    height: 800px;
 }
 
-#endereco_1{
-    width: 100%;
-    display: inline-block;
+#endereco_principal{
+    width: 26%;
+    height: 600px;
+    margin-left: 4%;
+    margin-top: 5%;
+    //display: inline;
 }
 
-.input{
-    @include input;
-}
-
+//input referente ao cep
 .input_cep{
     @include input_cep;
 }
 
+//todos os inputs da pagina de endereço
+.input_endereco{
+    width: 80%;
+    @include input;
+}
+
+.lb_cep{
+    margin-left: 5%; 
+    font-family: $font_1; 
+    color: $cor_2;
+}
+
+.h1_info_endereco{
+    font-family: $font_1;
+    color: $cor_2;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
 .h2_endereco{
     font-family: $font_1;
+    margin-top:5%;
+    margin-left: 6%;
+    color: $cor_3;
 }
+
 
 .btn_concluir{
     display: block;
     margin-left: 5%;
     margin-top: 3%;
     @include button-add-processeguir;
+}
+
+#endereco_secundario{
+    width: 26%;
+    height: 600px;
+    margin-left: 35%;
+    margin-top: -39%;
+    //display: inline;
+}
+
+#endereco_terciario{
+    width: 26%;
+    height: 600px;
+    margin-left: 66%;
+    margin-top: -39%;
+    //display: inline;
+}
+
+@media screen and (max-width: 300px) {
+    
+    
+
 }

@@ -1,8 +1,7 @@
 <template>
   <div id="corpo_formulario">
-
     <div id="etapas">
-      <h3>Aqui vai ficar as etapas</h3>
+      <v-img :src="require('@/assets/images/cronograma.png')" />
     </div>
     <h1 id="h1-titulo">Cadastro do cliente</h1>
     <p>(Preencha os campos para cadastrar um novo cliente)</p>
