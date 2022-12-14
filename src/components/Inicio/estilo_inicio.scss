@@ -166,7 +166,8 @@
     
 
     #corpo_formulario{
-      height: 1700px;
+      min-height: 1800px;
+      max-height: 2000px;
     }
 
     #h1-titulo{
@@ -212,15 +213,17 @@
 
     .input_secundario_data{
       width: 80%;
+      margin-left: 5%;
     }
 
     //Area da Suframa
 
     #suframa{
       position: relative;
+      //background-color: red;
       //height: 500px;
       width: 100%;
-      margin-left:2%;
+      margin-left:5%;
       margin-top: 5%;
     }
 
@@ -229,7 +232,8 @@
     }
 
     .input_suframa{
-      width: 80%;
+      width: 82%;
+      margin-left: -2%;
     }
 
     .select{
@@ -248,7 +252,7 @@
     }
 
     .text_area{
-      width: 88%;
+      width: 80%;
     }
 
    }
@@ -260,7 +264,7 @@
     }
 
     #corpo_formulario{
-      min-height: 1700px;
+      min-height: 1800px;
       max-height: 2000px;
     }
 
@@ -339,7 +343,7 @@
    }
 
 
-   @media (min-width: 451px) and (max-width: 730px){
+   @media (min-width: 451px) and (max-width: 480px){
 
     #h1-titulo{
       margin-top: 14px;
@@ -419,8 +423,105 @@
     }
 
     .input_secundario_rg{
-      width: 65%;
-      min-width: 50%;
+      width: 60%;
+    }
+
+    .input_secundario_data{
+      width: 75%;
+      margin-left: 5%;
+    }
+
+    
+    .btn_proxima_etapa{
+      margin-top: 10%;
+      margin-left:5%;
+      @include button-add-processeguir;
+    }
+
+
+   }
+
+   @media (min-width: 480px) and (max-width: 600px){
+
+    #h1-titulo{
+      margin-top: 14px;
+    }
+
+    #corpo_formulario{
+      min-height: 1800px;
+      max-height: 2000px;
+    }
+
+    .h2{
+      top: 30%;
+      margin-left:5%;
+      font-size: 17px;
+    }
+
+    #tipo_pessoa{
+      width: 80%;
+      margin-top: 5%;
+      height: 100px;
+    }
+
+    .radio_1{
+      margin-top: 20px;
+    }
+
+    .input{
+      width: 75%;
+    }
+
+    .input_apelido{
+      width: 75%;
+      opacity : 0.8;
+    }
+
+    #suframa{
+      position: relative;
+      height: 500px;
+      width: 100%;
+      margin-left:2%;
+      margin-top: 5%;
+    }
+
+    .h2_suframa{
+      font-size: 100%;
+      margin-left: 2%;
+    }
+
+    .input_suframa{
+      width: 75%;
+      margin-left:2%;
+    }
+
+    .label_num_inscricao, .label_codigo_suframa, .p_obs{
+      margin-left: 2%;
+    }
+
+    .select{
+      width: 80%;
+      margin-left:2%;
+    }
+
+
+    .btn_adicionar_email{
+      margin-left: 27%;
+    }
+
+    .input_inscricao{
+     width: 75%;
+     margin-top: 8%;
+     margin-left: 2%;
+    }
+
+    .text_area{
+      width: 80%;
+      margin-left: 2%;
+    }
+
+    .input_secundario_rg{
+      width: 60%;
     }
 
     .input_secundario_data{
