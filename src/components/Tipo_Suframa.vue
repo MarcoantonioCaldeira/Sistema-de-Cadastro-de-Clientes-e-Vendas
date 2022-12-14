@@ -7,9 +7,9 @@
     <option>Am. Ocid(Amazonia Ocidental)</option>
 </select>
 
-<br><label class="label_num_incricao">Codigo SUFRAMA:</label><input type="text" style="display: inline" class="input_suframa">
+<br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline" class="input_suframa">
 
-<br><label class="label_num_incricao">Numero de inscrição municipal: </label><input type="text" style="display: inline" class="input_inscricao">
+<br><label class="label_num_inscricao">Numero de inscrição municipal: </label><input type="text" style="display: inline" class="input_inscricao">
 </template>
 
 
