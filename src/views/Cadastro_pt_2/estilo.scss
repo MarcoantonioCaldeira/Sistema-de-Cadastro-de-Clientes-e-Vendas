@@ -108,13 +108,14 @@
         display: block;
         //background-color: aqua;
         width: 100%;
+        left: -5%;
     }
 
     #endereco_secundario{
         width: 100%;
         display: block;
         //background-color: red;
-        right: -4%;
+        right: 1%;
         top: 135vh;
     }
 
@@ -122,12 +123,13 @@
         display: block;
         //background-color: aqua;
         width: 100%;
-        right: -4%;
+        right: 1%;
         top: 230vh;
     }
 
     .btn_concluir{
         position: relative;
+        right: 4%;
         top: 273vh;
     }
 
@@ -142,4 +144,109 @@
         width: 80%;
     }
 
+
+    .btn_concluir{
+        margin-left: 9%;
+    }
+
+}
+
+@media (min-width: 301px) and (max-width: 450px){
+
+    #conteudo{
+        //width: 100%;
+        height: 2000px;
+    }
+
+    #endereco_principal{
+        display: block;
+        //background-color: aqua;
+        width: 100%;
+    }
+
+    #endereco_secundario{
+        width: 100%;
+        display: block;
+        //background-color: red;
+        right: -4%;
+        top: 145vh;
+    }
+
+    #endereco_terciario{
+        display: block;
+        //background-color: aqua;
+        width: 100%;
+        right: -4%;
+        top: 235vh;
+    }
+
+    .btn_concluir{
+        position: relative;
+        top: 273vh;
+        right: -3%;
+    }
+
+    .lb_cep{
+        position: relative;
+        //display: none;
+        margin-top: 30%;
+    }
+
+    .input_cep{
+        margin-left: 5vw !important;
+        width: 80%;
+    }
+
+}
+
+@media (min-width: 451px) and (max-width: 480px){
+
+    #conteudo{
+        //width: 100%;
+        height: 2000px;
+    }
+
+    #endereco_principal{
+        display: block;
+        //background-color: aqua;
+        width: 100%;
+    }
+
+    #endereco_secundario{
+        width: 100%;
+        display: block;
+        //background-color: red;
+        right: -4%;
+        top: 145vh;
+    }
+
+    #endereco_terciario{
+        display: block;
+        //background-color: aqua;
+        width: 100%;
+        right: -4%;
+        top: 235vh;
+    }
+
+    .btn_concluir{
+        position: relative;
+        right: 4%;
+        top: 273vh;
+    }
+
+    .lb_cep{
+        position: relative;
+        //display: none;
+        margin-top: 30%;
+    }
+
+    .input_cep{
+        margin-left: 5vw !important;
+        width: 80%;
+    }
+
+
+    .btn_concluir{
+        margin-left: 13%;
+    }
 }
