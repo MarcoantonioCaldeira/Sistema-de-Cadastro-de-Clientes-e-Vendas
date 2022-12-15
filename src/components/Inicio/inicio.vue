@@ -9,6 +9,9 @@
 
     <div id="suframa">
       <Tipo_Suframa />
+    </div>
+    
+    <div id="conteudo_observacoes">
       <Input_observacoes />
     </div>
     <router-link to="Cadastro_pt_2"><button class="btn_proxima_etapa">Proxima etapa</button></router-link>

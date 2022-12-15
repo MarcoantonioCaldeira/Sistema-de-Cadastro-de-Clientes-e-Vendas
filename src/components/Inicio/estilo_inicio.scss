@@ -96,12 +96,6 @@
     @include button-add-email;
   }
 
-  .btn_proxima_etapa{
-    margin-top: 40%;
-    margin-left:5%;
-    @include button-add-processeguir;
-  }
-
   .input{
     width: 20%;
     @include input;
@@ -155,6 +149,13 @@
     @include input_inscricao;
   }
 
+  #conteudo_observacoes{
+    //width: 45%;
+    margin-left: 55%;
+    margin-top: -9%;
+    //height: 600px;
+  }
+
 
   .p_obs{
    font-family: $font_1; 
@@ -176,6 +177,12 @@
     box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
     font-size: 16px;
     resize: none;
+  }
+
+  .btn_proxima_etapa{
+    margin-top: 38%;
+    margin-left:5%;
+    @include button-add-processeguir;
   }
 
   @media screen and (max-width: 300px) {
