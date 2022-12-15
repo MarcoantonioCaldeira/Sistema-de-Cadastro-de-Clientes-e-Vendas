@@ -131,9 +131,15 @@
         top: 273vh;
     }
 
-    .input_cep{
-        left: 40% !important;
+    .lb_cep{
+        position: relative;
+        //display: none;
+        margin-top: 30%;
+    }
 
+    .input_cep{
+        margin-left: 5vw !important;
+        width: 80%;
     }
 
 }
