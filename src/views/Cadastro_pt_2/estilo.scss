@@ -2,15 +2,42 @@
 
 #conteudo{
     width: 100%;
-    height: 800px;
+    //background-color: red;
+    height: 900px;
 }
 
 #endereco_principal{
+    position: absolute;
     width: 26%;
     height: 600px;
     margin-left: 4%;
-    margin-top: 5%;
+    margin-top: 8vw;
     //display: inline;
+}
+
+#endereco_secundario{
+    position: absolute;
+    width: 26%;
+    height: 600px;
+    margin-left: 4%;
+    top: 59.5vw;
+}
+
+#campos_endereco_secundario{
+    //background-color: aqua;
+    margin-top: -6%;
+}
+
+#endereco_terciario{
+    position: absolute;
+    width: 26%;
+    height: 600px;
+    margin-left: 4%;
+    top: 59.5vw;
+}
+
+#campos_endereco_terciario{
+    margin-top: -6%;
 }
 
 //input referente ao cep
@@ -38,17 +65,19 @@
 }
 
 .h2_endereco{
+    position: relative;
     font-family: $font_1;
-    margin-top:5%;
-    margin-left: 6%;
+    top:5%;
+    left: 6%;
     color: $cor_3;
 }
 
 
 .btn_concluir{
-    display: block;
+    position: relative;
+    //display: inline;
     margin-left: 5%;
-    margin-top: 3%;
+    top: 45vw;
     @include button-add-processeguir;
 }
 
@@ -70,6 +99,36 @@
 
 @media screen and (max-width: 300px) {
     
-    
+    #conteudo{
+        //width: 100%;
+        height: 2000px;
+    }
+
+    #endereco_principal{
+        display: block;
+        //background-color: aqua;
+        width: 100%;
+    }
+
+    #endereco_secundario{
+        width: 100%;
+        display: block;
+        //background-color: red;
+        right: -4%;
+        top: 135vh;
+    }
+
+    #endereco_terciario{
+        display: block;
+        //background-color: aqua;
+        width: 100%;
+        right: -4%;
+        top: 230vh;
+    }
+
+    .btn_concluir{
+        position: relative;
+        top: 273vh;
+    }
 
 }
