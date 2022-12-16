@@ -840,8 +840,8 @@ label {
 
 
   #corpo_formulario {
-    min-height: 1800px;
-    max-height: 2000px;
+    min-height: 2000px;
+    max-height: 2200px;
   }
 
 
@@ -956,8 +956,15 @@ label {
 
   .btn_proxima_etapa {
     margin-top: 10%;
-    margin-left: 5%;
+    margin-left: 2%;
     @include button-add-processeguir;
+  }
+
+
+  #conteudo_observacoes {
+    //position: absolute;
+    margin-left: 0ch;
+    width: 100%;
   }
 
 }

@@ -16,13 +16,11 @@
     <h2 id="h2-informacoes">Informações do cliente</h2>
 
     <div>
-        <div v-if="radio_1 == true">
-            <input type="text" for="nome"  placeholder="Seu Nome" class="input" v-model.trim="$v.nome.$model" :class="{ 'error': $v.nome.$error, 'success': !$v.nome.$error }"/>
+
+        <input type="text" for="nome"  placeholder="Seu Nome" class="input" v-model="nome_apelido"/>
+        <div id="nome_apelido">
+            {{ nome_apelido + 1}}
         </div>
-        <div>
-            <input type="text" placeholder="Seu Nome Fantasia" class="input"/>
-        </div>
-        <input type="text"  placeholder="Nome apelido" class="input_apelido">
         <input type="text"  placeholder="Seu email principal" class="input">
         <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input">
 
@@ -57,7 +55,7 @@ export default{
         return{
             pessoa:"CNPJ",
             pessoas: null,
-            nome_fatasia: "Nome Fantasia",
+            nome_apelido: [],
             input: 1
         };
     },
