@@ -55,6 +55,7 @@
     background-color: $cor_4;
   }
 
+
   .h2{
     margin-left: 5%;
     color: $cor_2;
@@ -72,10 +73,12 @@
     margin-top: 6%;
   }
 
+  
   .lb_rg{
     margin-left: 5%;
     color:$cor_3;
   }
+
 
   .lb_dt{
     margin-left: 5%; 
@@ -88,32 +91,39 @@
     color: #9B9A9A;
   }
 
+
   label{
     font-family: $font_1;
   }
 
+
   .btn_adicionar_email{
     @include button-add-email;
   }
+
 
   .input{
     width: 20%;
     @include input;
   }
 
+
   .input_apelido{
     @include input_apelido;
   }
+
 
   .input_secundario_rg{
     margin-left: 1% !important;
     @include input_separado_rg;
   }
 
+
   .input_secundario_data{
     margin-left: 2% !important;
     @include input_separado_data;
   }
+
 
   #suframa{
     width: 45%;
@@ -122,32 +132,39 @@
     height: 600px;
   }
 
+
   .h2_suframa{
     font-family: $font_1;
     color: $cor_2;
   }
 
+
   .select{
     @include select;
   }
+
 
   .label_num_inscricao{
     font-family: $font_2;
     color: $cor_2;
   }
 
+
   .label_codigo_suframa{
     font-family: $font_2;
     color: $cor_2;
   }
 
+
   .input_suframa{
     @include input_suframa;
   }
 
+
   .input_inscricao{
     @include input_inscricao;
   }
+
 
   #conteudo_observacoes{
     //width: 45%;
@@ -164,6 +181,7 @@
    margin: 0;
   }
 
+
   .text_area{
     width: 63%;
     height: 150px;
@@ -179,12 +197,14 @@
     resize: none;
   }
 
+
   .btn_proxima_etapa{
     margin-top: 38%;
     margin-left:5%;
     @include button-add-processeguir;
   }
 
+  
   @media screen and (max-width: 300px) {
   
     #corpo_formulario{
