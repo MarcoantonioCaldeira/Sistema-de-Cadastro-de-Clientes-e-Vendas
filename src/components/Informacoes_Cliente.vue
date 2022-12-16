@@ -32,7 +32,7 @@
             <button type="button" @click="deleteRow(index)">Deletar</button>
         </div>    
 
-        <button  type="button" @click="input++" class="btn_adicionar_email">
+        <button  type="button" @click="input++" class="btn_adicionar_email" id="send">
             Adicionar outro email
             <img src="src/assets/images/icon_add.png" />
         </button>
@@ -42,13 +42,14 @@
         <div> 
             <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" class="input"/>
         </div>
-        <br><label  class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_secundario_rg">
+        <br><label  class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_secundario_rg"><br><br>
         <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data">
     </div>
 </template>
 <script>
 
 import { required, minLength, between } from 'vuelidate/lib/validators';
+
 
 export default{
     name: 'Informacoes_Cliente', 
@@ -66,10 +67,10 @@ export default{
         },
         validations: {
         nome: {
-            required,
-            minLength: minLength(4)
+                required,
+                minLength: minLength(4)
+            }
         }
-    }
     }
    
 }
