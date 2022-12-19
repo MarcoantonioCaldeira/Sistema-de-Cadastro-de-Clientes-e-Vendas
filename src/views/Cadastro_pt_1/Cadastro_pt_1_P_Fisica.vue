@@ -7,7 +7,7 @@
 
 <script>
 
-import Inicio from '@/components/Inicio/inicio.vue'
+import Inicio from '@/components/Pessoa_Fisica/inicio.vue'
 import Footer from '@/components/Footer.vue'
 
 export default {

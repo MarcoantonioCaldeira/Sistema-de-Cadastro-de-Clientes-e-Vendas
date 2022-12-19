@@ -20,9 +20,9 @@
 
 <script>
 
-import Informacoes_Cliente from '@/components/Informacoes_Cliente.vue';
+import Informacoes_Cliente from '@/components/Pessoa_Estrangeira/Informacoes_Cliente.vue';
 import Tipo_Suframa from '@/components/Tipo_Suframa.vue';
-import Input_observacoes from '@/components/Input_observacoes.vue';
+import Input_observacoes from '@/components/Pessoa_Estrangeira/Input_observacoes.vue';
 
 export default {
   name: 'Inicio',
