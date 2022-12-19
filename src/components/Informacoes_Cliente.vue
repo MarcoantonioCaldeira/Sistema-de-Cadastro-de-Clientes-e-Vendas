@@ -18,8 +18,8 @@
     <div>
 
         <input type="text" for="nome"  placeholder="Seu Nome" class="input" v-model="nome_apelido"/>
-        <div id="nome_apelido">
-            {{ nome_apelido + 1}}
+        <div id="nome_apelido"  data-text="Nome apelido">
+            {{ nome_apelido }} {{ num++ }}
         </div>
         <input type="text"  placeholder="Seu email principal" class="input">
         <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input">
@@ -55,7 +55,8 @@ export default{
         return{
             pessoa:"CNPJ",
             pessoas: null,
-            nome_apelido: [],
+            nome_apelido: "",
+            num:1,
             input: 1
         };
     },

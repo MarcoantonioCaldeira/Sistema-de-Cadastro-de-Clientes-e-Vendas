@@ -108,8 +108,11 @@ label {
 }
 
 
-.input_apelido {
+#nome_apelido {
   @include input_apelido;
+  //content: attr(data-text);
+  line-height: 45px;
+  opacity: 0.8;
 }
 
 
