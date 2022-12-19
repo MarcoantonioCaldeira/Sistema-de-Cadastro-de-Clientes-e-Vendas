@@ -1,6 +1,6 @@
 <template>
     <h2 class="h2">Selecione sua classificação</h2>
-    <div id="tipo_pessoa">
+    <!--<div id="tipo_pessoa">
        
         <label style="margin-left:2%" class="lb_pessoa_fisica">Pessoa Fisica</label>
         <input type="radio"  v-model="pessoa" value="CPF" class="radio_1"/><br>
@@ -11,7 +11,7 @@
 
         <label style="margin-left:2%" class="lb_pessoa_estrangeira">Pessoa Estrangeira</label>
         <input type="radio" v-model="pessoa" value="DOC"   class="radio_3"/><br>
-    </div>
+    </div>-->
 
     <h2 id="h2-informacoes">Informações do cliente</h2>
 
