@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
 
-@mixin button-add-email{
+@mixin button-add-email {
     background: $cor_4;
     margin-left: 10%;
     font-family: 'Poppins', sans-serif;
@@ -13,9 +13,9 @@
     color: $cor_2;
     height: 40px;
     padding: 15px 30px;
-} 
+}
 
-@mixin button-add-processeguir{
+@mixin button-add-processeguir {
     background: $cor_1;
     font-weight: 100;
     font-family: 'Poppins';
@@ -27,4 +27,8 @@
     text-align: 20%;
     height: 56px;
     width: 120px;
+}
+
+a {
+    text-decoration: none;
 }

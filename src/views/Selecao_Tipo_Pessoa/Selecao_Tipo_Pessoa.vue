@@ -10,9 +10,9 @@
 
 <script>
 
-import Pessoa_Estrangeira from '@/components/Pessoa_Estrangeira.vue';
-import Pessoa_Fisica from '@/components/Pessoa_Fisica.vue';
-import Pessoa_Juridica from '@/components/Pessoa_Juridica.vue';
+import Pessoa_Estrangeira from '@/components/Pessoa_Estrangeira/Pessoa_Estrangeira.vue';
+import Pessoa_Fisica from '@/components/Pessoa_Fisica/Pessoa_Fisica.vue';
+import Pessoa_Juridica from '@/components/Pessoa_Juridica/Pessoa_Juridica.vue';
 import Footer from '@/components/Footer.vue'
 
 export default{

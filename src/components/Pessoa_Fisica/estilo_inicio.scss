@@ -207,6 +207,23 @@ label {
   @include button-add-processeguir;
 }
 
+#Area_Pessoa_Fisica {
+  width: 23%;
+  margin-left: 40%;
+  height: 100px;
+  font-family: $font_2;
+  background-color: $cor_5;
+  border-radius: 5px;
+}
+
+.h2_p_fisica {
+  color: $cor_3;
+  position: relative;
+  margin-left: 30%;
+  top: 22%;
+  text-decoration: none;
+}
+
 
 @media screen and (max-width: 300px) {
 
