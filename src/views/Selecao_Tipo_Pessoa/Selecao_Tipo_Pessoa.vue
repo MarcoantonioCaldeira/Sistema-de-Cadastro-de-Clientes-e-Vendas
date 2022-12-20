@@ -1,5 +1,5 @@
 <template>
-    <h1>Selecione seu Tipo de pessoa</h1>
+    <h1 class="titulo">Selecione seu Tipo de pessoa</h1>
     <div id="corpo">
         <Pessoa_Fisica />
         <Pessoa_Juridica />
@@ -26,11 +26,7 @@ export default{
 }  
 
 </script>
-<style> 
+<style src="./estilo_selecao.scss"  lang="scss"> 
 
-#corpo{
-    width: 100%;
-    height: 600px;
-}
 
 </style>
