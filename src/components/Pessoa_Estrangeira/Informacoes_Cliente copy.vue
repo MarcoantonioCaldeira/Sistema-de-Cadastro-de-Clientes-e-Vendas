@@ -10,7 +10,6 @@
         <input type="text"  placeholder="Seu email principal" class="input">
         <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input">
 
-
         <div>
             <input   v-for="i in input"  :key="i"  type="text" :id='"item"+i' :placeholder="'Seu email' + i" style="display: block" class="input">
             <button type="button" @click="deleteRow(index)">Deletar</button>
@@ -42,7 +41,7 @@ export default{
             pessoa:"CNPJ",
             pessoas: null,
             nome_apelido: "",
-            num:1,
+            num: 1,
             input: 1
         };
     },

@@ -1,5 +1,5 @@
 <template>
-    <h1 class="titulo">Selecione seu Tipo de pessoa</h1>
+    <h1 class="titulo">Selecione o Tipo de Pessoa</h1>
     <div id="corpo">
         <Pessoa_Fisica />
         <Pessoa_Juridica />
