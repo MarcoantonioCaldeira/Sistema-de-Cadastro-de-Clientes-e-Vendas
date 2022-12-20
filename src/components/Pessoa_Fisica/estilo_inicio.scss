@@ -130,12 +130,12 @@ label {
 
 
 #suframa {
+  position: absolute;
   width: 45%;
-  margin-left: 55%;
-  box-sizing: none;
-  //margin-top: -20%;
+  //margin-left: 55%;
+  //margin-top: 10%;
   height: 600px;
-  //background-color: red;
+  background-color: red;
 }
 
 
@@ -856,7 +856,7 @@ label {
 
 }
 
-@media (min-width: 851px) and (max-width: 1200px) {
+@media (min-width: 851px) and (max-width: 900px) {
 
   #h1-titulo {
     margin-top: 14px;
