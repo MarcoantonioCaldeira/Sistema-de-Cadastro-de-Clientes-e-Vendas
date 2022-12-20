@@ -1,6 +1,5 @@
 <template>
     <div class="home">
-        <h1>Cadastro da Pessoa Judica</h1>
       <Inicio/>
       <Footer />
     </div>

@@ -1,4 +1,5 @@
 <template>
+
     <h2 id="h2-informacoes">Informações do cliente</h2>
 
     <div>
