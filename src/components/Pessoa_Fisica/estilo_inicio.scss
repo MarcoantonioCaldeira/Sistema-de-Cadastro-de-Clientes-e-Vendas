@@ -85,6 +85,7 @@
   color: $cor_3;
 }
 
+
 p {
   font-family: $font_1;
   margin-left: 5%;
@@ -131,8 +132,10 @@ label {
 #suframa {
   width: 45%;
   margin-left: 55%;
-  margin-top: -70%;
+  box-sizing: none;
+  //margin-top: -20%;
   height: 600px;
+  //background-color: red;
 }
 
 

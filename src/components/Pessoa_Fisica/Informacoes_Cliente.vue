@@ -1,22 +1,8 @@
 <template>
-    <h2 class="h2">Selecione sua classificação</h2>
-    <!--<div id="tipo_pessoa">
-       
-        <label style="margin-left:2%" class="lb_pessoa_fisica">Pessoa Fisica</label>
-        <input type="radio"  v-model="pessoa" value="CPF" class="radio_1"/><br>
-        
-       
-        <label style="margin-left:2%" class="lb_pessoa_juridica">Pessoa Juridica</label>
-        <input type="radio"  v-model="pessoa" value="CNPJ" class="radio_2"/><br>
-
-        <label style="margin-left:2%" class="lb_pessoa_estrangeira">Pessoa Estrangeira</label>
-        <input type="radio" v-model="pessoa" value="DOC"   class="radio_3"/><br>
-    </div>-->
 
     <h2 id="h2-informacoes">Informações do cliente</h2>
 
     <div>
-
         <input type="text" for="nome"  placeholder="Seu Nome" class="input" v-model="nome_apelido"/>
         <div id="nome_apelido"  data-text="Nome apelido">
             {{ nome_apelido }} {{ num++ }}
