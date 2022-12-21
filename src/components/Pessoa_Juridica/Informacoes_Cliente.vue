@@ -1,9 +1,8 @@
 <template>
-
     <h2 id="h2-informacoes">Informações do cliente</h2>
 
     <div>
-        <input type="text" for="nome"  placeholder="Seu Nome" class="input" v-model="nome_apelido"/>
+        <input type="text" for="nome"  placeholder="Razão Social" class="input" v-model="nome_apelido"/>
         <div id="nome_apelido"  data-text="Nome apelido">
             {{ nome_apelido }} {{ num++ }}
         </div>
@@ -26,8 +25,8 @@
         <div> 
             <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" class="input"/>
         </div>
-        <br><label  class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_secundario_rg"><br><br>
-        <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data">
+        <br><label  class="lb_rg">Inscrição Estadual:</label><input type="text" style="display: inline" class="input_secundario_rg"><br><br>
+        <br><label class="lb_dt">Data da Fundação:</label><input type="date" style="display: inline" class="input_secundario_data">
     </div>
 </template>
 <script>
