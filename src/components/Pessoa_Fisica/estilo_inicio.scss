@@ -10,9 +10,7 @@
 }
 
 #corpo_formulario {
-  width: 100%;
-  min-height: 1300px;
-  max-height: 1650px;
+  @include corpo_1;
 }
 
 

@@ -1,3 +1,16 @@
+@mixin corpo_1 {
+    width: 100%;
+    min-height: 1300px;
+    max-height: 1650px;
+}
+
+
+@mixin corpo_2 {
+    width: 100%;
+    height: 1100px;
+}
+
+
 @mixin corpo_3 {
     width: 100%;
     height: 1100px;
