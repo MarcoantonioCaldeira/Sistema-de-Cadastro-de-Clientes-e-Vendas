@@ -294,8 +294,10 @@ label {
     width: 80%;
   }
 
-  .input_apelido {
-    width: 80%;
+  #nome_apelido {
+    @include input_apelido;
+    width: 80% !important;
+    line-height: 45px;
     opacity: 0.8;
   }
 
@@ -375,6 +377,7 @@ label {
     margin-top: 16%;
   }
 
+
 }
 
 //Tamanho para celulares pequenos
@@ -422,8 +425,11 @@ label {
     width: 85%;
   }
 
-  .input_apelido {
-    width: 85%;
+
+  #nome_apelido {
+    @include input_apelido;
+    width: 80% !important;
+    line-height: 45px;
     opacity: 0.8;
   }
 
@@ -556,8 +562,10 @@ label {
     width: 75%;
   }
 
-  .input_apelido {
-    width: 75%;
+  #nome_apelido {
+    @include input_apelido;
+    width: 80% !important;
+    line-height: 45px;
     opacity: 0.8;
   }
 
@@ -669,8 +677,11 @@ label {
     width: 75%;
   }
 
-  .input_apelido {
-    width: 75%;
+
+  #nome_apelido {
+    @include input_apelido;
+    width: 75% !important;
+    line-height: 45px;
     opacity: 0.8;
   }
 
@@ -790,10 +801,13 @@ label {
     width: 70%;
   }
 
-  .input_apelido {
-    width: 70%;
+  #nome_apelido {
+    @include input_apelido;
+    width: 70% !important;
+    line-height: 45px;
     opacity: 0.8;
   }
+
 
   #suframa {
     position: relative;
@@ -909,12 +923,12 @@ label {
     width: 70%;
   }
 
-
-  .input_apelido {
-    width: 70%;
+  #nome_apelido {
+    @include input_apelido;
+    width: 70% !important;
+    line-height: 45px;
     opacity: 0.8;
   }
-
 
   #suframa {
     position: relative;
