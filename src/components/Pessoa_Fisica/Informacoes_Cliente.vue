@@ -3,8 +3,8 @@
     <h2 id="h2-informacoes">Informações do cliente</h2>
 
     <div>
-        <input type="text" for="nome"  placeholder="Seu Nome" class="input" v-model="nome_apelido"/>
-        <div id="nome_apelido"  data-text="Nome apelido">
+        <input type="text" for="nome"  placeholder="Seu Nome" class="input" v-model="nome_apelido" />
+        <div id="nome_apelido"  data-text="Nome apelido" >
             {{ nome_apelido }} {{ num++ }}
         </div>
         <input type="text"  placeholder="Seu email principal" class="input">
@@ -30,10 +30,11 @@
         <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data">
     </div>
 </template>
+
 <script>
 
-import { required, minLength, between } from 'vuelidate/lib/validators';
-
+import axios from "axios";
+import { assertExpressionStatement } from '@babel/types';
 
 export default{
     name: 'Informacoes_Cliente', 
@@ -42,23 +43,33 @@ export default{
             pessoa:"CNPJ",
             pessoas: null,
             nome_apelido: "",
-            num:1,
-            input: 1
+            num: []
+            //nome_data: null,
+            //nome_keys: []
         };
     },
     mathods: {
-        deleteRow(index) {
-            this.input.splice(index, 1);
-        },
-        validations: {
-        nome: {
-                required,
-                minLength: minLength(4)
-            }
-        }
+        //gerador_nome_apelido(){
+            //var self = this;
+
+            //axios
+            //.get('https://gist.githubusercontent.com/ryukebr/40df5b43f51a7daf5f0fd974cc15b0a5/raw/bc23d6e42c70ef6be2077de71735de61e03dbb1e/Tabelas%2520de%2520Nomes%2520para%2520Roll20'+this.nome+'/json/')
+            //.then(function (response){
+
+                //console.log(response);
+                //self.nome_data = response.data;
+                //self.nome_keys = Object.keys( self.nome_data );
+            //})
+            //.catch(function (error){
+                //console.log(error);
+            //})
+            //.finally(function () {
+
+            //});
+       // }
     }
-   
 }
+
 </script>
 <style >
 @import "@/assets/scss/index.scss"; 
