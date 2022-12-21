@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 @import "@/assets/scss/index.scss";
 
+
 #etapas {
   color: $cor_1;
   background-image: url('/src/assets/images/cronograma.png');
@@ -9,9 +10,8 @@
   margin-top: 5%;
 }
 
-#corpo_formulario {
-  width: 100%;
-  height: 1000px;
+#corpo_formulario_estrangeiro {
+  @include corpo_3;
 }
 
 
@@ -158,8 +158,8 @@ label {
 }
 
 
-.btn_proxima_etapa {
-  margin-top: 70vh;
+.btn_proxima_etapa_3 {
+  margin-top: 7%;
   margin-left: 5%;
   @include button-add-processeguir;
 }
@@ -441,7 +441,7 @@ label {
     margin-left: 15vh;
   }
 
-  .btn_proxima_etapa {
+  .btn_proxima_etapa_3 {
     margin-top: 10%;
     margin-left: 5%;
     @include button-add-processeguir;
@@ -583,7 +583,7 @@ label {
   }
 
 
-  .btn_proxima_etapa {
+  .btn_proxima_etapa_3 {
     margin-top: 10%;
     margin-left: 5%;
     @include button-add-processeguir;
@@ -690,7 +690,7 @@ label {
   }
 
 
-  .btn_proxima_etapa {
+  .btn_proxima_etapa_3 {
     margin-top: 10%;
     margin-left: 5%;
     @include button-add-processeguir;
@@ -804,7 +804,7 @@ label {
   }
 
 
-  .btn_proxima_etapa {
+  .btn_proxima_etapa_3 {
     margin-top: 10%;
     margin-left: 5%;
     @include button-add-processeguir;
@@ -934,7 +934,7 @@ label {
   }
 
 
-  .btn_proxima_etapa {
+  .btn_proxima_etapa_3 {
     margin-top: 10%;
     margin-left: 2%;
     @include button-add-processeguir;

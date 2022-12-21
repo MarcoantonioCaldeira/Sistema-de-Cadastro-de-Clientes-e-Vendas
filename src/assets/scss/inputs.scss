@@ -1,7 +1,7 @@
 @import './cores.scss';
 @import './fonts.scss';
 
-@mixin input{
+@mixin input {
     background-color: $cor_4;
     padding: 0px 12px;
     border: 1px solid;
@@ -16,7 +16,7 @@
     //width: 20%;
 }
 
-@mixin input_apelido{
+@mixin input_apelido {
     background-color: $cor_4;
     padding: 0px 12px;
     border: 1px solid;
@@ -31,7 +31,7 @@
     width: 20%;
 }
 
-@mixin input_separado_rg{
+@mixin input_separado_rg {
     background-color: $cor_4;
     padding: 0px 12px;
     margin: 10px;
@@ -42,10 +42,10 @@
     border-color: $cor_4;
     display: block;
     height: 40px;
-    width:15.5%;
+    width: 15.5%;
 }
 
-@mixin input_separado_data{
+@mixin input_separado_data {
     background-color: $cor_4;
     padding: 0px 12px;
     margin: 10px;
@@ -56,10 +56,10 @@
     border-color: $cor_4;
     display: block;
     height: 40px;
-    width:8.5%;
+    width: 8.5%;
 }
 
-@mixin select{
+@mixin select {
     background-color: $cor_4;
     padding: 0px 12px;
     border: 1px solid;
@@ -69,10 +69,10 @@
     border-color: $cor_4;
     display: block;
     height: 40px;
-    width:62%;
+    width: 62%;
 }
 
-@mixin input_suframa{
+@mixin input_suframa {
     background-color: $cor_4;
     padding: 0px 12px;
     margin-left: 2%;
@@ -84,10 +84,10 @@
     border-color: $cor_4;
     display: block;
     height: 40px;
-    width:39%;
+    width: 39%;
 }
 
-@mixin input_inscricao{
+@mixin input_inscricao {
     background-color: $cor_4;
     padding: 0px 12px;
     margin-top: 5%;
@@ -98,10 +98,10 @@
     border-color: $cor_4;
     display: block;
     height: 40px;
-    width:26%;
+    width: 26%;
 }
 
-@mixin input_cep{
+@mixin input_cep {
     background-color: $cor_4;
     display: inline-block;
     padding: 0px 12px;
@@ -112,5 +112,5 @@
     font-family: $font_2;
     border-color: $cor_4;
     height: 40px;
-    width:63%;
+    width: 63%;
 }

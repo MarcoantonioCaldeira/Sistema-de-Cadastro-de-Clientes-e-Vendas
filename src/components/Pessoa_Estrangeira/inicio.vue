@@ -1,5 +1,5 @@
 <template>
-  <div id="corpo_formulario">
+  <div id="corpo_formulario_estrangeiro">
     <div id="etapas">
       <v-img :src="require('@/assets/images/cronograma.png')" />
     </div>
@@ -10,7 +10,7 @@
     <div id="conteudo_observacoes">
       <Input_observacoes />
     </div>
-    <router-link to="Cadastro_pt_2"><button class="btn_proxima_etapa">Proxima etapa</button></router-link>
+    <router-link to="Cadastro_pt_2"><button class="btn_proxima_etapa_3">Proxima etapa</button></router-link>
   </div>
 </template>
 
