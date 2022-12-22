@@ -21,8 +21,8 @@
             <img src="src/assets/images/icon_add.png" />
         </button>
       
-        <input  type="text" v-mask="mask" placeholder="Seu telefone" class="input">
-        <input  type="text" v-mask="mask" placeholder="Celular" class="input">
+        <input  type="text"  placeholder="Seu telefone" class="input">
+        <input  type="text"  placeholder="Celular" class="input">
         <div>
             <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" class="input">
         </div>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-
+import { assertExpressionStatement } from '@babel/types';
 
 export default {
     name: 'Informacoes_Cliente', 
@@ -41,8 +41,9 @@ export default {
             pessoa:"CNPJ",
             pessoas: null,
             nome_apelido: "",
-            mask: "(##) ####-####"
-        };
+            num: [],
+            input: 1
+        }
     }  
 }
 </script>
