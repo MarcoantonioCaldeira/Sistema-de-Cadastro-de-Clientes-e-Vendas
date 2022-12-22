@@ -1,5 +1,14 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import { VueMaskDirective } from "v-mask";
 
-createApp(App).use(router).mount('#app')
+Vue.config.productionTip = false;
+
+Vue.directive("mask", VueMaskDirective);
+
+new Vue({
+    render: h => h(App)
+}).$mount("#app")
+
+

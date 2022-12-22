@@ -21,10 +21,10 @@
             <img src="src/assets/images/icon_add.png" />
         </button>
       
-        <input type="number" placeholder="Seu telefone" class="input">
-        <input type="number" placeholder="Celular" class="input">
-        <div> 
-            <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" class="input"/>
+        <input  type="text" v-mask="mask" placeholder="Seu telefone" class="input">
+        <input  type="text" v-mask="mask" placeholder="Celular" class="input">
+        <div>
+            <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" class="input">
         </div>
         <br><label  class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_separado_rg"><br><br>
         <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data">
@@ -33,44 +33,20 @@
 
 <script>
 
-import axios from "axios";
-import { assertExpressionStatement } from '@babel/types';
 
-export default{
+export default {
     name: 'Informacoes_Cliente', 
     data(){
         return{
             pessoa:"CNPJ",
             pessoas: null,
             nome_apelido: "",
-            num: []
-            //nome_data: null,
-            //nome_keys: []
+            mask: "(##) ####-####"
         };
-    },
-    mathods: {
-        //gerador_nome_apelido(){
-            //var self = this;
-
-            //axios
-            //.get('https://gist.githubusercontent.com/ryukebr/40df5b43f51a7daf5f0fd974cc15b0a5/raw/bc23d6e42c70ef6be2077de71735de61e03dbb1e/Tabelas%2520de%2520Nomes%2520para%2520Roll20'+this.nome+'/json/')
-            //.then(function (response){
-
-                //console.log(response);
-                //self.nome_data = response.data;
-                //self.nome_keys = Object.keys( self.nome_data );
-            //})
-            //.catch(function (error){
-                //console.log(error);
-            //})
-            //.finally(function () {
-
-            //});
-       // }
-    }
+    }  
 }
-
 </script>
+
 <style >
 @import "@/assets/scss/index.scss"; 
 </style>

@@ -89,7 +89,6 @@ label {
 
 
 .input_secundario_data {
-  margin-left: 2% !important;
   @include input_separado_data;
 }
 
@@ -97,7 +96,7 @@ label {
 #suframa {
   position: relative;
   width: 45%;
-  padding-top: 27%;
+  padding-top: 28%;
   height: 600px;
 }
 
@@ -136,10 +135,8 @@ label {
 
 
 #conteudo_observacoes {
-  //width: 45%;
   margin-left: 55%;
   margin-top: -9%;
-  //height: 600px;
 }
 
 
