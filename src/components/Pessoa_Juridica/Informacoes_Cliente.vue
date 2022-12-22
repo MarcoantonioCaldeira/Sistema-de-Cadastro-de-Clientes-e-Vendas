@@ -25,7 +25,7 @@
         <div> 
             <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" class="input"/>
         </div>
-        <br><label  class="lb_rg">Inscrição Estadual:</label><input type="text" style="display: inline" class="input_secundario_rg"><br><br>
+        <br><label  class="lb_rg">Inscrição Estadual:</label><input type="text" style="display: inline" class="input_secundario_inscricao"><br><br>
         <br><label class="lb_dt">Data da Fundação:</label><input type="date" style="display: inline" class="input_secundario_data">
     </div>
 </template>

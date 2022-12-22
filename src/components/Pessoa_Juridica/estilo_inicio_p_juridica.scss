@@ -114,6 +114,11 @@ label {
 }
 
 
+.input_secundario_inscricao {
+  width: 11% !important;
+  @include input_separado_rg;
+}
+
 .input_secundario_rg {
   margin-left: 1% !important;
   width: 10% !important;
@@ -299,7 +304,7 @@ label {
     margin-left: 15%;
   }
 
-  .input_secundario_rg {
+  .input_secundario_inscricao {
     width: 55%;
   }
 
