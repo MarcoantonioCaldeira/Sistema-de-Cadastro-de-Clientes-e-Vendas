@@ -20,18 +20,18 @@
 
 <script>
 
-import Informacoes_Cliente from '@/components/Pessoa_Juridica/Informacoes_Cliente.vue';
-import Tipo_Suframa from './Tipo_Suframa.vue';
-import Input_observacoes from '@/components/Pessoa_Juridica/Input_observacoes.vue';
+  import Informacoes_Cliente from '@/components/Pessoa_Juridica/Informacoes_Cliente.vue';
+  import Tipo_Suframa from './Tipo_Suframa.vue';
+  import Input_observacoes from '@/components/Pessoa_Juridica/Input_observacoes.vue';
 
-export default {
-  name: 'Inicio',
-  components: {
-    Informacoes_Cliente,
-    Tipo_Suframa,
-    Input_observacoes 
+  export default {
+    name: 'Inicio',
+    components: {
+      Informacoes_Cliente,
+      Tipo_Suframa,
+      Input_observacoes 
+    }
   }
-}
 </script>
 
 <style src="./estilo_inicio_p_juridica.scss"  lang="scss" />

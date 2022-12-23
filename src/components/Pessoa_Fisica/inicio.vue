@@ -3,8 +3,10 @@
     <div id="etapas">
       <v-img :src="require('@/assets/images/cronograma.png')" />
     </div>
+
     <h1 id="h1-titulo">Cadastro do cliente</h1>
     <p>(Preencha os campos para cadastrar um novo cliente)</p>
+
     <Informacoes_Cliente />
 
     <div id="suframa">
@@ -20,18 +22,18 @@
 
 <script>
 
-import Informacoes_Cliente from '@/components/Pessoa_Fisica/Informacoes_Cliente.vue';
-import Tipo_Suframa from './Tipo_Suframa.vue';
-import Input_observacoes from '@/components/Pessoa_Fisica/Input_observacoes.vue';
+  import Informacoes_Cliente from '@/components/Pessoa_Fisica/Informacoes_Cliente.vue';
+  import Tipo_Suframa from './Tipo_Suframa.vue';
+  import Input_observacoes from '@/components/Pessoa_Fisica/Input_observacoes.vue';
 
-export default {
-  name: 'Inicio',
-  components: {
-    Informacoes_Cliente,
-    Tipo_Suframa,
-    Input_observacoes 
+  export default {
+    name: 'Inicio',
+    components: {
+      Informacoes_Cliente,
+      Tipo_Suframa,
+      Input_observacoes 
+    }
   }
-}
 </script>
 
 <style src="./estilo_inicio.scss"  lang="scss" />
