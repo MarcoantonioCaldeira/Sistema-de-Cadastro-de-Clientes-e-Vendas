@@ -13,3 +13,139 @@
     margin-left: 37.5%;
     top: 20%;
 }
+
+
+@media screen and (min-width: 300px) and (max-width: 450px) {
+
+
+    #corpo {
+        height: 400px;
+    }
+
+    .titulo {
+        font-size: 22px;
+        margin-left: 17%;
+    }
+
+    #Area_Pessoa_Fisica {
+        position: relative;
+        width: 70%;
+        height: 70px;
+        margin-top: 60%;
+        margin-left: 16%;
+    }
+
+    #Area_Pessoa_Juridica {
+        position: relative;
+        width: 70%;
+        height: 70px;
+        margin-top: 10%;
+        margin-left: 16%;
+    }
+
+    #Area_Pessoa_Estrangeira {
+        position: relative;
+        width: 70%;
+        height: 70px;
+        margin-top: 10%;
+        margin-left: 16%;
+    }
+
+    .h2_p_juridica,
+    .h2_p_fisica,
+    .h2_p_estrangeira {
+        font-size: 20px;
+        margin-top: 0;
+        margin: 0%;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 600px) {
+
+    #corpo {
+        height: 400px;
+    }
+
+    .titulo {
+        font-size: 30px;
+        margin-left: 17%;
+    }
+
+    #Area_Pessoa_Fisica {
+        position: relative;
+        width: 70%;
+        height: 70px;
+        margin-top: 60%;
+        margin-left: 16%;
+    }
+
+    #Area_Pessoa_Juridica {
+        position: relative;
+        width: 70%;
+        height: 70px;
+        margin-top: 10%;
+        margin-left: 16%;
+    }
+
+    #Area_Pessoa_Estrangeira {
+        position: relative;
+        width: 70%;
+        height: 70px;
+        margin-top: 10%;
+        margin-left: 16%;
+    }
+
+    .h2_p_juridica,
+    .h2_p_fisica,
+    .h2_p_estrangeira {
+        font-size: 20px;
+        margin-top: 0;
+        margin: 0%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 850px) {
+    #corpo {
+        height: 400px;
+    }
+
+    .titulo {
+        font-size: 35px;
+        margin-left: 17%;
+    }
+
+    #Area_Pessoa_Fisica {
+        position: relative;
+        width: 70%;
+        height: 70px;
+        margin-top: 30%;
+        margin-left: 16%;
+    }
+
+    #Area_Pessoa_Juridica {
+        position: relative;
+        width: 70%;
+        height: 70px;
+        margin-top: 10%;
+        margin-left: 16%;
+    }
+
+    #Area_Pessoa_Estrangeira {
+        position: relative;
+        width: 70%;
+        height: 70px;
+        margin-top: 10%;
+        margin-left: 16%;
+    }
+
+    .h2_p_juridica,
+    .h2_p_fisica,
+    .h2_p_estrangeira {
+        font-size: 20px;
+        margin-top: 0;
+        margin: 0%;
+        text-align: center;
+    }
+}

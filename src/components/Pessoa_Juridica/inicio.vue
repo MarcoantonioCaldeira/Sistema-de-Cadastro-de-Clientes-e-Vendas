@@ -1,5 +1,5 @@
 <template>
-  <div id="corpo_formulario">
+  <div id="corpo_formulario_p_juridica">
     <div id="etapas">
       <v-img :src="require('@/assets/images/cronograma.png')" />
     </div>
