@@ -1,6 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import Selecao_Tipo_Pessoa from '../views/Selecao_Tipo_Pessoa/Selecao_Tipo_Pessoa'
-//mport Cadastro_pt_1 from '../views/Cadastro_pt_1/Cadastro_pt_1'
 
 const routes = [
 

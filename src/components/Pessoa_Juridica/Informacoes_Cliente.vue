@@ -2,7 +2,7 @@
     <h2 id="h2-informacoes">Informações do cliente</h2>
 
     <div>
-        <input type="text" for="nome"  placeholder="Razão Social" class="input" v-model="nome_apelido"/>
+        <input type="text" for="nome"  placeholder="Razão Social" class="input" v-model="nome_apelido" />
         <div id="nome_apelido"  data-text="Nome apelido">
             {{ nome_apelido }} {{ num++ }}
         </div>
@@ -12,7 +12,7 @@
 
         <div>
             <input   v-for="i in input"  :key="i"  type="text" :id='"item"+i' :placeholder="'Seu email' + i" style="display: block" class="input">
-            <button type="button" @click="deleteRow(index)">Deletar</button>
+            <button type="button">Deletar</button>
         </div>    
 
         <button  type="button" @click="input++" class="btn_adicionar_email" id="send">
@@ -20,8 +20,8 @@
             <img src="src/assets/images/icon_add.png" />
         </button>
       
-        <input type="number" placeholder="Seu telefone" class="input">
-        <input type="number" placeholder="Celular" class="input">
+        <input type="text" placeholder="Seu telefone" class="input">
+        <input type="text" placeholder="Celular" class="input">
         <div> 
             <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" class="input"/>
         </div>
@@ -31,34 +31,19 @@
 </template>
 <script>
 
-import { required, minLength, between } from 'vuelidate/lib/validators';
-
-
-export default{
-    name: 'Informacoes_Cliente', 
-    data(){
-        return{
-            pessoa:"CNPJ",
-            pessoas: null,
-            nome_apelido: "",
-            num:1,
-            input: 1
-        };
-    },
-    mathods: {
-        deleteRow(index) {
-            this.input.splice(index, 1);
-        },
-        validations: {
-        nome: {
-                required,
-                minLength: minLength(4)
-            }
+    export default{
+        name: 'Informacoes_Cliente', 
+        data(){
+            return{
+                pessoa:"CNPJ",
+                pessoas: null,
+                nome_apelido: "",
+                num:1,
+                input: 1
+            };
         }
     }
-   
-}
 </script>
 <style >
-@import "@/assets/scss/index.scss"; 
+    @import "@/assets/scss/index.scss"; 
 </style>
