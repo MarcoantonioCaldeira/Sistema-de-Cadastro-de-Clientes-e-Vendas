@@ -21,7 +21,7 @@
             <img src="src/assets/images/icon_add.png" />
         </button>
       
-        <input  type="text"  placeholder="Seu telefone" class="input">
+        <input  type="text" v-mask="mask"  placeholder="Seu telefone" class="input">
         <input  type="text"  placeholder="Celular" class="input">
         <div>
             <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" class="input">
@@ -42,7 +42,8 @@ export default {
             pessoas: null,
             nome_apelido: "",
             num: [],
-            input: 1
+            input: 1,
+            mask: "(##) ####-####"
         }
     }  
 }
