@@ -1,8 +1,7 @@
 <template>
+  <etapas />
+
   <div id="corpo_formulario_estrangeiro">
-    <div id="etapas">
-      <v-img :src="require('@/assets/images/cronograma.png')" />
-    </div>
     <h1 id="h1-titulo">Cadastro do cliente</h1>
     <p>(Preencha os campos para cadastrar um novo cliente)</p>
     <Informacoes_Cliente />
@@ -18,12 +17,14 @@
 
 import Informacoes_Cliente from '@/components/Pessoa_Estrangeira/Informacoes_Cliente.vue';
 import Input_observacoes from '@/components/Pessoa_Estrangeira/Input_observacoes.vue';
+import etapas from './etapas.vue'
 
 export default {
   name: 'Inicio',
   components: {
     Informacoes_Cliente,
-    Input_observacoes 
+    Input_observacoes,
+    etapas
   }
 }
 </script>

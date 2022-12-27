@@ -2,12 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 @import "@/assets/scss/index.scss";
 
-#etapas {
-  color: $cor_1;
-  background-image: url('/src/assets/images/cronograma.png');
-  margin-left: 45%;
-  margin-top: 5%;
-}
 
 #corpo_formulario_p_juridica {
   @include corpo_2;
