@@ -10,7 +10,7 @@ export default{
     name: 'etapas',
     data(){
         return{
-            foto: require('/src/assets/images/cronograma.png')
+            foto: require('/src/assets/images/cronograma_1.png')
         }
     }
 }
