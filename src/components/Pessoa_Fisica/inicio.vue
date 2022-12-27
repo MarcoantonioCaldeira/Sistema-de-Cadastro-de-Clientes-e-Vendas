@@ -1,6 +1,7 @@
 <template>
   <div id="corpo_formulario">
     <div id="etapas">
+      <h2>Aqui são as etapas</h2>
       <!---<v-img :src="require('@/assets/images/cronograma.png')" />--->
     </div>
 
