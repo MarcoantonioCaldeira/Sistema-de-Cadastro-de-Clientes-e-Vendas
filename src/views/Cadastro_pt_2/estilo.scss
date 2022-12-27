@@ -1,12 +1,18 @@
-@import "@/assets/scss/index.scss"; 
+@import "@/assets/scss/index.scss";
 
-#conteudo{
+#conteudo {
     width: 100%;
     //background-color: red;
     height: 900px;
 }
 
-#endereco_principal{
+#etapas {
+    width: 100%;
+    height: 200px;
+    //background-color: red
+}
+
+#endereco_principal {
     position: absolute;
     width: 26%;
     height: 600px;
@@ -15,7 +21,7 @@
     //display: inline;
 }
 
-#endereco_secundario{
+#endereco_secundario {
     position: absolute;
     width: 26%;
     height: 600px;
@@ -23,12 +29,12 @@
     top: 59.5vw;
 }
 
-#campos_endereco_secundario{
+#campos_endereco_secundario {
     //background-color: aqua;
     margin-top: -6%;
 }
 
-#endereco_terciario{
+#endereco_terciario {
     position: absolute;
     width: 26%;
     height: 600px;
@@ -36,44 +42,44 @@
     top: 59.5vw;
 }
 
-#campos_endereco_terciario{
+#campos_endereco_terciario {
     margin-top: -6%;
 }
 
 //input referente ao cep
-.input_cep{
+.input_cep {
     @include input_cep;
 }
 
 //todos os inputs da pagina de endereço
-.input_endereco{
+.input_endereco {
     width: 80%;
     @include input;
 }
 
-.lb_cep{
-    margin-left: 5%; 
-    font-family: $font_1; 
+.lb_cep {
+    margin-left: 5%;
+    font-family: $font_1;
     color: $cor_2;
 }
 
-.h1_info_endereco{
+.h1_info_endereco {
     font-family: $font_1;
     color: $cor_2;
     margin-top: 5%;
     margin-left: 5%;
 }
 
-.h2_endereco{
+.h2_endereco {
     position: relative;
     font-family: $font_1;
-    top:5%;
+    top: 5%;
     left: 6%;
     color: $cor_3;
 }
 
 
-.btn_concluir{
+.btn_concluir {
     position: relative;
     //display: inline;
     margin-left: 5%;
@@ -81,7 +87,7 @@
     @include button-add-processeguir;
 }
 
-#endereco_secundario{
+#endereco_secundario {
     width: 26%;
     height: 600px;
     margin-left: 35%;
@@ -89,7 +95,7 @@
     //display: inline;
 }
 
-#endereco_terciario{
+#endereco_terciario {
     width: 26%;
     height: 600px;
     margin-left: 66%;
@@ -98,20 +104,20 @@
 }
 
 @media screen and (max-width: 300px) {
-    
-    #conteudo{
+
+    #conteudo {
         //width: 100%;
         height: 2000px;
     }
 
-    #endereco_principal{
+    #endereco_principal {
         display: block;
         //background-color: aqua;
         width: 100%;
         left: -5%;
     }
 
-    #endereco_secundario{
+    #endereco_secundario {
         width: 100%;
         display: block;
         //background-color: red;
@@ -119,7 +125,7 @@
         top: 135vh;
     }
 
-    #endereco_terciario{
+    #endereco_terciario {
         display: block;
         //background-color: aqua;
         width: 100%;
@@ -127,45 +133,45 @@
         top: 230vh;
     }
 
-    .btn_concluir{
+    .btn_concluir {
         position: relative;
         right: 4%;
         top: 273vh;
     }
 
-    .lb_cep{
+    .lb_cep {
         position: absolute;
         margin-top: 25%;
         left: 5%;
         color: $cor_3;
     }
 
-    .input_cep{
+    .input_cep {
         margin-left: 5vw !important;
         width: 80%;
     }
 
 
-    .btn_concluir{
+    .btn_concluir {
         margin-left: 9%;
     }
 
 }
 
-@media (min-width: 301px) and (max-width: 480px){
+@media (min-width: 301px) and (max-width: 480px) {
 
-    #conteudo{
+    #conteudo {
         //width: 100%;
         height: 2000px;
     }
 
-    #endereco_principal{
+    #endereco_principal {
         display: block;
         //background-color: aqua;
         width: 100%;
     }
 
-    #endereco_secundario{
+    #endereco_secundario {
         width: 100%;
         display: block;
         //background-color: red;
@@ -173,7 +179,7 @@
         top: 145vh;
     }
 
-    #endereco_terciario{
+    #endereco_terciario {
         display: block;
         //background-color: aqua;
         width: 100%;
@@ -181,40 +187,40 @@
         top: 235vh;
     }
 
-    .btn_concluir{
+    .btn_concluir {
         position: relative;
         top: 273vh;
         right: -3%;
     }
 
-    .lb_cep{
+    .lb_cep {
         position: absolute;
         margin-top: 25%;
         left: 5%;
         color: $cor_3;
     }
 
-    .input_cep{
+    .input_cep {
         margin-left: 5vw !important;
         width: 80%;
     }
 
 }
 
-@media (min-width: 481px) and (max-width: 600px){
+@media (min-width: 481px) and (max-width: 600px) {
 
-    #conteudo{
+    #conteudo {
         //width: 100%;
         height: 2000px;
     }
 
-    #endereco_principal{
+    #endereco_principal {
         display: block;
         //background-color: aqua;
         width: 100%;
     }
 
-    #endereco_secundario{
+    #endereco_secundario {
         width: 100%;
         display: block;
         //background-color: red;
@@ -222,7 +228,7 @@
         top: 145vh;
     }
 
-    #endereco_terciario{
+    #endereco_terciario {
         display: block;
         //background-color: aqua;
         width: 100%;
@@ -230,40 +236,41 @@
         top: 235vh;
     }
 
-    .btn_concluir{
+    .btn_concluir {
         position: relative;
         top: 273vh;
         right: -3%;
     }
 
-    .lb_cep{
+    .lb_cep {
         position: absolute;
         margin-top: 25%;
         left: 5%;
         color: $cor_3;
     }
 
-    .input_cep, .input_endereco{
+    .input_cep,
+    .input_endereco {
         margin-left: 5vw !important;
         width: 70%;
     }
 }
 
 
-@media (min-width: 601px) and (max-width: 850px){
+@media (min-width: 601px) and (max-width: 850px) {
 
-    #conteudo{
+    #conteudo {
         //width: 100%;
         height: 2000px;
     }
 
-    #endereco_principal{
+    #endereco_principal {
         display: block;
         //background-color: aqua;
         width: 100%;
     }
 
-    #endereco_secundario{
+    #endereco_secundario {
         width: 100%;
         display: block;
         //background-color: red;
@@ -271,7 +278,7 @@
         top: 160vh;
     }
 
-    #endereco_terciario{
+    #endereco_terciario {
         display: block;
         //background-color: aqua;
         width: 100%;
@@ -279,40 +286,41 @@
         top: 247vh;
     }
 
-    .btn_concluir{
+    .btn_concluir {
         position: relative;
         top: 273vh;
         right: -3%;
     }
 
-    .lb_cep{
+    .lb_cep {
         position: absolute;
         margin-top: 25%;
         left: 5%;
         color: $cor_3;
     }
 
-    .input_cep, .input_endereco{
+    .input_cep,
+    .input_endereco {
         margin-left: 5vw !important;
         width: 70%;
     }
 }
 
 
-@media (min-width: 851px) and (max-width: 1200px){
+@media (min-width: 851px) and (max-width: 1200px) {
 
-    #conteudo{
+    #conteudo {
         //width: 100%;
         height: 2200px;
     }
 
-    #endereco_principal{
+    #endereco_principal {
         display: block;
         //background-color: aqua;
         width: 100%;
     }
 
-    #endereco_secundario{
+    #endereco_secundario {
         width: 100%;
         display: block;
         //background-color: red;
@@ -320,7 +328,7 @@
         top: 180vh;
     }
 
-    #endereco_terciario{
+    #endereco_terciario {
         display: block;
         //background-color: aqua;
         width: 100%;
@@ -328,11 +336,11 @@
         top: 270vh;
     }
 
-    .input_cep{
+    .input_cep {
         width: 71%;
     }
 
-    .btn_concluir{
+    .btn_concluir {
         position: relative;
         top: 295vh;
         right: -3%;
