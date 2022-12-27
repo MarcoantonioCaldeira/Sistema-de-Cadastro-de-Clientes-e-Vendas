@@ -3,10 +3,11 @@
 @import "@/assets/scss/index.scss";
 
 #etapas {
+  //position: relative;
   color: $cor_1;
   background-image: url('/src/assets/images/cronograma.png');
-  margin-left: 45%;
-  margin-top: 5%;
+  //margin-left: 45%;
+  //margin-top: 5%;
 }
 
 #corpo_formulario {

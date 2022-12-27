@@ -1,7 +1,7 @@
 <template>
   <div id="corpo_formulario">
     <div id="etapas">
-      <v-img :src="require('@/assets/images/cronograma.png')" />
+      <!---<v-img :src="require('@/assets/images/cronograma.png')" />--->
     </div>
 
     <h1 id="h1-titulo">Cadastro do cliente</h1>
