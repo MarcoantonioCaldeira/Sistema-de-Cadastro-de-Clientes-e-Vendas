@@ -11,10 +11,10 @@
         <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input" v-model="pessoa_fisica.email_nfe"/>
 
 
-        <div>
+        <!---<div>
             <input   v-for="i in input"  :key="i"  type="text" :id='"item"+i' :placeholder="'Seu email' + i" style="display: block" class="input" />
             <button type="button">Deletar</button>
-        </div>    
+        </div>--->    
 
         <button  type="button" @click="input++" class="btn_adicionar_email" id="send">
             Adicionar outro email

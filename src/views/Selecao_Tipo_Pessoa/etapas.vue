@@ -17,7 +17,7 @@ export default{
 
 </script>
 <style>
-    @import "@/assets/scss/index.scss"; 
+    @import "./estilo_selecao.scss"; 
 </style>
 
   

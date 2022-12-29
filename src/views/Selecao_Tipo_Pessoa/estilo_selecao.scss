@@ -1,6 +1,5 @@
 @import "@/assets/scss/index.scss";
 
-
 #corpo {
     //background-color: red;
     width: 100%;
@@ -8,32 +7,44 @@
     height: 600px;
 }
 
+#img_etapas {
+    margin-left: 24%;
+    margin-top: 3%;
+}
+
 .titulo {
     //position: absolute;
     font-family: $font_1;
     color: $cor_2;
-    margin-left: 36%;
+    margin-left: 37.5%;
     //top: 20%;
 }
 
 
 @media screen and (min-width: 300px) and (max-width: 450px) {
 
-
     #corpo {
         height: 400px;
     }
 
+    #img_etapas {
+        width: 150vw;
+        box-sizing: border-box;
+        margin-left: -24%;
+        margin-top: 3%;
+    }
+
     .titulo {
         font-size: 22px;
-        margin-left: 17%;
+        margin-top: -25%;
+        margin-left: 10%;
     }
 
     #Area_Pessoa_Fisica {
         position: relative;
         width: 70%;
         height: 70px;
-        margin-top: 60%;
+        margin-top: 20%;
         margin-left: 16%;
     }
 
