@@ -80,6 +80,13 @@
         height: 400px;
     }
 
+    #img_etapas {
+        width: 150vw;
+        box-sizing: border-box;
+        margin-left: -25%;
+        margin-top: 3%;
+    }
+
     .titulo {
         font-size: 30px;
         margin-left: 17%;
@@ -89,7 +96,7 @@
         position: relative;
         width: 70%;
         height: 70px;
-        margin-top: 60%;
+        margin-top: 30%;
         margin-left: 16%;
     }
 
@@ -122,6 +129,13 @@
 @media (min-width: 601px) and (max-width: 850px) {
     #corpo {
         height: 400px;
+    }
+
+    #img_etapas {
+        width: 150vw;
+        box-sizing: border-box;
+        margin-left: -25%;
+        margin-top: 3%;
     }
 
     .titulo {
