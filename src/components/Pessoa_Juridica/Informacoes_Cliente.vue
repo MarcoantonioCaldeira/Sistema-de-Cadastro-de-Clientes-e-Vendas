@@ -23,7 +23,7 @@
         <input type="text" placeholder="Seu telefone" class="input">
         <input type="text" placeholder="Celular" class="input">
         <div> 
-            <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" class="input"/>
+            <input type="text" placeholder="Seu CNPJ" class="input"/>
         </div>
         <br><label  class="lb_rg">Inscrição Estadual:</label><input type="text" style="display: inline" class="input_secundario_inscricao"><br><br>
         <br><label class="lb_dt">Data da Fundação:</label><input type="date" style="display: inline" class="input_secundario_data">
@@ -35,8 +35,7 @@
         name: 'Informacoes_Cliente', 
         data(){
             return{
-                pessoa:"CNPJ",
-                pessoas: null,
+               
                 nome_apelido: "",
                 num:1,
                 input: 1
