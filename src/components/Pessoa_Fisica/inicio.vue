@@ -15,7 +15,7 @@
     <div id="conteudo_observacoes">
       <Input_observacoes />
     </div>
-    <router-link to="Cadastro_pt_2"><button class="btn_proxima_etapa"  @submit.prevent="salvar">Proxima etapa</button></router-link>
+    <router-link to="Cadastro_pt_2"><button class="btn_proxima_etapa">Proxima etapa</button></router-link>
   </div>
 </template>
 

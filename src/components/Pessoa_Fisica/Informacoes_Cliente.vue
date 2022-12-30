@@ -33,7 +33,7 @@
 
 <script>
 import { makeBlock } from '@vue/compiler-core';
-
+import axios from 'axios'
 
     export default {
         name: 'Informacoes_Cliente', 
@@ -41,24 +41,34 @@ import { makeBlock } from '@vue/compiler-core';
             return{
                 num: 1,
                 input: 1,
-                pessoa_fisica:{
-                    nome_apelido: "",
-                    e_mail: "",
-                    email_nfe: "",
-                    telefone: "",
-                    celular: "",
-                    cpf:"",
-                    rg: "",
-                    data_nascimento: "" 
-                }
             }
-        } ,
-        
-        
-        methods:{
-            salvar(){
-                pessoa_fisica.salvar(this.pessoa_fisica).then(resposta => {
-                    alert("Salvo com sucesso!!!")
+        },
+        methods: {
+            get_Cliente() {
+                axios({
+                    methods:'post',
+                    url: 'localhost:9000/clientes',
+                    clientes:{
+                        celular:"",
+                        classificacao: 1,
+                        classificacao_entrega: 1,
+                        cnpj_cpf: "",
+                        cnpj_cpf_entrega: "",
+                        cod_cliente:"",
+                        cod_vendedor:"",
+                        data_cadastro:"",
+                        e_mail: "",
+                        e_mail_nfe: "",
+                        inscricao_municipal:"",
+                        inscricao_rg: "",
+                        nascimento: "",
+                        nome: "",
+                        nome_fantasia:"",
+                        observacao:"",
+                        suframa:"",
+                        suframa_tipo: "",
+                        telefone_2: ""
+                       
                 })
             }
         }
