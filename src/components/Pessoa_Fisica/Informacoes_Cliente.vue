@@ -26,7 +26,6 @@
 </template>
 
 <script>
-//import { makeBlock } from '@vue/compiler-core';
 import axios from 'axios'
 
     export default {
