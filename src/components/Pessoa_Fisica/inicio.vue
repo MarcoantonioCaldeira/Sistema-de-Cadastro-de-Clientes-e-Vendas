@@ -20,6 +20,7 @@
 </template>
 
 <script>
+
   import Informacoes_Cliente from '@/components/Pessoa_Fisica/Informacoes_Cliente.vue';
   import Tipo_Suframa from './Tipo_Suframa.vue';
   import Input_observacoes from '@/components/Pessoa_Fisica/Input_observacoes.vue';

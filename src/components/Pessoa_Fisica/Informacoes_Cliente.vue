@@ -3,30 +3,30 @@
     <h2 id="h2-informacoes">Informações do cliente</h2>
 
     <div>
-        <input type="text" for="nome"  placeholder="Seu Nome" class="input" v-model="clientes.nome"/>
+        <input type="text" for="nome"  placeholder="Seu Nome" class="input" v-model="nome"/>
         <div id="nome_apelido"  data-text="Nome apelido">
-
+            <input type="text" placeholder="nome-fantasia" v-model="nome_fantasia"/>
         </div>
-        <input type="text"  placeholder="Seu email principal" class="input" v-model="clientes.e_mail"/>
-        <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input" v-model="clientes.email_nfe"/>  
+        <input type="text"  placeholder="Seu email principal" class="input" v-model="e_mail"/>
+        <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input" v-model="email_nfe"/>  
 
         <button  type="button" @click="input++" class="btn_adicionar_email" id="send">
             Adicionar outro email
             <img src="src/assets/images/icon_add.png" />
         </button>
       
-        <input  type="text" v-mask="'(##) ####-####'"  placeholder="Seu telefone" class="input" v-model="clientes.telefone"/>
-        <input  type="text" v-mask="'(##) ####-####'" placeholder="Celular" class="input" v-model="clientes.celular"/>
+        <input  type="text" v-mask="'(##) ####-####'"  placeholder="Seu telefone" class="input" v-model="telefone"/>
+        <input  type="text" v-mask="'(##) ####-####'" placeholder="Celular" class="input" v-model="celular"/>
         <div>
-            <input type="text" placeholder="Seu CPF" class="input" v-model="clientes.cpf"/>
+            <input type="text" placeholder="Seu CPF" class="input" v-model="cpf"/>
         </div>
-        <br><label  class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_separado_rg" v-model="clientes.rg"><br><br>
-        <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data" v-model="clientes.data_nascimento">
+        <br><label  class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_separado_rg" v-model="rg"><br><br>
+        <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data" v-model="data_nascimento">
     </div>
 </template>
 
 <script>
-import { makeBlock } from '@vue/compiler-core';
+//import { makeBlock } from '@vue/compiler-core';
 import axios from 'axios'
 
     export default {
@@ -34,15 +34,26 @@ import axios from 'axios'
         data(){
             return{
                 num: 1,
-                input: 1,
-                nome: "",
-                nome_fantasia: "",
-                e_mail: "",
-                e_mail_nfe: "",
-                celular:"",
-                telefone: "",
-                cpf: "",
-                inscricao_rg: ""
+                input: 1
+            }
+        },
+
+        methods: {
+            Cadastro_Informacoes(){
+                    axios({
+                    method: 'post',
+                    url: 'localhost:9000/clientes',
+                        data: {
+                            nome: "",
+                            nome_fantasia: "",
+                            e_mail: "",
+                            e_mail_nfe: "",
+                            celular:"",
+                            telefone: "",
+                            cpf: "",
+                            inscricao_rg: ""
+                        }
+                    })
             }
         }
     }
