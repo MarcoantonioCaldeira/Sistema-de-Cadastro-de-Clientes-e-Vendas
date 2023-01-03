@@ -1,7 +1,7 @@
 <template>
 
   <etapas />
-  <div id="corpo_formulario_p_juridica">e
+  <div id="corpo_formulario_p_juridica">
     <h1 id="h1-titulo">Cadastro do cliente</h1>
     <p>(Preencha os campos para cadastrar um novo cliente)</p>
     <Informacoes_Cliente />

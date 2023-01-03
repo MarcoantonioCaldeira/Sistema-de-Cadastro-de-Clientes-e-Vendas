@@ -79,7 +79,7 @@ label {
 }
 
 
-#nome_fantasia {
+#nome_apelido {
   @include input_apelido;
 
   line-height: 45px;
@@ -220,7 +220,7 @@ label {
     width: 80%;
   }
 
-  #nome_fantasia {
+  #nome_apelido {
     @include input_apelido;
     width: 80% !important;
     line-height: 45px;
@@ -326,7 +326,7 @@ label {
   }
 
 
-  #nome_fantasia {
+  #nome_apelido {
     @include input_apelido;
     width: 80% !important;
     line-height: 45px;
@@ -445,7 +445,7 @@ label {
     width: 75%;
   }
 
-  #nome_fantasia {
+  #nome_apelido {
     @include input_apelido;
     width: 80% !important;
     line-height: 45px;
@@ -546,7 +546,7 @@ label {
     font-size: 17px;
   }
 
-  #nome_fantasia {
+  #nome_apelido {
     @include input_apelido;
     width: 75% !important;
     line-height: 45px;
@@ -646,7 +646,7 @@ label {
     width: 70%;
   }
 
-  #nome_fantasia {
+  #nome_apelido {
     @include input_apelido;
     width: 70% !important;
     line-height: 45px;
@@ -739,7 +739,7 @@ label {
     width: 70%;
   }
 
-  #nome_fantasia {
+  #nome_apelido {
     @include input_apelido;
     width: 70% !important;
     line-height: 45px;

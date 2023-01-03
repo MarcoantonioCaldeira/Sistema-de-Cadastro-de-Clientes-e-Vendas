@@ -4,8 +4,8 @@
 
     <div>
         <input type="text" for="nome"  placeholder="Seu Nome" class="input" v-model="nome"/>
-        <div id="nome_fantasia"  data-text="Nome Fantasia">
-            <input type="text" placeholder="nome-fantasia" v-model="nome_fantasia"/>
+        <div id="nome_apelido"  data-text="Nome Apelido">
+            <input type="text" placeholder="nome-apelido" v-model="nome_apelido"/>
         </div>
         <input type="text"  placeholder="Seu email principal" class="input" v-model="e_mail"/>
         <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input" v-model="email_nfe"/>  
@@ -44,7 +44,7 @@ import axios from 'axios'
                     url: 'localhost:9000/clientes',
                         data: {
                             nome: "",
-                            nome_fantasia: "",
+                            nome_apelido: "",
                             e_mail: "",
                             e_mail_nfe: "",
                             celular:"",
