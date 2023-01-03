@@ -9,7 +9,7 @@
     <div id="conteudo_observacoes">
       <Input_observacoes />
     </div>
-    <router-link to="Cadastro_pt_2"><button class="btn_proxima_etapa_3">Proxima etapa</button></router-link>
+    <router-link to="Cadastro_pt_2"><button class="btn_proxima_etapa_3" v-on:submit.prevent="(Cadastro_Informacoes)">Proxima etapa</button></router-link>
   </div>
 </template>
 
@@ -27,6 +27,7 @@ export default {
     etapas
   }
 }
+
 </script>
 
 <style src="./estilo_inicio_p_estrangeira.scss"  lang="scss" />
