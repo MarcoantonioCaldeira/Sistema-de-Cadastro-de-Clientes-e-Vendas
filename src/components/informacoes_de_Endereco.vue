@@ -44,11 +44,31 @@
     </div>
 </template>
 <script>
-
+import axios from 'axios';
 
  export default{
-    name: 'Informacoes_Endereco'
- }
+    name: 'Informacoes_Endereco',
+
+    methods: {
+        Cadastro_Informacoes(){
+            axios({
+                method: 'post',
+                url: 'localhost:9000/clientes',
+                    data: {
+                        CEP: "",
+                        Endereco: "",
+                        numero: "",
+                        Complemento: "",
+                        Bairro: "",
+                        Cidade:"",
+                        Estado: "",
+                        Numero:""
+                }
+            })
+        }
+    }
+
+}
 </script>
 
 <style>
