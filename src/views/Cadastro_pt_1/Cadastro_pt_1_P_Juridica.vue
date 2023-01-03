@@ -6,7 +6,7 @@
   </template>
   
   <script>
-  
+
   import Inicio from '@/components/Pessoa_Juridica/inicio.vue'
   import Footer from '@/components/Footer.vue'
   
@@ -15,7 +15,8 @@
     components: {
       Inicio,
       Footer
-    }
+    },
+
   }
   </script>
   

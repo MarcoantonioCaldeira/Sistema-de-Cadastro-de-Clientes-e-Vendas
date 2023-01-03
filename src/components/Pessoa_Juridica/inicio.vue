@@ -13,12 +13,11 @@
     <div id="conteudo_observacoes">
       <Input_observacoes />
     </div>
-    <router-link to="Cadastro_pt_2"><button  class="btn_proxima_etapa">Proxima etapa</button></router-link>
+    <router-link to="Cadastro_pt_2"><button  class="btn_proxima_etapa" v-on:submit.prevent="(Cadastro_Informacoes)">Proxima etapa</button></router-link>
   </div>
 </template>
 
 <script>
-
 
   import Informacoes_Cliente from '@/components/Pessoa_Juridica/Informacoes_Cliente.vue';
   import Tipo_Suframa from './Tipo_Suframa.vue';
