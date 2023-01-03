@@ -4,7 +4,7 @@
 
     <div>
         <input type="text" for="nome"  placeholder="Seu Nome" class="input" v-model="nome"/>
-        <div id="nome_apelido"  data-text="Nome apelido">
+        <div id="nome_fantasia"  data-text="Nome Fantasia">
             <input type="text" placeholder="nome-fantasia" v-model="nome_fantasia"/>
         </div>
         <input type="text"  placeholder="Seu email principal" class="input" v-model="e_mail"/>

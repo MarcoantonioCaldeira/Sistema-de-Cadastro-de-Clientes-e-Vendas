@@ -3,11 +3,11 @@
 
     <div>
         <input type="text" for="nome"  placeholder="Razão Social" class="input" v-model="nome_apelido"/>
-        <div id="nome_apelido"  data-text="Nome apelido">
-            {{ nome_apelido }} {{ num++ }}
+        <div id="nome_apelido"  data-text="Nome fatasia">
+            <input type="text" placeholder="nome-fantasia" v-model="nome_fantasia"/>
         </div>
-        <input   v-for="i in input"  :key="i"  type="text" :id='"item"+i' :placeholder="'Seu email Principal' + i" style="display: block" class="input">
-        <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input">
+        <input   v-for="i in input"  :key="i"  type="text" :id='"item"+i' :placeholder="'Seu email Principal' + i" style="display: block" class="input" v-model="e_mail">
+        <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input" v-model="e_mail_nfe">
 
 
         <div>
@@ -19,12 +19,12 @@
             <img src="src/assets/images/icon_add.png" />
         </button>
       
-        <input type="number" placeholder="Seu telefone" class="input">
-        <input type="number" placeholder="Celular" class="input">
+        <input type="number" placeholder="Seu telefone" class="input" v-model="telefone">
+        <input type="number" placeholder="Celular" class="input" v-model="celular">
         <div> 
-            <input type="text"  v-model="pessoas" :placeholder="[[ pessoa ]]" class="input"/>
+            <input type="text"  v-model="CMPJ" :placeholder="[[ pessoa ]]" class="input"/>
         </div>
-        <br><label class="lb_dt">Data da Fundação:</label><input type="date" style="display: inline" class="input_secundario_data">
+        <br><label class="lb_dt">Data da Fundação:</label><input type="date" style="display: inline" class="input_secundario_data" v-model="data_fundacao">
     </div>
 </template>
 <script>
@@ -37,25 +37,31 @@ export default{
     data(){
         return{
             pessoa:"CNPJ",
-            pessoas: null,
-            nome_apelido: "",
             num:1,
             input: 1
         };
     },
-    mathods: {
-        deleteRow(index) {
-            this.input.splice(index, 1);
-        },
-        validations: {
-        nome: {
-                required,
-                minLength: minLength(4)
+  
+        methods: {
+            Cadastro_Informacoes(){
+                    axios({
+                    method: 'post',
+                    url: 'localhost:9000/clientes',
+                        data: {
+                            nome_apelido: "",
+                            nome_fantasia: "",
+                            e_mail: "",
+                            e_mail_nfe: "",
+                            celular:"",
+                            telefone: "",
+                            CNPJ: "",
+                            data_fundacao: ""
+                        }
+                    })
             }
         }
     }
-   
-}
+
 </script>
 <style >
 @import "@/assets/scss/index.scss"; 
