@@ -15,7 +15,7 @@
     <div id="conteudo_observacoes">
       <Input_observacoes />
     </div>
-    <router-link to="Cadastro_pt_2"><button class="btn_proxima_etapa" v-on:submit="Cadastro_Informacoes">Proxima etapa</button></router-link>
+    <router-link to="Cadastro_pt_2"><button class="btn_proxima_etapa" v-on:submit.prevent="(Cadastro_Informacoes)">Proxima etapa</button></router-link>
   </div>
 </template>
 
