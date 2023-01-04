@@ -9,13 +9,13 @@
     <Informacoes_Cliente />
 
     <div id="suframa">
-      <Tipo_Suframa />
+     <!-- <Tipo_Suframa />-->
     </div>
     
     <div id="conteudo_observacoes">
-      <Input_observacoes />
+      <!--<Input_observacoes />-->
     </div>
-    <router-link to="Cadastro_pt_2"><button class="btn_proxima_etapa" v-on:submit.prevent="(Cadastro_Informacoes)">Proxima etapa</button></router-link>
+   
   </div>
 </template>
 
@@ -27,6 +27,11 @@
 
   export default {
     name: 'Inicio',
+    data(){
+      return{
+        submitStatus: null
+      }
+    },
     components: {
       Informacoes_Cliente,
       Tipo_Suframa,
