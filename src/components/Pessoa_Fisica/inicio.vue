@@ -9,13 +9,14 @@
     <Informacoes_Cliente />
 
     <div id="suframa">
-     <!-- <Tipo_Suframa />-->
+      <Tipo_Suframa />
     </div>
     
     <div id="conteudo_observacoes">
-      <!--<Input_observacoes />-->
+      <Input_observacoes />
     </div>
-   
+    <router-link to="Cadastro_pt_2"><button type="submit" class="btn_proxima_etapa" v-on:submit.prevent="(Cadastro_Informacoes)"
+    :disabled="submitStatus === 'PENDING'">Proxima etapa</button></router-link>
   </div>
 </template>
 
