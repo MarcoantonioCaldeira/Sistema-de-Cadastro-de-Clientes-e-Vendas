@@ -43,7 +43,7 @@ export default {
         Message
     },
     
-    data() {4
+    data(){
         return {
             //num: 1,
             //input: 1,
