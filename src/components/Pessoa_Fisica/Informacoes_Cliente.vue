@@ -1,8 +1,8 @@
 <template>
-
+    <Message :msg="msg" v-show="msg" />
     <h2 id="h2-informacoes">Informações do cliente</h2>
-
-    <form method="POST" @submit="Cadastrar">
+    {{ nome }}
+    <form method="POST" @submit.prevent="Cadastrar">
         <input type="text" naem="nome" placeholder="Seu Nome" v-model="nome" class="input" required>
         <div id="nome_apelido" data-text="Nome Apelido">
             <input type="text" placeholder="nome-apelido" v-model="nome_apelido">
@@ -12,7 +12,7 @@
 
         <button type="button" @click="input++" class="btn_adicionar_email" id="send">
             Adicionar outro email
-            <img src="src/assets/images/icon_add.png" />
+            <!--<img src="src/assets/images/icon_add.png" />-->
         </button>
 
         <input type="text" v-mask="'(##) ####-####'" placeholder="Seu telefone" class="input" v-model="telefone" />
@@ -20,42 +20,46 @@
         <div>
             <input type="text" placeholder="Seu CPF" class="input" v-model="cpf" />
         </div>
-        <br><label class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_separado_rg"
-            v-model="rg"><br><br>
-        <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline"
-            class="input_secundario_data" v-model="data_nascimento">
+        <br><label class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_separado_rg" v-model="rg"><br><br>
+
+        <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data" v-model="data_nascimento">
+
+            
+    <div id="teste">
+        <input class="submit-btn" type="submit" value="Concluir cadastro">
+    </div>
     </form>
+
 </template>
 
 <script>
 //import axios from 'axios';
-
+import Message from './Message.vue'
 
 export default {
+    
     name: 'Informacoes_Cliente',
-    data() {
+    components:{
+        Message
+    },
+    
+    data() {4
         return {
-            num: 1,
-            input: 1
+            //num: 1,
+            //input: 1,
+            nome: "",
+            nome_apelido: "",
+            email: "",
+            email_nfe: "",
+            telefone: "",
+            celular: "",
+            cpf: "",
+            rg: "",
+            data_nascimento: ""
         }
     },
 
     methods: {
-        //Cadastro_Informacoes(){
-        //axios({
-        //method: 'post',
-        //url: 'localhost:9000/clientes',
-        //data: {
-        //nome: "",
-        //nome_apelido: "",
-        //e_mail: "",
-        //e_mail_nfe: "",
-        //celular:"",
-        //telefone: "",
-        //cpf: "",
-        //inscricao_rg: ""
-        //}
-        //})
 
         async Cadastrar(e) {
 
@@ -73,11 +77,13 @@ export default {
                 data_nascimento: this.data_nascimento
             }
 
+            const _token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzMwMTE1Njd9.Rc7HW296PzrSSIfqQNJoI8GJTI6HCrAQBmyANpkOzss'
+
             const dataJson = JSON.stringify(data);
             const req = await fetch('http://localhost:9000/clientes', {
                 method: "POST",
                 headers: {
-                    'Authorization': "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzI5MzA3MjJ9.UlV_zi5p_nplZJLHHRAyCs1mTDs2FPMOJoX-RPOI-j4",
+                    'Authorization': 'Bearer ' + _token,
                     "Content-Type": "application/json"
                 },
                 body: dataJson
@@ -87,7 +93,19 @@ export default {
             this.msg = "Cadastro realizado com sucesso!"
             // clear message
             setTimeout(() => this.msg = "", 9000)
+
             // limpar campos
+            this.nome = "",
+            this.nome_apelido = "",
+            this.email = "",
+            this.email_nfe = "",
+            this.telefone = "",
+            this.celular = "",
+            this.cpf = "",
+            this.rg = "",
+            this.data_nascimento = ""
+
+            alert(this.nome)
 
         }
     }
@@ -96,4 +114,17 @@ export default {
 
 <style>
     @import "@/assets/scss/index.scss";
+
+    .submit-btn {
+        background-color:#a0bb82;
+        border-radius: 5px;
+        color:white;
+        font-weight: bold;
+        border: 2px solid #a0bb82;
+        padding: 15 15px;
+        font-size: 16px;
+        margin: -2%;
+        cursor: pointer;
+        transition: .5s;
+    }
 </style>
