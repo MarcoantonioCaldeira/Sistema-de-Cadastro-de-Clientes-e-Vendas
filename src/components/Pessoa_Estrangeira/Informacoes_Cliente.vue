@@ -52,7 +52,7 @@ export default{
                             nome_fantasia: "",
                             e_mail: "",
                             e_mail_nfe: "",
-                            celular:"",
+                            celular:"", 
                             telefone: "",
                             CNPJ: "",
                             data_fundacao: ""
