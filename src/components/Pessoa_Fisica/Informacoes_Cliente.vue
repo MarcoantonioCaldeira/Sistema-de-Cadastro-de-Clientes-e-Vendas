@@ -1,6 +1,5 @@
 <template>
     <h2 id="h2-informacoes">Informações do cliente</h2>
-    {{ nome }}
     <form>
         <input type="text" naem="nome" placeholder="Seu Nome" v-model="nome" class="input" required>
         <div id="nome_apelido" data-text="Nome Apelido">
@@ -22,8 +21,7 @@
         <br><label class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_separado_rg" v-model="rg"><br><br>
 
         <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data" v-model="data_nascimento">
-
-            
+        
     </form>
 
 </template>

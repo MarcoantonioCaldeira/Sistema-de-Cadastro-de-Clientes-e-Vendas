@@ -1,8 +1,7 @@
 <template>
-<slot>
   <etapas />
   <Message :msg="msg" v-show="msg" />
-  <form id="corpo_formulario" method="POST" @submit.prevent="Cadastrar">
+  <form-box id="corpo_formulario" method="POST" @click="$emit('Cadastrar')">
 
     <h1 id="h1-titulo">Cadastro do cliente</h1>
     <p>(Preencha os campos para cadastrar um novo cliente)</p>
@@ -19,8 +18,8 @@
 
     <!---<router-link to="Cadastro_pt_2"><button type="submit" class="btn_proxima_etapa">Proxima etapa</button></router-link>--->
     <input class="submit-btn" type="submit" value="CADASTRAR">
-  </form>
-</slot>
+  </form-box>
+  <slot></slot>
 </template>
 
 <script>
