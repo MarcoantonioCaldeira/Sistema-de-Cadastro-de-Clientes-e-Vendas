@@ -1,6 +1,7 @@
 <template>
+<slot>
   <etapas />
-  
+  <Message :msg="msg" v-show="msg" />
   <form id="corpo_formulario" method="POST" @submit.prevent="Cadastrar">
 
     <h1 id="h1-titulo">Cadastro do cliente</h1>
@@ -15,11 +16,15 @@
     <div id="conteudo_observacoes">
       <Input_observacoes />
     </div>
-    <router-link to="Cadastro_pt_2"><button type="submit" class="btn_proxima_etapa">Proxima etapa</button></router-link>
-    </form>
+
+    <!---<router-link to="Cadastro_pt_2"><button type="submit" class="btn_proxima_etapa">Proxima etapa</button></router-link>--->
+    <input class="submit-btn" type="submit" value="CADASTRAR">
+  </form>
+</slot>
 </template>
 
 <script>
+  import Message from './Message.vue'
   import Informacoes_Cliente from '@/components/Pessoa_Fisica/Informacoes_Cliente.vue';
   import Tipo_Suframa from './Tipo_Suframa.vue';
   import Input_observacoes from '@/components/Pessoa_Fisica/Input_observacoes.vue';
@@ -36,7 +41,8 @@
       Informacoes_Cliente,
       Tipo_Suframa,
       Input_observacoes,
-      etapas
+      etapas,
+      Message
     }
   }
 </script>

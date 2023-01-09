@@ -1,5 +1,4 @@
 <template>
-    <Message :msg="msg" v-show="msg" />
     <h2 id="h2-informacoes">Informações do cliente</h2>
     {{ nome }}
     <form>
@@ -31,19 +30,16 @@
 
 <script>
 //import axios from 'axios';
-import Message from './Message.vue'
 
 export default {
     
     name: 'Informacoes_Cliente',
-    components:{
-        Message
-    },
+
     
     data(){
         return {
             //num: 1,
-            //input: 1,
+            input: 1,
             nome: "",
             nome_apelido: "",
             email: "",
