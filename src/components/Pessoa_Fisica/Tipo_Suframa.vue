@@ -46,13 +46,18 @@ export default{
         const _token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzMzNDgxMjh9.XU5ue3YjmE3GtGeorNez8rS5Xl-PyYLRhBylSQXTJ3w'
         const dataJson = JSON.stringify(data);
 
+        
         const req = await fetch('http://localhost:3000/burgers', {
           method: "POST",
+          cache: 'no-cache',
+          credentials: 'include',
           headers: {
             'Authorization': 'Bearer ' + _token, 
-            "Content-Type" : "application/json" },
-          body: dataJson
+            "Content-Type" : "application/json" 
+         },
+          body: JSON.stringify(data)
         });
+
         const res = await req.json()
         console.log(res)
         this.msg = "Pedido realizado com sucesso!"

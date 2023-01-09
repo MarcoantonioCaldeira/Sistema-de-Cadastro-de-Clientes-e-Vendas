@@ -32,11 +32,13 @@ export default{
         const dataJson = JSON.stringify(data);
             const req = await fetch('http://localhost:9000/clientes', {
                 method: "POST",
+                cache: 'no-cache',
+                credentials: 'include',
                 headers: {
                     'Authorization': 'Bearer ' + _token,
                     "Content-Type": "application/json"
                 },
-                body: dataJson
+                body: JSON.stringify(data)
             });
 
             const res = await req.json()
