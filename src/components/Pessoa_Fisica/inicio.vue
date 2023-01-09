@@ -1,7 +1,7 @@
 <template>
   <etapas />
   
-  <div id="corpo_formulario">
+  <form id="corpo_formulario" method="POST" @submit.prevent="Cadastrar">
 
     <h1 id="h1-titulo">Cadastro do cliente</h1>
     <p>(Preencha os campos para cadastrar um novo cliente)</p>
@@ -15,9 +15,8 @@
     <div id="conteudo_observacoes">
       <Input_observacoes />
     </div>
-    <router-link to="Cadastro_pt_2"><button type="submit" class="btn_proxima_etapa" v-on:submit.prevent="(Cadastro_Informacoes)"
-    :disabled="submitStatus === 'PENDING'">Proxima etapa</button></router-link>
-  </div>
+    <router-link to="Cadastro_pt_2"><button type="submit" class="btn_proxima_etapa">Proxima etapa</button></router-link>
+    </form>
 </template>
 
 <script>

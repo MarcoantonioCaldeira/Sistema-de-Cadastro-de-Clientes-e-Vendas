@@ -2,7 +2,7 @@
     <Message :msg="msg" v-show="msg" />
     <h2 id="h2-informacoes">Informações do cliente</h2>
     {{ nome }}
-    <form method="POST" @submit.prevent="Cadastrar">
+    <form>
         <input type="text" naem="nome" placeholder="Seu Nome" v-model="nome" class="input" required>
         <div id="nome_apelido" data-text="Nome Apelido">
             <input type="text" placeholder="nome-apelido" v-model="nome_apelido">
