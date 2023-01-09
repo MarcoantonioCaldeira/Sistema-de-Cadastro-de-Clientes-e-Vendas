@@ -15,8 +15,8 @@
             <!--<img src="src/assets/images/icon_add.png" />-->
         </button>
 
-        <input type="text" v-mask="'(##) ####-####'" placeholder="Seu telefone" class="input" v-model="telefone" />
-        <input type="text" v-mask="'(##) ####-####'" placeholder="Celular" class="input" v-model="celular" />
+        <input type="text" placeholder="Seu telefone" class="input" v-model="telefone" />
+        <input type="text" placeholder="Celular" class="input" v-model="celular" />
         <div>
             <input type="text" placeholder="Seu CPF" class="input" v-model="cpf" />
         </div>
@@ -77,7 +77,7 @@ export default {
                 data_nascimento: this.data_nascimento
             }
 
-            const _token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzMwMTE1Njd9.Rc7HW296PzrSSIfqQNJoI8GJTI6HCrAQBmyANpkOzss'
+            const _token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzMzNDgxMjh9.XU5ue3YjmE3GtGeorNez8rS5Xl-PyYLRhBylSQXTJ3w'
 
             const dataJson = JSON.stringify(data);
             const req = await fetch('http://localhost:9000/clientes', {
