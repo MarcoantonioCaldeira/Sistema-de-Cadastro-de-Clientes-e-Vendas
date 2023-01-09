@@ -157,14 +157,14 @@ label {
   height: 220px;
   padding: 12px 20px;
   margin-top: 2%;
-  box-sizing: border-box;
+  //box-sizing: border-box;
   border: 1px solid;
   border-color: $cor_4;
   border-radius: 5px;
   background-color: $cor_4;
   box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
   font-size: 16px;
-  resize: none;
+  //resize: none;
 }
 
 
@@ -712,114 +712,6 @@ label {
     margin-top: 10%;
     margin-left: 5%;
     @include button-add-processeguir;
-  }
-
-}
-
-@media (min-width: 851px) and (max-width: 1200px) {
-
-  #h1-titulo {
-    margin-top: 14px;
-  }
-
-
-  #corpo_formulario {
-    min-height: 2000px;
-    max-height: 2200px;
-  }
-
-
-  .h2 {
-    top: 30%;
-    margin-left: 5%;
-    font-size: 17px;
-  }
-
-  .input {
-    width: 70%;
-  }
-
-  #nome_apelido {
-    @include input_apelido;
-    width: 70% !important;
-    line-height: 45px;
-    opacity: 0.8;
-  }
-
-  #suframa {
-    position: relative;
-    height: 500px;
-    width: 100%;
-    margin-left: 2%;
-    margin-top: 5%;
-  }
-
-
-  .h2_suframa {
-    font-size: 100%;
-    margin-left: 2%;
-  }
-
-
-  .input_suframa {
-    width: 55%;
-    margin-left: 2%;
-  }
-
-
-  .label_num_inscricao,
-  .label_codigo_suframa,
-  .p_obs {
-    margin-left: 2%;
-  }
-
-
-  .select {
-    width: 76%;
-    margin-left: 2%;
-  }
-
-
-  .btn_adicionar_email {
-    margin-left: 27%;
-  }
-
-
-  .input_inscricao {
-    width: 75%;
-    margin-top: 8%;
-    margin-left: 2%;
-  }
-
-
-  .text_area {
-    width: 80%;
-    margin-left: 2%;
-  }
-
-
-  .input_secundario_rg {
-    width: 62%;
-  }
-
-
-  .input_secundario_data {
-    width: 75%;
-    margin-left: 5%;
-  }
-
-
-  .btn_proxima_etapa {
-    margin-top: 10%;
-    margin-left: 2%;
-    @include button-add-processeguir;
-  }
-
-
-  #conteudo_observacoes {
-    //position: absolute;
-    margin-left: 0ch;
-    width: 100%;
   }
 
 }
