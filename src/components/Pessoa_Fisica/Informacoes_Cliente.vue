@@ -20,8 +20,7 @@
         </div>
         <br><label class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_separado_rg" v-model="rg"><br><br>
 
-        <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data" v-model="data_nascimento">
-        
+        <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data" v-model="data_nascimento">   
     </form>
 
 </template>
@@ -37,7 +36,7 @@ export default {
     data(){
         return {
             //num: 1,
-            input: 1,
+            //input: 1,
             nome: "",
             nome_apelido: "",
             email: "",
@@ -73,12 +72,16 @@ export default {
             const dataJson = JSON.stringify(data);
             const req = await fetch('http://localhost:9000/clientes', {
                 method: "POST",
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache',
+                credentials: 'include',
                 headers: {
                     'Authorization': 'Bearer ' + _token,
                     "Content-Type": "application/json"
                 },
-                body: dataJson
+                body: JSON.stringify(data)
             });
+
             const res = await req.json()
             console.log(res)
             this.msg = "Cadastro realizado com sucesso!"

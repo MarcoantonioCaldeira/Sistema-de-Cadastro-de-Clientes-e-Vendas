@@ -18,7 +18,7 @@
 
     <!---<router-link to="Cadastro_pt_2"><button type="submit" class="btn_proxima_etapa">Proxima etapa</button></router-link>--->
     <input class="submit-btn" type="submit" value="CADASTRAR">
-    <slot></slot>
+    <!--<slot></slot>-->
   </form>
 </template>
 
