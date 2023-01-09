@@ -25,9 +25,6 @@
         <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data" v-model="data_nascimento">
 
             
-    <div id="teste">
-        <input class="submit-btn" type="submit" value="Concluir cadastro">
-    </div>
     </form>
 
 </template>
@@ -114,17 +111,4 @@ export default {
 
 <style>
     @import "@/assets/scss/index.scss";
-
-    .submit-btn {
-        background-color:#a0bb82;
-        border-radius: 5px;
-        color:white;
-        font-weight: bold;
-        border: 2px solid #a0bb82;
-        padding: 15 15px;
-        font-size: 16px;
-        margin: -2%;
-        cursor: pointer;
-        transition: .5s;
-    }
 </style>

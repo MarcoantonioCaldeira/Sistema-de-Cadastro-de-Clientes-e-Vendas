@@ -12,7 +12,43 @@ export default{
 
    name: 'Input_observacoes',
 
+   data(){
+      return{
+         observacoes: ""
+      }
+   },
    methods: {
+
+      async Cadastrar(e) {
+
+         e.preventDefault();
+
+         const data = {
+          observacoes: this.observacoes
+        }
+
+        const _token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzMzNDgxMjh9.XU5ue3YjmE3GtGeorNez8rS5Xl-PyYLRhBylSQXTJ3w'
+
+        const dataJson = JSON.stringify(data);
+            const req = await fetch('http://localhost:9000/clientes', {
+                method: "POST",
+                headers: {
+                    'Authorization': 'Bearer ' + _token,
+                    "Content-Type": "application/json"
+                },
+                body: dataJson
+            });
+
+            const res = await req.json()
+            console.log(res)
+            this.msg = "Cadastro realizado com sucesso!"
+            // clear message
+            setTimeout(() => this.msg = "", 9000)
+
+            // limpar campos
+            this.observacoes = ""
+
+      }
 
    }
 
