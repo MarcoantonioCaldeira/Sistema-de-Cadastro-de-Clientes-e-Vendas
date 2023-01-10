@@ -20,15 +20,6 @@
 export default{
    data(){
       return{
-         nome: "",
-         nome_apelido: "",
-         email: "",
-         email_nfe: "",
-         telefone: "",
-         celular: "",
-         cpf: "",
-         rg: "",
-         data_nascimento: "",
          tipo_suframa: []
       }
    },

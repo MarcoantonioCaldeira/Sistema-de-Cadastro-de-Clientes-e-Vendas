@@ -16,7 +16,7 @@
       <Input_observacoes />
     </div>
 
-    <input class="submit-btn" type="submit" value="CADASTRAR">
+    <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
 
   </form>
 </template>
