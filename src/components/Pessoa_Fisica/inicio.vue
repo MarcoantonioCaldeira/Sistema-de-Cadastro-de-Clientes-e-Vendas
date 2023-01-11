@@ -1,24 +1,24 @@
 <template>
   <etapas />
   <Message :msg="msg" v-show="msg" />
-  <form id="corpo_formulario" method="POST" @submit="Cadastrar">
+  <div id="corpo_formulario">
 
     <h1 id="h1-titulo">Cadastro do cliente</h1>
     <p>(Preencha os campos para cadastrar um novo cliente)</p>
 
     <Informacoes_Cliente />
 
-    <div id="suframa">
+    <!--<div id="suframa">
       <Tipo_Suframa />
-    </div>
+    </div>-->
     
-    <div id="conteudo_observacoes">
+    <!--<div id="conteudo_observacoes">
       <Input_observacoes />
-    </div>
+    </div>-->
 
-    <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
+    <!--<input class="btn_proxima_etapa" type="submit" value="CADASTRAR">-->
 
-  </form>
+  </div>
 </template>
 
 <script>

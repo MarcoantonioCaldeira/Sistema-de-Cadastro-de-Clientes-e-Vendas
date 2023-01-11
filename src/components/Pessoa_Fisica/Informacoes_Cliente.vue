@@ -1,6 +1,10 @@
 <template>
+
+    <!--Informacoes do cliente-->
+    <Message :msg="msg" v-show="msg" />
+
     <h2 id="h2-informacoes">Informações do cliente</h2>
-    <form>
+    <form method="POST" @submit="Cadastrar">
         <input type="text" naem="nome" placeholder="Seu Nome" v-model="nome" class="input" required>
         <div id="nome_apelido" data-text="Nome Apelido">
             <input type="text" placeholder="nome-apelido" v-model="nome_apelido">
@@ -20,18 +24,46 @@
         </div>
         <br><label class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_separado_rg" v-model="rg"><br><br>
 
-        <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data" v-model="data_nascimento">   
+        <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data" v-model="data_nascimento">  
+        
+        <!--Tipo Suframa-->
+
+
+        <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência da<br>Zona Franca de Manaus)</h2>    
+        <br>
+        <select class="select" v-model="tipo_suframa">
+            <option>ZFM(Zona Franca de Manaus)</option>
+            <option>ALC(Área de Livre Comercio)</option>
+            <option>Am. Ocid(Amazonia Ocidental)</option>
+        </select>
+        
+        <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline" class="input_suframa" v-model="codigo_suframa">
+        
+        <br><label class="label_num_inscricao">Numero de inscrição municipal: </label><input type="text" style="display: inline" class="input_inscricao" v-model="numero_inscricao_municipal">
+
+
+        <!--Observacoes-->
+
+        <p class="p_obs">Observações</p>
+        <textarea class="text_area" v-model="observacoes">
+
+        </textarea>
+
+        <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
     </form>
 
 </template>
 
 <script>
+import Message from './Message.vue'
 
 export default {
     
     name: 'Informacoes_Cliente',
+    components:{
+        Message
+    },
 
-    
     data(){
         return {
             //num: 1,
@@ -44,7 +76,10 @@ export default {
             celular: "",
             cpf: "",
             rg: "",
-            data_nascimento: ""
+            data_nascimento: "",
+            tipo_suframa: [],
+            observacoes: "",
+            //msg: null
         }
     },
 
@@ -63,11 +98,12 @@ export default {
                 celular: this.celular,
                 cpf: this.cpf,
                 rg: this.rg,
-                data_nascimento: this.data_nascimento
+                data_nascimento: this.data_nascimento,
+                tipo_suframa: Array.from(this.tipo_suframa),
+                observacoes: this.observacoes
             }
 
-            const _token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzMzNDgxMjh9.XU5ue3YjmE3GtGeorNez8rS5Xl-PyYLRhBylSQXTJ3w'
-
+            const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzM0Mzc5Mzl9.5sj6ZQnhz77VTmB4Y7wgk2PDrRAt7elOTs90BTEtE78'
             const dataJson = JSON.stringify(data);
             const req = await fetch('http://localhost:9000/clientes', {
                 method: "POST",
@@ -75,7 +111,7 @@ export default {
                 cache: 'no-cache',
                 credentials: 'include',
                 headers: {
-                    'Authorization': 'Bearer ' + _token,
+                    'Authorization': `Bearer  + ${token}`,
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(data)
@@ -96,7 +132,9 @@ export default {
             this.celular = "",
             this.cpf = "",
             this.rg = "",
-            this.data_nascimento = ""
+            this.data_nascimento = "",
+            this.tipo_suframa = []
+            this.observacoes = "",
 
             alert(this.nome)
 

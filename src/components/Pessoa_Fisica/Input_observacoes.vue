@@ -27,7 +27,7 @@ export default{
           observacoes: this.observacoes
         }
 
-        const _token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzMzNDgxMjh9.XU5ue3YjmE3GtGeorNez8rS5Xl-PyYLRhBylSQXTJ3w'
+        const _token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzM0Mzc5Mzl9.5sj6ZQnhz77VTmB4Y7wgk2PDrRAt7elOTs90BTEtE78'
 
         const dataJson = JSON.stringify(data);
             const req = await fetch('http://localhost:9000/clientes', {
