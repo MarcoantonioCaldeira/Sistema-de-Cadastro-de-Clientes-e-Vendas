@@ -66,8 +66,6 @@ export default {
 
     data(){
         return {
-            //num: 1,
-            //input: 1,
             nome: "",
             nome_apelido: "",
             email: "",
@@ -79,12 +77,11 @@ export default {
             data_nascimento: "",
             tipo_suframa: [],
             observacoes: "",
-            //msg: null
+            msg: null
         }
     },
 
     methods: {
-
         async Cadastrar(e) {
 
             e.preventDefault();

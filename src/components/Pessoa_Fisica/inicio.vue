@@ -1,6 +1,5 @@
 <template>
   <etapas />
-  <Message :msg="msg" v-show="msg" />
   <div id="corpo_formulario">
 
     <h1 id="h1-titulo">Cadastro do cliente</h1>
