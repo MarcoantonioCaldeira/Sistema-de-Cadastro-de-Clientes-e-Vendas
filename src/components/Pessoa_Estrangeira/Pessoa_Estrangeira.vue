@@ -6,19 +6,7 @@
 
 <script>
 export default {
-    name: 'Pessoa_Estrangeira',
-
-    methods: {
-      Cadastro_Informacoes(){
-            axios({
-               method: 'post',
-               url: 'localhost:9000/clientes',
-               data: {
-                pessoa_estrangeira: 2,
-            }
-        })
-      }
-   }
+    name: 'Pessoa_Estrangeira'
 }
 </script>
 <style src="./estilo_inicio_p_estrangeira.scss"  lang="scss">

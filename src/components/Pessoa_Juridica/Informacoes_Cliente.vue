@@ -42,23 +42,6 @@ import axios from 'axios';
         },
 
         methods: {
-            Cadastro_Informacoes(){
-                    axios({
-                    method: 'post',
-                    url: 'localhost:9000/clientes',
-                        data: {
-                            razao_social: "",
-                            nome_apelido: "",
-                            e_mail: "",
-                            e_mail_nfe: "",
-                            celular:"",
-                            telefone: "",
-                            CNPJ: "",
-                            inscricao_estadual: "",
-                            data_fundacao: ""
-                        }
-                    })
-            }
         }
     }
 </script>

@@ -12,15 +12,6 @@ export default {
     name: 'Input_observacoes',
 
     methods: {
-      Cadastro_Informacoes(){
-            axios({
-               method: 'post',
-               url: 'localhost:9000/clientes',
-               data: {
-                  observacoes: "",
-            }
-         })
-      }
    }
  }
 </script>

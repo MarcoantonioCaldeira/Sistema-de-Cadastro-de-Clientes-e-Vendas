@@ -7,19 +7,7 @@
 <script>
 
 export default {
-    name: 'Pessoa_Fisica',
-
-    methods: {
-      Cadastro_Informacoes(){
-            axios({
-               method: 'post',
-               url: 'localhost:9000/clientes',
-               data: {
-                pessoa_fisica: 1,
-            }
-        })
-      }
-   }
+    name: 'Pessoa_Fisica'
 }
 </script>
 <style src="./estilo_inicio.scss"  lang="scss">

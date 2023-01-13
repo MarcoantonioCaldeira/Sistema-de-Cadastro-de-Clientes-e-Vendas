@@ -43,22 +43,7 @@ export default{
     },
   
         methods: {
-            Cadastro_Informacoes(){
-                    axios({
-                    method: 'post',
-                    url: 'localhost:9000/clientes',
-                        data: {
-                            nome_apelido: "",
-                            nome_fantasia: "",
-                            e_mail: "",
-                            e_mail_nfe: "",
-                            celular:"", 
-                            telefone: "",
-                            CNPJ: "",
-                            data_fundacao: ""
-                        }
-                    })
-            }
+
         }
     }
 
