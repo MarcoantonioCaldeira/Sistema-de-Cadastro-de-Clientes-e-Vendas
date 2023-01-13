@@ -7,23 +7,11 @@
 
     <Informacoes_Cliente />
 
-    <!--<div id="suframa">
-      <Tipo_Suframa />
-    </div>-->
-    
-    <!--<div id="conteudo_observacoes">
-      <Input_observacoes />
-    </div>-->
-
-    <!--<input class="btn_proxima_etapa" type="submit" value="CADASTRAR">-->
-
   </div>
 </template>
 
 <script>
   import Informacoes_Cliente from '@/components/Pessoa_Fisica/Informacoes_Cliente.vue';
-  import Tipo_Suframa from './Tipo_Suframa.vue';
-  import Input_observacoes from '@/components/Pessoa_Fisica/Input_observacoes.vue';
   import etapas from './etapas.vue'
 
   export default {
@@ -35,8 +23,6 @@
     },
     components: {
       Informacoes_Cliente,
-      Tipo_Suframa,
-      Input_observacoes,
       etapas
     }
   }

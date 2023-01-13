@@ -79,9 +79,8 @@ export default {
     },
 
     methods: {
-        async Cadastrar(e) {
-            api
-                .post({
+        async Cadastrar() {
+            api.post({
                     name: this.nome, 
                     nome_apelido: this.nome_apelido,
                     email: this.email,
