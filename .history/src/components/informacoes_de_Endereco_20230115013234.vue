@@ -6,9 +6,9 @@
             <h2 class="h2_endereco">Endereço principal</h2>
             <label class="lb_cep">Seu CEP:</label> <input type="text" class="input_cep" v-model="cep"
                 v-on:click="consulta_cep">
-            <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco">
+            <input type="text" placeholder="Endereço" class="input_endereco" v-model="Endereco">
             <input type="text" placeholder="Numero" class="input_endereco" v-model="numero">
-            <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento">
+            <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="Complemento">
             <input type="text" placeholder="Bairro" class="input_endereco" v-model="cep_data.bairro">
             <input type="text" placeholder="Cidade" class="input_endereco" v-model="cep_data.localidade">
             <input type="text" placeholder="Estado" class="input_endereco" v-model="cep_data.uf">
@@ -45,10 +45,8 @@
     </div>
 </template>
 <script>
-import api from './api'
-import axios from 'axios'
-import { assertExpressionStatement } from '@babel/types';
 import axios from 'axios';
+import { assertExpressionStatement } from '@babel/types';
 
 
 export default {
@@ -56,19 +54,14 @@ export default {
     data() {
         return {
             cep: "",
-            endereco: "",
-            numero: "",
-            complemento: "",
-            bairro: "",
-            localidade: "",
-            uf: "",
             cep_data: "",
-            cep_keys: []
+            cep_keys: [],
+
         }
     },
 
     methods: {
-        async consulta_cep() {
+        consulta_cep() {
             var self = this;
 
             axios
@@ -86,26 +79,21 @@ export default {
                 });
         },
 
-        async Cadastro_Informacoes() {
-            api.post({
+        Cadastro_Informacoes() {
+            axios({
+                method: 'post',
+                url: 'localhost:9000/clientes',
                 data: {
-                    CEP: this.cep,
-                    Endereco: this.endereco,
-                    numero: this.numero,
-                    Complemento: this.complemento,
-                    Bairro: this.bairro,
-                    Localidade: this.localidade,
-                    Estado: this.endereco,
-                    Numero: this.numero
+                    CEP: "",
+                    Endereco: "",
+                    numero: "",
+                    Complemento: "",
+                    Bairro: "",
+                    Cidade: "",
+                    Estado: "",
+                    Numero: ""
                 }
             })
-
-                .then(() => {
-                    console.log('Informações adicionadas com sucesso!!!')
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
         }
     }
 
