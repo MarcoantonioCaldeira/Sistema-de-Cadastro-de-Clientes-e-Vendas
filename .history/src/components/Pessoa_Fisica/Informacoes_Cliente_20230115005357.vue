@@ -21,27 +21,23 @@
         <div>
             <input type="text" placeholder="Seu CPF" class="input" v-model="cpf" />
         </div>
-        <br><label class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_separado_rg"
-            v-model="rg"><br><br>
+        <br><label class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_separado_rg" v-model="rg"><br><br>
 
-        <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline"
-            class="input_secundario_data" v-model="data_nascimento">
-
+        <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data" v-model="data_nascimento">  
+        
         <!--Tipo Suframa-->
 
-        <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência da<br>Zona Franca de Manaus)</h2>
+        <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência da<br>Zona Franca de Manaus)</h2>    
         <br>
         <select class="select" v-model="tipo_suframa">
             <option>ZFM(Zona Franca de Manaus)</option>
             <option>ALC(Área de Livre Comercio)</option>
             <option>Am. Ocid(Amazonia Ocidental)</option>
         </select>
-
-        <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline"
-            class="input_suframa" v-model="codigo_suframa">
-
-        <br><label class="label_num_inscricao">Numero de inscrição municipal: </label><input type="text"
-            style="display: inline" class="input_inscricao" v-model="numero_inscricao_municipal">
+        
+        <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline" class="input_suframa" v-model="codigo_suframa">
+        
+        <br><label class="label_num_inscricao">Numero de inscrição municipal: </label><input type="text" style="display: inline" class="input_inscricao" v-model="numero_inscricao_municipal">
 
 
         <!--Observacoes-->
@@ -57,13 +53,13 @@
 </template>
 
 <script>
-import api from '../api'
+import api from './api'
 
 export default {
-
+    
     name: 'Informacoes_Cliente',
 
-    data() {
+    data(){
         return {
             nome: "",
             nome_apelido: "",
@@ -85,20 +81,20 @@ export default {
     methods: {
         async Cadastrar() {
             api.post({
-                name: this.nome,
-                nome_apelido: this.nome_apelido,
-                email: this.email,
-                email_nfe: this.email_nfe,
-                telefone: this.telefone,
-                celular: this.celular,
-                cpf: this.cpf,
-                rg: this.rg,
-                data_nascimento: this.data_nascimento,
-                tipo_suframa: Array.from(this.tipo_suframa),
-                codigo_suframa: this.codigo_suframa,
-                numero_inscricao_municipal: this.numero_inscricao_municipal,
-                observacoes: this.observacoes
-            })
+                    name: this.nome, 
+                    nome_apelido: this.nome_apelido,
+                    email: this.email,
+                    email_nfe: this.email_nfe,
+                    telefone: this.telefone,
+                    celular: this.celular,
+                    cpf: this.cpf,
+                    rg: this.rg,
+                    data_nascimento: this.data_nascimento,
+                    tipo_suframa: Array.from(this.tipo_suframa),
+                    codigo_suframa: this.codigo_suframa,
+                    numero_inscricao_municipal: this.numero_inscricao_municipal,
+                    observacoes: this.observacoes
+                })
                 .then(() => {
                     console.log('Usuário cadastrado com sucesso')
                 })
@@ -111,5 +107,5 @@ export default {
 </script>
 
 <style>
-@import "@/assets/scss/index.scss";
+    @import "@/assets/scss/index.scss";
 </style>

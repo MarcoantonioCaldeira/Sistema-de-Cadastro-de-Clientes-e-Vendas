@@ -46,9 +46,7 @@
 </template>
 <script>
 import api from './api'
-import axios from 'axios'
 import { assertExpressionStatement } from '@babel/types';
-import axios from 'axios';
 
 
 export default {
@@ -71,7 +69,7 @@ export default {
         async consulta_cep() {
             var self = this;
 
-            axios
+            api
                 .get('https://viacep.com.br/ws/' + this.cep + '/json/')
                 .then(function (response) {
 
@@ -99,13 +97,6 @@ export default {
                     Numero: this.numero
                 }
             })
-
-                .then(() => {
-                    console.log('Informações adicionadas com sucesso!!!')
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
         }
     }
 

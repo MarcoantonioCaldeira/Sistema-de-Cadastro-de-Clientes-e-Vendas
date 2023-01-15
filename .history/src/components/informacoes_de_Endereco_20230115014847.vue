@@ -46,9 +46,7 @@
 </template>
 <script>
 import api from './api'
-import axios from 'axios'
 import { assertExpressionStatement } from '@babel/types';
-import axios from 'axios';
 
 
 export default {

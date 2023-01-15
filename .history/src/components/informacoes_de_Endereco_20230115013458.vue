@@ -45,10 +45,8 @@
     </div>
 </template>
 <script>
-import api from './api'
-import axios from 'axios'
-import { assertExpressionStatement } from '@babel/types';
 import axios from 'axios';
+import { assertExpressionStatement } from '@babel/types';
 
 
 export default {
@@ -59,16 +57,15 @@ export default {
             endereco: "",
             numero: "",
             complemento: "",
-            bairro: "",
-            localidade: "",
-            uf: "",
+
             cep_data: "",
-            cep_keys: []
+            cep_keys: [],
+
         }
     },
 
     methods: {
-        async consulta_cep() {
+        consulta_cep() {
             var self = this;
 
             axios
@@ -86,26 +83,21 @@ export default {
                 });
         },
 
-        async Cadastro_Informacoes() {
-            api.post({
+        Cadastro_Informacoes() {
+            axios({
+                method: 'post',
+                url: 'localhost:9000/clientes',
                 data: {
-                    CEP: this.cep,
-                    Endereco: this.endereco,
-                    numero: this.numero,
-                    Complemento: this.complemento,
-                    Bairro: this.bairro,
-                    Localidade: this.localidade,
-                    Estado: this.endereco,
-                    Numero: this.numero
+                    CEP: "",
+                    Endereco: "",
+                    numero: "",
+                    Complemento: "",
+                    Bairro: "",
+                    Cidade: "",
+                    Estado: "",
+                    Numero: ""
                 }
             })
-
-                .then(() => {
-                    console.log('Informações adicionadas com sucesso!!!')
-                })
-                .catch((error) => {
-                    console.log(error);
-                });
         }
     }
 
