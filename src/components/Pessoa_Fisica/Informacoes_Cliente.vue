@@ -3,6 +3,7 @@
     <!--Informacoes do cliente-->
 
     <h2 id="h2-informacoes">Informações do cliente</h2>
+    
     <form method="POST" @submit="Cadastrar">
         <input type="text" name="nome" placeholder="Seu Nome" v-model="nome" class="input" required>
         <div id="nome_apelido" data-text="Nome Apelido">
@@ -82,9 +83,13 @@ export default {
         }
     },
 
+    created(){
+        this.Cadastrar()
+    },
+
     methods: {
         async Cadastrar() {
-            api.post({
+            api.post("http://localhost:9000/clientes",{
                 nome: this.nome,
                 nome_apelido: this.nome_apelido,
                 email: this.email,
