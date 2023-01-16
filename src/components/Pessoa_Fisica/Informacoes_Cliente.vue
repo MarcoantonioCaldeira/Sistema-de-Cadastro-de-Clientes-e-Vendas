@@ -8,7 +8,7 @@
         <div id="nome_apelido" data-text="Nome Apelido">
             <input type="text" placeholder="nome-apelido" v-model="nome_apelido">
         </div>
-        <input type="text" placeholder="Seu email principal" class="input" v-model="e_mail">
+        <input type="text" placeholder="Seu email principal" class="input" v-model="email">
         <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input" v-model="email_nfe">
 
         <button type="button" @click="input++" class="btn_adicionar_email" id="send">
@@ -85,7 +85,7 @@ export default {
     methods: {
         async Cadastrar() {
             api.post({
-                name: this.nome,
+                nome: this.nome,
                 nome_apelido: this.nome_apelido,
                 email: this.email,
                 email_nfe: this.email_nfe,
