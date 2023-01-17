@@ -5,11 +5,7 @@
 </template>
 
 <script>
-import axios from 'axios';
 
-export default {
-    name: 'Pessoa_Juridica'
-}
 </script>
 <style src="./estilo_inicio_p_juridica.scss"  lang="scss">
 

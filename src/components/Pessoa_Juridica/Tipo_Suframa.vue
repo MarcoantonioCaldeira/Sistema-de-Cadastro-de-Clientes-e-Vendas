@@ -15,23 +15,13 @@
 
 
 <script>
-import axios from 'axios';
+
 
 export default{
     name: 'Tipo_Suframa',
 
     methods: {
-      Cadastro_Informacoes(){
-            axios({
-               method: 'post',
-               url: 'localhost:9000/clientes',
-               data: {
-                  tipo_suframa: "",
-                  codigo_suframa: "",
-                  numero_inscricao_municipal: ""
-            }
-         })
-      }
+     
    }
 }
 </script>
