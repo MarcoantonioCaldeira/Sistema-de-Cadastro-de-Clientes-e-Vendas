@@ -4,7 +4,7 @@
 
     <h2 id="h2-informacoes">Informações do cliente</h2>
 
-    <form method="POST" @click="Cadastrar">
+    <form method="POST" @submit.prevent="Cadastrar">
 
         <input type="text" name="nome" placeholder="Seu Nome" v-model="nome" class="input" required>
         <div id="nome_apelido" data-text="Nome Apelido">
@@ -38,14 +38,12 @@
         <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência da<br>Zona Franca de Manaus)</h2>
         <br>
         <select class="select" v-model="suframa_tipo">
-            <option>ZFM(Zona Franca de Manaus)</option>
-            <option>ALC(Área de Livre Comercio)</option>
-            <option>Am. Ocid(Amazonia Ocidental)</option>
+            <option value="0">ZFM(Zona Franca de Manaus)</option>
+            <option value="1">ALC(Área de Livre Comercio)</option>
+            <option value="2">Am. Ocid(Amazonia Ocidental)</option>
         </select>
 
         <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline">
-
-            <br><input type="text" style="display: inline" class="suframa_tipo"  placeholder="Tipo Suframa" v-model="suframa_tipo"><br>
 
         <br><label class="label_num_inscricao">Numero de inscrição municipal: </label><input type="text" style="display: inline" class="input_inscricao" v-model="inscricao_municipal">
 
@@ -115,10 +113,6 @@ export default {
         }
     },
 
-    created() {
-        this.Cadastrar()
-    },
-
     methods: {
         Cadastrar() {
             api
@@ -155,11 +149,9 @@ export default {
                     }]
                 }]
             })
-                .then(() => {
+                .then(response => {
                     console.log('Usuário cadastrado com sucesso')
-                })
-                .catch((error) => {
-                    console.log(error);
+                    console.log(response)
                 });
         }
     }
