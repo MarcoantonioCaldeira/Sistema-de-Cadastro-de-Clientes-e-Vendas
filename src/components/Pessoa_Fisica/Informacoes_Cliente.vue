@@ -48,8 +48,7 @@
 
             <br><input type="text" style="display: inline" class="suframa_tipo"  placeholder="Tipo Suframa" v-model="suframa_tipo"><br>
 
-        <br><label class="label_num_inscricao">Numero de inscrição municipal: </label><input type="text"
-            style="display: inline" class="input_inscricao" v-model="numero_inscricao_municipal">
+        <br><label class="label_num_inscricao">Numero de inscrição municipal: </label><input type="text" style="display: inline" class="input_inscricao" v-model="inscricao_municipal">
 
 
         <!--Observacoes-->
@@ -122,7 +121,7 @@ export default {
     },
 
     methods: {
-        async Cadastrar() {
+        Cadastrar() {
             api
             .post("clientes",{
                 clientes:[{
