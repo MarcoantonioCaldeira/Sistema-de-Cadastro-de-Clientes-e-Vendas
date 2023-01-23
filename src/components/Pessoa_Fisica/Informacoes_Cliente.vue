@@ -10,24 +10,24 @@
         <div id="nome_apelido" data-text="Nome Apelido">
             <input type="text" placeholder="nome-apelido" v-model="nome_apelido">
         </div>
-        <input type="text" placeholder="Seu email principal" class="input" v-model="email">
-        <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input" v-model="email_nfe">
+        <input type="text" placeholder="Seu email principal" class="input" v-model="e_mail">
+        <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input" v-model="e_mail_nfe">
 
-        <button type="button" @click="input++" class="btn_adicionar_email" id="send">
+        <!--<button type="button" @click="input++" class="btn_adicionar_email" id="send">
             Adicionar outro email
-            <!--<img src="src/assets/images/icon_add.png" />-->
-        </button>
+            <img src="src/assets/images/icon_add.png" />
+        </button>-->
 
-        <input type="text" placeholder="Seu telefone" class="input" v-model="telefone" />
+        <input type="text" placeholder="Seu telefone" class="input" v-model="telefone_2" />
         <input type="text" placeholder="Celular" class="input" v-model="celular" />
         <div>
-            <input type="text" placeholder="Seu CPF" class="input" v-model="cpf" />
+            <input type="text" placeholder="Seu CPF" class="input" v-model="cnpj_cpf" />
         </div>
         <br><label class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_separado_rg"
-            v-model="rg"><br><br>
+            v-model="inscricao_rg"><br><br>
 
         <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline"
-            class="input_secundario_data" v-model="data_nascimento">
+            class="input_secundario_data" v-model="nascimento">
 
         <!--Tipo Suframa-->
 
@@ -68,19 +68,22 @@ export default {
     data() {
         return {
             nome: "",
-            nome_apelido: "",
-            email: "",
-            email_nfe: "",
-            telefone: "",
-            celular: "",
-            cpf: "",
-            rg: "",
-            data_nascimento: "",
-            tipo_suframa: [],
-            codigo_suframa: "",
-            numero_inscricao_municipal: "",
-            observacoes: ""
-            //msg: null
+            nome_fantasia: "",
+            classificacao: "",
+            classificacao_entrega: "",
+            e_mail: "",
+            observacao: "",
+            e_mail_nfe: "",
+            data_cadastro: "",
+            telefone_2:"",
+            celular:"",
+            cnpj_cpf:"",
+            cnpj_cpf_entrega:"",
+            inscricao_rg:"",
+            nascimento:"",
+            suframa_tipo:"",
+            suframa:"",
+            inscricao_municipal:""
         }
     },
 
@@ -90,20 +93,40 @@ export default {
 
     methods: {
         async Cadastrar() {
-            api.post({
-                nome: 'Marco',
-                nome_apelido: 'Marco1',
-                email: 'fffffff',
-                email_nfe: this.email_nfe,
-                telefone: this.telefone,
-                celular: this.celular,
-                cpf: this.cpf,
-                rg: this.rg,
-                data_nascimento: this.data_nascimento,
-                tipo_suframa: Array.from(this.tipo_suframa),
-                codigo_suframa: this.codigo_suframa,
-                numero_inscricao_municipal: this.numero_inscricao_municipal,
-                observacoes: this.observacoes
+            api
+            .post("clientes",{
+                clientes:[{
+                    nome: this.nome,
+                    nome_fantasia: this.nome_fantasia,
+                    classificacao: this.classificacao,
+                    classificacao_entrega: this.classificacao_entrega,
+                    e_mail: this.e_mail,
+                    observacao: this.observacao,
+                    e_mail_nfe: this.e_mail_nfe,
+                    data_cadastro: this.data_cadastro,
+                    telefone_2: this.telefone_2,
+                    celular: this.celular,
+                    cnpj_cpf: this.cnpj_cpf,
+                    cnpj_cpf_entrega: this.cnpj_cpf_entrega,
+                    inscricao_rg: this.inscricao_rg,
+                    nascimento: this.nascimento,
+                    suframa_tipo: this.suframa_tipo,
+                    suframa: this.suframa,
+                    inscricao_municipal: this.inscricao_municipal,
+
+                    cliente_enderecos:[{
+                        cep: this.cep,
+                        endereco: this.endereco,
+                        end_numero: this.end_numero,
+                        complemento: this.complemento,
+                        bairro: this.bairro,
+                        cidade: this.cidade,
+                        cod_cidade: this.cod_cidade,
+                        cod_pais: this.cod_pais,
+                        estado: this.estado,
+                        tipo_endereco: this.tipo_endereco
+                    }]
+                }]
             })
                 .then(() => {
                     console.log('Usuário cadastrado com sucesso')
