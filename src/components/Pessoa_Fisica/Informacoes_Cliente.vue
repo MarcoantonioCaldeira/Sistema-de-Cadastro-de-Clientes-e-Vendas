@@ -8,10 +8,12 @@
 
         <input type="text" name="nome" placeholder="Seu Nome" v-model="nome" class="input" required>
         <div id="nome_apelido" data-text="Nome Apelido">
-            <input type="text" placeholder="nome-apelido" v-model="nome_apelido">
+            <input type="text" placeholder="nome-apelido" v-model="nome_fantasia">
         </div>
         <input type="text" placeholder="Seu email principal" class="input" v-model="e_mail">
-        <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input" v-model="e_mail_nfe">
+        <input type="text"  placeholder="Seu email nfe" class="input" v-model="e_mail_nfe">
+
+        <input type="text" placeholder="Data do cadastro" class="input" v-model="data_cadastro">
 
         <!--<button type="button" @click="input++" class="btn_adicionar_email" id="send">
             Adicionar outro email
@@ -23,8 +25,10 @@
         <div>
             <input type="text" placeholder="Seu CPF" class="input" v-model="cnpj_cpf" />
         </div>
-        <br><label class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_separado_rg"
-            v-model="inscricao_rg"><br><br>
+
+        <br><input type="text"  placeholder="CPF de entrega" style="display: inline" class="input_separado_rg" v-model="cnpj_cpf_entrega"><br><br>
+
+        <br><label class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_separado_rg" v-model="inscricao_rg"><br><br>
 
         <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline"
             class="input_secundario_data" v-model="nascimento">
@@ -33,14 +37,16 @@
 
         <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência da<br>Zona Franca de Manaus)</h2>
         <br>
-        <select class="select" v-model="tipo_suframa">
+        <select class="select" v-model="suframa_tipo">
             <option>ZFM(Zona Franca de Manaus)</option>
             <option>ALC(Área de Livre Comercio)</option>
             <option>Am. Ocid(Amazonia Ocidental)</option>
         </select>
 
         <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline"
-            class="input_suframa" v-model="codigo_suframa">
+            class="input_suframa" v-model="suframa">
+
+            <br><input type="text" style="display: inline" class="suframa_tipo"  placeholder="Tipo Suframa" v-model="suframa_tipo"><br>
 
         <br><label class="label_num_inscricao">Numero de inscrição municipal: </label><input type="text"
             style="display: inline" class="input_inscricao" v-model="numero_inscricao_municipal">
@@ -49,11 +55,25 @@
         <!--Observacoes-->
 
         <p class="p_obs">Observações</p>
-        <textarea class="text_area" v-model="observacoes">
+        <textarea class="text_area" v-model="observacao">
 
         </textarea>
 
-        <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
+        <div id="endereco_principal">
+            <h2 class="h2_endereco">Endereço principal</h2>
+            <label class="lb_cep">Seu CEP:</label> <input type="text" class="input_cep" v-model="cep">
+            <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco">
+            <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero">
+            <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento">
+            <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro">
+            <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade">
+            <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade">
+            <input type="text" placeholder="Estado" class="input_endereco" v-model="estado">
+            <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais">
+            <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco">
+        </div>
+
+       <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
     </form>
 
 </template>
@@ -69,7 +89,7 @@ export default {
         return {
             nome: "",
             nome_fantasia: "",
-            classificacao: "",
+            classificacao: "1",
             classificacao_entrega: "",
             e_mail: "",
             observacao: "",
@@ -83,7 +103,17 @@ export default {
             nascimento:"",
             suframa_tipo:"",
             suframa:"",
-            inscricao_municipal:""
+            inscricao_municipal:"",
+            cep: "",
+            endereco: "",
+            end_numero: "",
+            complemento: "",
+            bairro: "",
+            cidade: "",
+            cod_cidade: "",
+            cod_pais: "",
+            estado: "",
+            tipo_endereco:""
         }
     },
 
@@ -113,7 +143,6 @@ export default {
                     suframa_tipo: this.suframa_tipo,
                     suframa: this.suframa,
                     inscricao_municipal: this.inscricao_municipal,
-
                     cliente_enderecos:[{
                         cep: this.cep,
                         endereco: this.endereco,
