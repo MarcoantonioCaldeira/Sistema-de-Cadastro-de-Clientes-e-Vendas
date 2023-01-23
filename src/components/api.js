@@ -9,7 +9,7 @@ api.interceptors.request.use(
 
     (config) => {
 
-        const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzQ1NTk3Mzd9.jHPqZ56AfMJ6miZiOrjI_w68Cqr-NXP1UyutiMW2lAg"
+        const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzQ1NjAwODZ9.WoLxStS3o_QS1kfw9DA-rFOiw8JaPyrMyLXobHVNL7E"
 
         config.headers.Authorization = `Bearer ${token}`;
         return config;

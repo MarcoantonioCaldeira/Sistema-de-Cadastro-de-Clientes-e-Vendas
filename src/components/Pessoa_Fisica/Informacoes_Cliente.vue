@@ -43,8 +43,7 @@
             <option>Am. Ocid(Amazonia Ocidental)</option>
         </select>
 
-        <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline"
-            class="input_suframa" v-model="suframa">
+        <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline">
 
             <br><input type="text" style="display: inline" class="suframa_tipo"  placeholder="Tipo Suframa" v-model="suframa_tipo"><br>
 
