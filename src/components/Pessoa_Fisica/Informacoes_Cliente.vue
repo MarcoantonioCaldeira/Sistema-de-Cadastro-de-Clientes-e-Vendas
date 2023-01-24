@@ -118,10 +118,6 @@ export default {
         }
     },
 
-    created() {
-        this.Cadastrar()
-    },
-
     methods: {
         Cadastrar() {
             api
@@ -160,11 +156,9 @@ export default {
                     }]
                 }]
             })
-                .then(() => {
+                .then(response => {
                     console.log('Usuário cadastrado com sucesso')
-                })
-                .catch((error) => {
-                    console.log(error);
+                    console.log(response)
                 });
         }
     }
