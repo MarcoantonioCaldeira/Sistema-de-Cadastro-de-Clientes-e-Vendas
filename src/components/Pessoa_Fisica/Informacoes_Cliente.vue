@@ -6,61 +6,68 @@
 
     <form method="POST" @submit.prevent="Cadastrar">
 
-        <input type="text" name="nome" placeholder="Seu Nome" v-model="nome" class="input" required>
+        <!--Area de Cadastro-->
+
+        <input type="text" name="nome" placeholder="Seu Nome" v-model="nome" class="InputForm" required>
+
         <div id="nome_apelido" data-text="Nome Apelido">
             <input type="text" placeholder="nome-apelido" v-model="nome_fantasia">
         </div>
-        <input type="text" placeholder="Seu email principal" class="input" v-model="e_mail">
 
-        <input type="text"  placeholder="Seu email nfe" class="input" v-model="e_mail_nfe">
+        <input type="text" placeholder="Seu email principal" class="InputForm" v-model="e_mail">
 
-        <input type="text" placeholder="Codigo do cliente" class="input" v-model="cod_cliente">
+        <input type="text"  placeholder="Seu email nfe" class="InputForm" v-model="e_mail_nfe">
 
-        <input type="text"  placeholder="Codigo do vendedor" class="input" v-model="cod_vendedor">
+        <input type="text" placeholder="Codigo do cliente" class="InputForm" v-model="cod_cliente">
 
-        <input type="text" placeholder="Classificação de entrega" v-model="classificacao_entrega">
+        <input type="text"  placeholder="Codigo do vendedor" class="InputForm" v-model="cod_vendedor">
+
+        <input type="text" placeholder="Classificação de entrega"  class="InputForm" v-model="classificacao_entrega">
     
-        <input type="text" placeholder="Data do cadastro" class="input" v-model="data_cadastro">
+        <input type="text" placeholder="Data do cadastro" class="InputForm" v-model="data_cadastro">
 
-        <input type="text" placeholder="Seu telefone" class="input" v-model="telefone_2" />
-        <input type="text" placeholder="Celular" class="input" v-model="celular" />
-        <div>
-            <input type="text" placeholder="Seu CPF" class="input" v-model="cnpj_cpf" />
-        </div>
+        <input type="text" placeholder="Seu telefone" class="InputForm" v-model="telefone_2">
 
-        <br><input type="text" placeholder="CPF de entrega" style="display: inline" class="input_separado_rg" v-model="cnpj_cpf_entrega"><br><br>
+        <input type="text" placeholder="Celular" class="InputForm" v-model="celular">
+         
+        <input type="text" placeholder="Seu CPF" class="InputForm" v-model="cnpj_cpf">
 
-        <br><label class="lb_rg">Seu RG:</label><input type="text" style="display: inline" class="input_separado_rg" v-model="inscricao_rg"><br><br>
+        <input type="text" placeholder="CPF de Entrega" style="display: inline" class="InputForm" v-model="cnpj_cpf_entrega">
+
+        <br><input type="text" placeholder="Seu RG" style="display: inline" class="InputForm" v-model="inscricao_rg">
 
         <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data" v-model="nascimento">
 
         <!--Tipo Suframa-->
 
-        <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência da<br>Zona Franca de Manaus)</h2>
-        <br>
-        <select class="select" v-model="suframa_tipo">
-            <option value="0">ZFM(Zona Franca de Manaus)</option>
-            <option value="1">ALC(Área de Livre Comercio)</option>
-            <option value="2">Am. Ocid(Amazonia Ocidental)</option>
-        </select>
+        <div id="AreaSuframa">
+            <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência da<br>Zona Franca de Manaus)</h2>
+            <br>
+            <select class="SelectSuframa" v-model="suframa_tipo">
+                <option value="0">ZFM(Zona Franca de Manaus)</option>
+                <option value="1">ALC(Área de Livre Comercio)</option>
+                <option value="2">Am. Ocid(Amazonia Ocidental)</option>
+            </select>
 
-        <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline">
+            <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline" class="CodigoSuframa" v-model="suframa">
 
-        <br><label class="label_num_inscricao">Numero de inscrição municipal: </label><input type="text" style="display: inline" class="input_inscricao" v-model="inscricao_municipal">
+            <input type="text"  placeholder="Numero de Inscrição Municipal" class="InputInscricao" v-model="inscricao_municipal">
 
+        </div>
 
-        <!--Observacoes-->
+        <!--Observacoes do cliente-->
 
-        <p class="p_obs">Observações</p>
-        <textarea class="text_area" v-model="observacao">
+        <div id="AreaObservacoes">
+            <p class="p_obs">Observações</p>
+            <textarea class="TextArea" v-model="observacao">
+    
+            </textarea>
+        </div>
 
-        </textarea>
-
-        <div id="endereco_principal">
-
+        <div id="AreaEndereco">
             <h2 class="h2_endereco">Endereço principal</h2>
 
-            <label class="lb_cep">Seu CEP:</label> <input type="text" class="input_cep" v-model="cep">
+            <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep">
             <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco">
             <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero">
             <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento">
@@ -166,5 +173,5 @@ export default {
 </script>
 
 <style>
-@import "@/assets/scss/index.scss";
+@import "./estilo_inicio.scss";
 </style>

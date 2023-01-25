@@ -1,6 +1,6 @@
 <template> 
     <div id="etapas">
-        <img v-bind:src="foto" id="img_etapas"/>
+        <!--<img v-bind:src="foto" id="img_etapas"/>-->
     </div>
 </template>
 

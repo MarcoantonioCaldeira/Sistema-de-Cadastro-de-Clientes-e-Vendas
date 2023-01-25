@@ -75,8 +75,8 @@
 @mixin input_suframa {
     background-color: $cor_4;
     padding: 0px 12px;
-    margin-left: 2%;
-    margin-top: 3%;
+    //margin-left: 2%;
+    margin-top: 1%;
     border: 1px solid;
     box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
     border-radius: 5px;
@@ -84,7 +84,7 @@
     border-color: $cor_4;
     display: block;
     height: 40px;
-    width: 39%;
+    width: 63%;
 }
 
 @mixin input_inscricao {
@@ -98,7 +98,7 @@
     border-color: $cor_4;
     display: block;
     height: 40px;
-    width: 26%;
+    width: 60%;
 }
 
 @mixin input_cep {

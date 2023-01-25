@@ -12,7 +12,6 @@
 
 <script>
   import Informacoes_Cliente from '@/components/Pessoa_Fisica/Informacoes_Cliente.vue';
-  import etapas from './etapas.vue'
 
   export default {
     name: 'Inicio',
@@ -22,8 +21,7 @@
       }
     },
     components: {
-      Informacoes_Cliente,
-      etapas
+      Informacoes_Cliente
     }
   }
 </script>
