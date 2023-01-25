@@ -23,7 +23,7 @@
   margin-left: 5%;
   display: inline;
   color: $cor_2;
-  margin-top: 3%;
+  margin-top: 6%;
 }
 
 .h2 {
@@ -110,13 +110,24 @@ label {
 }
 
 
+
+//Area da Suframa
+
+#AreaSuframa {
+  //position: relative;
+  width: 40%;
+  height: 500px;
+  margin-left: 33%;
+  margin-top: -52%;
+}
+
 .SelectSuframa {
   @include input_suframa;
 }
 
 .CodigoSuframa {
   margin-left: 1% !important;
-  width: 14.5% !important;
+  width: 39% !important;
   @include input_suframa;
 }
 
@@ -132,14 +143,18 @@ label {
 }
 
 
-.input_inscricao {
+.InputInscricao {
   @include input_inscricao;
 }
 
+////////////////////////////////////////
 
-#conteudo_observacoes {
-  margin-left: 55%;
-  margin-top: -9%;
+
+#AreaObservacoes {
+  width: 35%;
+  height: 400px;
+  margin-left: 33%;
+  margin-top: -10%;
 }
 
 .lb_cep {
@@ -164,7 +179,7 @@ label {
 
 
 .TextArea {
-  width: 30%;
+  width: 73%;
   height: 220px;
   margin-top: 2%;
   border: 1px solid;
@@ -247,8 +262,6 @@ label {
     width: 80%;
     margin-left: 5%;
   }
-
-  //Area da Suframa
 
   #suframa {
     position: relative;

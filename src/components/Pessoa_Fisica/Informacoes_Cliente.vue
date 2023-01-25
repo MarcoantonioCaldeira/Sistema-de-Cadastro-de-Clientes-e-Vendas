@@ -26,11 +26,11 @@
     
         <input type="text" placeholder="Data do cadastro" class="InputForm" v-model="data_cadastro">
 
-        <input type="text" placeholder="Seu telefone" class="InputForm" v-model="telefone_2" />
+        <input type="text" placeholder="Seu telefone" class="InputForm" v-model="telefone_2">
 
-        <input type="text" placeholder="Celular" class="InputForm" v-model="celular" />
+        <input type="text" placeholder="Celular" class="InputForm" v-model="celular">
          
-        <input type="text" placeholder="Seu CPF" class="InputForm" v-model="cnpj_cpf" />
+        <input type="text" placeholder="Seu CPF" class="InputForm" v-model="cnpj_cpf">
 
         <input type="text" placeholder="CPF de Entrega" style="display: inline" class="InputForm" v-model="cnpj_cpf_entrega">
 
@@ -40,30 +40,34 @@
 
         <!--Tipo Suframa-->
 
-        <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência da<br>Zona Franca de Manaus)</h2>
-        <br>
-        <select class="SelectSuframa" v-model="suframa_tipo">
-            <option value="0">ZFM(Zona Franca de Manaus)</option>
-            <option value="1">ALC(Área de Livre Comercio)</option>
-            <option value="2">Am. Ocid(Amazonia Ocidental)</option>
-        </select>
+        <div id="AreaSuframa">
+            <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência da<br>Zona Franca de Manaus)</h2>
+            <br>
+            <select class="SelectSuframa" v-model="suframa_tipo">
+                <option value="0">ZFM(Zona Franca de Manaus)</option>
+                <option value="1">ALC(Área de Livre Comercio)</option>
+                <option value="2">Am. Ocid(Amazonia Ocidental)</option>
+            </select>
 
-        <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline" class="CodigoSuframa" v-model="suframa">
+            <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline" class="CodigoSuframa" v-model="suframa">
 
-       <input type="text"  placeholder="Numero de Inscrição Municipal" style="display: inline" class="input_inscricao" v-model="inscricao_municipal">
+            <input type="text"  placeholder="Numero de Inscrição Municipal" class="InputInscricao" v-model="inscricao_municipal">
+
+        </div>
 
         <!--Observacoes do cliente-->
 
-        <p class="p_obs">Observações</p>
-        <textarea class="TextArea" v-model="observacao">
+        <div id="AreaObservacoes">
+            <p class="p_obs">Observações</p>
+            <textarea class="TextArea" v-model="observacao">
+    
+            </textarea>
+        </div>
 
-        </textarea>
-
-        <div id="endereco_principal">
-
+        <div id="AreaEndereco">
             <h2 class="h2_endereco">Endereço principal</h2>
 
-            <label class="lb_cep">Seu CEP:</label><input type="text" class="input_cep" v-model="cep">
+            <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep">
             <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco">
             <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero">
             <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento">
@@ -73,7 +77,6 @@
             <input type="text" placeholder="Estado" class="input_endereco" v-model="estado">
             <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais">
             <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco">
-            
         </div>
 
        <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
