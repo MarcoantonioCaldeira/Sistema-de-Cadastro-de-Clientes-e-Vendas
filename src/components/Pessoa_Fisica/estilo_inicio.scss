@@ -73,7 +73,7 @@ label {
 }
 
 
-.input {
+.InputForm {
   width: 20%;
   @include input;
 }
@@ -81,7 +81,6 @@ label {
 
 #nome_apelido {
   @include input_apelido;
-
   line-height: 45px;
   opacity: 0.8;
 }
@@ -111,14 +110,14 @@ label {
 }
 
 
-.select {
-  @include select;
+.SelectSuframa {
+  @include input_suframa;
 }
 
-
-.label_num_inscricao {
-  font-family: $font_2;
-  color: $cor_2;
+.CodigoSuframa {
+  margin-left: 1% !important;
+  width: 14.5% !important;
+  @include input_suframa;
 }
 
 
@@ -143,6 +142,18 @@ label {
   margin-top: -9%;
 }
 
+.lb_cep {
+  font-family: $font_2;
+}
+
+.input_cep {
+  @include input;
+}
+
+.input_endereco {
+  @include input;
+}
+
 
 .p_obs {
   font-family: $font_1;
@@ -153,18 +164,15 @@ label {
 
 
 .text_area {
-  width: 63%;
+  width: 30%;
   height: 220px;
-  padding: 12px 20px;
   margin-top: 2%;
-  //box-sizing: border-box;
   border: 1px solid;
   border-color: $cor_4;
   border-radius: 5px;
   background-color: $cor_4;
   box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
   font-size: 16px;
-  //resize: none;
 }
 
 
