@@ -29,14 +29,12 @@
         <input type="text" placeholder="Seu telefone" class="InputForm" v-model="telefone_2" />
 
         <input type="text" placeholder="Celular" class="InputForm" v-model="celular" />
-        
-        <div>
-            <input type="text" placeholder="Seu CPF" class="InputForm" v-model="cnpj_cpf" />
-        </div>
+         
+        <input type="text" placeholder="Seu CPF" class="InputForm" v-model="cnpj_cpf" />
 
-        <br><input type="text" placeholder="CPF de entrega" style="display: inline" class="InputForm" v-model="cnpj_cpf_entrega"><br>
+        <input type="text" placeholder="CPF de Entrega" style="display: inline" class="InputForm" v-model="cnpj_cpf_entrega">
 
-        <br><input type="text" style="display: inline" class="InputForm" v-model="inscricao_rg"><br>
+        <br><input type="text" placeholder="Seu RG" style="display: inline" class="InputForm" v-model="inscricao_rg">
 
         <br><label class="lb_dt">Data de Nascimento:</label><input type="date" style="display: inline" class="input_secundario_data" v-model="nascimento">
 
@@ -54,11 +52,10 @@
 
        <input type="text"  placeholder="Numero de Inscrição Municipal" style="display: inline" class="input_inscricao" v-model="inscricao_municipal">
 
-
-        <!--Observacoes-->
+        <!--Observacoes do cliente-->
 
         <p class="p_obs">Observações</p>
-        <textarea class="text_area" v-model="observacao">
+        <textarea class="TextArea" v-model="observacao">
 
         </textarea>
 
@@ -66,7 +63,7 @@
 
             <h2 class="h2_endereco">Endereço principal</h2>
 
-            <label class="lb_cep">Seu CEP:</label> <input type="text" class="input_cep" v-model="cep">
+            <label class="lb_cep">Seu CEP:</label><input type="text" class="input_cep" v-model="cep">
             <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco">
             <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero">
             <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento">
@@ -76,6 +73,7 @@
             <input type="text" placeholder="Estado" class="input_endereco" v-model="estado">
             <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais">
             <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco">
+            
         </div>
 
        <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
