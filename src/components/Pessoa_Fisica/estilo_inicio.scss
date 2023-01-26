@@ -157,10 +157,11 @@ label {
 
 ///////////////////////////////////////
 
-#AreaEndereco {
-  width: 100%;
+#AreaEnderecoPrincipal {
+  width: 22%;
   height: 700px;
   margin-top: 18%;
+  margin-left: 4%;
   //background-color: blue;
 }
 
@@ -177,15 +178,24 @@ label {
 }
 
 .input_cep {
-  width: 20% !important;
+  width: 90% !important;
   @include input;
 }
 
 .input_endereco {
-  width: 20% !important;
+  width: 90% !important;
   @include input;
 }
 
+///////////////////////////////////
+#AreaEnderecoSecundario {
+  //background-color: red;
+  width: 22%;
+  height: 700px;
+  margin-left: 32%;
+  margin-top: -41.7%;
+  //background-color: blue;
+}
 
 .p_obs {
   font-family: $font_1;
@@ -199,8 +209,7 @@ label {
   width: 73%;
   height: 220px;
   margin-top: 2%;
-  border: 1px solid;
-  border-color: $cor_4;
+  border: 1px solid $cor_4;
   border-radius: 5px;
   background-color: $cor_4;
   box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);

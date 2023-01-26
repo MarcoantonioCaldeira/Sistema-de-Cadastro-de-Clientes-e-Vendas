@@ -64,8 +64,23 @@
             </textarea>
         </div>
 
-        <div id="AreaEndereco">
+        <div id="AreaEnderecoPrincipal">
             <h2 class="h2_endereco">Endereço principal</h2>
+
+            <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep">
+            <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco">
+            <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero">
+            <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento">
+            <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro">
+            <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade">
+            <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade">
+            <input type="text" placeholder="Estado" class="input_endereco" v-model="estado">
+            <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais">
+            <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco">
+        </div>
+
+        <div id="AreaEnderecoSecundario">
+            <h2 class="h2_endereco">Endereço secundario(Opcional)</h2>
 
             <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep">
             <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco">
