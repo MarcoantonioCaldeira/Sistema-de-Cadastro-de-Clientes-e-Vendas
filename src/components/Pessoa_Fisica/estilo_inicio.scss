@@ -2,28 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 @import "@/assets/scss/index.scss";
 
-#etapas {
-  width: 100%;
-  height: 200px;
-  //background-color: red
-}
-
-#img_etapas {
-  margin-left: 22%;
-  margin-top: 3%;
-}
 
 #corpo_formulario {
   @include corpo_1;
 }
 
 
+#TituloTopo {
+  position: absolute;
+  margin-top: 5%;
+  margin-left: 4%;
+}
+
 #h1-titulo {
+
   font-family: $font_1;
   margin-left: 5%;
   display: inline;
   color: $cor_2;
-  margin-top: 6%;
 }
 
 .h2 {
@@ -40,7 +36,7 @@
   margin-left: 5%;
   font-weight: 500;
   color: $cor_2;
-  margin-top: 6%;
+  margin-top: 10%;
 }
 
 
@@ -157,15 +153,36 @@ label {
   margin-top: -10%;
 }
 
+
+
+///////////////////////////////////////
+
+#AreaEndereco {
+  width: 100%;
+  height: 700px;
+  margin-top: 18%;
+  //background-color: blue;
+}
+
+
+.h2_endereco {
+  font-family: $font_2;
+  margin-left: 5%;
+  font-weight: 500;
+  color: $cor_2;
+}
+
 .lb_cep {
   font-family: $font_2;
 }
 
 .input_cep {
+  width: 20% !important;
   @include input;
 }
 
 .input_endereco {
+  width: 20% !important;
   @include input;
 }
 

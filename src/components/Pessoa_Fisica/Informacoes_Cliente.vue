@@ -4,7 +4,7 @@
 
     <h2 id="h2-informacoes">Informações do cliente</h2>
 
-    <form method="POST" @submit.prevent="Cadastrar">
+    <form  method="POST" @submit.prevent="Cadastrar">
 
         <!--Area de Cadastro-->
 
