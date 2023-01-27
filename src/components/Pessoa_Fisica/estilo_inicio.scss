@@ -87,7 +87,7 @@ label {
 }
 
 
-.input_secundario_data {
+.InputSecundario {
   @include input_separado_data;
 }
 
@@ -114,7 +114,7 @@ label {
   width: 40%;
   height: 500px;
   margin-left: 33%;
-  margin-top: -52%;
+  margin-top: -57%;
 }
 
 .SelectSuframa {
@@ -216,6 +216,17 @@ label {
   font-size: 16px;
 }
 
+///////////////////////////////////////
+
+#AreaEnderecoTerciario {
+  //background-color: red;
+  width: 22%;
+  height: 700px;
+  margin-left: 60%;
+  margin-top: -37.7%;
+  //background-color: blue;
+}
+
 
 .btn_proxima_etapa {
   position: relative;
@@ -224,16 +235,6 @@ label {
   @include button-add-processeguir;
 }
 
-#Area_Pessoa_Fisica {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 20%;
-  margin-left: 40%;
-  height: 90px;
-  margin-top: 15%;
-  font-family: $font_2;
-  background-color: $cor_4;
-  border-radius: 5px;
-}
 
 .h2_p_fisica {
   color: $cor_3;
@@ -247,8 +248,9 @@ label {
 @media screen and (max-width: 300px) {
 
   #corpo_formulario {
-    min-height: 1800px;
-    max-height: 2000px;
+    background-color: red;
+    min-height: 3900px;
+    max-height: 4000px;
   }
 
   #h1-titulo {
@@ -265,7 +267,7 @@ label {
     font-size: 19px;
   }
 
-  .input {
+  .InputForm {
     width: 80%;
   }
 
@@ -276,15 +278,11 @@ label {
     opacity: 0.8;
   }
 
-  .btn_adicionar_email {
-    margin-left: 15%;
-  }
-
   .input_secundario_rg {
     width: 55%;
   }
 
-  .input_secundario_data {
+  .InputSecundario {
     width: 80%;
     margin-left: 5%;
   }
