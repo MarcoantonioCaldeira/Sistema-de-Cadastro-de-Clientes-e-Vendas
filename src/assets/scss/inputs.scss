@@ -48,7 +48,9 @@
 @mixin input_separado_data {
     background-color: $cor_4;
     padding: 0px 12px;
-    margin: 10px;
+    //color: red;
+    margin-left: 20%;
+    margin: 5px;
     border: 1px solid;
     box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
     border-radius: 5px;
