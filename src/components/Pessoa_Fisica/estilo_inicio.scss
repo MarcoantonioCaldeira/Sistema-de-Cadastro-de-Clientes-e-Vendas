@@ -2,28 +2,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 @import "@/assets/scss/index.scss";
 
-#etapas {
-  width: 100%;
-  height: 200px;
-  //background-color: red
-}
-
-#img_etapas {
-  margin-left: 22%;
-  margin-top: 3%;
-}
 
 #corpo_formulario {
   @include corpo_1;
 }
 
 
+#TituloTopo {
+  position: absolute;
+  margin-top: 5%;
+  margin-left: 4%;
+}
+
 #h1-titulo {
+
   font-family: $font_1;
   margin-left: 5%;
   display: inline;
   color: $cor_2;
-  margin-top: 6%;
 }
 
 .h2 {
@@ -40,7 +36,7 @@
   margin-left: 5%;
   font-weight: 500;
   color: $cor_2;
-  margin-top: 6%;
+  margin-top: 10%;
 }
 
 
@@ -91,7 +87,7 @@ label {
 }
 
 
-.input_secundario_data {
+.InputSecundario {
   @include input_separado_data;
 }
 
@@ -118,7 +114,7 @@ label {
   width: 40%;
   height: 500px;
   margin-left: 33%;
-  margin-top: -52%;
+  margin-top: -57%;
 }
 
 .SelectSuframa {
@@ -157,18 +153,49 @@ label {
   margin-top: -10%;
 }
 
+
+
+///////////////////////////////////////
+
+#AreaEnderecoPrincipal {
+  width: 22%;
+  height: 700px;
+  margin-top: 18%;
+  margin-left: 4%;
+  //background-color: blue;
+}
+
+
+.h2_endereco {
+  font-family: $font_2;
+  margin-left: 5%;
+  font-weight: 500;
+  color: $cor_2;
+}
+
 .lb_cep {
   font-family: $font_2;
 }
 
 .input_cep {
+  width: 90% !important;
   @include input;
 }
 
 .input_endereco {
+  width: 90% !important;
   @include input;
 }
 
+///////////////////////////////////
+#AreaEnderecoSecundario {
+  //background-color: red;
+  width: 22%;
+  height: 700px;
+  margin-left: 32%;
+  margin-top: -41.7%;
+  //background-color: blue;
+}
 
 .p_obs {
   font-family: $font_1;
@@ -182,12 +209,22 @@ label {
   width: 73%;
   height: 220px;
   margin-top: 2%;
-  border: 1px solid;
-  border-color: $cor_4;
+  border: 1px solid $cor_4;
   border-radius: 5px;
   background-color: $cor_4;
   box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
   font-size: 16px;
+}
+
+///////////////////////////////////////
+
+#AreaEnderecoTerciario {
+  //background-color: red;
+  width: 22%;
+  height: 700px;
+  margin-left: 60%;
+  margin-top: -37.7%;
+  //background-color: blue;
 }
 
 
@@ -198,16 +235,6 @@ label {
   @include button-add-processeguir;
 }
 
-#Area_Pessoa_Fisica {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 20%;
-  margin-left: 40%;
-  height: 90px;
-  margin-top: 15%;
-  font-family: $font_2;
-  background-color: $cor_4;
-  border-radius: 5px;
-}
 
 .h2_p_fisica {
   color: $cor_3;
@@ -221,8 +248,9 @@ label {
 @media screen and (max-width: 300px) {
 
   #corpo_formulario {
-    min-height: 1800px;
-    max-height: 2000px;
+    background-color: red;
+    min-height: 3900px;
+    max-height: 4000px;
   }
 
   #h1-titulo {
@@ -239,7 +267,7 @@ label {
     font-size: 19px;
   }
 
-  .input {
+  .InputForm {
     width: 80%;
   }
 
@@ -250,15 +278,11 @@ label {
     opacity: 0.8;
   }
 
-  .btn_adicionar_email {
-    margin-left: 15%;
-  }
-
   .input_secundario_rg {
     width: 55%;
   }
 
-  .input_secundario_data {
+  .InputSecundario {
     width: 80%;
     margin-left: 5%;
   }

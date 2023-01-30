@@ -5,16 +5,25 @@ const api = axios.create({
 });
 
 
-api.interceptors.request.use(
+options.interceptors.request.use((request) => {
 
-    (config) => {
+    if (token) {
 
-        const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzQ2NDQzODh9.0Q7yj1wkvGhlslq7j5qLa3CWaqJJaLBFRsKyA4g4otI"
-
-        config.headers.Authorization = `Bearer ${token}`;
-
-        return config;
+        request.headers.Authorization = `Bearer ${token}`;
     }
-);
+    return request;
+});
+
+const options = {
+    method: 'GET',
+    url: 'http://localhost:9000/auth',
+    params: { '': ['', ''] },
+    headers: {
+        'Content-Type': 'application/json',
+        key_auth: '3G5T8W7Y1K',
+        SYSDBA: 'masterkey'
+    }
+};
+
 
 export default api;
