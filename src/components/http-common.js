@@ -17,10 +17,11 @@ instance.interceptors.request.use((request) => {
 
     if (token) {
         request.headers.Authorization = `Bearer ${token}`;
-        //request.headers["Content-Type"] = "application/json"
-
     }
 
     return request;
 
 });
+
+
+export default common;
