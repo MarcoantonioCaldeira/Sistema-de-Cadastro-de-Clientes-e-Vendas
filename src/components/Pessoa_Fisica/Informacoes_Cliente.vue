@@ -116,6 +116,7 @@
 
 <script>
 import api from '../api'
+//import axios from "axios"
 
 export default {
 
@@ -193,12 +194,12 @@ export default {
                     }]
                 }]
             })
-                .then(response => {
-                    console.log('Usuário cadastrado com sucesso')
-                    console.log(response)
-                });
-        }
-    }
+            .then((response) => {
+                if (response.data.accessToken) {
+                    TokenService.setUser(response.data);
+                }
+            })
+    }   }
 }
 </script>
 
