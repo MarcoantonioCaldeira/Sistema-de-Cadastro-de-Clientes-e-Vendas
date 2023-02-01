@@ -7,14 +7,18 @@ const api = axios.create({
 
 
 
-const instance = axios.create({
+const instance = axios.create()
+
+
+instance = axios.create({
     baseURL: "http://localhost:9000/auth",
     params: { '': ['', ''] },
     headers: {
         'Content-Type': 'application/json',
         key_auth: '3G5T8W7Y1K',
         SYSDBA: 'masterkey'
-    }
+    },
+
 })
 
 instance.interceptors.request.use((request) => {
@@ -26,5 +30,4 @@ instance.interceptors.request.use((request) => {
     }
 
     return request;
-
-});
+})
