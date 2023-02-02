@@ -16,7 +16,6 @@ const api = axios.create({
 //         key_auth: '3G5T8W7Y1K',
 //         SYSDBA: 'masterkey'
 //     },
-
 // })
 
 // instance.interceptors.request.use((request) => {
@@ -29,3 +28,5 @@ const api = axios.create({
 
 //     return request;
 // })
+
+export default api;
