@@ -23,6 +23,12 @@ const api = axios.create({
 //         key_auth: '3G5T8W7Y1K',
 //         SYSDBA: 'masterkey'
 //     }
+<<<<<<< main
 // };
+=======
+
+//     return request;
+// })
+>>>>>>> local
 
 export default api;
