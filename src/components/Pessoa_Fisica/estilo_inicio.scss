@@ -15,7 +15,6 @@
 }
 
 #h1-titulo {
-
   font-family: $font_1;
   margin-left: 5%;
   display: inline;
@@ -64,10 +63,6 @@ label {
 }
 
 
-.btn_adicionar_email {
-  @include button-add-email;
-}
-
 
 .InputForm {
   width: 20%;
@@ -114,7 +109,7 @@ label {
   width: 40%;
   height: 500px;
   margin-left: 33%;
-  margin-top: -57%;
+  margin-top: -52%;
 }
 
 .SelectSuframa {

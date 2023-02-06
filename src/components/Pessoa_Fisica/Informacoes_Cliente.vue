@@ -10,9 +10,8 @@
 
         <input type="text" name="nome" placeholder="Seu Nome" v-model="nome" class="InputForm" required>
 
-        <div id="nome_apelido" data-text="Nome Apelido">
-            <input type="text" placeholder="nome-apelido" v-model="nome_fantasia">
-        </div>
+        
+        <input type="text" placeholder="nome-apelido"  class="InputForm" v-model="nome_fantasia">
 
         <input type="text" placeholder="Seu email principal" class="InputForm" v-model="e_mail">
 
@@ -34,7 +33,7 @@
 
         <input type="text" placeholder="CPF de Entrega" class="InputForm" v-model="cnpj_cpf_entrega">
 
-        <br><input type="text" placeholder="Seu RG"  class="InputForm" v-model="inscricao_rg">
+        <input type="text" placeholder="Seu RG"  class="InputForm" v-model="inscricao_rg">
 
         <br><label class="lb_dt">Data de Nascimento:</label><input type="date" class="InputSecundario" v-model="nascimento">
 
@@ -116,6 +115,7 @@
 
 <script>
 import api from '../api'
+//import axios from "axios"
 
 export default {
 
@@ -193,12 +193,12 @@ export default {
                     }]
                 }]
             })
-                .then(response => {
-                    console.log('Usuário cadastrado com sucesso')
-                    console.log(response)
-                });
-        }
-    }
+            .then((response) => {
+                if (response.data.accessToken) {
+                    TokenService.setUser(response.data);
+                }
+            })
+    }   }
 }
 </script>
 

@@ -13,9 +13,14 @@
   margin-left: 5%;
   display: inline;
   color: $cor_2;
-  margin-top: 3%;
 }
 
+#TituloTopo {
+  position: absolute;
+  //background-color: red;
+  margin-top: 2%;
+  margin-left: 4%;
+}
 
 .h2 {
   margin-left: 5%;
@@ -58,12 +63,7 @@ label {
 }
 
 
-.btn_adicionar_email {
-  @include button-add-email;
-}
-
-
-.input {
+.Input_Forma_P_Juridica {
   width: 20%;
   @include input;
 }
@@ -77,20 +77,17 @@ label {
 }
 
 
-.input_secundario_inscricao {
+.Input_Inscricao {
+  margin-left: 5px !important;
   width: 11% !important;
   @include input_separado_rg;
 }
 
-.input_secundario_rg {
-  margin-left: 1% !important;
-  width: 10% !important;
-  @include input_separado_rg;
-}
 
 
-.input_secundario_data {
-  margin-left: 2% !important;
+.Input_Data_Fundacao {
+  //margin-left: 2% !important;
+  width: 12% !important;
   @include input_separado_data;
 }
 
@@ -106,6 +103,13 @@ label {
 .h2_suframa {
   font-family: $font_1;
   color: $cor_2;
+}
+
+#AreaSuframa {
+  width: 40%;
+  height: 500px;
+  margin-left: 33%;
+  margin-top: -35%;
 }
 
 
@@ -127,6 +131,8 @@ label {
 
 
 .input_suframa {
+  margin-left: 1% !important;
+  width: 38% !important;
   @include input_suframa;
 }
 
@@ -136,10 +142,8 @@ label {
 }
 
 
-#conteudo_observacoes {
-  //width: 45%;
-  margin-left: 55%;
-  margin-top: -9%;
+#AreaObservacoes {
+  margin-top: -8.5%;
   //height: 600px;
 }
 
@@ -168,8 +172,15 @@ label {
 }
 
 
+#AreaEnderecoPrincipal {
+  width: 22%;
+  height: 700px;
+  margin-left: 4%;
+  margin-top: 2%;
+}
+
+
 .btn_proxima_etapa {
-  margin-top: 30vh;
   margin-left: 5%;
   @include button-add-processeguir;
 }
@@ -192,6 +203,7 @@ label {
   top: 28%;
   text-decoration: none;
 }
+
 
 
 @media screen and (max-width: 300px) {

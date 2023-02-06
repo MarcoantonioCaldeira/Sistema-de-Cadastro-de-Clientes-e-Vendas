@@ -34,31 +34,29 @@
 @mixin input_separado_rg {
     background-color: $cor_4;
     padding: 0px 12px;
-    margin: 10px;
     border: 1px solid;
     box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
     border-radius: 5px;
     font-family: $font_2;
     border-color: $cor_4;
-    display: block;
+
     height: 40px;
     width: 16%;
 }
 
 @mixin input_separado_data {
+    position: relative;
     background-color: $cor_4;
-    padding: 0px 12px;
     //color: red;
-    margin-left: 20%;
-    margin: 5px;
+    display: inline-block;
+    margin-left: 5px;
     border: 1px solid;
     box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
     border-radius: 5px;
     font-family: $font_2;
     border-color: $cor_4;
-    display: block;
     height: 40px;
-    width: 8.5%;
+    width: 11.5%;
 }
 
 @mixin select {
