@@ -58,12 +58,7 @@ label {
 }
 
 
-.btn_adicionar_email {
-  @include button-add-email;
-}
-
-
-.input {
+.Input_Forma_P_Juridica {
   width: 20%;
   @include input;
 }
@@ -82,14 +77,9 @@ label {
   @include input_separado_rg;
 }
 
-.input_secundario_rg {
-  margin-left: 1% !important;
-  width: 10% !important;
-  @include input_separado_rg;
-}
 
 
-.input_secundario_data {
+.Input_Data_Fundacao {
   margin-left: 2% !important;
   @include input_separado_data;
 }

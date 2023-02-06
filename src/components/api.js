@@ -2,31 +2,39 @@ import axios from "axios";
 
 
 const api = axios.create({
-    baseURL: "http://localhost:9000",
+    baseURL: "http://localhost:9000"
 });
 
 
+const instance = axios.create({
+    method: 'GET',
+    baseURL: "http://localhost:9000/auth",
+    params: { '': ['', ''] },
+    headers: {
+        'Content-Type': 'application/json',
+        key_auth: '3G5T8W7Y1K',
+        SYSDBA: 'masterkey'
+    }
+});
+
+axios.request(instance).then(function (response) {
+    console.log(response.data);
+}).catch(function (error) {
+    console.error(error);
+});
+
+instance.interceptors.response.use((config) => {
+    const token = window.localStorage.getItem('jwt');
+    if (token) config.headers.Authorization = `Bearer ${token}`;
+
+    return config
+}, error => {
+
+    return Promise.reject(error);
+
+})
 
 
-// instance = axios.create({
-//     baseURL: "http://localhost:9000/auth",
-//     params: { '': ['', ''] },
-//     headers: {
-//         'Content-Type': 'application/json',
-//         key_auth: '3G5T8W7Y1K',
-//         SYSDBA: 'masterkey'
-//     },
-// })
 
-// instance.interceptors.request.use((request) => {
-
-//     const token = localStorage.getItem("Authorization");
-
-//     if (token) {
-//         request.headers.Authorization = `Bearer ${token}`;
-//     }
-
-//     return request;
-// })ssssss
 
 export default api;
