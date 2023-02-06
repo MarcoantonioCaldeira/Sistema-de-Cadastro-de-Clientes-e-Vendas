@@ -1,6 +1,6 @@
 <template>
 
-  <div id="corpo_formulario">
+  <div id="corpo_formulario_p_juridica">
 
     <div id="TituloTopo">
       <h1 id="h1-titulo">Cadastro do cliente</h1>
