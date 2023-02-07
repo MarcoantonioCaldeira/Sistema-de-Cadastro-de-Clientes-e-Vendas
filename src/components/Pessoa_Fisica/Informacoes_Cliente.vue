@@ -10,7 +10,6 @@
 
         <input type="text" name="nome" placeholder="Seu Nome" v-model="nome" class="InputForm" required>
 
-        
         <input type="text" placeholder="nome-apelido"  class="InputForm" v-model="nome_fantasia">
 
         <input type="text" placeholder="Seu email principal" class="InputForm" v-model="e_mail">
@@ -203,5 +202,4 @@ export default {
 </script>
 
 <style>
-@import "./estilo_inicio.scss";
 </style>
