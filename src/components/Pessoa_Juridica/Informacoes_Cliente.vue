@@ -168,5 +168,5 @@
     }
 </script>
 <style >
-    @import "@/assets/scss/index.scss"; 
+    
 </style>
