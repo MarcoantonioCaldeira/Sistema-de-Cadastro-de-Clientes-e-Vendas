@@ -84,19 +84,20 @@ label {
 
 
 .p_obs {
+  position: absolute;
   font-family: $font_1;
   font-weight: 500;
   font-size: 22px;
-  margin: 0;
+  margin-top: 10%;
 }
 
 
 .text_area_p_estrangeira {
-  width: 70%;
-  height: 180px;
-  padding: 12px 20px;
+  position: absolute;
+  width: 25%;
+  height: 215px;
   display: inline;
-  margin-top: -80%;
+  margin-top: -18%;
   box-sizing: border-box;
   border: 1px solid;
   border-color: $cor_4;

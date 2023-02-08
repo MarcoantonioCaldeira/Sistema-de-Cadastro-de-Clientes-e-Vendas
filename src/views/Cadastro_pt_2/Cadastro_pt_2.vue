@@ -15,13 +15,12 @@
 
 import Footer from '@/components/Footer.vue'
 //import Informacoes_Endereco from '@/components/informacoes_de_Endereco.vue'
-import etapas_info_endereco from '@/components/etapas_info_endereco.vue';
+
 
 export default {
   name: 'Cadastro_pt_2',
   components: {
     //Informacoes_Endereco,
-    etapas_info_endereco,
     Footer
   }
 }
