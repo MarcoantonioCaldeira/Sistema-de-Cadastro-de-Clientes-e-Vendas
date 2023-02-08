@@ -6,33 +6,16 @@ const api = axios.create({
 });
 
 
-const instance = axios.create({
-    method: 'GET',
-    baseURL: "http://localhost:9000/auth",
-    params: { '': ['', ''] },
-    headers: {
-        'Content-Type': 'application/json',
-        key_auth: '3G5T8W7Y1K',
-        SYSDBA: 'masterkey'
-    }
-});
+api.interceptors.request.use(
+    (config) => {
 
-axios.request(instance).then(function (response) {
-    console.log(response.data);
-}).catch(function (error) {
-    console.error(error);
-});
+        const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzU5NDE1NjN9.PTTNF9e_-gHNuQX-CdDmBa0fpNOPFJK62kZbl9Mqajg"
 
-instance.interceptors.response.use((config) => {
-    const token = window.localStorage.getItem('jwt');
-    if (token) config.headers.Authorization = `Bearer ${token}`;
+        config.headers.Authorization = `Bearer ${token}`;
+        return config;
+    },
 
-    return config
-}, error => {
-
-    return Promise.reject(error);
-
-})
+)
 
 
 
