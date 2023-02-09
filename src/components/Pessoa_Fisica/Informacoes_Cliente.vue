@@ -1,6 +1,7 @@
 <template>
 
     <!--Informacoes do cliente-->
+<div id="Area_Formulario">
 
     <h2 id="h2-informacoes">Informações do cliente</h2>
 
@@ -38,7 +39,7 @@
 
         <!--Tipo Suframa-->
 
-        <div id="AreaSuframa">
+        <div id="AreaSufram">
             <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência da<br>Zona Franca de Manaus)</h2>
             <br>
             <select class="SelectSuframa" v-model="suframa_tipo">
@@ -47,7 +48,7 @@
                 <option value="2">Am. Ocid(Amazonia Ocidental)</option>
             </select>
 
-            <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline" class="CodigoSuframa" v-model="suframa">
+            <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" class="CodigoSuframa" v-model="suframa">
 
             <input type="text"  placeholder="Numero de Inscrição Municipal" class="InputInscricao" v-model="inscricao_municipal">
 
@@ -109,6 +110,7 @@
 
        <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
     </form>
+</div>
 
 </template>
 

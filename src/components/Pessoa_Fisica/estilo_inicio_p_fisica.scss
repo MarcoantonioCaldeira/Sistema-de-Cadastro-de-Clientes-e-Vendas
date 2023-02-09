@@ -241,22 +241,21 @@ label {
 }
 
 
-@media screen and (max-width: 300px) {
+@media screen and (min-width: 300px) and (max-width: 450px) {
+
+  #Area_Formulario {
+    height: 2000px;
+    margin-top: 12%;
+    margin-left: 5%;
+  }
 
   #corpo_formulario {
-    background-color: red;
     min-height: 3900px;
-    max-height: 4000px;
+    max-height: 3000px;
   }
 
   #h1-titulo {
     font-size: 20px;
-  }
-
-  .h2 {
-    position: absolute;
-    top: 29%;
-    font-size: 19px;
   }
 
   #h2-informacoes {
@@ -267,19 +266,9 @@ label {
     width: 80%;
   }
 
-  #nome_apelido {
-    @include input_apelido;
-    width: 80% !important;
-    line-height: 45px;
-    opacity: 0.8;
-  }
-
-  .input_secundario_rg {
-    width: 55%;
-  }
 
   .InputSecundario {
-    width: 80%;
+    width: 85%;
     margin-left: 5%;
   }
 
@@ -294,15 +283,15 @@ label {
     font-size: 100%;
   }
 
-  .input_suframa {
+  .CodigoSuframa {
+    display: inline;
     width: 82%;
     margin-left: -2%;
   }
 
-  .select {
+  .SelectSuframa {
     width: 89%;
   }
-
 
   .label_num_incricao {
     font-family: $font_2;
@@ -318,119 +307,47 @@ label {
     width: 90%;
   }
 
-  .btn_proxima_etapa {
-    margin-top: 10%;
-    margin-left: 5%;
-    @include button-add-processeguir;
-  }
-
-  .radio_1 {
+  #AreaSuframa {
     position: absolute;
-    margin-left: 35vh;
-    margin-top: 16%;
+    background-color: blue;
+    // margin-top: -20%;
   }
 
-  .radio_2 {
-    position: absolute;
-    margin-left: 35vh;
-    margin-top: 16%;
-  }
-
-  .radio_3 {
-    position: absolute;
-    margin-left: 35vh;
-    margin-top: 16%;
-  }
-
-
-}
-
-//Tamanho para celulares pequenos
-@media (min-width: 301px) and (max-width: 450px) {
-
-  #h1-titulo {
-    margin-top: 14px;
-  }
-
-  #corpo_formulario {
-    min-height: 1800px;
-    max-height: 2000px;
-  }
-
-  .h2 {
-    top: 30%;
-    font-size: 17px;
-  }
-
-  .input {
-    width: 85%;
-  }
-
-
-  #nome_apelido {
-    @include input_apelido;
-    width: 80% !important;
-    line-height: 45px;
-    opacity: 0.8;
-  }
-
-  .btn_adicionar_email {
-    margin-left: 24%;
-  }
-
-  #suframa {
+  #AreaObservacoes {
+    // position: absolute;
     position: relative;
-    height: 500px;
+    left: 4%;
+    display: inline;
+  }
+
+  #AreaEnderecoPrincipal {
+    position: relative;
     width: 100%;
-    margin-left: 2%;
-    margin-top: 5%;
+    margin-top: 10%;
+    background-color: blue;
   }
 
-  .h2_suframa {
-    font-size: 100%;
-    margin-left: 2%;
+
+  #AreaEnderecoSecundario {
+    position: relative;
+    margin-top: 20%;
+    margin-left: 0;
+    width: 100%;
+    // background-color: blue;
   }
 
-  .input_suframa {
-    width: 85%;
-    margin-left: 2%;
+
+  #AreaEnderecoTerciario {
+    position: relative;
+    margin-top: 20%;
+    margin-left: 0;
+    width: 100%;
+    // background-color: blue;
   }
 
-  .select {
-    width: 89%;
-    margin-left: 2%;
+  .input_endereco {
     //background-color: red;
-  }
-
-  .label_num_inscricao {
-    //position: relative;
-    margin-left: 2%;
-    //margin-top: 2%;
-  }
-
-  .input_inscricao {
-    width: 85%;
-    margin-left: 2%;
-    margin-top: 8%;
-  }
-
-  .text_area {
     width: 80%;
-  }
-
-  #conteudo_observacoes {
-    //position: absolute;
-    margin-left: 0ch;
-    width: 100%;
-  }
-
-  .input_secundario_rg {
-    width: 68%;
-  }
-
-  .input_secundario_data {
-    width: 80%;
-    margin-left: 15vh;
   }
 
   .btn_proxima_etapa {
@@ -438,9 +355,9 @@ label {
     margin-left: 5%;
     @include button-add-processeguir;
   }
-
-
 }
+
+
 
 //Tamanho para celulares medios
 @media (min-width: 451px) and (max-width: 480px) {
