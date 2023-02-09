@@ -11,4 +11,5 @@ export default {
 </script>
 <style src="./estilo_inicio_p_estrangeira.scss"  lang="scss">
 
+
 </style>
