@@ -5,9 +5,20 @@
 
 #corpo_formulario {
   width: 100%;
-  height: 2200px;
+  height: 2050px;
 }
 
+
+#Area_Pessoa_Fisica {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 20%;
+  margin-left: 40%;
+  margin-top: 3%;
+  height: 90px;
+  font-family: $font_2;
+  background-color: $cor_4;
+  border-radius: 5px;
+}
 
 #TituloTopo {
   position: absolute;
@@ -204,7 +215,7 @@ label {
 .TextArea {
   width: 73%;
   height: 220px;
-  margin-top: 2%;
+  margin-top: 6%;
   border: 1px solid $cor_4;
   border-radius: 5px;
   background-color: $cor_4;
@@ -241,22 +252,21 @@ label {
 }
 
 
-@media screen and (max-width: 300px) {
+@media screen and (min-width: 300px) and (max-width: 450px) {
+
+  #Area_Formulario {
+    height: 2000px;
+    margin-top: 12%;
+    margin-left: 5%;
+  }
 
   #corpo_formulario {
-    background-color: red;
-    min-height: 3900px;
-    max-height: 4000px;
+    // background-color: red;
+    height: 4000px !important;
   }
 
   #h1-titulo {
     font-size: 20px;
-  }
-
-  .h2 {
-    position: absolute;
-    top: 29%;
-    font-size: 19px;
   }
 
   #h2-informacoes {
@@ -267,20 +277,16 @@ label {
     width: 80%;
   }
 
-  #nome_apelido {
-    @include input_apelido;
-    width: 80% !important;
-    line-height: 45px;
-    opacity: 0.8;
-  }
-
-  .input_secundario_rg {
-    width: 55%;
-  }
 
   .InputSecundario {
-    width: 80%;
+    width: 85%;
     margin-left: 5%;
+  }
+
+
+  #AreaSuframa {
+    position: static;
+
   }
 
   #suframa {
@@ -292,467 +298,397 @@ label {
 
   .h2_suframa {
     font-size: 100%;
+    margin-top: 7%;
   }
 
-  .input_suframa {
-    width: 82%;
-    margin-left: -2%;
+  .CodigoSuframa {
+    // display: inline;
+    width: 80% !important;
+    margin-left: 3% !important;
   }
 
-  .select {
+  .SelectSuframa {
+    margin-left: 2%;
     width: 89%;
   }
-
 
   .label_num_incricao {
     font-family: $font_2;
     color: $cor_4;
   }
 
-  .input_inscricao {
+  .label_codigo_suframa {
+    margin-left: 2.5%;
+  }
+
+  .InputInscricao {
     width: 80%;
-    margin-top: 15%;
+    margin-top: 6%;
+    margin-left: 4%;
   }
 
   .text_area {
     width: 90%;
   }
 
-  .btn_proxima_etapa {
-    margin-top: 10%;
-    margin-left: 5%;
-    @include button-add-processeguir;
-  }
-
-  .radio_1 {
-    position: absolute;
-    margin-left: 35vh;
-    margin-top: 16%;
-  }
-
-  .radio_2 {
-    position: absolute;
-    margin-left: 35vh;
-    margin-top: 16%;
-  }
-
-  .radio_3 {
-    position: absolute;
-    margin-left: 35vh;
-    margin-top: 16%;
-  }
-
-
-}
-
-//Tamanho para celulares pequenos
-@media (min-width: 301px) and (max-width: 450px) {
-
-  #h1-titulo {
-    margin-top: 14px;
-  }
-
-  #corpo_formulario {
-    min-height: 1800px;
-    max-height: 2000px;
-  }
-
-  .h2 {
-    top: 30%;
-    font-size: 17px;
-  }
-
-  .input {
-    width: 85%;
-  }
-
-
-  #nome_apelido {
-    @include input_apelido;
-    width: 80% !important;
-    line-height: 45px;
-    opacity: 0.8;
-  }
-
-  .btn_adicionar_email {
-    margin-left: 24%;
-  }
-
-  #suframa {
+  #AreaObservacoes {
+    // position: absolute;
     position: relative;
-    height: 500px;
-    width: 100%;
-    margin-left: 2%;
-    margin-top: 5%;
+    top: -5% !important;
+    left: 4%;
+    display: inline;
   }
 
-  .h2_suframa {
-    font-size: 100%;
-    margin-left: 2%;
+  #AreaEnderecoPrincipal {
+    position: relative;
+    width: 90% !important;
+    margin-top: 10% !important;
+    // background-color: blue;
   }
 
-  .input_suframa {
-    width: 85%;
-    margin-left: 2%;
+
+  #AreaEnderecoSecundario {
+    position: relative;
+    margin-top: 20%;
+    margin-left: 0;
+    width: 90%;
+    // background-color: blue;
   }
 
-  .select {
-    width: 89%;
-    margin-left: 2%;
+
+  #AreaEnderecoTerciario {
+    position: relative;
+    margin-top: 20%;
+    margin-left: 0;
+    width: 90%;
+    // background-color: blue;
+  }
+
+  .input_endereco {
     //background-color: red;
-  }
-
-  .label_num_inscricao {
-    //position: relative;
-    margin-left: 2%;
-    //margin-top: 2%;
-  }
-
-  .input_inscricao {
-    width: 85%;
-    margin-left: 2%;
-    margin-top: 8%;
-  }
-
-  .text_area {
     width: 80%;
-  }
-
-  #conteudo_observacoes {
-    //position: absolute;
-    margin-left: 0ch;
-    width: 100%;
-  }
-
-  .input_secundario_rg {
-    width: 68%;
-  }
-
-  .input_secundario_data {
-    width: 80%;
-    margin-left: 15vh;
   }
 
   .btn_proxima_etapa {
-    margin-top: 10%;
+    margin-top: 12% !important;
     margin-left: 5%;
     @include button-add-processeguir;
   }
-
-
 }
+
+
 
 //Tamanho para celulares medios
-@media (min-width: 451px) and (max-width: 480px) {
+// @media (min-width: 451px) and (max-width: 480px) {
 
-  #h1-titulo {
-    margin-top: 14px;
-  }
+//   #h1-titulo {
+//     margin-top: 14px;
+//   }
 
-  #corpo_formulario {
-    min-height: 1850px;
-    max-height: 2000px;
-  }
+//   #corpo_formulario {
+//     min-height: 1850px;
+//     max-height: 2000px;
+//   }
 
-  .h2 {
-    top: 30%;
-    margin-left: 5%;
-    font-size: 17px;
-  }
+//   .h2 {
+//     top: 30%;
+//     margin-left: 5%;
+//     font-size: 17px;
+//   }
 
-  #tipo_pessoa {
-    width: 80%;
-    margin-top: 5%;
-    height: 100px;
-  }
+//   #tipo_pessoa {
+//     width: 80%;
+//     margin-top: 5%;
+//     height: 100px;
+//   }
 
-  .lb_pessoa_fisica {
-    position: absolute;
-    margin-top: 3%;
-  }
+//   .lb_pessoa_fisica {
+//     position: absolute;
+//     margin-top: 3%;
+//   }
 
-  .lb_pessoa_juridica {
-    position: absolute;
-    margin-top: 4%;
-  }
+//   .lb_pessoa_juridica {
+//     position: absolute;
+//     margin-top: 4%;
+//   }
 
-  .lb_pessoa_estrangeira {
-    position: absolute;
-    margin-top: 4%;
-  }
-
-
-  .input {
-    width: 75%;
-  }
-
-  #nome_apelido {
-    @include input_apelido;
-    width: 80% !important;
-    line-height: 45px;
-    opacity: 0.8;
-  }
-
-  #suframa {
-    position: relative;
-    height: 500px;
-    width: 100%;
-    margin-left: 2%;
-    margin-top: 5%;
-  }
-
-  .h2_suframa {
-    font-size: 100%;
-    margin-left: 2%;
-  }
-
-  .input_suframa {
-    width: 75%;
-    margin-left: 2%;
-  }
-
-  .label_num_inscricao,
-  .label_codigo_suframa {
-    margin-left: 2%;
-  }
-
-  .p_obs {
-    margin-top: -30%;
-    margin-left: 4%;
-  }
+//   .lb_pessoa_estrangeira {
+//     position: absolute;
+//     margin-top: 4%;
+//   }
 
 
-  .select {
-    width: 80%;
-    margin-left: 2%;
-  }
+//   .input {
+//     width: 75%;
+//   }
+
+//   #nome_apelido {
+//     @include input_apelido;
+//     width: 80% !important;
+//     line-height: 45px;
+//     opacity: 0.8;
+//   }
+
+//   #suframa {
+//     position: relative;
+//     height: 500px;
+//     width: 100%;
+//     margin-left: 2%;
+//     margin-top: 5%;
+//   }
+
+//   .h2_suframa {
+//     font-size: 100%;
+//     margin-left: 2%;
+//   }
+
+//   .input_suframa {
+//     width: 75%;
+//     margin-left: 2%;
+//   }
+
+//   .label_num_inscricao,
+//   .label_codigo_suframa {
+//     margin-left: 2%;
+//   }
+
+//   .p_obs {
+//     margin-top: -30%;
+//     margin-left: 4%;
+//   }
 
 
-  .btn_adicionar_email {
-    margin-left: 27%;
-  }
-
-  .input_inscricao {
-    width: 75%;
-    margin-top: 8%;
-    margin-left: 2%;
-  }
+//   .select {
+//     width: 80%;
+//     margin-left: 2%;
+//   }
 
 
-  .text_area {
-    width: 80%;
-    margin-left: 4%;
-  }
+//   .btn_adicionar_email {
+//     margin-left: 27%;
+//   }
 
-  #conteudo_observacoes {
-    //position: absolute;
-    margin-left: 0ch;
-    width: 100%;
-  }
-
-  .input_secundario_rg {
-    width: 60%;
-  }
-
-  .input_secundario_data {
-    width: 80%;
-    margin-left: 15vh;
-  }
+//   .input_inscricao {
+//     width: 75%;
+//     margin-top: 8%;
+//     margin-left: 2%;
+//   }
 
 
-  .btn_proxima_etapa {
-    margin-top: 10%;
-    margin-left: 5%;
-    @include button-add-processeguir;
-  }
+//   .text_area {
+//     width: 80%;
+//     margin-left: 4%;
+//   }
+
+//   #conteudo_observacoes {
+//     //position: absolute;
+//     margin-left: 0ch;
+//     width: 100%;
+//   }
+
+//   .input_secundario_rg {
+//     width: 60%;
+//   }
+
+//   .input_secundario_data {
+//     width: 80%;
+//     margin-left: 15vh;
+//   }
 
 
-}
+//   .btn_proxima_etapa {
+//     margin-top: 10%;
+//     margin-left: 5%;
+//     @include button-add-processeguir;
+//   }
+
+
+// }
 
 //Tamanho para celulares grandes
-@media (min-width: 480px) and (max-width: 600px) {
+// @media (min-width: 480px) and (max-width: 600px) {
 
-  #h1-titulo {
-    margin-top: 14px;
-  }
+//   #h1-titulo {
+//     margin-top: 14px;
+//   }
 
-  #corpo_formulario {
-    min-height: 1800px;
-    max-height: 2000px;
-  }
+//   #corpo_formulario {
+//     min-height: 1800px;
+//     max-height: 2000px;
+//   }
 
-  .h2 {
-    top: 30%;
-    margin-left: 5%;
-    font-size: 17px;
-  }
+//   .h2 {
+//     top: 30%;
+//     margin-left: 5%;
+//     font-size: 17px;
+//   }
 
-  #nome_apelido {
-    @include input_apelido;
-    width: 75% !important;
-    line-height: 45px;
-    opacity: 0.8;
-  }
+//   #nome_apelido {
+//     @include input_apelido;
+//     width: 75% !important;
+//     line-height: 45px;
+//     opacity: 0.8;
+//   }
 
-  #suframa {
-    position: relative;
-    height: 500px;
-    width: 100%;
-    margin-left: 2%;
-    margin-top: 5%;
-  }
+//   #suframa {
+//     position: relative;
+//     height: 500px;
+//     width: 100%;
+//     margin-left: 2%;
+//     margin-top: 5%;
+//   }
 
-  .h2_suframa {
-    font-size: 100%;
-    margin-left: 2%;
-  }
+//   .h2_suframa {
+//     font-size: 100%;
+//     margin-left: 2%;
+//   }
 
-  .input_suframa {
-    width: 75%;
-    margin-left: 2%;
-  }
+//   .input_suframa {
+//     width: 75%;
+//     margin-left: 2%;
+//   }
 
-  .label_num_inscricao,
-  .label_codigo_suframa,
-  .p_obs {
-    margin-left: 2%;
-  }
+//   .label_num_inscricao,
+//   .label_codigo_suframa,
+//   .p_obs {
+//     margin-left: 2%;
+//   }
 
-  .select {
-    width: 80%;
-    margin-left: 2%;
-  }
-
-
-  .btn_adicionar_email {
-    margin-left: 27%;
-  }
-
-  .input_inscricao {
-    width: 75%;
-    margin-top: 8%;
-    margin-left: 2%;
-  }
-
-  .text_area {
-    width: 80%;
-    margin-left: 2%;
-  }
-
-  #conteudo_observacoes {
-    //position: absolute;
-    margin-left: 0ch;
-    width: 100%;
-  }
-
-  .input_secundario_rg {
-    width: 60%;
-  }
-
-  .input_secundario_data {
-    width: 75%;
-    margin-left: 5%;
-  }
+//   .select {
+//     width: 80%;
+//     margin-left: 2%;
+//   }
 
 
-  .btn_proxima_etapa {
-    margin-top: 10%;
-    margin-left: 5%;
-    @include button-add-processeguir;
-  }
+//   .btn_adicionar_email {
+//     margin-left: 27%;
+//   }
+
+//   .input_inscricao {
+//     width: 75%;
+//     margin-top: 8%;
+//     margin-left: 2%;
+//   }
+
+//   .text_area {
+//     width: 80%;
+//     margin-left: 2%;
+//   }
+
+//   #conteudo_observacoes {
+//     //position: absolute;
+//     margin-left: 0ch;
+//     width: 100%;
+//   }
+
+//   .input_secundario_rg {
+//     width: 60%;
+//   }
+
+//   .input_secundario_data {
+//     width: 75%;
+//     margin-left: 5%;
+//   }
 
 
-}
+//   .btn_proxima_etapa {
+//     margin-top: 10%;
+//     margin-left: 5%;
+//     @include button-add-processeguir;
+//   }
+
+
+// }
 
 //Tamanho para Ipad e Tablets
-@media (min-width: 601px) and (max-width: 850px) {
+// @media (min-width: 601px) and (max-width: 850px) {
 
-  #h1-titulo {
-    margin-top: 14px;
-  }
+//   #h1-titulo {
+//     margin-top: 14px;
+//   }
 
-  #corpo_formulario {
-    min-height: 1800px;
-    max-height: 2000px;
-  }
+//   #corpo_formulario {
+//     min-height: 1800px;
+//     max-height: 2000px;
+//   }
 
-  .h2 {
-    top: 30%;
-    margin-left: 5%;
-    font-size: 17px;
-  }
-
-
-  .input {
-    width: 70%;
-  }
-
-  #nome_apelido {
-    @include input_apelido;
-    width: 70% !important;
-    line-height: 45px;
-    opacity: 0.8;
-  }
+//   .h2 {
+//     top: 30%;
+//     margin-left: 5%;
+//     font-size: 17px;
+//   }
 
 
-  #suframa {
-    position: relative;
-    height: 500px;
-    width: 100%;
-    margin-left: 2%;
-    margin-top: 5%;
-  }
+//   .input {
+//     width: 70%;
+//   }
 
-  .h2_suframa {
-    font-size: 100%;
-    margin-left: 2%;
-  }
-
-  .input_suframa {
-    width: 75%;
-    margin-left: 2%;
-  }
-
-  .label_num_inscricao,
-  .label_codigo_suframa,
-  .p_obs {
-    margin-left: 2%;
-  }
-
-  .select {
-    width: 80%;
-    margin-left: 2%;
-  }
-
-  .btn_adicionar_email {
-    margin-left: 27%;
-  }
-
-  .input_inscricao {
-    width: 75%;
-    margin-top: 8%;
-    margin-left: 2%;
-  }
-
-  .text_area {
-    width: 80%;
-    margin-left: 2%;
-  }
-
-  .input_secundario_rg {
-    width: 60%;
-  }
-
-  .input_secundario_data {
-    width: 75%;
-    margin-left: 5%;
-  }
+//   #nome_apelido {
+//     @include input_apelido;
+//     width: 70% !important;
+//     line-height: 45px;
+//     opacity: 0.8;
+//   }
 
 
-  .btn_proxima_etapa {
-    margin-top: 10%;
-    margin-left: 5%;
-    @include button-add-processeguir;
-  }
+//   #suframa {
+//     position: relative;
+//     height: 500px;
+//     width: 100%;
+//     margin-left: 2%;
+//     margin-top: 5%;
+//   }
 
-}
+//   .h2_suframa {
+//     font-size: 100%;
+//     margin-left: 2%;
+//   }
+
+//   .input_suframa {
+//     width: 75%;
+//     margin-left: 2%;
+//   }
+
+//   .label_num_inscricao,
+//   .label_codigo_suframa,
+//   .p_obs {
+//     margin-left: 2%;
+//   }
+
+//   .select {
+//     width: 80%;
+//     margin-left: 2%;
+//   }
+
+//   .btn_adicionar_email {
+//     margin-left: 27%;
+//   }
+
+//   .input_inscricao {
+//     width: 75%;
+//     margin-top: 8%;
+//     margin-left: 2%;
+//   }
+
+//   .text_area {
+//     width: 80%;
+//     margin-left: 2%;
+//   }
+
+//   .input_secundario_rg {
+//     width: 60%;
+//   }
+
+//   .input_secundario_data {
+//     width: 75%;
+//     margin-left: 5%;
+//   }
+
+
+//   .btn_proxima_etapa {
+//     margin-top: 10%;
+//     margin-left: 5%;
+//     @include button-add-processeguir;
+//   }
+
+// }

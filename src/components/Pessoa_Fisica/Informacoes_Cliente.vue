@@ -1,6 +1,7 @@
 <template>
 
     <!--Informacoes do cliente-->
+<div id="Area_Formulario">
 
     <h2 id="h2-informacoes">Informações do cliente</h2>
 
@@ -47,10 +48,9 @@
                 <option value="2">Am. Ocid(Amazonia Ocidental)</option>
             </select>
 
-            <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline" class="CodigoSuframa" v-model="suframa">
+            <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" class="CodigoSuframa" v-model="suframa">
 
             <input type="text"  placeholder="Numero de Inscrição Municipal" class="InputInscricao" v-model="inscricao_municipal">
-
         </div>
 
         <!--Observacoes do cliente-->
@@ -109,6 +109,7 @@
 
        <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
     </form>
+</div>
 
 </template>
 
