@@ -65,47 +65,49 @@
         <div id="AreaEnderecoPrincipal">
             <h2 class="h2_endereco">Endereço Principal</h2>
 
-            <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep">
-            <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco">
+            <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep" v-on:blur="Consulta_CEP">
+            <!-- onblur="Consulta_CEP(this.value);" -->
+            <input type="text" placeholder="Endereço" class="input_endereco" v-if="cep_data != null" v-model="cep_data.logradouro">
             <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero">
-            <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento">
-            <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro">
-            <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade">
-            <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade">
-            <input type="text" placeholder="Estado" class="input_endereco" v-model="estado">
-            <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais">
-            <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco">
+            <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento"> 
+            <input type="text" placeholder="Bairro" class="input_endereco" v-if="cep_data != null " v-model="cep_data.bairro">
+            <input type="text" placeholder="Cidade" class="input_endereco" v-if="cep_data != null " v-model="cep_data.localidade" >         
+            <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-if="cep_data != null " v-model="cod_cidade">
+            <input type="text" placeholder="Estado" class="input_endereco" v-if="cep_data != null " v-model="cep_data.uf">
+            <input type="text" placeholder="Codigo do pais" class="input_endereco" v-if="cep_data != null " v-model="cod_pais">
+            <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-if="cep_data != null " v-model="tipo_endereco">
+
         </div>
 
         <div id="AreaEnderecoSecundario">
             <h2 class="h2_endereco">Endereço Secundario(Opcional)</h2>
 
-            <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep">
-            <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco">
+            <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep_data_cob" v-on:blur="Consulta_CEP_COB">
+            <input type="text" placeholder="Endereço" class="input_endereco" v-if="cep_data_cob != null" v-model="cep_data.logradouro">
             <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero">
             <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento">
-            <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro">
-            <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade">
-            <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade">
-            <input type="text" placeholder="Estado" class="input_endereco" v-model="estado">
-            <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais">
-            <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco">
+            <input type="text" placeholder="Bairro" class="input_endereco" v-if="cep_data_cob != null " v-model="cep_data.bairro">
+            <input type="text" placeholder="Cidade" class="input_endereco" v-if="cep_data_cob != null " v-model="cep_data.localidade">
+            <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-if="cep_data_cob != null" v-model="cod_cidade">
+            <input type="text" placeholder="Estado" class="input_endereco" v-if="cep_data_cob != null " v-model="cep_data.uf">
+            <input type="text" placeholder="Codigo do pais" class="input_endereco" v-if="cep_data_cob != null " v-model="cod_pais">
+            <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-if="cep_data_cob != null " v-model="tipo_endereco">
         </div>
 
-        <div id="AreaEnderecoTerciario">
+        <!-- <div id="AreaEnderecoTerciario">
             <h2 class="h2_endereco">Endereço Terciario(Opcional)</h2>
 
-            <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep">
-            <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco">
-            <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero">
-            <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento">
-            <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro">
-            <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade">
-            <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade">
-            <input type="text" placeholder="Estado" class="input_endereco" v-model="estado">
-            <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais">
+            <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep_3">
+            <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco_3">
+            <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_3">
+            <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_3">
+            <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro_3">
+            <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_3">
+            <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_3">
+            <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_3">
+            <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_3">
             <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco">
-        </div>
+        </div> -->
 
        <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
     </form>
@@ -114,8 +116,9 @@
 </template>
 
 <script>
-import api from '../api'
-//import axios from "axios"
+import axios from 'axios';
+import { assertExpressionStatement } from '@babel/types';
+
 
 export default {
 
@@ -143,15 +146,19 @@ export default {
             suframa:"",
             inscricao_municipal:"",
             cep: "",
-            endereco: "",
+            cep_2:"",
+            endereco: this.logradouro,
             end_numero: "",
             complemento: "",
-            bairro: "",
-            cidade: "",
+            bairro: this.bairro,
+            cidade: this.localidade,
             cod_cidade: "",
             cod_pais: "",
-            estado: "",
-            tipo_endereco:""
+            estado: this.uf,
+            tipo_endereco:"",
+            cep_data: null,
+            cep_data_cob: null,
+            cep_keys : []
         }
     },
 
@@ -189,7 +196,29 @@ export default {
                         cod_cidade: this.cod_cidade,
                         cod_pais: this.cod_pais,
                         estado: this.estado,
-                        tipo_endereco: this.tipo_endereco
+                        tipo_endereco: this.tipo_endereco,
+
+                        cep: this.cep_2,
+                        endereco: this.endereco,
+                        end_numero: this.end_numero,
+                        complemento: this.complemento,
+                        bairro: this.bairro,
+                        cidade: this.cidade,
+                        cod_cidade: this.cod_cidade,
+                        cod_pais: this.cod_pais,
+                        estado: this.estado,
+                        tipo_endereco: this.tipo_endereco,
+
+                        // cep: this.cep_3,
+                        // endereco: this.endereco,
+                        // end_numero: this.end_numero,
+                        // complemento: this.complemento,
+                        // bairro: this.bairro,
+                        // cidade: this.cidade,
+                        // cod_cidade: this.cod_cidade,
+                        // cod_pais: this.cod_pais,
+                        // estado: this.estado,
+                        // tipo_endereco: this.tipo_endereco
                     }]
                 }]
             })
@@ -198,7 +227,53 @@ export default {
                     TokenService.setUser(response.data);
                 }
             })
-    }   }
+    },
+
+    Consulta_CEP() {
+        var self = this;
+
+        axios
+        .get('https://viacep.com.br/ws/'+this.cep+'/json/')
+        .then(function (response) {
+
+            console.log(response);
+            self.cep_data = response.data;
+
+            self.cep_keys = Object.keys( self.cep_data );
+        })
+
+        .catch(function (error){
+            //console.log(error);
+        })
+
+        .finally(function () {
+
+        });
+    },
+
+
+    Consulta_CEP_COB() {
+        var self = this;
+
+        axios
+        .get('https://viacep.com.br/ws/'+this.cep_2+'/json/')
+        .then(function (response) {
+
+            console.log(response);
+            self.cep_data_cob = response.data;
+
+            self.cep_keys = Object.keys( self.cep_data_2 );
+        })
+
+        .catch(function (error){
+            //console.log(error);
+        })
+
+        .finally(function () {
+
+        });
+    }
+  }
 }
 </script>
 
