@@ -15,6 +15,23 @@
 
         <input type="text" placeholder="Seu email principal" class="InputForm" v-model="e_mail">
 
+        <div class="form-group row" v-for="(input, index) in inputs">
+
+            <div class="col-lg-3">
+                <input type="text" :name="'contact[' + index + '][email]'" placeholder="Adicioanar outro e-mail" class="InputForm" v-model="e_mail">
+            </div>
+
+            <button class="deletar_email"  @click="Deletar_Email(index)">
+                <i class="fa fa-times"></i>
+            </button>
+        </div>
+
+        <div>
+            <button @click="add_email">Adicionar outro E-mail</button>
+        </div>
+
+        <!-- class="btn btn-outline-secondary" -->
+    
         <input type="text"  placeholder="Seu email nfe" class="InputForm" v-model="e_mail_nfe">
 
         <input type="text" placeholder="Codigo do cliente" class="InputForm" v-model="cod_cliente">
@@ -119,12 +136,15 @@
 
 <script>
 import axios from 'axios';
-import { assertExpressionStatement } from '@babel/types';
-
+import bootstrap from 'bootstrap';
 
 export default {
 
     name: 'Informacoes_Cliente',
+
+    created(){
+        this.add_email();
+    },
 
     data() {
         return {
@@ -171,7 +191,8 @@ export default {
             cod_cidade: "",
             cod_pais: "",
             tipo_endereco:"",
-            cep_keys : []
+            cep_keys : [],
+            inputs: []
         }
     },
 
@@ -241,6 +262,16 @@ export default {
                     TokenService.setUser(response.data);
                 }
             })
+    },
+
+    add_email(){
+            this.inputs.push({
+            email: ""
+        })
+    },
+
+    Deletar_Email(index){
+        this.inputs.splice(index, 1);
     },
 
     Consulta_CEP() {
