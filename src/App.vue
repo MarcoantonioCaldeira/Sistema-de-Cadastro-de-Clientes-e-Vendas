@@ -1,21 +1,11 @@
 <template>
   <nav>
-    <!--<router-link to="/">Pagina Incial</router-link>-->
+    <router-link to="/"><li>Cadastro de Clientes</li></router-link>
+    <router-link to="./Cadastro_De_Vendas"><li>Cadastro de Compras</li></router-link>
   </nav>
   <router-view/>
 </template>
 
-<style>
-nav{
-  width:100%;
-  height: 100px;
-  background-color: #003A4C;
-}
+<style src="./estilo_app.css">
 
-@media screen and (max-width: 300px) {
-    
-  nav{
-    height: 80px;
-  }
-}
 </style>
