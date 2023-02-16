@@ -18,7 +18,7 @@
             <div class="Form_Email" v-for="(input, index) in inputs"  v-if="Mostrar_Email">
 
                 <div>
-                    <input type="text" :name="'contact[' + index + '][email]'" placeholder="Adicioanar outro e-mail" class="InputForm_Email_Opcional" v-model="e_mail">
+                    <input type="text" :name="'contact[' + index + '][email]'" placeholder="Adicioanar outro e-mail" class="InputForm_Email_Opcional" v-model="e_mail_adicional">
                 </div>
 
                 <button type="button"  @click="Deletar_Email(index)" class="btn btn-outline-danger rounded-circle">
@@ -158,6 +158,7 @@ export default {
             cod_cliente: "",
             cod_vendedor: "",
             e_mail: "",
+            e_mail_adicional: "",
             e_mail_2:"",
             observacao: "",
             e_mail_nfe: "",
@@ -228,7 +229,7 @@ export default {
                         cod_cliente: this.cod_cliente,
                         cod_vendedor: this.cod_vendedor,
                         e_mail: this.e_mail,
-                        e_mail: this.e_mail_2,
+                        e_mail: this.e_mail_adicional,
                         observacao: this.observacao,
                         e_mail_nfe: this.e_mail_nfe,
                         data_cadastro: this.data_cadastro,
