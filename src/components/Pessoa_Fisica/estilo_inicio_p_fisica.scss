@@ -89,6 +89,34 @@ label {
   opacity: 0.8;
 }
 
+
+.Form_Email {
+  margin-left: 5%;
+  width: 21.5%;
+  height: 67px;
+}
+
+.InputForm_Email_Opcional {
+  width: 92%;
+  background-color: $cor_4;
+  padding: 0px 12px;
+  border: 1px solid;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: $cor_4;
+  display: block;
+  height: 40px;
+}
+
+.btn_add_email {
+  position: relative;
+  margin-left: 11%;
+  width: 8%;
+  height: 40px;
+  border-radius: 5px;
+}
+
 .deletar_email {
   background-color: red;
   width: 20px;
