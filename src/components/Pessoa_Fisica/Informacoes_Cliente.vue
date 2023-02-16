@@ -15,19 +15,20 @@
 
             <input type="text" placeholder="Seu email principal" class="InputForm" v-model="e_mail">
 
-            <!-- <div class="form-group row" v-for="(input, index) in inputs">
+            <div class="Form_Email" v-for="(input, index) in inputs"  v-if="Mostrar_Email">
 
-            <div class="col-lg-3">
-                <input type="text" :name="'contact[' + index + '][email]'" placeholder="Adicioanar outro e-mail" class="InputForm" v-model="e_mail">
+                <div>
+                    <input type="text" :name="'contact[' + index + '][email]'" placeholder="Adicioanar outro e-mail" class="InputForm_Email_Opcional" v-model="e_mail">
+                </div>
+
+                <button type="button"  @click="Deletar_Email(index)" class="btn btn-outline-danger rounded-circle">
+                    <i class="fa fa-times"></i>
+                </button>
+
             </div>
 
-            <button class="deletar_email"  @click="Deletar_Email(index)">
-                <i class="fa fa-times"></i>
-            </button>
-        </div> -->
-
             <div>
-                <button @click="add_email">Adicionar outro E-mail</button>
+                <button  @click="Mostrar_Email = !Mostrar_Email" class="btn_add_email" onclick='this.disabled=true'>Adicionar outro E-mail</button>
             </div>
 
             <!-- class="btn btn-outline-secondary" -->
@@ -157,6 +158,7 @@ export default {
             cod_cliente: "",
             cod_vendedor: "",
             e_mail: "",
+            e_mail_2:"",
             observacao: "",
             e_mail_nfe: "",
             data_cadastro: "",
@@ -209,6 +211,7 @@ export default {
             tipo_endereco_3: "",
 
             cep_keys: [],
+            Mostrar_Email: false,
             inputs: []
         }
     },
@@ -225,6 +228,7 @@ export default {
                         cod_cliente: this.cod_cliente,
                         cod_vendedor: this.cod_vendedor,
                         e_mail: this.e_mail,
+                        e_mail: this.e_mail_2,
                         observacao: this.observacao,
                         e_mail_nfe: this.e_mail_nfe,
                         data_cadastro: this.data_cadastro,
@@ -283,7 +287,7 @@ export default {
 
         add_email() {
             this.inputs.push({
-                email: ""
+                email: null
             })
         },
 
