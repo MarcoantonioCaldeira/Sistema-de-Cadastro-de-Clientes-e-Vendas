@@ -101,7 +101,12 @@ label {
 }
 
 
-.InputSecundario {
+.Input_Data_Cadastro {
+  width: 12.5% !important;
+  @include input_separado_data;
+}
+
+.Input_Data_Nascimento {
   @include input_separado_data;
 }
 
