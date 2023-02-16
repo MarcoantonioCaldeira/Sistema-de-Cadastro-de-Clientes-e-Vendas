@@ -163,7 +163,93 @@
                         TokenService.setUser(response.data);
                     }
                 })
+            },
+
+            CONSULTA_CEP() {
+            var self = this;
+
+            axios
+                .get('https://viacep.com.br/ws/' + this.cep + '/json/')
+                .then(function (response) {
+
+                    console.log(response);
+                    self.endereco_end_1 = response.data;
+                    self.cidade_end_1 = response.data;
+                    self.estado_end_1 = response.data;
+                    self.bairro_end_1 = response.data;
+
+                    self.cep_keys = Object.keys(self.endereco_end_2);
+                    self.cep_keys = Object.keys(self.cidade_end_1);
+                    self.cep_keys = Object.keys(self.estado_end_1);
+                    self.cep_keys = Object.keys(self.bairro_end_1);
+                })
+
+                .catch(function (error) {
+                    //console.log(error);
+                })
+
+                .finally(function () {
+
+                });
+            },
+
+
+            CONSULTA_CEP_COB() {
+                var self = this;
+
+                axios
+                    .get('https://viacep.com.br/ws/' + this.cep_2 + '/json/')
+                    .then(function (response) {
+
+                        console.log(response);
+                        self.endereco_end_2 = response.data;
+                        self.cidade_end_2 = response.data;
+                        self.estado_end_2 = response.data;
+                        self.bairro_end_2 = response.data;
+
+                        self.cep_keys = Object.keys(self.endereco_end_2);
+                        self.cep_keys = Object.keys(self.cidade_end_2);
+                        self.cep_keys = Object.keys(self.estado_end_2);
+                        self.cep_keys = Object.keys(self.bairro_end_2);
+                })
+
+                .catch(function (error) {
+                    //console.log(error);
+                })
+
+                .finally(function () {
+
+                });
+            },
+
+            CONSULTA_CEP_TER() {
+                var self = this;
+
+                axios
+                    .get('https://viacep.com.br/ws/' + this.cep_3 + '/json/')
+                    .then(function (response) {
+
+                        console.log(response);
+                        self.endereco_end_3 = response.data;
+                        self.cidade_end_3 = response.data;
+                        self.estado_end_3 = response.data;
+                        self.bairro_end_3 = response.data;
+
+                        self.cep_keys = Object.keys(self.endereco_end_3);
+                        self.cep_keys = Object.keys(self.cidade_end_3);
+                        self.cep_keys = Object.keys(self.estado_end_3);
+                        self.cep_keys = Object.keys(self.bairro_end_3);
+                    })
+
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+
+                    .finally(function () {
+
+                    });
             }
+
         }
     }
 </script>

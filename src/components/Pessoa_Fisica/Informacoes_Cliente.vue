@@ -28,7 +28,7 @@
             </div>
 
             <div>
-                <button  @click="Mostrar_Email = !Mostrar_Email" class="btn_add_email" onclick='this.disabled=true'>Adicionar outro E-mail</button>
+                <button  @click="Mostrar_Email = !show" class="btn_add_email" onclick='this.disabled=true'>Adicionar outro E-mail</button>
             </div>
 
             <!-- class="btn btn-outline-secondary" -->
