@@ -1,21 +1,21 @@
 <template>
 
     <!--Informacoes do cliente-->
-<div id="Area_Formulario">
+    <div id="Area_Formulario">
 
-    <h2 id="h2-informacoes">Informações do cliente</h2>
+        <h2 id="h2-informacoes">Informações do cliente</h2>
 
-    <form  method="POST" @submit.prevent="Cadastrar">
+        <form method="POST" @submit.prevent="Cadastrar">
 
-        <!--Area de Cadastro-->
+            <!--Area de Cadastro-->
 
-        <input type="text" name="nome" placeholder="Seu Nome" v-model="nome" class="InputForm" required>
+            <input type="text" name="nome" placeholder="Seu Nome" v-model="nome" class="InputForm" required>
 
-        <input type="text" placeholder="nome-apelido"  class="InputForm" v-model="nome_fantasia">
+            <input type="text" placeholder="nome-apelido" class="InputForm" v-model="nome_fantasia">
 
-        <input type="text" placeholder="Seu email principal" class="InputForm" v-model="e_mail">
+            <input type="text" placeholder="Seu email principal" class="InputForm" v-model="e_mail">
 
-        <!-- <div class="form-group row" v-for="(input, index) in inputs">
+            <!-- <div class="form-group row" v-for="(input, index) in inputs">
 
             <div class="col-lg-3">
                 <input type="text" :name="'contact[' + index + '][email]'" placeholder="Adicioanar outro e-mail" class="InputForm" v-model="e_mail">
@@ -26,111 +26,114 @@
             </button>
         </div> -->
 
-        <div>
-            <button @click="add_email">Adicionar outro E-mail</button>
-        </div>
+            <div>
+                <button @click="add_email">Adicionar outro E-mail</button>
+            </div>
 
-        <!-- class="btn btn-outline-secondary" -->
-    
-        <input type="text"  placeholder="Seu email nfe" class="InputForm" v-model="e_mail_nfe">
+            <!-- class="btn btn-outline-secondary" -->
 
-        <input type="text" placeholder="Codigo do cliente" class="InputForm" v-model="cod_cliente">
+            <input type="text" placeholder="Seu email nfe" class="InputForm" v-model="e_mail_nfe">
 
-        <input type="text"  placeholder="Codigo do vendedor" class="InputForm" v-model="cod_vendedor">
+            <input type="text" placeholder="Codigo do cliente" class="InputForm" v-model="cod_cliente">
 
-        <input type="text" placeholder="Classificação de entrega"  class="InputForm" v-model="classificacao_entrega">
-    
-        <input type="text" placeholder="Data do cadastro" class="InputForm" v-model="data_cadastro">
+            <input type="text" placeholder="Codigo do vendedor" class="InputForm" v-model="cod_vendedor">
 
-        <input type="text" placeholder="Seu telefone" class="InputForm" v-model="telefone_2">
+            <input type="text" placeholder="Classificação de entrega" class="InputForm" v-model="classificacao_entrega">
 
-        <input type="text" placeholder="Celular" class="InputForm" v-model="celular">
-         
-        <input type="text" placeholder="Seu CPF" class="InputForm" v-model="cnpj_cpf">
+            <label class="lb_dt">Data do Cadastro: </label><input type="date" class="Input_Data_Cadastro" v-model="data_cadastro">
 
-        <input type="text" placeholder="CPF de Entrega" class="InputForm" v-model="cnpj_cpf_entrega">
+            <input type="text" placeholder="Seu telefone" class="InputForm" v-model="telefone_2">
 
-        <input type="text" placeholder="Seu RG"  class="InputForm" v-model="inscricao_rg">
+            <input type="text" placeholder="Celular" class="InputForm" v-model="celular">
 
-        <br><label class="lb_dt">Data de Nascimento:</label><input type="date" class="InputSecundario" v-model="nascimento">
+            <input type="text" placeholder="Seu CPF" class="InputForm" v-model="cnpj_cpf">
 
-        <!--Tipo Suframa-->
+            <input type="text" placeholder="CPF de Entrega" class="InputForm" v-model="cnpj_cpf_entrega">
 
-        <div id="AreaSuframa">
-            <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência da<br>Zona Franca de Manaus)</h2>
-            <br>
-            <select class="SelectSuframa" v-model="suframa_tipo">
-                <option value="0">ZFM(Zona Franca de Manaus)</option>
-                <option value="1">ALC(Área de Livre Comercio)</option>
-                <option value="2">Am. Ocid(Amazonia Ocidental)</option>
-            </select>
+            <input type="text" placeholder="Seu RG" class="InputForm" v-model="inscricao_rg">
 
-            <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" class="CodigoSuframa" v-model="suframa">
+            <br><label class="lb_dt">Data de Nascimento:</label><input type="date" class="Input_Data_Nascimento"
+                v-model="nascimento">
 
-            <input type="text"  placeholder="Numero de Inscrição Municipal" class="InputInscricao" v-model="inscricao_municipal">
-        </div>
+            <!--Tipo Suframa-->
 
-        <!--Observacoes do cliente-->
+            <div id="AreaSuframa">
+                <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência da<br>Zona Franca de Manaus)</h2>
+                <br>
+                <select class="SelectSuframa" v-model="suframa_tipo">
+                    <option value="0">ZFM(Zona Franca de Manaus)</option>
+                    <option value="1">ALC(Área de Livre Comercio)</option>
+                    <option value="2">Am. Ocid(Amazonia Ocidental)</option>
+                </select>
 
-        <div id="AreaObservacoes">
-            <p class="p_obs">Observações</p>
-            <textarea class="TextArea" v-model="observacao">
-    
+                <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" class="CodigoSuframa"
+                    v-model="suframa">
+
+                <input type="text" placeholder="Numero de Inscrição Municipal" class="InputInscricao"
+                    v-model="inscricao_municipal">
+            </div>
+
+            <!--Observacoes do cliente-->
+
+            <div id="AreaObservacoes">
+                <p class="p_obs">Observações</p>
+                <textarea class="TextArea" v-model="observacao">
+
             </textarea>
-        </div>
+            </div>
 
-        <div id="AreaEnderecoPrincipal">
-            <h2 class="h2_endereco">Endereço Principal</h2>
+            <div id="AreaEnderecoPrincipal">
+                <h2 class="h2_endereco">Endereço Principal</h2>
 
-            <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep" v-on:blur="CONSULTA_CEP">
-            <!-- onblur="Consulta_CEP(this.value);" -->
-            <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco_end_1.logradouro">
+                <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep" v-on:blur="CONSULTA_CEP">
+                <!-- onblur="Consulta_CEP(this.value);" -->
+                <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco_end_1.logradouro">
 
-            <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_1">
-            <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_1"> 
-            <input type="text" placeholder="Bairro" class="input_endereco"  v-model="bairro_end_1.bairro">
-            <input type="text" placeholder="Cidade" class="input_endereco"  v-model="cidade_end_1.localidade">         
-            <input type="text" placeholder="Codigo da Cidade" class="input_endereco"  v-model="cod_cidade_1">
-            <input type="text" placeholder="Estado" class="input_endereco"  v-model="estado_end_1.uf">
-            <input type="text" placeholder="Codigo do pais" class="input_endereco"  v-model="cod_pais_1">
-            <input type="text" placeholder="Tipo de Endereço" class="input_endereco"  v-model="tipo_endereco_1">
+                <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_1">
+                <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_1">
+                <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro_end_1.bairro">
+                <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_end_1.localidade">
+                <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_1">
+                <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_1.uf">
+                <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_1">
+                <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_1">
 
-        </div>
+            </div>
 
-        <div id="AreaEnderecoSecundario">
-            <h2 class="h2_endereco">Endereço Secundario(Opcional)</h2>
+            <div id="AreaEnderecoSecundario">
+                <h2 class="h2_endereco">Endereço Secundario(Opcional)</h2>
 
-            <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep_2" v-on:blur="CONSULTA_CEP_COB">
+                <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep_2" v-on:blur="CONSULTA_CEP_COB">
 
-            <input type="text" placeholder="Endereço" class="input_endereco"  v-model="endereco_end_2.logradouro">
-            <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_2">
-            <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_2">
-            <input type="text" placeholder="Bairro" class="input_endereco"  v-model="bairro_end_2.bairro">
-            <input type="text" placeholder="Cidade" class="input_endereco"  v-model="cidade_end_2.localidade">
-            <input type="text" placeholder="Codigo da Cidade" class="input_endereco"  v-model="cod_cidade_2">
-            <input type="text" placeholder="Estado" class="input_endereco"  v-model="estado_end_2.uf">
-            <input type="text" placeholder="Codigo do pais" class="input_endereco"  v-model="cod_pais_2">
-            <input type="text" placeholder="Tipo de Endereço" class="input_endereco"  v-model="tipo_endereco_2">
-        </div>
+                <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco_end_2.logradouro">
+                <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_2">
+                <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_2">
+                <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro_end_2.bairro">
+                <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_end_2.localidade">
+                <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_2">
+                <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_2.uf">
+                <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_2">
+                <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_2">
+            </div>
 
-        <div id="AreaEnderecoTerciario">
-            <h2 class="h2_endereco">Endereço Terciario(Opcional)</h2>
+            <div id="AreaEnderecoTerciario">
+                <h2 class="h2_endereco">Endereço Terciario(Opcional)</h2>
 
-            <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep_3" v-on:blur="CONSULTA_CEP_TER">
-            <input type="text" placeholder="Endereço" class="input_endereco" v-model="bairro_end_3.logradouro">
-            <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_3">
-            <input type="text" placeholder="Complemento(opcional)"  class="input_endereco" v-model="complemento_3">
-            <input type="text" placeholder="Bairro" class="input_endereco"  v-model="bairro_end_3.bairro">
-            <input type="text" placeholder="Cidade" class="input_endereco"  v-model="cidade_end_3.localidade">
-            <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_3">
-            <input type="text" placeholder="Estado" class="input_endereco"  v-model="estado_end_3.uf">
-            <input type="text" placeholder="Codigo do pais" class="input_endereco"  v-model="cod_pais_3">
-            <input type="text" placeholder="Tipo de Endereço" class="input_endereco"  v-model="tipo_endereco_3">
-        </div>
+                <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep_3" v-on:blur="CONSULTA_CEP_TER">
+                <input type="text" placeholder="Endereço" class="input_endereco" v-model="bairro_end_3.logradouro">
+                <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_3">
+                <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_3">
+                <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro_end_3.bairro">
+                <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_end_3.localidade">
+                <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_3">
+                <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_3.uf">
+                <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_3">
+                <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_3">
+            </div>
 
-       <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
-    </form>
-</div>
+            <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
+        </form>
+    </div>
 
 </template>
 
@@ -141,7 +144,7 @@ export default {
 
     name: 'Informacoes_Cliente',
 
-    created(){
+    created() {
         this.add_email();
     },
 
@@ -151,23 +154,23 @@ export default {
             nome_fantasia: "",
             classificacao: "1",
             classificacao_entrega: "",
-            cod_cliente: "", 
+            cod_cliente: "",
             cod_vendedor: "",
             e_mail: "",
             observacao: "",
             e_mail_nfe: "",
             data_cadastro: "",
-            telefone_2:"",
-            celular:"",
-            cnpj_cpf:"",
-            cnpj_cpf_entrega:"",
-            inscricao_rg:"",
-            nascimento:"",
-            suframa_tipo:"",
-            suframa:"",
-            inscricao_municipal:"",
+            telefone_2: "",
+            celular: "",
+            cnpj_cpf: "",
+            cnpj_cpf_entrega: "",
+            inscricao_rg: "",
+            nascimento: "",
+            suframa_tipo: "",
+            suframa: "",
+            inscricao_municipal: "",
             cep: "",
-            cep_2:"",
+            cep_2: "",
             cep_3: "",
 
             end_numero_1: "",
@@ -201,11 +204,11 @@ export default {
             cod_pais_2: "",
             cod_pais_3: "",
 
-            tipo_endereco_1:"",
-            tipo_endereco_2:"",
-            tipo_endereco_3:"",
+            tipo_endereco_1: "",
+            tipo_endereco_2: "",
+            tipo_endereco_3: "",
 
-            cep_keys : [],
+            cep_keys: [],
             inputs: []
         }
     },
@@ -213,169 +216,170 @@ export default {
     methods: {
         Cadastrar() {
             api
-            .post("clientes",{
-                clientes:[{
-                    nome: this.nome,
-                    nome_fantasia: this.nome_fantasia,
-                    classificacao: this.classificacao,
-                    classificacao_entrega: this.classificacao_entrega,
-                    cod_cliente: this.cod_cliente, 
-                    cod_vendedor: this.cod_vendedor,
-                    e_mail: this.e_mail,
-                    observacao: this.observacao,
-                    e_mail_nfe: this.e_mail_nfe,
-                    data_cadastro: this.data_cadastro,
-                    telefone_2: this.telefone_2,
-                    celular: this.celular,
-                    cnpj_cpf: this.cnpj_cpf,
-                    cnpj_cpf_entrega: this.cnpj_cpf_entrega,
-                    inscricao_rg: this.inscricao_rg,
-                    nascimento: this.nascimento,
-                    suframa_tipo: this.suframa_tipo,
-                    suframa: this.suframa,
-                    inscricao_municipal: this.inscricao_municipal,
-                    cliente_enderecos:[{
+                .post("clientes", {
+                    clientes: [{
+                        nome: this.nome,
+                        nome_fantasia: this.nome_fantasia,
+                        classificacao: this.classificacao,
+                        classificacao_entrega: this.classificacao_entrega,
+                        cod_cliente: this.cod_cliente,
+                        cod_vendedor: this.cod_vendedor,
+                        e_mail: this.e_mail,
+                        observacao: this.observacao,
+                        e_mail_nfe: this.e_mail_nfe,
+                        data_cadastro: this.data_cadastro,
+                        telefone_2: this.telefone_2,
+                        celular: this.celular,
+                        cnpj_cpf: this.cnpj_cpf,
+                        cnpj_cpf_entrega: this.cnpj_cpf_entrega,
+                        inscricao_rg: this.inscricao_rg,
+                        nascimento: this.nascimento,
+                        suframa_tipo: this.suframa_tipo,
+                        suframa: this.suframa,
+                        inscricao_municipal: this.inscricao_municipal,
+                        cliente_enderecos: [{
 
-                        cep: this.cep,
-                        endereco: this.endereco_end_1,
-                        end_numero: this.end_numero_1,
-                        complemento: this.complemento_1,
-                        bairro: this.bairro_end_1,
-                        cidade: this.cidade_end_1,
-                        cod_cidade: this.cod_cidade_1,
-                        cod_pais: this.cod_pais_1,
-                        estado: this.estado_end_1,
-                        tipo_endereco: this.tipo_endereco_1,
+                            cep: this.cep,
+                            endereco: this.endereco_end_1,
+                            end_numero: this.end_numero_1,
+                            complemento: this.complemento_1,
+                            bairro: this.bairro_end_1,
+                            cidade: this.cidade_end_1,
+                            cod_cidade: this.cod_cidade_1,
+                            cod_pais: this.cod_pais_1,
+                            estado: this.estado_end_1,
+                            tipo_endereco: this.tipo_endereco_1,
 
-                        cep: this.cep_2,
-                        endereco: this.endereco_end_2,
-                        end_numero: this.end_numero_2,
-                        complemento: this.complemento_2,
-                        bairro: this.bairro_end_2,
-                        cidade: this.cidade_end_2,
-                        cod_cidade: this.cod_cidade_2,
-                        cod_pais: this.cod_pais_2,
-                        estado: this.estado_end_2,
-                        tipo_endereco: this.tipo_endereco_2,
+                            cep: this.cep_2,
+                            endereco: this.endereco_end_2,
+                            end_numero: this.end_numero_2,
+                            complemento: this.complemento_2,
+                            bairro: this.bairro_end_2,
+                            cidade: this.cidade_end_2,
+                            cod_cidade: this.cod_cidade_2,
+                            cod_pais: this.cod_pais_2,
+                            estado: this.estado_end_2,
+                            tipo_endereco: this.tipo_endereco_2,
 
-                        cep: this.cep_3,
-                        endereco: this.endereco_end_3,
-                        end_numero: this.end_numero_3,
-                        complemento: this.complemento_3,
-                        bairro: this.bairro_end_3,
-                        cidade: this.cidade_end_3,
-                        cod_cidade: this.cod_cidade_3,
-                        cod_pais: this.cod_pais_3,
-                        estado: this.estado_end_3,
-                        tipo_endereco: this.tipo_endereco_3
+                            cep: this.cep_3,
+                            endereco: this.endereco_end_3,
+                            end_numero: this.end_numero_3,
+                            complemento: this.complemento_3,
+                            bairro: this.bairro_end_3,
+                            cidade: this.cidade_end_3,
+                            cod_cidade: this.cod_cidade_3,
+                            cod_pais: this.cod_pais_3,
+                            estado: this.estado_end_3,
+                            tipo_endereco: this.tipo_endereco_3
+                        }]
                     }]
-                }]
-            })
-            .then((response) => {
-                if (response.data.accessToken) {
-                    TokenService.setUser(response.data);
-                }
-            })
-    },
+                })
+                .then((response) => {
+                    if (response.data.accessToken) {
+                        TokenService.setUser(response.data);
+                    }
+                })
+        },
 
-    add_email(){
+        add_email() {
             this.inputs.push({
-            email: ""
-        })
-    },
+                email: ""
+            })
+        },
 
-    Deletar_Email(index){
-        this.inputs.splice(index, 1);
-    },
+        Deletar_Email(index) {
+            this.inputs.splice(index, 1);
+        },
 
-    CONSULTA_CEP() {
-        var self = this;
+        CONSULTA_CEP() {
+            var self = this;
 
-        axios
-        .get('https://viacep.com.br/ws/'+this.cep+'/json/')
-        .then(function (response) {
+            axios
+                .get('https://viacep.com.br/ws/' + this.cep + '/json/')
+                .then(function (response) {
 
-            console.log(response);
-            self.endereco_end_1 = response.data;
-            self.cidade_end_1 = response.data;
-            self.estado_end_1 = response.data;
-            self.bairro_end_1 = response.data;
+                    console.log(response);
+                    self.endereco_end_1 = response.data;
+                    self.cidade_end_1 = response.data;
+                    self.estado_end_1 = response.data;
+                    self.bairro_end_1 = response.data;
 
-            self.cep_keys = Object.keys( self.endereco_end_2 );
-            self.cep_keys = Object.keys( self.cidade_end_1 );
-            self.cep_keys = Object.keys( self.estado_end_1 );
-            self.cep_keys = Object.keys( self.bairro_end_1 );
-        })
+                    self.cep_keys = Object.keys(self.endereco_end_2);
+                    self.cep_keys = Object.keys(self.cidade_end_1);
+                    self.cep_keys = Object.keys(self.estado_end_1);
+                    self.cep_keys = Object.keys(self.bairro_end_1);
+                })
 
-        .catch(function (error){
-            //console.log(error);
-        })
+                .catch(function (error) {
+                    //console.log(error);
+                })
 
-        .finally(function () {
+                .finally(function () {
 
-        });
-    },
+                });
+        },
 
 
-     CONSULTA_CEP_COB() {
-         var self = this;
+        CONSULTA_CEP_COB() {
+            var self = this;
 
-         axios
-         .get('https://viacep.com.br/ws/'+this.cep_2+'/json/')
-         .then(function (response) {
+            axios
+                .get('https://viacep.com.br/ws/' + this.cep_2 + '/json/')
+                .then(function (response) {
 
-             console.log(response);
-             self.endereco_end_2 = response.data;
-             self.cidade_end_2 = response.data;
-             self.estado_end_2 = response.data;
-             self.bairro_end_2 = response.data;
+                    console.log(response);
+                    self.endereco_end_2 = response.data;
+                    self.cidade_end_2 = response.data;
+                    self.estado_end_2 = response.data;
+                    self.bairro_end_2 = response.data;
 
-             self.cep_keys = Object.keys( self.endereco_end_2 );
-             self.cep_keys = Object.keys( self.cidade_end_2 );
-             self.cep_keys = Object.keys( self.estado_end_2 );
-             self.cep_keys = Object.keys( self.bairro_end_2 );
-         })
+                    self.cep_keys = Object.keys(self.endereco_end_2);
+                    self.cep_keys = Object.keys(self.cidade_end_2);
+                    self.cep_keys = Object.keys(self.estado_end_2);
+                    self.cep_keys = Object.keys(self.bairro_end_2);
+                })
 
-         .catch(function (error){
-             //console.log(error);
-         })
+                .catch(function (error) {
+                    //console.log(error);
+                })
 
-         .finally(function () {
+                .finally(function () {
 
-         });
-     },
+                });
+        },
 
-     CONSULTA_CEP_TER() {
-         var self = this;
+        CONSULTA_CEP_TER() {
+            var self = this;
 
-         axios
-         .get('https://viacep.com.br/ws/'+this.cep_3+'/json/')
-         .then(function (response) {
+            axios
+                .get('https://viacep.com.br/ws/' + this.cep_3 + '/json/')
+                .then(function (response) {
 
-            console.log(response);
-            self.endereco_end_3 = response.data;
-            self.cidade_end_3 = response.data;
-            self.estado_end_3 = response.data;
-            self.bairro_end_3 = response.data;
+                    console.log(response);
+                    self.endereco_end_3 = response.data;
+                    self.cidade_end_3 = response.data;
+                    self.estado_end_3 = response.data;
+                    self.bairro_end_3 = response.data;
 
-            self.cep_keys = Object.keys( self.endereco_end_3 );
-            self.cep_keys = Object.keys( self.cidade_end_3 );
-            self.cep_keys = Object.keys( self.estado_end_3 );
-            self.cep_keys = Object.keys( self.bairro_end_3 );
-        })
+                    self.cep_keys = Object.keys(self.endereco_end_3);
+                    self.cep_keys = Object.keys(self.cidade_end_3);
+                    self.cep_keys = Object.keys(self.estado_end_3);
+                    self.cep_keys = Object.keys(self.bairro_end_3);
+                })
 
-            .catch(function (error){
-             console.log(error);
-        })
+                .catch(function (error) {
+                    console.log(error);
+                })
 
-         .finally(function () {
+                .finally(function () {
 
-        });
-     }
+                });
+        }
 
-  }
+    }
 }
 </script>
 
 <style>
+
 </style>
