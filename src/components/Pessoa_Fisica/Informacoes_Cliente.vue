@@ -28,7 +28,7 @@
             </div>
 
             <div class="add_email" @click="Mostrar_Email = !show">
-                <img v-img:src   class="icon_btn_add_email"  src="@/assets/images/icon_add_email.svg">
+                <img v-img:src   class="icon_btn_add_email"  src="@/assets/images/icon_add_email.png">
                 <button  class="btn_add_email" onclick='this.disabled=true'>Adicionar outro E-mail</button>
             </div>
 
@@ -44,13 +44,13 @@
 
             <label class="lb_dt">Data do Cadastro: </label><input type="date" class="Input_Data_Cadastro" v-model="data_cadastro">
 
-            <input type="text" placeholder="Seu telefone" class="InputForm" v-model="telefone_2">
+            <input type="celphone" placeholder="Seu telefone" class="InputForm" v-model="telefone_2">
 
             <input type="text" placeholder="Celular" class="InputForm" v-model="celular">
 
             <input type="text" placeholder="Seu CPF" class="InputForm" v-model="cnpj_cpf">
 
-            <input type="text" placeholder="CPF de Entrega" class="InputForm" v-model="cnpj_cpf_entrega">
+            <input v-mask="'###.###.###-##'" placeholder="CPF de Entrega" class="InputForm" v-model="cnpj_cpf_entrega">
 
             <input type="text" placeholder="Seu RG" class="InputForm" v-model="inscricao_rg">
 
