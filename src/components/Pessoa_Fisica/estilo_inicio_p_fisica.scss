@@ -111,13 +111,30 @@ label {
 
 .btn_add_email {
   position: relative;
-  margin-left: 11%;
-  width: 8%;
+  font-weight: 500;
+  font-family: $font_2;
+  border: none;
   height: 40px;
-  border: 1px solid;
   background-color: $cor_4;
   color: $cor_2;
+}
+
+.icon_btn_add_email {
+  position: absolute;
+  width: 1.5%;
+  margin-top: 6px;
+  left: 19%;
+}
+
+//Div
+.add_email {
+  border: 1px solid;
   border-radius: 5px;
+  border-color: $cor_4;
+  background-color: $cor_4;
+  width: 11%;
+  height: 40px;
+  margin-left: 10%;
 }
 
 .deletar_email {

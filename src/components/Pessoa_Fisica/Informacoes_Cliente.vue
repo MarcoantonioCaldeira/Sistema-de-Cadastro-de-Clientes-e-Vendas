@@ -18,7 +18,7 @@
             <div class="Form_Email" v-for="(input, index) in inputs"  v-if="Mostrar_Email">
 
                 <div>
-                    <input type="text" :name="'contact[' + index + '][email]'" placeholder="Adicioanar outro e-mail" class="InputForm_Email_Opcional" v-model="e_mail_adicional">
+                    <input type="text" :name="'contact[' + index + '][email]'" placeholder="Seu E-mail secundario" class="InputForm_Email_Opcional" v-model="e_mail_adicional">
                 </div>
 
                 <button type="button"  @click="Deletar_Email(index)" class="btn btn-outline-danger rounded-circle">
@@ -27,8 +27,9 @@
 
             </div>
 
-            <div>
-                <button  @click="Mostrar_Email = !show" class="btn_add_email" onclick='this.disabled=true'>Adicionar outro E-mail</button>
+            <div class="add_email" @click="Mostrar_Email = !show">
+                <img v-img:src   class="icon_btn_add_email"  src="@/assets/images/icon_add_email.svg">
+                <button  class="btn_add_email" onclick='this.disabled=true'>Adicionar outro E-mail</button>
             </div>
 
             <!-- class="btn btn-outline-secondary" -->
@@ -140,6 +141,8 @@
 
 <script>
 import axios from 'axios';
+import VueImg from 'v-img';
+
 
 export default {
 
@@ -151,6 +154,7 @@ export default {
 
     data() {
         return {
+            Icone_Adicionar_Email: "./assets/images/icon_add_email.svg",
             nome: "",
             nome_fantasia: "",
             classificacao: "1",
