@@ -44,7 +44,7 @@
 
             <label class="lb_dt">Data do Cadastro: </label><input type="date" class="Input_Data_Cadastro" v-model="data_cadastro">
 
-            <input type="celphone" placeholder="Seu telefone" class="InputForm" v-model="telefone_2">
+            <input type=" celphone" placeholder="Seu telefone" class="InputForm" v-model="telefone_2">
 
             <input type="text" placeholder="Celular" class="InputForm" v-model="celular">
 

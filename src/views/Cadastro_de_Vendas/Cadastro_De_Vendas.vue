@@ -9,7 +9,7 @@
             <input type="text" class="InputForm_Vendas" placeholder="Codigo do Vendedor">
         
             <p>Data de Emissão: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Emissão">
-            <p>Data de Previsão de Entrega Solicitada: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
+            <p class="p_data_p">Data de Previsão de Entrega Solicitada: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
             
         
             <input type="text" class="InputForm_Vendas" placeholder="desconto_n1">
