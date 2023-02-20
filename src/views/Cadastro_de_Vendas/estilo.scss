@@ -1,5 +1,11 @@
 @import "@/assets/scss/index.scss";
 
+#Formulario {
+    width: 100%;
+    height: 970px;
+}
+
+
 .Titulo_Cadastro_Vendas {
     font-family: $font_1;
     color: $cor_2;
@@ -7,10 +13,6 @@
     margin-top: 5%;
 }
 
-#Formulario {
-    width: 100%;
-    height: 970px;
-}
 
 .Formulario_1 {
     position: relative;
@@ -38,4 +40,101 @@
     margin-top: 5%;
     margin-left: 6%;
     @include button-add-processeguir;
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 450px) {
+
+
+    #Formulario {
+        // width: 100%;
+        height: 1500px;
+    }
+
+    .InputForm_Vendas {
+        width: 300px;
+    }
+
+    .Formulario_2 {
+        margin-top: 5%;
+        margin-left: 4%;
+    }
+
+    .p_data_e {
+        white-space: nowrap;
+    }
+
+    .p_data_p {
+        white-space: nowrap;
+    }
+
+    .btn_concluir_cadastro_vendas {
+        position: relative;
+        margin-top: 8%;
+        margin-left: 6%;
+    }
+
+
+}
+
+@media (min-width: 480px) and (max-width: 600px) {
+
+    #Formulario {
+        // width: 100%;
+        height: 1500px;
+    }
+
+    .InputForm_Vendas {
+        width: 419px;
+    }
+
+    .Formulario_2 {
+        margin-top: 5%;
+        margin-left: 4%;
+    }
+
+    .p_data_e {
+        white-space: nowrap;
+    }
+
+    .p_data_p {
+        white-space: nowrap;
+    }
+
+    .btn_concluir_cadastro_vendas {
+        position: relative;
+        margin-top: 2%;
+        margin-left: 6%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 850px) {
+
+    #Formulario {
+        // width: 100%;
+        height: 1500px;
+    }
+
+    .InputForm_Vendas {
+        width: 509px;
+    }
+
+    .Formulario_2 {
+        margin-top: 5%;
+        margin-left: 4%;
+    }
+
+    .p_data_e {
+        white-space: nowrap;
+    }
+
+    .p_data_p {
+        white-space: nowrap;
+    }
+
+    .btn_concluir_cadastro_vendas {
+        position: relative;
+        margin-top: 2%;
+        margin-left: 6%;
+    }
 }
