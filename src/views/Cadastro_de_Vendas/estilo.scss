@@ -60,16 +60,20 @@
         margin-left: 4%;
     }
 
+    .p_data_e {
+        white-space: nowrap;
+    }
+
+    .p_data_p {
+        white-space: nowrap;
+    }
+
     .btn_concluir_cadastro_vendas {
         position: relative;
-        margin-top: 60%;
+        margin-top: 30%;
         margin-left: 6%;
         @include button-add-processeguir;
     }
 
-    .p_data_p {
-        width: 100%;
-        color: aqua;
-    }
 
 }

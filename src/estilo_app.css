@@ -33,6 +33,7 @@ nav {
         background-color: blue;
         /* display: inline; */
         margin: 0 15px;
+        white-space: nowrap;
         color: white;
     }
 
