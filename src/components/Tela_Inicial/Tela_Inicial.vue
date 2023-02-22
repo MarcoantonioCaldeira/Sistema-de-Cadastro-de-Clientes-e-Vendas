@@ -1,6 +1,5 @@
 <template>
-    <Menu_Sistema />
-    <div>
+    <div id="Corpo_Tela_Inicial">
         <h2>Aqui é a tela inicial do Sistema</h2>
     </div>
     <Footer />
@@ -18,3 +17,11 @@ export default{
     }
 }
 </script>
+<style> 
+
+#Corpo_Tela_Inicial{
+    width: 100%;
+    height: 700px;
+}
+
+</style>

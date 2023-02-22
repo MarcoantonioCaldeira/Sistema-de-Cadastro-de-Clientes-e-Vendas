@@ -1,18 +1,22 @@
 <template>
-  <div>
-    <Tela_Inicial />
-  </div>
+  <nav>
+    <div id="Menu_Sistema">
+      <router-link to="/"><li>Inicio</li></router-link>
+      <router-link to="./Selecao_Tipo_Pessoa"><li>Cadastro de Clientes</li></router-link>
+      <router-link to="./Cadastro_De_Vendas"><li>Cadastro de Vendas</li></router-link>
+    </div>
+  </nav>
+  <router-view/>
 </template>
 
 <script>
 
-import Tela_Inicial from './views/Tela_Inicial/Tela_Inicial'
 
 
 export default{
   name: 'App',
   components:{
-    Tela_Inicial
+    
   }
 }
 </script>
