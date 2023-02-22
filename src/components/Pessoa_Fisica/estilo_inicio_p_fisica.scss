@@ -119,6 +119,10 @@ label {
   color: $cor_2;
 }
 
+.btn_add_email:disabled {
+  display: none;
+}
+
 .icon_btn_add_email {
   position: absolute;
   width: 1.5%;

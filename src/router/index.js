@@ -1,12 +1,17 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Selecao_Tipo_Pessoa from '../views/Selecao_Tipo_Pessoa/Selecao_Tipo_Pessoa'
+import App from '../App.vue'
 
 const routes = [
+  {
+    path: '/App',
+    name: 'App',
+    component: App
+  },
 
   {
-    path: '/',
+    path: '/Selecao_Tipo_Pessoa',
     name: 'Selecao_Tipo_Pessoa',
-    component: Selecao_Tipo_Pessoa
+    component: () => import('../views/Selecao_Tipo_Pessoa/Selecao_Tipo_Pessoa.vue')
 
   },
   {
@@ -28,12 +33,6 @@ const routes = [
     path: '/Cadastro_pt_1_P_Estrangeira',
     name: 'Cadastro_pt_1_P_Estrangeira',
     component: () => import('../views/Cadastro_pt_1/Cadastro_pt_1_P_Estrangeira.vue')
-  },
-  {
-    path: '/Cadastro_pt_2',
-    name: 'Cadastro_pt_2',
-
-    component: () => import('../views/Cadastro_pt_2/Cadastro_pt_2.vue')
   },
   {
     path: '/Cadastro_concluido',

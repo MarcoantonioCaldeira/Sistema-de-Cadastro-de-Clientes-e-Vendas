@@ -43,18 +43,12 @@
         <button class="btn_concluir_cadastro_vendas" type="submit">Concluir Cadastro</button>
 
     </div>
-    <Footer />
 </template>
 
 <script>
 
-import Footer from '@/components/Footer.vue'
-
 export default{
-    name: 'Cadastro_De_Vendas',
-    components: {
-    Footer
-  }
+    name: 'Cadastro_De_Vendas'
 }
 </script>
 

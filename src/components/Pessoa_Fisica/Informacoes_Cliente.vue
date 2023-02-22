@@ -88,7 +88,6 @@
                 <h2 class="h2_endereco">Endereço Principal</h2>
 
                 <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep" v-on:blur="CONSULTA_CEP">
-                <!-- onblur="Consulta_CEP(this.value);" -->
                 <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco_end_1.logradouro">
 
                 <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_1">
