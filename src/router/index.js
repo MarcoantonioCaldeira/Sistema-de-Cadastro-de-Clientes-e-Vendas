@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import App from '../App.vue'
+import Tela_Inicial from '../components/Tela_Inicial/Tela_Inicial.vue'
 
 const routes = [
   {
-    path: '/App',
-    name: 'App',
-    component: App
+    path: '/',
+    name: 'Tela_Inicial',
+    component: Tela_Inicial
   },
 
   {

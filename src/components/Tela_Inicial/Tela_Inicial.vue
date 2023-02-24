@@ -1,7 +1,6 @@
 <template>
-    <Menu_Sistema />
-    <div>
-        <h2>Aqui é a tela inicial do Sistema</h2>
+    <div id="Corpo_Tela_Inicial">
+        <h1>Seja Bem-vindo</h1>
     </div>
     <Footer />
 </template>
@@ -18,3 +17,6 @@ export default{
     }
 }
 </script>
+<style src="./estilo_tela_inicio.scss" lang="scss"> 
+
+</style>
