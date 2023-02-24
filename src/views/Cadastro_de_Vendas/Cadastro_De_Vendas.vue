@@ -40,7 +40,7 @@
             <input type="text" class="InputForm_Vendas" placeholder="Tipo de Venda">
         </div>
         
-        <button class="btn_concluir_cadastro_vendas" type="submit">Concluir Cadastro</button>
+        <router-link to="./Itens_da_Venda/Itens_da_Venda.vue"><button class="btn_concluir_cadastro_vendas" type="submit">Concluir Cadastro</button></router-link>
 
     </div>
     <Footer />
