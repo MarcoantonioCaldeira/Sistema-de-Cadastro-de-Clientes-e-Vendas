@@ -7,7 +7,10 @@
     <input type="text" placeholder="Quantidade de Itens" >
     <input type="text" placeholder="Temanho" >
     <input type="text" placeholder="Valor Unitario" >
+
+
 </template>
+
 
 <script>
 
