@@ -1,6 +1,6 @@
 <template>
     <div id="Corpo_Tela_Inicial">
-        <h2>Aqui é a tela inicial do Sistema</h2>
+        <h1>Seja Bem-vindo</h1>
     </div>
     <Footer />
 </template>
@@ -17,11 +17,6 @@ export default{
     }
 }
 </script>
-<style> 
-
-#Corpo_Tela_Inicial{
-    width: 100%;
-    height: 700px;
-}
+<style src="./estilo_tela_inicio.scss" lang="scss"> 
 
 </style>

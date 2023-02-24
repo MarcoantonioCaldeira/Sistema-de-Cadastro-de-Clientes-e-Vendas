@@ -1,22 +1,24 @@
 import axios from "axios";
 
-
 const api = axios.create({
-    baseURL: "http://localhost:9000"
+    headers: {
+        'Content-Type': 'application/json',
+        key_auth: '3G5T8W7Y1K',
+        SYSDBA: 'masterkey'
+    },
+    baseURL: process.env.API_URL,
 });
 
-
-api.interceptors.request.use(
-    (config) => {
-
-        const token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJULkkuIEdlc3RvciIsInN1YiI6IjUwNWJhNDJlYTQ1NTUzNzYwNzkwMjk4NDc4ZDJmYmY0ZDA3OTFhMDIiLCJleHAiOjE2NzU5NDE1NjN9.PTTNF9e_-gHNuQX-CdDmBa0fpNOPFJK62kZbl9Mqajg"
-
-        config.headers.Authorization = `Bearer ${token}`;
-        return config;
+api.interceptors.response.use(
+    (response) => {
+        return response;
     },
-
-)
-
-
-
-export default api;
+    async function (error) {
+        const access_token = localStorage.getItem("access_token");
+        if (error.response.status === 401 && access_token) {
+            const response = await refreshToken(error);
+            return response;
+        }
+        return Promise.reject(error);
+    }
+);
