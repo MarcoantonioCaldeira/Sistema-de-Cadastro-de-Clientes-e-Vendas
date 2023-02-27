@@ -9,6 +9,12 @@ const routes = [
   },
 
   {
+    path: '/Itens_da_Venda',
+    name: 'Itens_da_Venda',
+    component: () => import('../views/Cadastro_de_Vendas/Itens_da_Venda/Itens_da_Venda.vue')
+
+  },
+  {
     path: '/Selecao_Tipo_Pessoa',
     name: 'Selecao_Tipo_Pessoa',
     component: () => import('../views/Selecao_Tipo_Pessoa/Selecao_Tipo_Pessoa.vue')

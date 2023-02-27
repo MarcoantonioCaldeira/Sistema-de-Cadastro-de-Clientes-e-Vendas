@@ -16,6 +16,12 @@
 
 
 <script>
+export default{
+    name: 'Itens_da_Venda',
+    data(){
+        
+    }
+}
 
 </script>
 
