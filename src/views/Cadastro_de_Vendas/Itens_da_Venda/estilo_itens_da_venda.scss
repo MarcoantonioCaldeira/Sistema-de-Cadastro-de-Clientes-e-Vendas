@@ -1,6 +1,34 @@
+@import "@/assets/scss/index.scss";
+
 * {
     margin: 0;
     padding: 0;
 }
 
-#Formulario_Itens_Venda {}
+#Formulario_Itens_Venda {
+    width: 100%;
+    height: 900px;
+}
+
+#conteudo_formulario {
+    margin-top: 3%;
+}
+
+.Input_Form_Itens_Venda {
+    margin-left: 6% !important;
+    width: 20%;
+    @include input;
+}
+
+.Titulo_Itens_Venda {
+    font-family: $font_1;
+    color: $cor_2;
+    margin-left: 5.8%;
+    margin-top: 5%;
+}
+
+.btn_cadastro_itens_venda {
+    margin-left: 6%;
+    margin-top: 5%;
+    @include button-add-processeguir;
+}
