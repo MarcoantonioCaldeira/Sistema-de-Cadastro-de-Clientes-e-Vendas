@@ -10,6 +10,10 @@
     height: 900px;
 }
 
+#conteudo_formulario {
+    margin-top: 3%;
+}
+
 .Input_Form_Itens_Venda {
     margin-left: 6% !important;
     width: 20%;
@@ -21,4 +25,10 @@
     color: $cor_2;
     margin-left: 5.8%;
     margin-top: 5%;
+}
+
+.btn_cadastro_itens_venda {
+    margin-left: 6%;
+    margin-top: 5%;
+    @include button-add-processeguir;
 }
