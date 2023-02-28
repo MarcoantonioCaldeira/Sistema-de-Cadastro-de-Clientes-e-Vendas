@@ -221,7 +221,7 @@ label {
   width: 35%;
   height: 400px;
   margin-left: 33%;
-  margin-top: -10%;
+  margin-top: -8%;
 }
 
 
@@ -264,7 +264,7 @@ label {
   width: 22%;
   height: 700px;
   margin-left: 32%;
-  margin-top: -41.7%;
+  margin-top: -35.2%;
   //background-color: blue;
 }
 
@@ -294,14 +294,14 @@ label {
   width: 22%;
   height: 700px;
   margin-left: 60%;
-  margin-top: -37.7%;
+  margin-top: -35.2%;
   //background-color: blue;
 }
 
 
 .btn_proxima_etapa {
   position: relative;
-  margin-top: 5%;
+  // margin-top: 5%;
   margin-left: 5%;
   @include button-add-processeguir;
 }

@@ -33,8 +33,8 @@
             <input type="text" class="InputForm_Vendas" placeholder="Tipo de Frete">
             <input type="text" class="InputForm_Vendas" placeholder="Forma de Pagamento">
             <input type="text" class="InputForm_Vendas" placeholder="Codigo do Prazo">
-            <!-- <input type="text" class="InputForm" placeholder="ID Venda API">
-            <input type="text" class="InputForm" placeholder="ID Venda Terceiro"> -->
+          
+            
             <input type="text" class="InputForm_Vendas" placeholder="Situação do Frete">
             <input type="text" class="InputForm_Vendas" placeholder="Valor do Frete">
             <input type="text" class="InputForm_Vendas" placeholder="Tipo de Venda">
