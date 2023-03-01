@@ -1,94 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-@import "./assets/scss/index.scss";
-
 * {
     margin: 0;
     padding: 0;
 }
 
-#Menu_Sistema {
-    overflow: hidden;
-    background-color: #003A4C;
+.nav-menu {
+    background-color: red;
 }
 
-
-#Menu_Sistema li {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    padding: 14px 16px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 17px;
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+    align-items: center;
 }
 
-#Menu_Sistema li:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-#Menu_Sistema li.active {
-    background-color: ;
-    color: white;
-}
-
-#Menu_Sistema .icon {
-    display: none;
+.nav-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 li {
-    display: inline-block;
-    text-decoration: none;
-    margin: 10px;
-    color: white;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
+    padding: 0 10px;
 }
 
-
-
-@media screen and (min-width: 300px) and (max-width: 450px) {
-
-    nav {
-        height: 80px;
-    }
-
-    /* li {
-        background-color: blue;
-        margin: 0 15px;
-        white-space: nowrap;
-        color: white;
-    } */
-
-    #Menu_Sistema li:not(:first-child) {
-        display: none;
-    }
-
-    #Menu_Sistema li.icon {
-        float: right;
-        display: block;
-    }
-
-
+i {
+    display: none;
 }
 
-
-@media screen and (min-width: 300px) and (max-width: 450px) {
-
-    #Menu_Sistema.responsive {
-        position: relative;
-    }
-
-    #Menu_Sitema.responsive .icon {
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        padding-top: 10px;
         position: absolute;
-        right: 0;
-        top: 0;
+        width: 100%;
     }
 
-    #Menu_Sitema.responsive li {
-        float: none;
+    .abrir-menu {
+        opacity: 1;
+        height: 150px;
+    }
+
+    .fechar-menu {
+        opacity: 0;
+        height: 0;
+        padding: 0;
+    }
+
+    .nav-content {
+        flex-direction: column;
+        z-index: 100;
+        position: relative;
+        transition: all 0.2s ease-out;
+    }
+
+    .nav-items {
+        flex-direction: column;
+    }
+
+    i {
         display: block;
-        text-align: left;
+        text-align: right;
+        padding: 0 10px 10px 0;
     }
 }
