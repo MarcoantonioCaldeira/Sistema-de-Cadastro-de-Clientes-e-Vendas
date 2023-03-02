@@ -4,24 +4,22 @@
 }
 
 .nav-menu {
-    background-color: red;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(205, 67, 67);
 }
 
-.nav-content {
+/* .nav-content {
     display: flex;
     justify-content: space-between;
-    padding: 10px 30px;
     align-items: center;
 }
 
 .nav-items {
-    display: flex;
+    background-color: blue;
     justify-content: center;
-    align-items: center;
     list-style: none;
-    margin: 0;
-    padding: 0;
-}
+} */
 
 li {
     padding: 0 10px;
@@ -32,6 +30,7 @@ i {
 }
 
 @media screen and (max-width: 768px) {
+
     .nav-menu {
         padding-top: 10px;
         position: absolute;
