@@ -20,21 +20,19 @@
 <script> 
 export default{
 
-data(){
-  return{
-    MobileMenu: false,
+  data(){
+    return{
+      MobileMenu: false,
+    }
+  },
+
+  methods: {
+    Mostrar_Menu() {
+      this.MobileMenu = !this.MobileMenu;
+    }
   }
-},
-
-methods: {
-  Mostrar_Menu() {
-    this.MobileMenu = !this.MobileMenu;
-  }
-}
 
 }
-
-
 </script>
 
 <style src="../estilo_app.css"> 

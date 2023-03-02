@@ -6,13 +6,11 @@
 </template>
 
 <script>
-import Menu_Sistema from '@/components/Menu.vue'
 import Footer from '@/components/Footer.vue'
 
 export default{
     name: 'Tela_Inicial',
     components:{
-        Menu_Sistema,
         Footer
     }
 }
