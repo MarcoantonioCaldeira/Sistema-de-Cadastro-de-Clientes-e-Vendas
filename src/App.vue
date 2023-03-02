@@ -8,8 +8,7 @@
                 <ul class="nav-items">
                     <router-link to="/"><li>Inicio</li></router-link>
                     <router-link to="./Selecao_Tipo_Pessoa"><li>Cadastro de Clientes</li></router-link>
-                    <router-link to="./Cadastro_De_Vendas"><li>Cadastro de Vendas</li></router-link>
-                    
+                    <router-link to="./Cadastro_De_Vendas"><li>Cadastro de Vendas</li></router-link>       
                 </ul>
                 <router-view/>
             </div>
@@ -31,7 +30,6 @@ export default{
       this.MobileMenu = !this.MobileMenu;
     }
   }
-
 }
 </script>
 
