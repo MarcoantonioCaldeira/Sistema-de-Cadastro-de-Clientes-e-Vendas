@@ -1,5 +1,5 @@
 <template> 
-<header :class="{ 'scrolled-nav': scrollPosition }">
+<header :class="{ 'scrolled-nav': scrolledNav }">
   <nav>
     <div>
       
@@ -25,9 +25,49 @@
 
 <script> 
 export default{
-  name: 'Menu'
+  name: 'Menu',
+  data(){
+    return{
+      scrolledNav: null,
+      mobile: null,
+      mobileNav: null,
+      windowWidth: null,
+    };
+  },
 
-}
+  created(){
+    window.addEventListener('resize', this.checkScreen);
+    this.checkScreen();
+  },
+
+  methods: {
+    toggleMobileNav() {
+      this.mobileNav = !this.mobileNav;
+    },
+
+
+    updateScroll(){
+      const scrollPosition = window.scrollY;
+      if(scrollPosition > 50){
+        this.scrolledNav = true;
+        return;
+      }
+      this.scrolledNav = false;
+    },
+
+    checkScreen() { 
+       this.windowWidth = window.innerWidth;
+       if(this.windowWidth <= 750){
+        this.mobile = true;
+        return;
+       }
+       this.mobile = false;
+       this.mobileNav = false;
+       return;
+    },
+  },
+};
+
 </script>
 
 <style lang="scss" scoped> 
@@ -37,14 +77,14 @@ header {
   z-index: 99;
   width: 100%;
   position: fixed;
-  transition: a.5s ease all;
+  //transition: a.5s ease all;
   color: #fff;
 
 nav {
   display: flex;
   flex-direction: row;
   padding: 12px 0;
-  transition: 0.5s ease all;
+ //transition: 0.5s ease all;
   width: 90%;
   margin: 0 auto;
   @media (min-width: 1140px) {
@@ -67,7 +107,7 @@ nav {
 
       .link {
           font-size: 14px;
-          transform: .5s ease all;
+          //transform: .5s ease all;
           padding-bottom: 4px;
           border-bottom: 1px solid transparent;
 
@@ -83,9 +123,57 @@ nav {
 
       img {
         width: 50px;
-        transition: 0.5s ease all;
+        //transition: 0.5s ease all;
       }
-    } 
+    }
+
+    .navigation{
+      display: flex;
+      align-items: center;
+      flex: 1;
+      justify-content: flex-end;
+    }
+    
+    .icon{
+      display: flex;
+      position: absolute;
+      align-items: center;
+      top: 0;
+      right: 24px;
+      height: 100%;
+
+      i {
+        cursor: pointer;
+        font-size: 24px;
+        transition: 0.8s ease all;
+      }
+    }
+
+
+    .icon-active{
+      transform: rotate(180deg);
+    }
+
+
+    .dropdown-nav{
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      width: 100%;
+      max-width: 250px;
+      height: 100%;
+      background-color: #fff;
+      top: 0;
+      left: 0;
+
+      li{
+        margin-left: 0;
+
+        .link{
+          color: #000;
+        }
+      }
+    }
   }
 }
 </style>
