@@ -34,17 +34,14 @@ export default{
       windowWidth: null,
     };
   },
-
   created(){
     window.addEventListener('resize', this.checkScreen);
     this.checkScreen();
   },
-
   methods: {
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav;
     },
-
 
     updateScroll(){
       const scrollPosition = window.scrollY;
@@ -87,6 +84,7 @@ nav {
  //transition: 0.5s ease all;
   width: 90%;
   margin: 0 auto;
+
   @media (min-width: 1140px) {
       max-width: 1140px;
   }
@@ -173,6 +171,22 @@ nav {
           color: #000;
         }
       }
+    }
+  }
+}
+
+.scrolled-nav{
+  background-color: #000;
+  box-shadow: 0 4px 6px -1px;
+}
+
+nav{
+  padding: 8px 0;
+
+  .branding{
+    img{
+      width: 40px;
+      box-shadow: 0 4px 6px -1px;
     }
   }
 }
