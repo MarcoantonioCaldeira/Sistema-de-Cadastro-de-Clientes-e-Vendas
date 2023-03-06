@@ -1,22 +1,22 @@
 <template> 
 <header :class="{ 'scrolled-nav': scrolledNav }">
   <nav>
-    <div>
+    <div class="branding">
       
     </div>
-    <ul>
-      <li><router-link to="">nicio</router-link></li>
-      <li><router-link to="">Cadastro de Clientes</router-link></li>
-      <li><router-link to="">Cadastro de Vendas</router-link></li>
+    <ul v-show="!mobile" class="navigation">
+      <li><router-link to="/">nicio</router-link></li>
+      <li><router-link to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></li>
+      <li><router-link to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></li>
     </ul>
     <div class="icon">
       <i @click="toggleMobileNav" v-show="mobile" class="far fa-bars" :class="{ 'icon-active': mobileNav}"></i>
     </div>
     <transition name="mobile-nav">
       <ul v-show="mobileNav" class="dropdown-nav">
-        <li><router-link to="">Inicio</router-link></li>
-        <li><router-link to="">Cadastro de Clientes</router-link></li>
-        <li><router-link to="">Cadastro de Vendas</router-link></li>
+        <li><router-link to="/">Inicio</router-link></li>
+        <li><router-link to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></li>
+        <li><router-link to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></li>
       </ul>
     </transition>
   </nav>
@@ -35,9 +35,12 @@ export default{
     };
   },
   created(){
-    window.addEventListener('resize', this.checkScreen);
+    window.addEventListener("resize", this.checkScreen);
     this.checkScreen();
   },
+  mounted(){
+    window.addEventListener("scroll", this.updateScroll);
+  }, 
   methods: {
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav;
@@ -68,36 +71,42 @@ export default{
 </script>
 
 <style lang="scss" scoped> 
+* {
+  margin: 0;
+  padding: 0;
+}
 
 header {
-  background-color: red;
+  text-decoration: none;
+  background-color: #003A4C;
   z-index: 99;
   width: 100%;
+  margin-top: -5%;
   position: fixed;
-  //transition: a.5s ease all;
+  transition: 0.5s ease all;
   color: #fff;
 
 nav {
+  text-decoration: none;
+  position: relative;
   display: flex;
   flex-direction: row;
   padding: 12px 0;
- //transition: 0.5s ease all;
+  transition: 0.5s ease all;
   width: 90%;
   margin: 0 auto;
-
   @media (min-width: 1140px) {
       max-width: 1140px;
   }
 
-      ul
-      .link {
+      ul,.link {
           font-weight: 500;
           color: #fff;
           list-style: none;
-          text-decoration: none;
       }
 
       li {
+          text-decoration: none;
           text-transform: uppercase;
           padding: 16px;
           margin-left: 16px;
@@ -105,7 +114,7 @@ nav {
 
       .link {
           font-size: 14px;
-          //transform: .5s ease all;
+          transform: 0.5s ease all;
           padding-bottom: 4px;
           border-bottom: 1px solid transparent;
 
@@ -121,7 +130,7 @@ nav {
 
       img {
         width: 50px;
-        //transition: 0.5s ease all;
+        transition: 0.5s ease all;
       }
     }
 
@@ -166,11 +175,25 @@ nav {
 
       li{
         margin-left: 0;
-
         .link{
           color: #000;
         }
       }
+    }
+
+    .mobile-nav-enter-active,
+     .mobile-nav-leave-active{
+      transition: 1s ease all;
+    }
+
+
+    .mobile-nav-enter-from,
+    .mobile-nav-leave-to{
+      transform: translateX(-250px);
+    }
+
+    .mobile-nav-enter-to{
+      transform: translateX(0);
     }
   }
 }
