@@ -1,22 +1,22 @@
 <template> 
 <header :class="{ 'scrolled-nav': scrolledNav }">
   <nav>
-    <div>
+    <div class="branding">
       
     </div>
-    <ul>
-      <li><router-link to="">nicio</router-link></li>
-      <li><router-link to="">Cadastro de Clientes</router-link></li>
-      <li><router-link to="">Cadastro de Vendas</router-link></li>
+    <ul v-show="!mobile" class="navigation">
+      <a><router-link to="/" style="text-decoration: none">nicio</router-link></a>
+      <a><router-link to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></a>
+      <a><router-link to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></a>
     </ul>
     <div class="icon">
       <i @click="toggleMobileNav" v-show="mobile" class="far fa-bars" :class="{ 'icon-active': mobileNav}"></i>
     </div>
     <transition name="mobile-nav">
       <ul v-show="mobileNav" class="dropdown-nav">
-        <li><router-link to="">Inicio</router-link></li>
-        <li><router-link to="">Cadastro de Clientes</router-link></li>
-        <li><router-link to="">Cadastro de Vendas</router-link></li>
+        <li><router-link to="/" style="text-decoration: none">Inicio</router-link></li>
+        <li><router-link to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></li>
+        <li><router-link to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></li>
       </ul>
     </transition>
   </nav>
@@ -28,23 +28,23 @@ export default{
   name: 'Menu',
   data(){
     return{
-      scrolledNav: null,
+      scrollPosition: null,
       mobile: null,
       mobileNav: null,
       windowWidth: null,
     };
   },
-
   created(){
-    window.addEventListener('resize', this.checkScreen);
+    window.addEventListener("resize", this.checkScreen);
     this.checkScreen();
   },
-
+  mounted(){
+    window.addEventListener("scroll", this.updateScroll);
+  }, 
   methods: {
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav;
     },
-
 
     updateScroll(){
       const scrollPosition = window.scrollY;
@@ -71,43 +71,51 @@ export default{
 </script>
 
 <style lang="scss" scoped> 
+* {
+  margin: 0;
+  padding: 0;
+}
 
 header {
-  background-color: red;
+  background-color: #003A4C;
   z-index: 99;
   width: 100%;
+  margin-top: -5%;
   position: fixed;
-  //transition: a.5s ease all;
+  transition: 0.5s ease all;
   color: #fff;
 
 nav {
+  text-decoration: none;
+  position: relative;
   display: flex;
   flex-direction: row;
   padding: 12px 0;
- //transition: 0.5s ease all;
-  width: 90%;
-  margin: 0 auto;
+  transition: 0.5s ease all;
+  width: 40%;
+  margin: 0;
   @media (min-width: 1140px) {
       max-width: 1140px;
   }
 
-      ul
-      .link {
+      ul,.link {
           font-weight: 500;
           color: #fff;
           list-style: none;
-          text-decoration: none;
       }
 
-      li {
-          text-transform: uppercase;
-          padding: 16px;
-          margin-left: 16px;
+      ul a{
+        text-decoration: none;
+        color:white;
+        font-family: 'Poppins';
+        text-transform: uppercase;
+        padding: 16px;
+        font-weight: 800;
       }
 
       .link {
           font-size: 14px;
-          //transform: .5s ease all;
+          transform: 0.5s ease all;
           padding-bottom: 4px;
           border-bottom: 1px solid transparent;
 
@@ -123,7 +131,7 @@ nav {
 
       img {
         width: 50px;
-        //transition: 0.5s ease all;
+        transition: 0.5s ease all;
       }
     }
 
@@ -133,7 +141,8 @@ nav {
       flex: 1;
       justify-content: flex-end;
     }
-    
+
+
     .icon{
       display: flex;
       position: absolute;
@@ -167,12 +176,45 @@ nav {
       left: 0;
 
       li{
+        text-decoration: none !important;
         margin-left: 0;
-
+        font-family: arial;
+        color: white;
         .link{
           color: #000;
         }
       }
+    }
+
+    .mobile-nav-enter-active,
+     .mobile-nav-leave-active{
+      transition: 1s ease all;
+    }
+
+
+    .mobile-nav-enter-from,
+    .mobile-nav-leave-to{
+      transform: translateX(-250px);
+    }
+
+    .mobile-nav-enter-to{
+      transform: translateX(0);
+    }
+  }
+}
+
+.scrolled-nav{
+  background-color: #000;
+  box-shadow: 0 4px 6px -1px;
+}
+
+nav{
+  padding: 8px 0;
+
+  .branding{
+    img{
+      width: 40px;
+      box-shadow: 0 4px 6px -1px;
     }
   }
 }
