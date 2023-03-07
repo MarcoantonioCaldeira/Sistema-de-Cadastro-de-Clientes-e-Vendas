@@ -5,16 +5,16 @@
       
     </div>
     <ul v-show="!mobile" class="navigation">
-      <li><router-link to="/">nicio</router-link></li>
-      <li><router-link to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></li>
-      <li><router-link to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></li>
+      <a><router-link to="/" style="text-decoration: none">nicio</router-link></a>
+      <a><router-link to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></a>
+      <a><router-link to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></a>
     </ul>
     <div class="icon">
       <i @click="toggleMobileNav" v-show="mobile" class="far fa-bars" :class="{ 'icon-active': mobileNav}"></i>
     </div>
     <transition name="mobile-nav">
       <ul v-show="mobileNav" class="dropdown-nav">
-        <li><router-link to="/">Inicio</router-link></li>
+        <li><router-link to="/" style="text-decoration: none">Inicio</router-link></li>
         <li><router-link to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></li>
         <li><router-link to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></li>
       </ul>
@@ -28,7 +28,7 @@ export default{
   name: 'Menu',
   data(){
     return{
-      scrolledNav: null,
+      scrollPosition: null,
       mobile: null,
       mobileNav: null,
       windowWidth: null,
@@ -77,7 +77,6 @@ export default{
 }
 
 header {
-  text-decoration: none;
   background-color: #003A4C;
   z-index: 99;
   width: 100%;
@@ -93,8 +92,8 @@ nav {
   flex-direction: row;
   padding: 12px 0;
   transition: 0.5s ease all;
-  width: 90%;
-  margin: 0 auto;
+  width: 40%;
+  margin: 0;
   @media (min-width: 1140px) {
       max-width: 1140px;
   }
@@ -105,11 +104,13 @@ nav {
           list-style: none;
       }
 
-      li {
-          text-decoration: none;
-          text-transform: uppercase;
-          padding: 16px;
-          margin-left: 16px;
+      ul a{
+        text-decoration: none;
+        color:white;
+        font-family: 'Poppins';
+        text-transform: uppercase;
+        padding: 16px;
+        font-weight: 800;
       }
 
       .link {
@@ -140,7 +141,8 @@ nav {
       flex: 1;
       justify-content: flex-end;
     }
-    
+
+
     .icon{
       display: flex;
       position: absolute;
@@ -174,7 +176,10 @@ nav {
       left: 0;
 
       li{
+        text-decoration: none !important;
         margin-left: 0;
+        font-family: arial;
+        color: white;
         .link{
           color: #000;
         }
