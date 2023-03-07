@@ -28,5 +28,5 @@
   }
 </script>
 
-<style src="./estilo_inicio_p_fisica.scss"  lang="scss" />
+<style src="./estilo_p_fisica/estilo_inicio_p_fisica.scss"  lang="scss" />
 

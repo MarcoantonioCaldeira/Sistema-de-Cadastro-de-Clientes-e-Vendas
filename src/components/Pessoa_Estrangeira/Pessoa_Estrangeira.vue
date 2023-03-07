@@ -9,7 +9,7 @@ export default {
     name: 'Pessoa_Estrangeira'
 }
 </script>
-<style src="./estilo_inicio_p_estrangeira.scss"  lang="scss">
+<style src="./estilo_p_estrangeira/estilo_inicio_p_estrangeira.scss"  lang="scss">
 
 
 </style>
