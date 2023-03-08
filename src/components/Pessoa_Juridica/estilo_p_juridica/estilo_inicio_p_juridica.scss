@@ -6,30 +6,20 @@
 #corpo_formulario_p_juridica {
   margin-top: 5%;
   width: 100%;
-  height: 1750px;
+  height: 1700px;
 }
 
+#Titulo_Topo {
+  position: absolute;
+  margin-top: 2%;
+  margin-left: 4%;
+}
 
 #h1-titulo {
   font-family: $font_1;
   margin-left: 5%;
   display: inline;
   color: $cor_2;
-}
-
-#TituloTopo {
-  position: absolute;
-  //background-color: red;
-  margin-top: 2%;
-  margin-left: 4%;
-}
-
-.h2 {
-  margin-left: 5%;
-  color: $cor_2;
-  font-weight: 500;
-  margin-top: 3%;
-  font-family: $font_2;
 }
 
 
@@ -81,48 +71,33 @@ label {
 
 .Input_Inscricao {
   margin-left: 5px !important;
+  display: inline;
   width: 11% !important;
   @include input_separado_rg;
 }
 
 
-
 .Input_Data_Fundacao {
-  //margin-left: 2% !important;
+  display: inline;
   width: 12% !important;
   @include input_separado_data;
 }
 
 
-#suframa {
-  width: 45%;
-  margin-left: 55%;
-  margin-top: -70%;
-  height: 600px;
+#AreaSuframa {
+  width: 40%;
+  height: 500px;
+  margin-left: 33%;
+  margin-top: -30%;
 }
-
 
 .h2_suframa {
   font-family: $font_1;
   color: $cor_2;
 }
 
-#AreaSuframa {
-  width: 40%;
-  height: 500px;
-  margin-left: 33%;
-  margin-top: -35%;
-}
-
-
 .select {
   @include select;
-}
-
-
-.label_num_inscricao {
-  font-family: $font_2;
-  color: $cor_2;
 }
 
 
@@ -131,22 +106,31 @@ label {
   color: $cor_2;
 }
 
+.label_num_inscricao {
+  font-family: $font_2;
+  color: $cor_2;
+}
+
 
 .input_suframa {
   margin-left: 1% !important;
-  width: 38% !important;
+  display: inline;
+  width: 40% !important;
   @include input_suframa;
 }
 
 
 .input_inscricao {
+  width: 26% !important;
+  display: inline;
   @include input_inscricao;
 }
 
-
 #AreaObservacoes {
-  margin-top: -8.5%;
-  //height: 600px;
+  width: 40%;
+  height: 400px;
+  margin-left: 33%;
+  margin-top: -8%;
 }
 
 
@@ -160,7 +144,7 @@ label {
 
 .text_area {
   width: 63%;
-  height: 150px;
+  height: 200px;
   padding: 12px 20px;
   margin-top: 2%;
   box-sizing: border-box;
@@ -173,19 +157,12 @@ label {
   resize: none;
 }
 
-
-#AreaEnderecoPrincipal {
-  width: 22%;
+#Area_Enderecos {
+  width: 100%;
   height: 700px;
-  margin-left: 4%;
-  margin-top: 2%;
+  margin-top: -7%;
 }
 
-
-.btn_proxima_etapa {
-  margin-left: 5%;
-  @include button-add-processeguir;
-}
 
 #Area_Pessoa_Juridica {
   width: 20%;
@@ -206,637 +183,697 @@ label {
   text-decoration: none;
 }
 
-
-
-@media screen and (max-width: 300px) {
-
-  #corpo_formulario_p_juridica {
-    min-height: 1800px;
-    max-height: 2000px;
-  }
-
-  #h1-titulo {
-    font-size: 20px;
-  }
-
-  .h2 {
-    position: absolute;
-    top: 29%;
-    font-size: 19px;
-  }
-
-  .lb_pessoa_fisica {
-    position: absolute;
-    margin-top: 13%;
-  }
-
-  .lb_pessoa_juridica {
-    position: absolute;
-    margin-top: 14%;
-  }
-
-  .lb_pessoa_estrangeira {
-    position: absolute;
-    margin-top: 15%;
-  }
-
-
-  #h2-informacoes {
-    font-size: 19px;
-  }
-
-  .input {
-    width: 80%;
-  }
-
-  .input_apelido {
-    width: 80%;
-    opacity: 0.8;
-  }
-
-  .btn_adicionar_email {
-    margin-left: 15%;
-  }
-
-  .input_secundario_inscricao {
-    width: 55%;
-  }
-
-  .input_secundario_data {
-    width: 80%;
-    margin-left: 5%;
-  }
-
-  //Area da Suframa
-
-  #suframa {
-    position: relative;
-    //background-color: red;
-    //height: 500px;
-    width: 100%;
-    margin-left: 5%;
-    margin-top: 5%;
-  }
-
-  .h2_suframa {
-    font-size: 100%;
-  }
-
-  .input_suframa {
-    width: 82%;
-    margin-left: -2%;
-  }
-
-  .select {
-    width: 89%;
-  }
-
-
-  .label_num_incricao {
-    font-family: $font_2;
-    color: $cor_4;
-  }
-
-  .input_inscricao {
-    width: 80%;
-    margin-top: 15%;
-  }
-
-  .text_area {
-    width: 90%;
-  }
-
-  .btn_proxima_etapa {
-    margin-top: 10%;
-    margin-left: 5%;
-    @include button-add-processeguir;
-  }
-
-  .radio_1 {
-    position: absolute;
-    margin-left: 35vh;
-    margin-top: 16%;
-  }
-
-  .radio_2 {
-    position: absolute;
-    margin-left: 35vh;
-    margin-top: 16%;
-  }
-
-  .radio_3 {
-    position: absolute;
-    margin-left: 35vh;
-    margin-top: 16%;
-  }
-
+#AreaEnderecoPrincipal {
+  width: 22%;
+  height: 700px;
+  margin-top: 5%;
+  margin-left: 4%;
+  //background-color: blue;
 }
 
-//Tamanho para celulares pequenos
-@media (min-width: 301px) and (max-width: 450px) {
 
-  #h1-titulo {
-    margin-top: 14px;
-  }
-
-  #corpo_formulario_p_juridica {
-    min-height: 1800px;
-    max-height: 2000px;
-  }
-
-  .h2 {
-    top: 30%;
-    font-size: 17px;
-  }
-
-  .input {
-    width: 85%;
-  }
-
-  .input_apelido {
-    width: 85%;
-    opacity: 0.8;
-  }
-
-  .btn_adicionar_email {
-    margin-left: 24%;
-  }
-
-  #suframa {
-    position: relative;
-    height: 500px;
-    width: 100%;
-    margin-left: 2%;
-    margin-top: 5%;
-  }
-
-  .h2_suframa {
-    font-size: 100%;
-    margin-left: 2%;
-  }
-
-  .input_suframa {
-    width: 85%;
-    margin-left: 2%;
-  }
-
-  .select {
-    width: 89%;
-    margin-left: 2%;
-    //background-color: red;
-  }
-
-  .label_num_inscricao {
-    //position: relative;
-    margin-left: 2%;
-    //margin-top: 2%;
-  }
-
-  .input_inscricao {
-    width: 85%;
-    margin-left: 2%;
-    margin-top: 8%;
-  }
-
-  .text_area {
-    width: 80%;
-  }
-
-  #conteudo_observacoes {
-    //position: absolute;
-    margin-left: 0ch;
-    width: 100%;
-  }
-
-  .input_secundario_rg {
-    width: 68%;
-  }
-
-  .input_secundario_data {
-    width: 80%;
-    margin-left: 15vh;
-  }
-
-  .btn_proxima_etapa {
-    margin-top: 10%;
-    margin-left: 5%;
-    @include button-add-processeguir;
-  }
-
-
+.h2_endereco {
+  font-family: $font_2;
+  margin-left: 5%;
+  font-weight: 500;
+  color: $cor_2;
 }
 
-//Tamanho para celulares medios
-@media (min-width: 451px) and (max-width: 480px) {
-
-  #h1-titulo {
-    margin-top: 14px;
-  }
-
-  #corpo_formulario_p_juridica {
-    min-height: 1850px;
-    max-height: 2000px;
-  }
-
-  .h2 {
-    top: 30%;
-    margin-left: 5%;
-    font-size: 17px;
-  }
-
-
-  .lb_pessoa_fisica {
-    position: absolute;
-    margin-top: 3%;
-  }
-
-  .lb_pessoa_juridica {
-    position: absolute;
-    margin-top: 4%;
-  }
-
-  .lb_pessoa_estrangeira {
-    position: absolute;
-    margin-top: 4%;
-  }
-
-
-  .input {
-    width: 75%;
-  }
-
-  .input_apelido {
-    width: 75%;
-    opacity: 0.8;
-  }
-
-  #suframa {
-    position: relative;
-    height: 500px;
-    width: 100%;
-    margin-left: 2%;
-    margin-top: 5%;
-  }
-
-  .h2_suframa {
-    font-size: 100%;
-    margin-left: 2%;
-  }
-
-  .input_suframa {
-    width: 75%;
-    margin-left: 2%;
-  }
-
-  .label_num_inscricao,
-  .label_codigo_suframa {
-    margin-left: 2%;
-  }
-
-  .p_obs {
-    margin-top: -30%;
-    margin-left: 4%;
-  }
-
-
-  .select {
-    width: 80%;
-    margin-left: 2%;
-  }
-
-
-  .btn_adicionar_email {
-    margin-left: 27%;
-  }
-
-  .input_inscricao {
-    width: 75%;
-    margin-top: 8%;
-    margin-left: 2%;
-  }
-
-
-  .text_area {
-    width: 80%;
-    margin-left: 4%;
-  }
-
-  #conteudo_observacoes {
-    //position: absolute;
-    margin-left: 0ch;
-    width: 100%;
-  }
-
-  .input_secundario_rg {
-    width: 60%;
-  }
-
-  .input_secundario_data {
-    width: 80%;
-    margin-left: 15vh;
-  }
-
-
-  .btn_proxima_etapa {
-    margin-top: 10%;
-    margin-left: 5%;
-    @include button-add-processeguir;
-  }
-
-
+.lb_cep {
+  font-family: $font_2;
 }
 
-//Tamanho para celulares grandes
-@media (min-width: 480px) and (max-width: 600px) {
-
-  #h1-titulo {
-    margin-top: 14px;
-  }
-
-  #corpo_formulario_p_juridica {
-    min-height: 1800px;
-    max-height: 2000px;
-  }
-
-  .h2 {
-    top: 30%;
-    margin-left: 5%;
-    font-size: 17px;
-  }
-
-
-  .input {
-    width: 75%;
-  }
-
-  .input_apelido {
-    width: 75%;
-    opacity: 0.8;
-  }
-
-  #suframa {
-    position: relative;
-    height: 500px;
-    width: 100%;
-    margin-left: 2%;
-    margin-top: 5%;
-  }
-
-  .h2_suframa {
-    font-size: 100%;
-    margin-left: 2%;
-  }
-
-  .input_suframa {
-    width: 75%;
-    margin-left: 2%;
-  }
-
-  .label_num_inscricao,
-  .label_codigo_suframa,
-  .p_obs {
-    margin-left: 2%;
-  }
-
-  .select {
-    width: 80%;
-    margin-left: 2%;
-  }
-
-
-  .btn_adicionar_email {
-    margin-left: 27%;
-  }
-
-  .input_inscricao {
-    width: 75%;
-    margin-top: 8%;
-    margin-left: 2%;
-  }
-
-  .text_area {
-    width: 80%;
-    margin-left: 2%;
-  }
-
-  #conteudo_observacoes {
-    //position: absolute;
-    margin-left: 0ch;
-    width: 100%;
-  }
-
-  .input_secundario_rg {
-    width: 60%;
-  }
-
-  .input_secundario_data {
-    width: 75%;
-    margin-left: 5%;
-  }
-
-
-  .btn_proxima_etapa {
-    margin-top: 10%;
-    margin-left: 5%;
-    @include button-add-processeguir;
-  }
-
-
+.input_cep {
+  width: 90% !important;
+  @include input;
 }
 
-//Tamanho para Ipad e Tablets
-@media (min-width: 601px) and (max-width: 850px) {
-
-  #h1-titulo {
-    margin-top: 14px;
-  }
-
-  #corpo_formulario_p_juridica {
-    min-height: 1800px;
-    max-height: 2000px;
-  }
-
-  .h2 {
-    top: 30%;
-    margin-left: 5%;
-    font-size: 17px;
-  }
-
-  .input {
-    width: 70%;
-  }
-
-  .input_apelido {
-    width: 70%;
-    opacity: 0.8;
-  }
-
-  #suframa {
-    position: relative;
-    height: 500px;
-    width: 100%;
-    margin-left: 2%;
-    margin-top: 5%;
-  }
-
-  .h2_suframa {
-    font-size: 100%;
-    margin-left: 2%;
-  }
-
-  .input_suframa {
-    width: 75%;
-    margin-left: 2%;
-  }
-
-  .label_num_inscricao,
-  .label_codigo_suframa,
-  .p_obs {
-    margin-left: 2%;
-  }
-
-  .select {
-    width: 80%;
-    margin-left: 2%;
-  }
-
-  .btn_adicionar_email {
-    margin-left: 27%;
-  }
-
-  .input_inscricao {
-    width: 75%;
-    margin-top: 8%;
-    margin-left: 2%;
-  }
-
-  .text_area {
-    width: 80%;
-    margin-left: 2%;
-  }
-
-  .input_secundario_rg {
-    width: 60%;
-  }
-
-  .input_secundario_data {
-    width: 75%;
-    margin-left: 5%;
-  }
-
-
-  .btn_proxima_etapa {
-    margin-top: 10%;
-    margin-left: 5%;
-    @include button-add-processeguir;
-  }
-
+.input_endereco {
+  width: 90% !important;
+  @include input;
 }
 
-@media (min-width: 851px) and (max-width: 1200px) {
-
-  #h1-titulo {
-    margin-top: 14px;
-  }
-
-
-  #corpo_formulario_p_juridica {
-    min-height: 2000px;
-    max-height: 2200px;
-  }
-
-
-  .h2 {
-    top: 30%;
-    margin-left: 5%;
-    font-size: 17px;
-  }
-
-  .input {
-    width: 70%;
-  }
-
-
-  .input_apelido {
-    width: 70%;
-    opacity: 0.8;
-  }
-
-
-  #suframa {
-    position: relative;
-    height: 500px;
-    width: 100%;
-    margin-left: 2%;
-    margin-top: 5%;
-  }
-
-
-  .h2_suframa {
-    font-size: 100%;
-    margin-left: 2%;
-  }
-
-
-  .input_suframa {
-    width: 55%;
-    margin-left: 2%;
-  }
-
-
-  .label_num_inscricao,
-  .label_codigo_suframa,
-  .p_obs {
-    margin-left: 2%;
-  }
-
-
-  .select {
-    width: 76%;
-    margin-left: 2%;
-  }
-
-
-  .btn_adicionar_email {
-    margin-left: 27%;
-  }
-
-
-  .input_inscricao {
-    width: 75%;
-    margin-top: 8%;
-    margin-left: 2%;
-  }
-
-
-  .text_area {
-    width: 80%;
-    margin-left: 2%;
-  }
-
-
-  .input_secundario_rg {
-    width: 62%;
-  }
-
-
-  .input_secundario_data {
-    width: 75%;
-    margin-left: 5%;
-  }
-
-
-  .btn_proxima_etapa {
-    margin-top: 10%;
-    margin-left: 2%;
-    @include button-add-processeguir;
-  }
-
-
-  #conteudo_observacoes {
-    //position: absolute;
-    margin-left: 0ch;
-    width: 100%;
-  }
-
+////////////////////////////////////////
+/// 
+#AreaEnderecoSecundario {
+  //background-color: red;
+  width: 22%;
+  height: 700px;
+  margin-left: 32%;
+  margin-top: -35.2%;
+  //background-color: blue;
 }
+
+.p_obs {
+  font-family: $font_1;
+  font-weight: 500;
+  font-size: 22px;
+  margin: 0;
+}
+
+#AreaEnderecoTerciario {
+  //background-color: red;
+  width: 22%;
+  height: 700px;
+  margin-left: 60%;
+  margin-top: -35.2%;
+  //background-color: blue;
+}
+
+.btn_proxima_etapa {
+  margin-left: 5%;
+  @include button-add-processeguir;
+}
+
+// @media screen and (max-width: 300px) {
+
+//   #corpo_formulario_p_juridica {
+//     min-height: 1800px;
+//     max-height: 2000px;
+//   }
+
+//   #h1-titulo {
+//     font-size: 20px;
+//   }
+
+//   .h2 {
+//     position: absolute;
+//     top: 29%;
+//     font-size: 19px;
+//   }
+
+//   .lb_pessoa_fisica {
+//     position: absolute;
+//     margin-top: 13%;
+//   }
+
+//   .lb_pessoa_juridica {
+//     position: absolute;
+//     margin-top: 14%;
+//   }
+
+//   .lb_pessoa_estrangeira {
+//     position: absolute;
+//     margin-top: 15%;
+//   }
+
+
+//   #h2-informacoes {
+//     font-size: 19px;
+//   }
+
+//   .input {
+//     width: 80%;
+//   }
+
+//   .input_apelido {
+//     width: 80%;
+//     opacity: 0.8;
+//   }
+
+//   .btn_adicionar_email {
+//     margin-left: 15%;
+//   }
+
+//   .input_secundario_inscricao {
+//     width: 55%;
+//   }
+
+//   .input_secundario_data {
+//     width: 80%;
+//     margin-left: 5%;
+//   }
+
+//   //Area da Suframa
+
+//   #suframa {
+//     position: relative;
+//     //background-color: red;
+//     //height: 500px;
+//     width: 100%;
+//     margin-left: 5%;
+//     margin-top: 5%;
+//   }
+
+//   .h2_suframa {
+//     font-size: 100%;
+//   }
+
+//   .input_suframa {
+//     width: 82%;
+//     margin-left: -2%;
+//   }
+
+//   .select {
+//     width: 89%;
+//   }
+
+
+//   .label_num_incricao {
+//     font-family: $font_2;
+//     color: $cor_4;
+//   }
+
+//   .input_inscricao {
+//     width: 80%;
+//     margin-top: 15%;
+//   }
+
+//   .text_area {
+//     width: 90%;
+//   }
+
+//   .btn_proxima_etapa {
+//     margin-top: 10%;
+//     margin-left: 5%;
+//     @include button-add-processeguir;
+//   }
+
+//   .radio_1 {
+//     position: absolute;
+//     margin-left: 35vh;
+//     margin-top: 16%;
+//   }
+
+//   .radio_2 {
+//     position: absolute;
+//     margin-left: 35vh;
+//     margin-top: 16%;
+//   }
+
+//   .radio_3 {
+//     position: absolute;
+//     margin-left: 35vh;
+//     margin-top: 16%;
+//   }
+
+// }
+
+// //Tamanho para celulares pequenos
+// @media (min-width: 301px) and (max-width: 450px) {
+
+//   #h1-titulo {
+//     margin-top: 14px;
+//   }
+
+//   #corpo_formulario_p_juridica {
+//     min-height: 1800px;
+//     max-height: 2000px;
+//   }
+
+//   .h2 {
+//     top: 30%;
+//     font-size: 17px;
+//   }
+
+//   .input {
+//     width: 85%;
+//   }
+
+//   .input_apelido {
+//     width: 85%;
+//     opacity: 0.8;
+//   }
+
+//   .btn_adicionar_email {
+//     margin-left: 24%;
+//   }
+
+//   #suframa {
+//     position: relative;
+//     height: 500px;
+//     width: 100%;
+//     margin-left: 2%;
+//     margin-top: 5%;
+//   }
+
+//   .h2_suframa {
+//     font-size: 100%;
+//     margin-left: 2%;
+//   }
+
+//   .input_suframa {
+//     width: 85%;
+//     margin-left: 2%;
+//   }
+
+//   .select {
+//     width: 89%;
+//     margin-left: 2%;
+//     //background-color: red;
+//   }
+
+//   .label_num_inscricao {
+//     //position: relative;
+//     margin-left: 2%;
+//     //margin-top: 2%;
+//   }
+
+//   .input_inscricao {
+//     width: 85%;
+//     margin-left: 2%;
+//     margin-top: 8%;
+//   }
+
+//   .text_area {
+//     width: 80%;
+//   }
+
+//   #conteudo_observacoes {
+//     //position: absolute;
+//     margin-left: 0ch;
+//     width: 100%;
+//   }
+
+//   .input_secundario_rg {
+//     width: 68%;
+//   }
+
+//   .input_secundario_data {
+//     width: 80%;
+//     margin-left: 15vh;
+//   }
+
+//   .btn_proxima_etapa {
+//     margin-top: 10%;
+//     margin-left: 5%;
+//     @include button-add-processeguir;
+//   }
+
+
+// }
+
+// //Tamanho para celulares medios
+// @media (min-width: 451px) and (max-width: 480px) {
+
+//   #h1-titulo {
+//     margin-top: 14px;
+//   }
+
+//   #corpo_formulario_p_juridica {
+//     min-height: 1850px;
+//     max-height: 2000px;
+//   }
+
+//   .h2 {
+//     top: 30%;
+//     margin-left: 5%;
+//     font-size: 17px;
+//   }
+
+
+//   .lb_pessoa_fisica {
+//     position: absolute;
+//     margin-top: 3%;
+//   }
+
+//   .lb_pessoa_juridica {
+//     position: absolute;
+//     margin-top: 4%;
+//   }
+
+//   .lb_pessoa_estrangeira {
+//     position: absolute;
+//     margin-top: 4%;
+//   }
+
+
+//   .input {
+//     width: 75%;
+//   }
+
+//   .input_apelido {
+//     width: 75%;
+//     opacity: 0.8;
+//   }
+
+//   #suframa {
+//     position: relative;
+//     height: 500px;
+//     width: 100%;
+//     margin-left: 2%;
+//     margin-top: 5%;
+//   }
+
+//   .h2_suframa {
+//     font-size: 100%;
+//     margin-left: 2%;
+//   }
+
+//   .input_suframa {
+//     width: 75%;
+//     margin-left: 2%;
+//   }
+
+//   .label_num_inscricao,
+//   .label_codigo_suframa {
+//     margin-left: 2%;
+//   }
+
+//   .p_obs {
+//     margin-top: -30%;
+//     margin-left: 4%;
+//   }
+
+
+//   .select {
+//     width: 80%;
+//     margin-left: 2%;
+//   }
+
+
+//   .btn_adicionar_email {
+//     margin-left: 27%;
+//   }
+
+//   .input_inscricao {
+//     width: 75%;
+//     margin-top: 8%;
+//     margin-left: 2%;
+//   }
+
+
+//   .text_area {
+//     width: 80%;
+//     margin-left: 4%;
+//   }
+
+//   #conteudo_observacoes {
+//     //position: absolute;
+//     margin-left: 0ch;
+//     width: 100%;
+//   }
+
+//   .input_secundario_rg {
+//     width: 60%;
+//   }
+
+//   .input_secundario_data {
+//     width: 80%;
+//     margin-left: 15vh;
+//   }
+
+
+//   .btn_proxima_etapa {
+//     margin-top: 10%;
+//     margin-left: 5%;
+//     @include button-add-processeguir;
+//   }
+
+
+// }
+
+// //Tamanho para celulares grandes
+// @media (min-width: 480px) and (max-width: 600px) {
+
+//   #h1-titulo {
+//     margin-top: 14px;
+//   }
+
+//   #corpo_formulario_p_juridica {
+//     min-height: 1800px;
+//     max-height: 2000px;
+//   }
+
+//   .h2 {
+//     top: 30%;
+//     margin-left: 5%;
+//     font-size: 17px;
+//   }
+
+
+//   .input {
+//     width: 75%;
+//   }
+
+//   .input_apelido {
+//     width: 75%;
+//     opacity: 0.8;
+//   }
+
+//   #suframa {
+//     position: relative;
+//     height: 500px;
+//     width: 100%;
+//     margin-left: 2%;
+//     margin-top: 5%;
+//   }
+
+//   .h2_suframa {
+//     font-size: 100%;
+//     margin-left: 2%;
+//   }
+
+//   .input_suframa {
+//     width: 75%;
+//     margin-left: 2%;
+//   }
+
+//   .label_num_inscricao,
+//   .label_codigo_suframa,
+//   .p_obs {
+//     margin-left: 2%;
+//   }
+
+//   .select {
+//     width: 80%;
+//     margin-left: 2%;
+//   }
+
+
+//   .btn_adicionar_email {
+//     margin-left: 27%;
+//   }
+
+//   .input_inscricao {
+//     width: 75%;
+//     margin-top: 8%;
+//     margin-left: 2%;
+//   }
+
+//   .text_area {
+//     width: 80%;
+//     margin-left: 2%;
+//   }
+
+//   #conteudo_observacoes {
+//     //position: absolute;
+//     margin-left: 0ch;
+//     width: 100%;
+//   }
+
+//   .input_secundario_rg {
+//     width: 60%;
+//   }
+
+//   .input_secundario_data {
+//     width: 75%;
+//     margin-left: 5%;
+//   }
+
+
+//   .btn_proxima_etapa {
+//     margin-top: 10%;
+//     margin-left: 5%;
+//     @include button-add-processeguir;
+//   }
+
+
+// }
+
+// //Tamanho para Ipad e Tablets
+// @media (min-width: 601px) and (max-width: 850px) {
+
+//   #h1-titulo {
+//     margin-top: 14px;
+//   }
+
+//   #corpo_formulario_p_juridica {
+//     min-height: 1800px;
+//     max-height: 2000px;
+//   }
+
+//   .h2 {
+//     top: 30%;
+//     margin-left: 5%;
+//     font-size: 17px;
+//   }
+
+//   .input {
+//     width: 70%;
+//   }
+
+//   .input_apelido {
+//     width: 70%;
+//     opacity: 0.8;
+//   }
+
+//   #suframa {
+//     position: relative;
+//     height: 500px;
+//     width: 100%;
+//     margin-left: 2%;
+//     margin-top: 5%;
+//   }
+
+//   .h2_suframa {
+//     font-size: 100%;
+//     margin-left: 2%;
+//   }
+
+//   .input_suframa {
+//     width: 75%;
+//     margin-left: 2%;
+//   }
+
+//   .label_num_inscricao,
+//   .label_codigo_suframa,
+//   .p_obs {
+//     margin-left: 2%;
+//   }
+
+//   .select {
+//     width: 80%;
+//     margin-left: 2%;
+//   }
+
+//   .btn_adicionar_email {
+//     margin-left: 27%;
+//   }
+
+//   .input_inscricao {
+//     width: 75%;
+//     margin-top: 8%;
+//     margin-left: 2%;
+//   }
+
+//   .text_area {
+//     width: 80%;
+//     margin-left: 2%;
+//   }
+
+//   .input_secundario_rg {
+//     width: 60%;
+//   }
+
+//   .input_secundario_data {
+//     width: 75%;
+//     margin-left: 5%;
+//   }
+
+
+//   .btn_proxima_etapa {
+//     margin-top: 10%;
+//     margin-left: 5%;
+//     @include button-add-processeguir;
+//   }
+
+// }
+
+// @media (min-width: 851px) and (max-width: 1200px) {
+
+//   #h1-titulo {
+//     margin-top: 14px;
+//   }
+
+
+//   #corpo_formulario_p_juridica {
+//     min-height: 2000px;
+//     max-height: 2200px;
+//   }
+
+
+//   .h2 {
+//     top: 30%;
+//     margin-left: 5%;
+//     font-size: 17px;
+//   }
+
+//   .input {
+//     width: 70%;
+//   }
+
+
+//   .input_apelido {
+//     width: 70%;
+//     opacity: 0.8;
+//   }
+
+
+//   #suframa {
+//     position: relative;
+//     height: 500px;
+//     width: 100%;
+//     margin-left: 2%;
+//     margin-top: 5%;
+//   }
+
+
+//   .h2_suframa {
+//     font-size: 100%;
+//     margin-left: 2%;
+//   }
+
+
+//   .input_suframa {
+//     width: 55%;
+//     margin-left: 2%;
+//   }
+
+
+//   .label_num_inscricao,
+//   .label_codigo_suframa,
+//   .p_obs {
+//     margin-left: 2%;
+//   }
+
+
+//   .select {
+//     width: 76%;
+//     margin-left: 2%;
+//   }
+
+
+//   .btn_adicionar_email {
+//     margin-left: 27%;
+//   }
+
+
+//   .input_inscricao {
+//     width: 75%;
+//     margin-top: 8%;
+//     margin-left: 2%;
+//   }
+
+
+//   .text_area {
+//     width: 80%;
+//     margin-left: 2%;
+//   }
+
+
+//   .input_secundario_rg {
+//     width: 62%;
+//   }
+
+
+//   .input_secundario_data {
+//     width: 75%;
+//     margin-left: 5%;
+//   }
+
+
+//   .btn_proxima_etapa {
+//     margin-top: 10%;
+//     margin-left: 2%;
+//     @include button-add-processeguir;
+//   }
+
+
+//   #conteudo_observacoes {
+//     //position: absolute;
+//     margin-left: 0ch;
+//     width: 100%;
+//   }
+
+// }

@@ -16,9 +16,9 @@
              
         <input type="text" placeholder="Seu CNPJ" class="Input_Forma_P_Juridica" v-model="cnpj_cpf"/>
             
-        <br><label  class="lb_rg">Inscrição Estadual:</label><input type="text" style="display: inline" class="Input_Inscricao" v-model="inscricao_estadual"><br><br>
+        <br><label  class="lb_rg">Inscrição Estadual:</label><input type="text" class="Input_Inscricao" v-model="inscricao_estadual"><br><br>
             
-        <br><label class="lb_dt">Data da Fundação:</label><input type="date" style="display: inline" class="Input_Data_Fundacao" v-model="data_cadastro">
+        <br><label class="lb_dt">Data da Fundação:</label><input type="date" class="Input_Data_Fundacao" v-model="data_cadastro">
 
         <div id="AreaSuframa">
             
@@ -30,62 +30,64 @@
                 <option>Am. Ocid(Amazonia Ocidental)</option>
             </select>
             
-            <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" style="display: inline" class="input_suframa" v-model="suframa">
+            <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text"  class="input_suframa" v-model="suframa">
             
-            <br><label class="label_num_inscricao">Numero de inscrição municipal: </label><input type="text" style="display: inline" class="input_inscricao" v-model="inscricao_municipal">
+            <br><label class="label_num_inscricao">Numero de inscrição municipal: </label><input type="text"  class="input_inscricao" v-model="inscricao_municipal">
                 
         </div>
 
         <div id="AreaObservacoes">
             <p class="p_obs">Observações</p>
-            <textarea class="TextArea" v-model="observacao">
+            <textarea class="text_area" v-model="observacao">
     
             </textarea>
         </div>
 
-        <div id="AreaEnderecoPrincipal">
-            <h2 class="h2_endereco">Endereço Principal</h2>
-
-            <input type="text" placeholder="Seu CEP"   class="input_cep"  v-model="cep" v-on:blur="CONSULTA_CEP">
-            <input type="text" placeholder="Endereço" class="input_endereco" v-model=" endereco_end_1.logradouro">
-            <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_1">
-            <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_1">
-            <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro_end_1.bairro">
-            <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_end_1.localidade">
-            <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_1">
-            <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_1.uf">
-            <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_1">
-            <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_1">
-        </div>
-
-        <div id="AreaEnderecoSecundario">
-            <h2 class="h2_endereco">Endereço Secundario(Opcional)</h2>
-
-            <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep_2" v-on:blur="CONSULTA_CEP_COB">
-            <input type="text" placeholder="Endereço" class="input_endereco" v-model=" endereco_end_2.logradouro">
-            <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_2">
-            <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_2">
-            <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro_end_2.bairro">
-            <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_end_2.localidade">
-            <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_2">
-            <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_2.uf">
-            <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_2">
-            <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_2">
-        </div>
-
-        <div id="AreaEnderecoTerciario">
-            <h2 class="h2_endereco">Endereço Terciario(Opcional)</h2>
-
-            <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep_3" v-on:blur="CONSULTA_CEP_TER">
-            <input type="text" placeholder="Endereço" class="input_endereco" v-model=" endereco_end_3.logradouro">
-            <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_3">
-            <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_3">
-            <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro_end_3.bairro">
-            <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_end_3.localidade">
-            <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_3">
-            <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_3.uf">
-            <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_3">
-            <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_3">
+        <div id="Area_Enderecos">
+            <div id="AreaEnderecoPrincipal">
+                <h2 class="h2_endereco">Endereço Principal</h2>
+    
+                <input type="text" placeholder="Seu CEP"   class="input_cep"  v-model="cep" v-on:blur="CONSULTA_CEP">
+                <input type="text" placeholder="Endereço" class="input_endereco" v-model=" endereco_end_1.logradouro">
+                <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_1">
+                <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_1">
+                <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro_end_1.bairro">
+                <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_end_1.localidade">
+                <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_1">
+                <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_1.uf">
+                <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_1">
+                <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_1">
+            </div>
+    
+            <div id="AreaEnderecoSecundario">
+                <h2 class="h2_endereco">Endereço Secundario(Opcional)</h2>
+    
+                <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep_2" v-on:blur="CONSULTA_CEP_COB">
+                <input type="text" placeholder="Endereço" class="input_endereco" v-model=" endereco_end_2.logradouro">
+                <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_2">
+                <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_2">
+                <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro_end_2.bairro">
+                <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_end_2.localidade">
+                <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_2">
+                <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_2.uf">
+                <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_2">
+                <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_2">
+            </div>
+    
+            <div id="AreaEnderecoTerciario">
+                <h2 class="h2_endereco">Endereço Terciario(Opcional)</h2>
+    
+                <input type="text" placeholder="Seu CEP"   class="input_cep" v-model="cep_3" v-on:blur="CONSULTA_CEP_TER">
+                <input type="text" placeholder="Endereço" class="input_endereco" v-model=" endereco_end_3.logradouro">
+                <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_3">
+                <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_3">
+                <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro_end_3.bairro">
+                <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_end_3.localidade">
+                <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_3">
+                <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_3.uf">
+                <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_3">
+                <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_3">
+            </div>
         </div>
 
         <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
@@ -308,6 +310,6 @@ import axios from 'axios';
         }
     }
 </script>
-<style >
+<style>
     
 </style>

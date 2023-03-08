@@ -2,7 +2,7 @@
 
   <div id="corpo_formulario_p_juridica">
 
-    <div id="TituloTopo">
+    <div id="Titulo_Topo">
       <h1 id="h1-titulo">Cadastro do cliente</h1>
       <p>(Preencha os campos para cadastrar um novo cliente)</p>
     </div>
@@ -25,5 +25,7 @@
   }
 </script>
 
-<style src="./estilo_p_juridica/estilo_inicio_p_juridica.scss"  lang="scss" />
+<style src="./estilo_p_juridica/estilo_inicio_p_juridica.scss"  lang="scss">
+
+</style>
 
