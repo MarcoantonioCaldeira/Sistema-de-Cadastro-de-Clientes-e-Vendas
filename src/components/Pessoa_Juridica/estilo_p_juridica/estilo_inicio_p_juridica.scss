@@ -70,10 +70,17 @@ label {
 
 
 .Input_Inscricao {
-  margin-left: 5px !important;
+  margin-left: 5px;
   display: inline;
-  width: 11% !important;
-  @include input_separado_rg;
+  width: 11%;
+  background-color: $cor_4;
+  padding: 0px 12px;
+  border: 1px solid;
+  box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: $cor_4;
+  height: 40px;
 }
 
 
@@ -113,17 +120,33 @@ label {
 
 
 .input_suframa {
-  margin-left: 1% !important;
   display: inline;
-  width: 40% !important;
-  @include input_suframa;
+  width: 58%;
+  height: 40px;
+  background-color: $cor_4;
+  padding: 0px 12px;
+  margin-top: 1%;
+  border: 1px solid;
+  box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: $cor_4;
+  display: block;
 }
 
 
 .input_inscricao {
-  width: 26% !important;
-  display: inline;
-  @include input_inscricao;
+  background-color: $cor_4;
+  padding: 0px 12px;
+  margin-top: 5%;
+  border: 1px solid;
+  box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: $cor_4;
+  display: block;
+  height: 40px;
+  width: 60%;
 }
 
 #AreaObservacoes {
@@ -204,13 +227,33 @@ label {
 }
 
 .input_cep {
-  width: 90% !important;
-  @include input;
+  width: 90%;
+  background-color: $cor_4;
+  padding: 0px 12px;
+  border: 1px solid;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: $cor_4;
+  display: block;
+  margin-left: 5%;
+  height: 40px;
 }
 
 .input_endereco {
-  width: 90% !important;
-  @include input;
+  width: 90%;
+  background-color: $cor_4;
+  padding: 0px 12px;
+  border: 1px solid;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: $cor_4;
+  display: block;
+  margin-left: 5%;
+  height: 40px;
 }
 
 ////////////////////////////////////////

@@ -310,6 +310,6 @@ import axios from 'axios';
         }
     }
 </script>
-<style>
-    
+<style scoped>
+
 </style>
