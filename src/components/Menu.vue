@@ -218,4 +218,15 @@ nav{
     }
   }
 }
+
+@media screen and (max-width: 575.98px) {
+
+  header{
+    position: relative;
+    width: 100% auto;
+    height: 80px;
+    margin: 0;
+  }
+
+}
 </style>

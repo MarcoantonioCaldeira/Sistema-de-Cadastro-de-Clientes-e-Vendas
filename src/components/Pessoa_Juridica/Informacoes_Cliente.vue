@@ -16,7 +16,7 @@
              
         <input type="text" placeholder="Seu CNPJ" class="Input_Forma_P_Juridica" v-model="cnpj_cpf"/>
             
-        <br><label  class="lb_rg">Inscrição Estadual:</label><input type="text" class="Input_Inscricao" v-model="inscricao_estadual"><br><br>
+        <br><label  class="lb_rg">Inscrição Estadual:</label><input type="text" class="Input_Inscricao_Estadual" v-model="inscricao_estadual"><br><br>
             
         <br><label class="lb_dt">Data da Fundação:</label><input type="date" class="Input_Data_Fundacao" v-model="data_cadastro">
 
@@ -32,7 +32,7 @@
             
             <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text"  class="input_suframa" v-model="suframa">
             
-            <br><label class="label_num_inscricao">Numero de inscrição municipal: </label><input type="text"  class="input_inscricao" v-model="inscricao_municipal">
+            <br><label class="label_num_inscricao">Numero de inscrição municipal: </label><input type="text"  class="Input_Inscricao_Municipal" v-model="inscricao_municipal">
                 
         </div>
 
@@ -310,6 +310,6 @@ import axios from 'axios';
         }
     }
 </script>
-<style>
-    
+<style scoped>
+
 </style>
