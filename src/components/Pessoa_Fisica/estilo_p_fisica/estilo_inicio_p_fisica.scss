@@ -317,17 +317,24 @@ label {
 }
 
 
-@media screen and (min-width: 300px) and (max-width: 450px) {
+@media only screen and (max-width: 47.999em) {
+
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
   #Area_Formulario {
-    height: 5000px;
+    background-color: aqua;
+    // height: 3000px;
     margin-top: 12%;
     margin-left: 5%;
   }
 
   #corpo_formulario {
-    background-color: red;
-    // height: 4000px;
+    margin-top: 5%;
+    width: 100%;
+    height: 1800px;
   }
 
   #h1-titulo {
@@ -350,7 +357,11 @@ label {
 
 
   #AreaSuframa {
-    position: static;
+    position: relative;
+    background-color: bisque;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 15%;
 
   }
 
@@ -363,18 +374,19 @@ label {
 
   .h2_suframa {
     font-size: 100%;
+    margin-left: 7%;
     margin-top: 7%;
+  }
+
+  .SelectSuframa {
+    margin-left: 5%;
+    width: 89%;
   }
 
   .CodigoSuframa {
     // display: inline;
     width: 80% !important;
-    margin-left: 3% !important;
-  }
-
-  .SelectSuframa {
-    margin-left: 2%;
-    width: 89%;
+    margin-left: 5% !important;
   }
 
   .label_num_incricao {
@@ -389,43 +401,48 @@ label {
   .InputInscricao {
     width: 80%;
     margin-top: 6%;
-    margin-left: 4%;
+    margin-left: 5%;
   }
 
-  .text_area {
-    width: 90%;
+  .TextArea {
+    // margin-top: -5%;
+    width: 85%;
   }
 
   #AreaObservacoes {
     // position: absolute;
+    background-color: #9B9A9A;
     position: relative;
     top: -5% !important;
     left: 4%;
     display: inline;
   }
 
+  #Area_Enderecos {
+    width: 100%;
+    height: 2250px;
+    margin-top: -10%;
+  }
+
   #AreaEnderecoPrincipal {
-    position: relative;
-    width: 90% !important;
-    margin-top: 10% !important;
+    width: 100%;
+    margin-left: 0;
     // background-color: blue;
   }
 
 
   #AreaEnderecoSecundario {
-    position: relative;
-    margin-top: 20%;
+    width: 100%;
     margin-left: 0;
-    width: 90%;
+    margin-top: 10%;
     // background-color: blue;
   }
 
 
   #AreaEnderecoTerciario {
-    position: relative;
-    margin-top: 20%;
+    width: 100%;
     margin-left: 0;
-    width: 90%;
+    margin-top: 10%;
     // background-color: blue;
   }
 
@@ -443,7 +460,7 @@ label {
 
 
 
-@media (min-width: 480px) and (max-width: 600px) {
+@media only screen and (max-width: 56.688em) {
 
   #h1-titulo {
     margin-top: 14px;
@@ -537,7 +554,7 @@ label {
 
 }
 
-@media (min-width: 601px) and (max-width: 850px) {
+@media screen and (max-width: 74.999em) {
 
   #h1-titulo {
     margin-top: 14px;

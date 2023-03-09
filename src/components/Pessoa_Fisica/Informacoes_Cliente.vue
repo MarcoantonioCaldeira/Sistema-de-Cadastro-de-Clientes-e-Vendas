@@ -81,7 +81,7 @@
                 <p class="p_obs">Observações</p>
                 <textarea class="TextArea" v-model="observacao">
 
-            </textarea>
+                </textarea>
             </div>
 
             <div id="AreaEnderecoPrincipal">
