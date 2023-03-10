@@ -11,17 +11,6 @@
 }
 
 
-#Area_Pessoa_Fisica {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width: 20%;
-  margin-left: 40%;
-  margin-top: 3%;
-  height: 90px;
-  font-family: $font_2;
-  background-color: $cor_4;
-  border-radius: 5px;
-}
-
 #TituloTopo {
   position: absolute;
   margin-top: 5%;
@@ -424,10 +413,12 @@ label {
     display: inline;
   }
 
+
   #Area_Enderecos {
     width: 100%;
-    height: 2250px;
-    margin-top: -10%;
+    height: 2150px;
+    margin-top: -20%;
+    // background-color: aqua;
   }
 
   #AreaEnderecoPrincipal {

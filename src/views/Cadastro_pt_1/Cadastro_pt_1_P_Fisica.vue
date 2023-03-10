@@ -15,8 +15,6 @@ export default {
   components: {
     Inicio,
     Footer
-  }
-
-
+  },
 }
 </script>
