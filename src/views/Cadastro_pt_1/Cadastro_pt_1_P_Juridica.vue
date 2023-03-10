@@ -1,4 +1,4 @@
-<template>
+ <template>
     <div class="home">
       <Inicio/>
       <Footer />
@@ -15,8 +15,7 @@
     components: {
       Inicio,
       Footer
-    },
-
+    }
   }
   </script>
   
