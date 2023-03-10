@@ -1,4 +1,5 @@
 <template>
+
   <div id="corpo_formulario">
 
     <div id="TituloTopo">
@@ -10,6 +11,7 @@
     <Informacoes_Cliente />
 
   </div>
+  
 </template>
 
 <script>
