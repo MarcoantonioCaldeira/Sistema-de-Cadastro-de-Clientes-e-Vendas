@@ -325,10 +325,9 @@ label {
   }
 
   #Area_Formulario {
-    background-color: aqua;
-    // height: 3000px;
-    margin-top: 12%;
-    margin-left: 5%;
+    width: 100%;
+    min-height: 3750px;
+    max-height: 4050px;
   }
 
   #corpo_formulario {
@@ -355,10 +354,18 @@ label {
     margin-left: 5%;
   }
 
+  .Input_Data_Cadastro {
+    width: 50.5% !important;
+    @include input_separado_data;
+  }
+
+  .Input_Data_Nascimento {
+    width: 48% !important;
+    @include input_separado_data;
+  }
 
   #AreaSuframa {
-    position: relative;
-    background-color: bisque;
+    height: 300px;
     width: 100%;
     margin-left: 0;
     margin-top: 15%;
@@ -366,7 +373,6 @@ label {
   }
 
   #suframa {
-    position: relative;
     width: 100%;
     margin-left: 5%;
     margin-top: 5%;
@@ -374,13 +380,17 @@ label {
 
   .h2_suframa {
     font-size: 100%;
-    margin-left: 7%;
+    margin-left: 5% !important;
     margin-top: 7%;
+  }
+
+  .label_codigo_suframa {
+    margin-left: 5% !important;
   }
 
   .SelectSuframa {
     margin-left: 5%;
-    width: 89%;
+    width: 86%;
   }
 
   .CodigoSuframa {
@@ -392,10 +402,6 @@ label {
   .label_num_incricao {
     font-family: $font_2;
     color: $cor_4;
-  }
-
-  .label_codigo_suframa {
-    margin-left: 2.5%;
   }
 
   .InputInscricao {
@@ -413,7 +419,7 @@ label {
     // position: absolute;
     background-color: #9B9A9A;
     position: relative;
-    top: -5% !important;
+    top: -10% !important;
     left: 4%;
     display: inline;
   }
@@ -446,9 +452,14 @@ label {
     // background-color: blue;
   }
 
+  .input_cep {
+    //background-color: red;
+    width: 79% !important;
+  }
+
   .input_endereco {
     //background-color: red;
-    width: 80%;
+    width: 79% !important;
   }
 
   .btn_proxima_etapa {
