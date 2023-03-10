@@ -316,8 +316,8 @@ label {
 
   #corpo_formulario {
     width: 100%;
-    min-height: 3750px;
-    max-height: 4050px;
+    min-height: 3750px !important;
+    max-height: 4050px !important;
   }
 
   #h1-titulo {
@@ -395,7 +395,6 @@ label {
   }
 
   .TextArea {
-    // margin-top: -5%;
     width: 85%;
   }
 
@@ -412,8 +411,7 @@ label {
   #Area_Enderecos {
     width: 100%;
     height: 2150px;
-    margin-top: -20%;
-    // background-color: aqua;
+    margin-top: -2%;
   }
 
   #AreaEnderecoPrincipal {
