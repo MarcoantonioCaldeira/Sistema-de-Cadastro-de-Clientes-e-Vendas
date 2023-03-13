@@ -204,7 +204,7 @@ nav {
 }
 
 .scrolled-nav{
-  background-color: #000;
+  background-color: #003A4C;
   box-shadow: 0 4px 6px -1px;
 }
 
@@ -219,14 +219,14 @@ nav{
   }
 }
 
-@media screen and (max-width: 575.98px) {
+//@media screen and (max-width: 575.98px) {
 
-  header{
-    position: relative;
-    width: 100% auto;
-    height: 80px;
-    margin: 0;
-  }
+//  header{
+//    position: relative;
+//    width: 100% auto;
+//    height: 80px;
+//    margin: 0;
+//  }
 
-}
+//}
 </style>
