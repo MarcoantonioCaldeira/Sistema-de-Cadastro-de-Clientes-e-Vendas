@@ -39,7 +39,6 @@
     border-radius: 5px;
     font-family: $font_2;
     border-color: $cor_4;
-
     height: 40px;
     width: 16%;
 }
@@ -47,7 +46,6 @@
 @mixin input_separado_data {
     position: relative;
     background-color: $cor_4;
-    //color: red;
     display: inline-block;
     margin-left: 5px;
     border: 1px solid;
