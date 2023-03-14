@@ -17,7 +17,7 @@
         
         <input type="text"  v-model="CMPJ" placeholder="CNPJ" class="input"/>
         
-        <br><label class="lb_dt">Data da Fundação:</label><input type="date" style="display: inline" class="input_secundario_data" v-model="data_fundacao">
+        <br><label class="lb_dt">Data da Fundação:</label><input type="date" style="display: inline" class="data_p_estrangeira" v-model="data_fundacao">
        
 
         <div id="AreaObservacoes">
