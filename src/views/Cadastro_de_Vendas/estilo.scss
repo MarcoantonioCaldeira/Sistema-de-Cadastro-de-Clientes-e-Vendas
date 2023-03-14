@@ -67,7 +67,7 @@
 }
 
 
-@media screen and (min-width: 300px) and (max-width: 450px) {
+@media only screen and (max-width: 35.999em) {
 
 
     #Formulario {
@@ -101,7 +101,7 @@
 
 }
 
-@media (min-width: 480px) and (max-width: 600px) {
+@media only screen and (max-width: 56.688em) {
 
     #Formulario {
         // width: 100%;
@@ -130,9 +130,7 @@
         margin-top: 2%;
         margin-left: 6%;
     }
-}
 
-@media (min-width: 601px) and (max-width: 850px) {
 
     #Formulario {
         // width: 100%;

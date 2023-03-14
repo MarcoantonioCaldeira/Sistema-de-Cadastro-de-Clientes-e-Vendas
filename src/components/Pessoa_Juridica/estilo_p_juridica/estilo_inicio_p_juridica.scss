@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-@import "@/assets/scss/index.scss";
+@import "@/assets/scss/cores.scss";
+@import "@/assets/scss/fonts.scss";
 
 
 #corpo_formulario_p_juridica {
@@ -57,13 +58,33 @@ label {
 
 .Input_Forma_P_Juridica {
   width: 20%;
-  @include input;
+  background-color: $cor_4;
+  padding: 0px 12px;
+  border: 1px solid;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: $cor_4;
+  display: block;
+  margin-left: 5%;
+  height: 40px;
 }
 
 
 #nome_apelido {
-  @include input_apelido;
-  line-height: 45px;
+  background-color: $cor_4;
+  padding: 0px 12px;
+  border: 1px solid;
+  margin: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: $cor_4;
+  display: block;
+  margin-left: 5%;
+  height: 40px;
+  width: 20%;
   opacity: 0.8;
 }
 
@@ -86,7 +107,16 @@ label {
 .Input_Data_Fundacao {
   display: inline;
   width: 13% !important;
-  @include input_separado_data;
+  height: 40px;
+  position: relative;
+  background-color: $cor_4;
+  display: inline-block;
+  margin-left: 5px;
+  border: 1px solid;
+  box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: $cor_4;
 }
 
 
@@ -104,7 +134,15 @@ label {
 
 .select {
   width: 63% !important;
-  @include select;
+  background-color: $cor_4;
+  padding: 0px 12px;
+  border: 1px solid;
+  box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: $cor_4;
+  display: block;
+  height: 40px;
 }
 
 
@@ -263,7 +301,17 @@ label {
 .btn_proxima_etapa {
   margin-left: 5%;
   margin-top: 3%;
-  @include button-add-processeguir;
+  background: $cor_1;
+  font-weight: 100;
+  font-family: 'Poppins';
+  border-radius: 5px;
+  border-color: $cor_1;
+  border: 1px solid #003A4C;
+  font-family: arial;
+  color: $cor_5;
+  text-align: 20%;
+  height: 56px;
+  width: 120px;
 }
 
 @media only screen and (max-width: 35.999em) {
@@ -392,7 +440,17 @@ label {
   .btn_proxima_etapa {
     margin-top: 10%;
     margin-left: 5%;
-    @include button-add-processeguir;
+    background: $cor_1;
+    font-weight: 100;
+    font-family: 'Poppins';
+    border-radius: 5px;
+    border-color: $cor_1;
+    border: 1px solid #003A4C;
+    font-family: arial;
+    color: $cor_5;
+    text-align: 20%;
+    height: 56px;
+    width: 120px;
   }
 }
 
@@ -518,7 +576,17 @@ label {
   .btn_proxima_etapa {
     margin-top: 10%;
     margin-left: 5%;
-    @include button-add-processeguir;
+    background: $cor_1;
+    font-weight: 100;
+    font-family: 'Poppins';
+    border-radius: 5px;
+    border-color: $cor_1;
+    border: 1px solid #003A4C;
+    font-family: arial;
+    color: $cor_5;
+    text-align: 20%;
+    height: 56px;
+    width: 120px;
   }
 
 }
@@ -649,7 +717,17 @@ label {
   .btn_proxima_etapa {
     margin-top: 10%;
     margin-left: 5%;
-    @include button-add-processeguir;
+    background: $cor_1;
+    font-weight: 100;
+    font-family: 'Poppins';
+    border-radius: 5px;
+    border-color: $cor_1;
+    border: 1px solid #003A4C;
+    font-family: arial;
+    color: $cor_5;
+    text-align: 20%;
+    height: 56px;
+    width: 120px;
   }
 
 }
@@ -780,6 +858,16 @@ label {
   .btn_proxima_etapa {
     margin-top: 10%;
     margin-left: 5%;
-    @include button-add-processeguir;
+    background: $cor_1;
+    font-weight: 100;
+    font-family: 'Poppins';
+    border-radius: 5px;
+    border-color: $cor_1;
+    border: 1px solid #003A4C;
+    font-family: arial;
+    color: $cor_5;
+    text-align: 20%;
+    height: 56px;
+    width: 120px;
   }
 }
