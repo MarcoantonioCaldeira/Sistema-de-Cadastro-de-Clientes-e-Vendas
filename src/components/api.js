@@ -1,57 +1,59 @@
 import axios from 'axios';
 
+
 const api = axios.create({
-    baseURL: 'https://localhost:9000/auth',
+    baseURL: 'http://localhost:9000/',
 });
 
-api.interceptors.request.use(
 
-    (config) => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
+api.interceptors.request.use(
+    config => {
+        const accessToken = localStorage.getItem('accessToken');
+        if (accessToken) {
+            config.headers.Authorization = `Bearer ${accessToken}`;
         }
         return config;
     },
-
-    (error) => {
+    error => {
         return Promise.reject(error);
     }
 );
+
+
+
+const refreshToken = localStorage.getItem('refreshToken');
+
+api.get('/auth', {
+    headers: {
+        Authorization: `Bearer ${refreshToken}`,
+        'Content-Type': 'application/json',
+        key_auth: '3G5T8W7Y1K',
+        SYSDBA: 'masterkey'
+    }
+}).then(response => {
+    const newAccessToken = response.data.access_token;
+    const newRefreshToken = response.data.refresh_token;
+
+    localStorage.setItem('accessToken', newAccessToken);
+    localStorage.setItem('refreshToken', newRefreshToken);
+
+    return newAccessToken;
+});
+
 
 api.interceptors.response.use(
-
-    (response) => {
-        return response;
-    },
-
-    (error) => {
-
+    response => response,
+    error => {
         const originalRequest = error.config;
-        if (
-            error.response.status === 401 &&
-            !originalRequest._retry &&
-            localStorage.getItem('refreshToken')
-        ) {
+
+        if (error.response.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true;
-            return api
-                .post('/refresh-token', {
-                    refreshToken: localStorage.getItem('refreshToken'),
-                })
-                .then((response) => {
-                    localStorage.setItem('token', response.data.token);
-                    localStorage.setItem('refreshToken', response.data.refreshToken);
-                    api.defaults.headers.common[
-                        'Authorization'
-                    ] = `Bearer ${response.data.token}`;
-                    return api(originalRequest);
-                });
+            return getRefreshToken().then(newToken => {
+                originalRequest.headers.Authorization = `Bearer ${newToken}`;
+                return axios(originalRequest);
+            });
         }
+
         return Promise.reject(error);
     }
-
 );
-
-export default api;
-
-
