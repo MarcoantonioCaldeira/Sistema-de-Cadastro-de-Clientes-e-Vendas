@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const api = axios.create({
-    baseURL: 'http://localhost:9000/',
+    baseURL: 'http://localhost:9000',
 });
 
 
@@ -21,24 +21,27 @@ api.interceptors.request.use(
 
 
 
-const refreshToken = localStorage.getItem('refreshToken');
+function getRefreshToken() {
 
-api.get('/auth', {
-    headers: {
-        Authorization: `Bearer ${refreshToken}`,
-        'Content-Type': 'application/json',
-        key_auth: '3G5T8W7Y1K',
-        SYSDBA: 'masterkey'
-    }
-}).then(response => {
-    const newAccessToken = response.data.access_token;
-    const newRefreshToken = response.data.refresh_token;
+    const refreshToken = localStorage.getItem('refreshToken');
 
-    localStorage.setItem('accessToken', newAccessToken);
-    localStorage.setItem('refreshToken', newRefreshToken);
+    return api.get('/auth', {
+        headers: {
+            Authorization: `Bearer ${refreshToken}`,
+            'Content-Type': 'application/json',
+            key_auth: '3G5T8W7Y1K',
+            SYSDBA: 'masterkey'
+        }
+    }).then(response => {
+        const newAccessToken = response.data.access_token;
+        const newRefreshToken = response.data.refresh_token;
 
-    return newAccessToken;
-});
+        localStorage.setItem('accessToken', newAccessToken);
+        localStorage.setItem('refreshToken', newRefreshToken);
+
+        return newAccessToken;
+    });
+}
 
 
 api.interceptors.response.use(
