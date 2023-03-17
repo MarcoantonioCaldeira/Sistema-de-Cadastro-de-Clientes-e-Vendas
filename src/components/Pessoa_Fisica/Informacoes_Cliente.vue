@@ -137,6 +137,7 @@
 
 <script>
 import axios from 'axios';
+import api from '../api';
 import VueImg from 'v-img';
 
 
@@ -219,8 +220,7 @@ export default {
 
     methods: {
         Cadastrar() {
-            api
-                .post("clientes", {
+            api.post("/clientes", {
                     clientes: [{
                         nome: this.nome,
                         nome_fantasia: this.nome_fantasia,
