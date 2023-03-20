@@ -25,8 +25,10 @@ api.interceptors.request.use(
 
 
 //Função para verificação de Refresh Token
+
+// const refreshToken = localStorage.getItem('refreshToken');
+
 api.get('/auth', {
-    // params: { '': ['', ''] },
     headers: {
         'Content-Type': 'application/json',
         key_auth: '3G5T8W7Y1K',
@@ -41,6 +43,7 @@ api.get('/auth', {
 
     return newAccessToken;
 });
+
 
 
 
