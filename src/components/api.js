@@ -21,27 +21,24 @@ api.interceptors.request.use(
 
 
 
-function getRefreshToken() {
 
-    const refreshToken = localStorage.getItem('refreshToken');
+api.get('/auth', {
 
-    return api.get('/auth', {
-        headers: {
-            Authorization: `Bearer ${refreshToken}`,
-            'Content-Type': 'application/json',
-            key_auth: '3G5T8W7Y1K',
-            SYSDBA: 'masterkey'
-        }
-    }).then(response => {
-        const newAccessToken = response.data.access_token;
-        const newRefreshToken = response.data.refresh_token;
+    params: { '': ['', ''] },
+    headers: {
+        'Content-Type': 'application/json',
+        key_auth: '3G5T8W7Y1K',
+        SYSDBA: 'masterkey'
+    }
+}).then(response => {
+    const newAccessToken = response.data.access_token;
+    const newRefreshToken = response.data.refresh_token;
 
-        localStorage.setItem('accessToken', newAccessToken);
-        localStorage.setItem('refreshToken', newRefreshToken);
+    localStorage.setItem('accessToken', newAccessToken);
+    localStorage.setItem('refreshToken', newRefreshToken);
 
-        return newAccessToken;
-    });
-}
+    return newAccessToken;
+});
 
 
 api.interceptors.response.use(
