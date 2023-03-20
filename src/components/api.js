@@ -6,9 +6,12 @@ const api = axios.create({
 });
 
 
+//Autenticação com Token
 api.interceptors.request.use(
     config => {
+
         const accessToken = localStorage.getItem('accessToken');
+
         if (accessToken) {
             config.headers.Authorization = `Bearer ${accessToken}`;
         }
@@ -21,10 +24,9 @@ api.interceptors.request.use(
 
 
 
-
+//Função para verificação de Refresh Token
 api.get('/auth', {
-
-    params: { '': ['', ''] },
+    // params: { '': ['', ''] },
     headers: {
         'Content-Type': 'application/json',
         key_auth: '3G5T8W7Y1K',
@@ -41,14 +43,20 @@ api.get('/auth', {
 });
 
 
+
+//Função para fazer nova requisição se der o erro 401
 api.interceptors.response.use(
     response => response,
+
     error => {
         const originalRequest = error.config;
 
         if (error.response.status === 401 && !originalRequest._retry) {
+
             originalRequest._retry = true;
+
             return getRefreshToken().then(newToken => {
+
                 originalRequest.headers.Authorization = `Bearer ${newToken}`;
                 return axios(originalRequest);
             });
