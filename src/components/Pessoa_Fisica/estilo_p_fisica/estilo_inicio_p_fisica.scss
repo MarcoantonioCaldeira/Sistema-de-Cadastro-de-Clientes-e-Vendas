@@ -193,10 +193,11 @@ label {
 
 #AreaSuframa {
   position: relative;
-  background-color: red;
+  display: block;
+  //background-color: red;
   width: 45%;
-  // margin-left: 500px;
-  // margin-top: -500px;
+  margin-left: 500px;
+  margin-top: -930px;
   height: 400px;
 }
 
@@ -273,8 +274,8 @@ label {
 #AreaObservacoes {
   width: 35%;
   height: 400px;
-  margin-left: 33%;
-  margin-top: -15%;
+  margin-left: 500px;
+  margin-top: -35px;
 }
 
 
