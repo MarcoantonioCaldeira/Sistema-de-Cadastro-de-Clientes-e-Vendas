@@ -1,12 +1,13 @@
 <template>
-
-    <div>
+    
         <div id="Corpo_Tela_Inicial">
-        <h1>Seja Bem-vindo</h1>
-    </div>
+            <div id="Area-Frase">
+                <h1 class="h1-seja-bem-vindo">Seja Bem-vindo</h1>
+            </div>
+        </div>
 
-    <Footer />
-    </div>
+        <Footer />
+
 </template>
 
 <script>
@@ -18,6 +19,7 @@ export default{
         Footer
     }
 }
+
 </script>
 <style src="./estilo_tela_inicio.scss" lang="scss"> 
 
