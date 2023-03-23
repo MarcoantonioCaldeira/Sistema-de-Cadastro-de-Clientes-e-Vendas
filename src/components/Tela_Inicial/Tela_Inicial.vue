@@ -1,12 +1,16 @@
 <template>
-    <div id="Corpo_Tela_Inicial">
+
+    <div>
+        <div id="Corpo_Tela_Inicial">
         <h1>Seja Bem-vindo</h1>
     </div>
+
     <Footer />
+    </div>
 </template>
 
 <script>
-import Footer from '@/components/Footer.vue'
+import Footer from '../Footer.vue';
 
 export default{
     name: 'Tela_Inicial',
