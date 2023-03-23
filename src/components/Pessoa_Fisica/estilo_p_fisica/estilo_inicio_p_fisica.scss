@@ -130,9 +130,9 @@ label {
   border-radius: 5px;
   border-color: $cor_4;
   background-color: $cor_4;
-  width: 11%;
+  width: 200px;
   height: 40px;
-  margin-left: 10%;
+  margin-left: 150px;
 }
 
 .deletar_email {
@@ -156,7 +156,7 @@ label {
 
 
 .Input_Data_Cadastro {
-  width: 8%;
+  width: 215px;
   position: relative;
   background-color: $cor_4;
   display: inline-block;
@@ -205,8 +205,7 @@ label {
 .SelectSuframa {
   background-color: $cor_4;
   padding: 0px 12px;
-  margin-left: 2%;
-  margin-top: 1%;
+  margin-top: 1px;
   border: 1px solid;
   box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
   border-radius: 5px;
@@ -214,12 +213,12 @@ label {
   border-color: $cor_4;
   display: block;
   height: 40px;
-  width: 63%;
+  width: 372px;
 }
 
 .CodigoSuframa {
-  margin-left: 1% !important;
-  width: 39% !important;
+  // margin-left: 1%;
+  width: 350px;
   background-color: $cor_4;
   padding: 0px 12px;
   margin-top: 1%;
@@ -239,20 +238,6 @@ label {
 }
 
 
-.input_suframa {
-  background-color: $cor_4;
-  padding: 0px 12px;
-  margin-top: 1%;
-  border: 1px solid;
-  box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
-  border-radius: 5px;
-  font-family: $font_2;
-  border-color: $cor_4;
-  display: block;
-  height: 40px;
-  width: 63%;
-}
-
 
 .InputInscricao {
   background-color: $cor_4;
@@ -265,14 +250,14 @@ label {
   border-color: $cor_4;
   display: block;
   height: 40px;
-  width: 60%;
+  width: 350px;
 }
 
 ////////////////////////////////////////
 
 
 #AreaObservacoes {
-  width: 35%;
+  width: 520px;
   height: 400px;
   margin-left: 500px;
   margin-top: -35px;
@@ -345,14 +330,14 @@ label {
   font-family: $font_1;
   font-weight: 500;
   font-size: 22px;
-  margin: 0;
+  margin-left: 0;
 }
 
 
 .TextArea {
   width: 73%;
   height: 220px;
-  margin-top: 6%;
+  margin-top: 15px;
   border: 1px solid $cor_4;
   border-radius: 5px;
   background-color: $cor_4;
