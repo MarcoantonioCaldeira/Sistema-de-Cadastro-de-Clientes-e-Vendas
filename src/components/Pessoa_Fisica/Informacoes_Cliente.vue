@@ -56,7 +56,7 @@
 
             <!--Tipo Suframa-->
 
-            <!-- <div id="AreaSuframa">
+            <div id="AreaSuframa">
                 <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência da<br>Zona Franca de Manaus)</h2>
                 <br>
                 <select class="SelectSuframa" v-model="suframa_tipo">
@@ -69,7 +69,7 @@
 
                 <input type="text" placeholder="Numero de Inscrição Municipal" class="InputInscricao"
                     v-model="inscricao_municipal">
-            </div> -->
+            </div>
 
             <!--Observacoes do cliente-->
 

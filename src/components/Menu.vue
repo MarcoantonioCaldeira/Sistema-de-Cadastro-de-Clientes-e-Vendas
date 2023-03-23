@@ -94,22 +94,23 @@ nav {
   transition: 0.5s ease all;
   width: 40%;
   margin: 0;
-  @media (min-width: 1140px) {
-      max-width: 1140px;
-  }
+  // @media (min-width: 1140px) {
+  //     max-width: 1140px;
+  // }
 
-      ul,.link {
-          font-weight: 500;
-          color: #fff;
-          list-style: none;
-      }
+      // ul,.link {
+      //     font-weight: 500;
+      //     color: #fff;
+      //     list-style: none;
+      //     text-decoration: none;
+      // }
 
       ul a{
         text-decoration: none;
         color:white;
         font-family: 'Poppins';
         text-transform: uppercase;
-        padding: 16px;
+        padding: 0.5em;
         font-weight: 800;
       }
 
@@ -211,12 +212,12 @@ nav {
 nav{
   padding: 8px 0;
 
-  .branding{
-    img{
-      width: 40px;
-      box-shadow: 0 4px 6px -1px;
-    }
-  }
+  // .branding{
+  //   img{
+  //     width: 40px;
+  //     box-shadow: 0 4px 6px -1px;
+  //   }
+  // }
 }
 
 //@media screen and (max-width: 575.98px) {
