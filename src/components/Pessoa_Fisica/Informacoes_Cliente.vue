@@ -86,7 +86,6 @@
 
                     <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep" v-on:blur="CONSULTA_CEP">
                     <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco_end_1.logradouro">
-
                     <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_1">
                     <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_1">
                     <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro_end_1.bairro">
@@ -100,7 +99,6 @@
                     <h2 class="h2_endereco">Endereço Secundario(Opcional)</h2>
 
                     <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep_2" v-on:blur="CONSULTA_CEP_COB">
-
                     <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco_end_2.logradouro">
                     <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_2">
                     <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_2">
