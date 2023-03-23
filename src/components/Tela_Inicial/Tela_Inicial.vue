@@ -1,9 +1,9 @@
 <template>
     
         <div id="Corpo_Tela_Inicial">
-            <div id="Area-Frase">
-                <h1 class="h1-seja-bem-vindo">Seja Bem-vindo</h1>
-            </div>
+           
+            <h1 class="h1-seja-bem-vindo">Seja Bem-vindo</h1>
+           
         </div>
 
         <Footer />
