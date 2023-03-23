@@ -7,7 +7,7 @@
 #corpo_formulario {
   margin-top: 5%;
   width: 100%;
-  min-height: 2150px;
+  min-height: 2100px;
   max-height: 2450px;
 }
 
@@ -270,8 +270,8 @@ label {
 #AreaEnderecoPrincipal {
   width: 22%;
   height: 700px;
-  // margin-top: -2%;
-  // margin-left: 4%;
+  margin-top: 270px;
+  margin-left: 50px;
 }
 
 
@@ -321,8 +321,8 @@ label {
   //background-color: red;
   width: 22%;
   height: 700px;
-  margin-left: 32%;
-  margin-top: -35.2%;
+  margin-left: 37%;
+  margin-top: -735px;
   //background-color: blue;
 }
 
@@ -351,8 +351,8 @@ label {
   //background-color: red;
   width: 22%;
   height: 700px;
-  margin-left: 60%;
-  margin-top: -35.2%;
+  margin-left: 940px;
+  margin-top: -700px;
   //background-color: blue;
 }
 
@@ -360,6 +360,7 @@ label {
 .btn_proxima_etapa {
   position: relative;
   margin-left: 5%;
+  margin-top: 40px;
   background: $cor_1;
   font-weight: 100;
   font-family: $font_2;

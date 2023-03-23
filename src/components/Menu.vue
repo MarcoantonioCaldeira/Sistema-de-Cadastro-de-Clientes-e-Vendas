@@ -5,7 +5,7 @@
       
     </div>
     <ul v-show="!mobile" class="navigation">
-      <a><router-link to="/" style="text-decoration: none">nicio</router-link></a>
+      <a><router-link to="/" style="text-decoration: none">Inicio</router-link></a>
       <a><router-link to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></a>
       <a><router-link to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></a>
     </ul>
@@ -78,6 +78,7 @@ export default{
 
 header {
   background-color: #003A4C;
+  height: 100px;
   z-index: 99;
   width: 100%;
   margin-top: -5%;
@@ -86,27 +87,30 @@ header {
   color: #fff;
 
 nav {
+  //background-color: red;
   text-decoration: none;
   position: relative;
   display: flex;
   flex-direction: row;
-  padding: 12px 0;
+  padding: 29.5px 0;
   transition: 0.5s ease all;
-  width: 40%;
-  margin: 0;
-  // @media (min-width: 1140px) {
-  //     max-width: 1140px;
-  // }
+  width: 600px;
+  margin-left: 200px;
 
-      // ul,.link {
-      //     font-weight: 500;
-      //     color: #fff;
-      //     list-style: none;
-      //     text-decoration: none;
-      // }
+  @media (min-width: 1140px) {
+      max-width: 1140px;
+  }
+
+      ul,.link {
+          font-weight: 500;
+          color: #fff;
+          list-style: none;
+          text-decoration: none;
+      }
 
       ul a{
         text-decoration: none;
+        margin-left: 10px;
         color:white;
         font-family: 'Poppins';
         text-transform: uppercase;
