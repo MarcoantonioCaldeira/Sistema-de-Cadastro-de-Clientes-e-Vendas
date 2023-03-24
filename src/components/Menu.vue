@@ -1,6 +1,7 @@
 <template> 
 <header :class="{ 'scrolled-nav': scrolledNav }">
   <nav>
+    <img v-img:src   class="logo"  src="@/assets/images/logo.png">
     <div class="branding">
       
     </div>
@@ -24,6 +25,8 @@
 </template>
 
 <script> 
+import VueImg from 'v-img';
+
 export default{
   name: 'Menu',
   data(){
@@ -78,13 +81,18 @@ export default{
 
 header {
   background-color: #003A4C;
-  height: 100px;
+  height: 150px;
   z-index: 99;
   width: 100%;
   margin-top: -5%;
   position: fixed;
   transition: 0.5s ease all;
   color: #fff;
+
+
+  .logo{
+    padding: 20px;
+  }
 
 nav {
   //background-color: red;
