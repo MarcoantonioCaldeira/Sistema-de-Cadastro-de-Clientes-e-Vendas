@@ -631,7 +631,7 @@ label {
 
   #AreaSuframa {
     height: 300px;
-    background-color: #003A4C;
+    //background-color: #003A4C;
     width: 100%;
     margin-left: 0;
     margin-top: 15%;
@@ -650,7 +650,7 @@ label {
 
   .SelectSuframa {
     margin-left: 5%;
-    width: 350px;
+    width: 370px;
   }
 
   .CodigoSuframa {
@@ -690,31 +690,16 @@ label {
 
   #Area_Enderecos {
     width: 100%;
-    height: 2150px;
-    background-color: rgb(0, 204, 255);
-    margin-top: -2%;
-  }
-
-  #AreaEnderecoPrincipal {
-    width: 100%;
-    margin-left: 30px; 
-    margin-top: 10%;
-    display: inline-block;
-    //background-color: red;
+    height: 1600px;
+    //margin-top: -2%;
   }
 
   #AreaEnderecoSecundario{
-    margin-left: 18%;
-    display: inline-block;
-    // background-color: blue;
+    margin-left: 40%;
   }
 
   #AreaEnderecoTerciario {
-    display: block;
-    // margin-left: 6%;
-    // margin-top: 2%;
     display: inline-block;
-    // background-color: blue;
   }
 
 
