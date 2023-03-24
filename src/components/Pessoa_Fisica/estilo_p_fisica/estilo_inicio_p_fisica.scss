@@ -7,7 +7,7 @@
 #corpo_formulario {
   margin-top: 5%;
   width: 100%;
-  min-height: 2100px;
+  min-height: 2150px;
   max-height: 2450px;
 }
 
@@ -69,7 +69,6 @@ label {
 
 
 .InputForm {
-
   width: 350px;
   background-color: #CECCCC;
   //background-color: red;
@@ -93,7 +92,7 @@ label {
 }
 
 .InputForm_Email_Opcional {
-  width: 92%;
+  width: 350px;
   background-color: $cor_4;
   padding: 0px 12px;
   border: 1px solid;
@@ -278,21 +277,19 @@ label {
 }
 
 #AreaEnderecoSecundario {
-  //background-color: red;
   display: inline-block;
   width: 22%;
   height: 700px;
-  margin-left: 35px;
+  margin-left: 10%;
   //margin-top: -735px;
   //background-color: blue;
 }
 
 #AreaEnderecoTerciario {
-  //background-color: red;
   display: inline-block;
   width: 22%;
   height: 700px;
-  margin-left: 35px;
+  margin-left: 10%;
   //margin-top: -700px;
   //background-color: blue;
 }
@@ -320,7 +317,7 @@ label {
   font-family: $font_2;
   border-color: $cor_4;
   display: block;
-  margin-left: 5%;
+  // margin-left: 5%;
   height: 40px;
 }
 
@@ -330,7 +327,7 @@ label {
   width: 350px !important;
   background-color: $cor_4;
   //display: block;
-  background-color: rgb(40, 40, 44);
+  background-color: $cor_4;
   padding: 0px 12px;
   border: 1px solid;
   margin: 20px;
@@ -339,7 +336,7 @@ label {
   font-family: $font_2;
   border-color: $cor_4;
   display: block;
-  margin-left: 5%;
+  // margin-left: 5%;
   height: 40px;
 }
 
@@ -555,23 +552,23 @@ label {
   .btn_proxima_etapa {
     margin-top: 12% !important;
     margin-left: 5%;
-    background: $cor_1;
-    font-weight: 100;
-    font-family: 'Poppins';
-    border-radius: 5px;
-    border-color: $cor_1;
-    border: 1px solid #003A4C;
-    font-family: arial;
-    color: $cor_5;
-    text-align: 20%;
-    height: 56px;
-    width: 120px;
+    // background: $cor_1;
+    // font-weight: 100;
+    // font-family: 'Poppins';
+    // border-radius: 5px;
+    // border-color: $cor_1;
+    // border: 1px solid #003A4C;
+    // font-family: arial;
+    // color: $cor_5;
+    // text-align: 20%;
+    // height: 56px;
+    // width: 120px;
   }
 }
 
 
 
-@media only screen and (max-width: 56.688em) {
+@media only screen and (max-width: 62.188em) {
 
   * {
     margin: 0;
@@ -705,22 +702,6 @@ label {
     //background-color: red;
   }
 
-
-  // #AreaEnderecoSecundario {
-  //   width: 100%;
-  //   margin-left: 0;
-  //   margin-top: 10%;
-  //   // background-color: blue;
-  // }
-
-
-  // #AreaEnderecoTerciario {
-  //   width: 100%;
-  //   margin-left: 0;
-  //   margin-top: 10%;
-  //   // background-color: blue;
-  // }
-
   .input_cep {
     //background-color: red;
     width: 79% !important;
@@ -731,34 +712,27 @@ label {
     width: 79% !important;
   }
 
+
   .btn_proxima_etapa {
     margin-top: 12% !important;
     margin-left: 5%;
-    background: $cor_1;
-    font-weight: 100;
-    font-family: 'Poppins';
-    border-radius: 5px;
-    border-color: $cor_1;
-    border: 1px solid #003A4C;
-    font-family: arial;
-    color: $cor_5;
-    text-align: 20%;
-    height: 56px;
-    width: 120px;
   }
+
+
 }
 
 
 
-@media screen and (max-width: 74.999em) {
+@media screen and (max-width: 77.999em) {
 
   #h1-titulo {
     margin-top: 14px;
   }
 
   #corpo_formulario {
+    background-color: red;
     min-height: 1800px;
-    max-height: 2000px;
+    max-height: 2100px;
   }
 
   .h2 {
@@ -767,10 +741,6 @@ label {
     font-size: 17px;
   }
 
-
-  .input {
-    width: 70%;
-  }
 
   #nome_apelido {
     background-color: $cor_4;
@@ -843,21 +813,20 @@ label {
     margin-left: 5%;
   }
 
+  #AreaEnderecoSecundario{
+    margin-left: 18%;
+    // background-color: blue;
+  }
+
+  #AreaEnderecoTerciario {
+    margin-left: 10%;
+    // background-color: blue;
+  }
 
   .btn_proxima_etapa {
-    margin-top: 10%;
-    margin-left: 5%;
-    background: $cor_1;
-    font-weight: 100;
-    font-family: 'Poppins';
-    border-radius: 5px;
-    border-color: $cor_1;
-    border: 1px solid #003A4C;
-    font-family: arial;
-    color: $cor_5;
-    text-align: 20%;
-    height: 56px;
-    width: 120px;
+    position: relative;
+    //margin-left: 5%;
+    //margin-top: 5% !important;
   }
 
 }
