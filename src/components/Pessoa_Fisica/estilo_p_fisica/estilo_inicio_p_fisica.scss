@@ -590,18 +590,18 @@ label {
     font-size: 19px;
   }
 
-  .InputForm {
-    width: 80%;
-  }
+  // .InputForm {
+  //   width: 350px;
+  // }
 
 
-  .InputSecundario {
-    width: 85%;
-    margin-left: 5%;
-  }
+  // .InputSecundario {
+  //   width: 350px;
+  //   margin-left: 5%;
+  // }
 
   .Input_Data_Cadastro {
-    width: 50.5% !important;
+    width: 210px;
     position: relative;
     background-color: $cor_4;
     display: inline-block;
@@ -616,7 +616,7 @@ label {
   }
 
   .Input_Data_Nascimento {
-    width: 48% auto !important;
+    width: 200px;
     position: relative;
     background-color: $cor_4;
     display: inline-block;
@@ -631,16 +631,11 @@ label {
 
   #AreaSuframa {
     height: 300px;
+    background-color: #003A4C;
     width: 100%;
     margin-left: 0;
     margin-top: 15%;
 
-  }
-
-  #suframa {
-    width: 100%;
-    margin-left: 5%;
-    margin-top: 5%;
   }
 
   .h2_suframa {
@@ -655,12 +650,12 @@ label {
 
   .SelectSuframa {
     margin-left: 5%;
-    width: 86%;
+    width: 350px;
   }
 
   .CodigoSuframa {
     // display: inline;
-    width: 80% !important;
+    width: 350px;
     margin-left: 5% !important;
   }
 
@@ -670,20 +665,24 @@ label {
   }
 
   .InputInscricao {
-    width: 80%;
+    width: 350px;
     margin-top: 6%;
     margin-left: 5%;
   }
 
+  .p_obs{
+    margin-top: 5%;
+  }
+
   .TextArea {
-    width: 85%;
+    width: 380px;
   }
 
   #AreaObservacoes {
     // position: absolute;
     background-color: #9B9A9A;
     position: relative;
-    top: -10% !important;
+    //top: -10% !important;
     left: 4%;
     display: inline;
   }
@@ -692,24 +691,41 @@ label {
   #Area_Enderecos {
     width: 100%;
     height: 2150px;
-    background-color: red;
+    background-color: rgb(0, 204, 255);
     margin-top: -2%;
   }
 
   #AreaEnderecoPrincipal {
     width: 100%;
-    margin-left: 0;
+    margin-left: 30px; 
+    margin-top: 10%;
+    display: inline-block;
     //background-color: red;
   }
 
+  #AreaEnderecoSecundario{
+    margin-left: 18%;
+    display: inline-block;
+    // background-color: blue;
+  }
+
+  #AreaEnderecoTerciario {
+    display: block;
+    // margin-left: 6%;
+    // margin-top: 2%;
+    display: inline-block;
+    // background-color: blue;
+  }
+
+
   .input_cep {
     //background-color: red;
-    width: 79% !important;
+    width: 350px;
   }
 
   .input_endereco {
     //background-color: red;
-    width: 79% !important;
+    width: 350px;
   }
 
 
@@ -730,7 +746,7 @@ label {
   }
 
   #corpo_formulario {
-    background-color: red;
+    //background-color: red;
     min-height: 2800px;
     //max-height: 2100px;
   }
@@ -827,7 +843,7 @@ label {
 
   .btn_proxima_etapa {
     position: relative;
-    //margin-left: 5%;
+    margin-left: 7%;
     //margin-top: 5% !important;
   }
 
