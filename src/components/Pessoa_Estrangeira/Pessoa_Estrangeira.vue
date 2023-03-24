@@ -14,10 +14,10 @@ export default {
 
 #Area_Pessoa_Estrangeira {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 20%;
-    margin-left: 40%;
+    width: 400px !important;
+    margin-left: 35%;
     margin-top: 3%;
-    height: 90px;
+    height: 100px;
     font-family: $font_2;
     background-color: $cor_4;
     border-radius: 5px;
@@ -25,9 +25,9 @@ export default {
   
   .h2_p_estrangeira {
     color: $cor_3;
-    position: relative;
+    position: center;
     margin-left: 20%;
-    top: 28%;
+    padding-top: 30px;
     text-decoration: none;
   }
 
