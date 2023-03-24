@@ -69,7 +69,7 @@ label {
 
 
 .InputForm {
-  width: 350px;
+  width: 20%;
   background-color: #CECCCC;
   //background-color: red;
   padding: 0px 12px;
@@ -131,9 +131,9 @@ label {
   border-radius: 5px;
   border-color: $cor_4;
   background-color: $cor_4;
-  width: 200px;
+  width: 11%;
   height: 40px;
-  margin-left: 150px;
+  margin-left: 10%;
 }
 
 .deletar_email {
@@ -157,7 +157,7 @@ label {
 
 
 .Input_Data_Cadastro {
-  width: 215px;
+  width: 8%;
   position: relative;
   background-color: $cor_4;
   display: inline-block;
@@ -181,10 +181,16 @@ label {
   font-family: $font_2;
   border-color: $cor_4;
   height: 40px;
-  width: 200px;
+  width: 12%;
 }
 
 
+#suframa {
+  position: relative;
+  width: 45%;
+  padding-top: 28%;
+  height: 600px;
+}
 
 
 .h2_suframa {
@@ -192,21 +198,23 @@ label {
   color: $cor_2;
 }
 
-#AreaSuframa {
-  position: relative;
-  display: block;
-  //background-color: red;
-  width: 45%;
-  margin-left: 500px;
-  margin-top: -930px;
-  height: 400px;
-}
 
+
+//Area da Suframa
+
+#AreaSuframa {
+  //position: relative;
+  width: 40%;
+  height: 500px;
+  margin-left: 33%;
+  margin-top: -52%;
+}
 
 .SelectSuframa {
   background-color: $cor_4;
   padding: 0px 12px;
-  margin-top: 1px;
+  margin-left: 2%;
+  margin-top: 1%;
   border: 1px solid;
   box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
   border-radius: 5px;
@@ -214,12 +222,12 @@ label {
   border-color: $cor_4;
   display: block;
   height: 40px;
-  width: 372px;
+  width: 63%;
 }
 
 .CodigoSuframa {
-  // margin-left: 1%;
-  width: 350px;
+  margin-left: 1% !important;
+  width: 39% !important;
   background-color: $cor_4;
   padding: 0px 12px;
   margin-top: 1%;
@@ -239,6 +247,20 @@ label {
 }
 
 
+.input_suframa {
+  background-color: $cor_4;
+  padding: 0px 12px;
+  margin-top: 1%;
+  border: 1px solid;
+  box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: $cor_4;
+  display: block;
+  height: 40px;
+  width: 63%;
+}
+
 
 .InputInscricao {
   background-color: $cor_4;
@@ -251,17 +273,17 @@ label {
   border-color: $cor_4;
   display: block;
   height: 40px;
-  width: 350px;
+  width: 60%;
 }
 
 ////////////////////////////////////////
 
 
 #AreaObservacoes {
-  width: 520px;
+  width: 35%;
   height: 400px;
-  margin-left: 500px;
-  margin-top: -35px;
+  margin-left: 33%;
+  margin-top: -15%;
 }
 
 
@@ -272,8 +294,8 @@ label {
   display: inline-block;
   width: 22%;
   height: 700px;
-  margin-top: 270px;
-  margin-left: 50px;
+  margin-top: -2%;
+  margin-left: 4%;
 }
 
 #AreaEnderecoSecundario {
@@ -306,7 +328,7 @@ label {
 }
 
 .input_cep {
-  width: 350px !important;
+  width: 90% !important;
   background-color: $cor_4;
   //background-color: blue;
   padding: 0px 12px;
@@ -326,8 +348,6 @@ label {
 .input_endereco {
   width: 350px !important;
   background-color: $cor_4;
-  //display: block;
-  background-color: $cor_4;
   padding: 0px 12px;
   border: 1px solid;
   margin: 20px;
@@ -340,19 +360,28 @@ label {
   height: 40px;
 }
 
+///////////////////////////////////
+#AreaEnderecoSecundario {
+  //background-color: red;
+  width: 22%;
+  height: 700px;
+  margin-left: 37%;
+  margin-top: -735px;
+  //background-color: blue;
+}
 
 .p_obs {
   font-family: $font_1;
   font-weight: 500;
   font-size: 22px;
-  margin-left: 0;
+  margin: 0;
 }
 
 
 .TextArea {
   width: 73%;
   height: 220px;
-  margin-top: 15px;
+  margin-top: 6%;
   border: 1px solid $cor_4;
   border-radius: 5px;
   background-color: $cor_4;
@@ -362,12 +391,19 @@ label {
 
 ///////////////////////////////////////
 
+#AreaEnderecoTerciario {
+  //background-color: red;
+  width: 22%;
+  height: 700px;
+  margin-left: 940px;
+  margin-top: -700px;
+  //background-color: blue;
+}
 
 
 .btn_proxima_etapa {
   position: relative;
   margin-left: 5%;
-  margin-top: 40px;
   background: $cor_1;
   font-weight: 100;
   font-family: $font_2;
@@ -389,6 +425,7 @@ label {
   top: 28%;
   text-decoration: none;
 }
+
 
 
 @media only screen and (max-width: 35.999em) {
