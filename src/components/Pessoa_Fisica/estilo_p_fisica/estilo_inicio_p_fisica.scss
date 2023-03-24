@@ -69,8 +69,10 @@ label {
 
 
 .InputForm {
+
   width: 350px;
   background-color: #CECCCC;
+  //background-color: red;
   padding: 0px 12px;
   border: 1px solid;
   margin: 20px;
@@ -268,12 +270,32 @@ label {
 ///////////////////////////////////////
 
 #AreaEnderecoPrincipal {
+  display: inline-block;
   width: 22%;
   height: 700px;
   margin-top: 270px;
   margin-left: 50px;
 }
 
+#AreaEnderecoSecundario {
+  //background-color: red;
+  display: inline-block;
+  width: 22%;
+  height: 700px;
+  margin-left: 35px;
+  //margin-top: -735px;
+  //background-color: blue;
+}
+
+#AreaEnderecoTerciario {
+  //background-color: red;
+  display: inline-block;
+  width: 22%;
+  height: 700px;
+  margin-left: 35px;
+  //margin-top: -700px;
+  //background-color: blue;
+}
 
 .h2_endereco {
   font-family: $font_2;
@@ -289,6 +311,7 @@ label {
 .input_cep {
   width: 350px !important;
   background-color: $cor_4;
+  //background-color: blue;
   padding: 0px 12px;
   border: 1px solid;
   margin: 20px;
@@ -304,6 +327,8 @@ label {
 .input_endereco {
   width: 350px !important;
   background-color: $cor_4;
+  //display: block;
+  background-color: rgb(40, 40, 44);
   padding: 0px 12px;
   border: 1px solid;
   margin: 20px;
@@ -316,15 +341,6 @@ label {
   height: 40px;
 }
 
-///////////////////////////////////
-#AreaEnderecoSecundario {
-  //background-color: red;
-  width: 22%;
-  height: 700px;
-  margin-left: 37%;
-  margin-top: -735px;
-  //background-color: blue;
-}
 
 .p_obs {
   font-family: $font_1;
@@ -347,14 +363,6 @@ label {
 
 ///////////////////////////////////////
 
-#AreaEnderecoTerciario {
-  //background-color: red;
-  width: 22%;
-  height: 700px;
-  margin-left: 940px;
-  margin-top: -700px;
-  //background-color: blue;
-}
 
 
 .btn_proxima_etapa {

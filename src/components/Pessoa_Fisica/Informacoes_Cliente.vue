@@ -94,8 +94,9 @@
                     <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_1.uf">
                     <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_1">
                     <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_1">
-
+                </div>
               
+                <div id="AreaEnderecoSecundario">
                     <h2 class="h2_endereco">Endereço Secundario(Opcional)</h2>
 
                     <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep_2" v-on:blur="CONSULTA_CEP_COB">
@@ -108,8 +109,10 @@
                     <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_2.uf">
                     <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_2">
                     <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_2">
+                </div>
                
                     
+                <div id="AreaEnderecoTerciario">
                     <h2 class="h2_endereco">Endereço Terciario(Opcional)</h2>
 
                     <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep_3" v-on:blur="CONSULTA_CEP_TER">
@@ -123,6 +126,7 @@
                     <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_3">
                     <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_3">
                 </div>
+
             </div>
 
             <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
