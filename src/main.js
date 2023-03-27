@@ -2,6 +2,8 @@ import Vue from 'vue'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import '@fortawesome/fontawesome-free/css/all.css'
+import '@fortawesome/fontawesome-free/js/all.js'
 import VueMask from 'v-mask';
 // Vue.use(VueMask);
 
