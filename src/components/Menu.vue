@@ -96,6 +96,7 @@ header {
     //float:left;
     margin-left: -170px;
     margin-top: -12px;
+    padding: 20px;
   }
 
 nav {
