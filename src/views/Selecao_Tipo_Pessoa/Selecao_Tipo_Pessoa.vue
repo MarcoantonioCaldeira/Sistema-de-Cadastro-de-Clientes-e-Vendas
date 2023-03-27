@@ -1,10 +1,12 @@
 <template>
     <etapas />
-    <h1 class="titulo">Selecione o Tipo de Pessoa</h1>
-    <div id="corpo">
-        <Pessoa_Fisica />
-        <Pessoa_Juridica />
-        <Pessoa_Estrangeira />
+    <div>
+        <div id="corpo">
+            <h1 class="titulo">Selecione o Tipo de Pessoa</h1>
+            <Pessoa_Fisica />
+            <Pessoa_Juridica />
+            <Pessoa_Estrangeira />
+        </div>
     </div>
     <Footer />
 </template>

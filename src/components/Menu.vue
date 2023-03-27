@@ -2,21 +2,21 @@
 <header :class="{ 'scrolled-nav': scrolledNav }">
   <nav>
     <div class="branding">
-      
+      <img v-img:src   class="logo"  src="@/assets/images/logo.png">
     </div>
     <ul v-show="!mobile" class="navigation">
-      <a><router-link to="/" style="text-decoration: none">Inicio</router-link></a>
-      <a><router-link to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></a>
-      <a><router-link to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></a>
+      <a><router-link  class="link"  to="/" style="text-decoration: none">Inicio</router-link></a>
+      <a><router-link  class="link"  to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></a>
+      <a><router-link  class="link"  to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></a>
     </ul>
     <div class="icon">
       <i @click="toggleMobileNav" v-show="mobile" class="far fa-bars" :class="{ 'icon-active': mobileNav}"></i>
     </div>
     <transition name="mobile-nav">
       <ul v-show="mobileNav" class="dropdown-nav">
-        <li><router-link to="/" style="text-decoration: none">Inicio</router-link></li>
-        <li><router-link to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></li>
-        <li><router-link to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></li>
+        <li><router-link class="link" to="/" style="text-decoration: none">Inicio</router-link></li>
+        <li><router-link class="link" to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></li>
+        <li><router-link class="link" to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></li>
       </ul>
     </transition>
   </nav>
@@ -24,11 +24,13 @@
 </template>
 
 <script> 
+import VueImg from 'v-img';
+
 export default{
   name: 'Menu',
   data(){
     return{
-      scrollPosition: null,
+      scrolledNav: null,
       mobile: null,
       mobileNav: null,
       windowWidth: null,
@@ -78,13 +80,24 @@ export default{
 
 header {
   background-color: #003A4C;
-  height: 100px;
+  height: 90px;
   z-index: 99;
   width: 100%;
-  margin-top: -5%;
-  position: fixed;
+  //margin-top: ;
+  //position: fixed;
   transition: 0.5s ease all;
   color: #fff;
+
+
+  .logo{
+    position: absolute;
+    display: inline-block;
+    //padding: 20px;
+    //float:left;
+    margin-left: -170px;
+    margin-top: -12px;
+    padding: 20px;
+  }
 
 nav {
   //background-color: red;
@@ -95,7 +108,8 @@ nav {
   padding: 29.5px 0;
   transition: 0.5s ease all;
   width: 600px;
-  margin-left: 200px;
+  margin: 0 auto;
+  //margin-left: 230px;
 
   @media (min-width: 1140px) {
       max-width: 1140px;
@@ -176,7 +190,7 @@ nav {
       width: 100%;
       max-width: 250px;
       height: 100%;
-      background-color: #fff;
+      background-color: red;
       top: 0;
       left: 0;
 
@@ -191,14 +205,12 @@ nav {
       }
     }
 
-    .mobile-nav-enter-active,
-     .mobile-nav-leave-active{
+    .mobile-nav-enter-active,.mobile-nav-leave-active{
       transition: 1s ease all;
     }
 
 
-    .mobile-nav-enter-from,
-    .mobile-nav-leave-to{
+    .mobile-nav-enter-from,.mobile-nav-leave-to{
       transform: translateX(-250px);
     }
 
@@ -216,12 +228,12 @@ nav {
 nav{
   padding: 8px 0;
 
-  // .branding{
-  //   img{
-  //     width: 40px;
-  //     box-shadow: 0 4px 6px -1px;
-  //   }
-  // }
+  .branding{
+    img{
+      width: 40px;
+      //box-shadow: 0 4px 6px -1px;
+    }
+  }
 }
 
 //@media screen and (max-width: 575.98px) {
