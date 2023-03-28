@@ -1,64 +1,106 @@
 @import "@/assets/scss/index.scss";
 
 #corpo {
-    background-color: red;
+    background-color:white;
     width: 100%;
     //margin-top: -10%;
-    height: 500px;
+    height: 700px !important;
 }
 
 
+#Area_Pessoa_Fisica {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width:400px !important;
+    margin-left: 35%;
+    margin-top: 3%;
+    height: 100px;
+    font-family: $font_2;
+    background-color: $cor_4;
+    border-radius: 5px;
+}
+
+#Area_Pessoa_Juridica {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width:400px !important;
+    margin-top: 3%;
+    margin-left: 35%;
+    height: 100px;
+    font-family: $font_2;
+    background-color: $cor_4;
+    border-radius: 5px;
+  }
+  
+
+  #Area_Pessoa_Estrangeira {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 400px !important;
+    margin-left: 35%;
+    margin-top: 3%;
+    height: 100px;
+    font-family: $font_2;
+    background-color: $cor_4;
+    border-radius: 5px;
+  }
+
+
 .titulo {
+    position: relative;
     display: inline-block;
     font-family: $font_1;
     color: $cor_2;
-    margin-left: 37.5%;
+    font-size: 35px !important;
+    margin-left: 60px;
+    margin-top: 5%;
     
 }
 
 
-@media screen and (min-width: 300px) and (max-width: 450px) {
+@media only screen and (max-width: 35.999em) {
 
     #corpo {
         height: 400px;
     }
 
-    #img_etapas {
-        width: 150vw;
-        box-sizing: border-box;
-        margin-left: -24%;
-        margin-top: 3%;
-    }
-
     .titulo {
+        //color: red;
         font-size: 22px;
-        margin-top: -25%;
-        margin-left: 10%;
+        margin-top: 5%;
+        //margin-left: 25%;
     }
 
-    // #Area_Pessoa_Fisica {
-    //     position: relative;
-    //     width: 70%;
-    //     height: 70px;
-    //     margin-top: 20%;
-    //     margin-left: 16%;
-    // }
+    #Area_Pessoa_Fisica {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        width:250px !important;
+        margin-left: 25%;
+        margin-top: 3%;
+        height: 80px;
+        font-family: $font_2;
+        background-color: $cor_4;
+        border-radius: 5px;
+    }
 
-    // #Area_Pessoa_Juridica {
-    //     position: relative;
-    //     width: 70%;
-    //     height: 70px;
-    //     margin-top: 10%;
-    //     margin-left: 16%;
-    // }
+    #Area_Pessoa_Juridica {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        width:250px !important;
+        margin-top: 3%;
+        margin-left: 25%;
+        height: 80px;
+        font-family: $font_2;
+        background-color: $cor_4;
+        border-radius: 5px;
+      }
+      
 
-    // #Area_Pessoa_Estrangeira {
-    //     position: relative;
-    //     width: 70%;
-    //     height: 70px;
-    //     margin-top: 10%;
-    //     margin-left: 16%;
-    // }
+      #Area_Pessoa_Estrangeira {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        width: 250px !important;
+        margin-left: 25%;
+        margin-top: 3%;
+        height: 80px;
+        font-family: $font_2;
+        background-color: $cor_4;
+        border-radius: 5px;
+      }
 
     .h2_p_juridica,
     .h2_p_fisica,
@@ -70,7 +112,7 @@
     }
 }
 
-@media screen and (min-width: 450px) and (max-width: 600px) {
+@media only screen and (max-width: 62.188em) {
 
     #corpo {
         height: 400px;
@@ -84,6 +126,7 @@
     }
 
     .titulo {
+        //color: aqua;
         font-size: 30px;
         margin-left: 17%;
     }
@@ -122,7 +165,7 @@
     }
 }
 
-@media (min-width: 601px) and (max-width: 850px) {
+@media screen and (max-width: 77.999em) {
     #corpo {
         height: 400px;
     }
@@ -135,6 +178,7 @@
     }
 
     .titulo {
+        //color: blue;
         font-size: 35px;
         margin-left: 17%;
     }
@@ -144,51 +188,6 @@
     //     width: 70%;
     //     height: 70px;
     //     margin-top: 30%;
-    //     margin-left: 16%;
-    // }
-
-    // #Area_Pessoa_Juridica {
-    //     position: relative;
-    //     width: 70%;
-    //     height: 70px;
-    //     margin-top: 10%;
-    //     margin-left: 16%;
-    // }
-
-    // #Area_Pessoa_Estrangeira {
-    //     position: relative;
-    //     width: 70%;
-    //     height: 70px;
-    //     margin-top: 10%;
-    //     margin-left: 16%;
-    // }
-
-    .h2_p_juridica,
-    .h2_p_fisica,
-    .h2_p_estrangeira {
-        font-size: 20px;
-        margin-top: 0;
-        margin: 0%;
-        text-align: center;
-    }
-}
-
-
-@media (min-width: 851px) and (max-width: 1480px) {
-    #corpo {
-        height: 600px;
-    }
-
-    .titulo {
-        font-size: 40px;
-        margin-left: 30%;
-    }
-
-    // #Area_Pessoa_Fisica {
-    //     position: relative;
-    //     width: 70%;
-    //     height: 70px;
-    //     margin-top: 20%;
     //     margin-left: 16%;
     // }
 

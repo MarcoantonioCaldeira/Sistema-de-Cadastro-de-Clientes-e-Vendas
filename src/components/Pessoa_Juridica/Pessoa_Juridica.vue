@@ -14,17 +14,6 @@ export default{
 <style  lang="scss">
 @import "@/assets/scss/index.scss";
 
-#Area_Pessoa_Juridica {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  width:400px !important;
-  margin-top: 3%;
-  margin-left: 35%;
-  height: 100px;
-  font-family: $font_2;
-  background-color: $cor_4;
-  border-radius: 5px;
-}
-
 .h2_p_juridica {
   color: $cor_3;
   position: center;

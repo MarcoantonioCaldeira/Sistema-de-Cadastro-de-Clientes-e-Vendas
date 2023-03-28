@@ -1,7 +1,7 @@
 <template>
         <div id="Corpo_Tela_Inicial">
            
-            <h1 class="h1-seja-bem-vindo">Seja Bem-vindo</h1>
+            <h1 class="h1-seja-bem-vindo">Seja bem-vindo</h1>
            
         </div>
 

@@ -1,5 +1,5 @@
 <template>
-    <etapas />
+    <etapas /> 
     <div>
         <div id="corpo">
             <h1 class="titulo">Selecione o Tipo de Pessoa</h1>

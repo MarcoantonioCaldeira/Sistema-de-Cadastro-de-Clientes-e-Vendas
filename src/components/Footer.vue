@@ -19,46 +19,48 @@ export default{
 }
 
 h4{
-    position: absolute;
-    margin-top: 8%;
+    position: absolute; 
     color: white;
-    margin-left: 43%;
+    left: 40%;
+    margin-top:100px; 
+    /* margin: 0; */
     font-family: 'Poppins';
 }
 
 #footer{
     width: 100%;
     height: 200px;
+    /* align-items: center;
+    display: flex; */
     background-color: #003A4C;
 }
 
 
-@media screen and (min-width: 300px) and (max-width: 450px) {
+@media only screen and (max-width: 30.999em) {
 
     h4{
         position: absolute;
-        margin-top: 44%;
+        margin-top: 20%;
         font-size: 13px;
         color: white;
-        margin-left: 16%;
+        margin-left: -80px;
     }
 
 }
 
-@media (min-width: 480px) and (max-width: 600px) {
+@media only screen and (min-width: 31em) {
 
     h4{
         position: absolute;
-        margin-top: 30%;
+        margin-top: 10%;
         font-size: 16px;
-        color: white;
-        margin-left: 24%;
+        margin-left: -35px;
     }
 
 }
 
 
-@media (min-width: 601px) and (max-width: 850px) {
+/* @media (min-width: 601px) and (max-width: 850px) {
 
     h4{
         position: absolute;
@@ -68,5 +70,5 @@ h4{
         margin-left: 22%;   
     }
 
-}
+} */
 </style>

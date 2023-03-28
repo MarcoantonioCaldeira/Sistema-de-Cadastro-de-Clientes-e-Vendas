@@ -16,11 +16,11 @@
       <!-- <button @click="toggleMobileNav" v-show="mobile">Clique aqui</button> -->
     </div>
     <transition name="mobile-nav">
-      <ul v-show="mobileNav" class="dropdown-nav">
-        <li><router-link class="link" to="/">Inicio</router-link></li>
-        <li><router-link class="link" to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></li>
-        <li><router-link class="link" to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></li>
-      </ul>
+        <ul v-show="mobileNav" class="dropdown-nav">
+          <li style="margin-top: 40px;"><router-link class="link" to="/">Inicio</router-link></li>
+          <li><router-link class="link" to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></li>
+          <li><router-link class="link" to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></li>
+        </ul>
     </transition>
   </nav>
 </header>
@@ -136,9 +136,11 @@ nav {
         font-weight: 800;
       }
 
+
       li{
         text-transform: uppercase;
         padding: 16px;
+        //background-color: red;
         margin-left: 16px;
       }
 
@@ -201,7 +203,9 @@ nav {
       width: 100%;
       max-width: 250px;
       height: 100%;
-      background-color: #fff;
+      box-shadow: 5px;
+      z-index: 200;
+      background-color: #002c3a;
       top: 0;
       left: 0;
 
@@ -209,15 +213,16 @@ nav {
         text-decoration: none !important;
         //margin-left: 0;
         font-family: arial;
-        color: white;
+        color: red;
         .link{
-          color: #000;
+          color: white;
         }
       }
     }
 
     .mobile-nav-enter-active,.mobile-nav-leave-active{
       transition: 1s ease all;
+      // z-index: 200;
     }
 
 

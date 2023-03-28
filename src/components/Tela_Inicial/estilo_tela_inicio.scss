@@ -16,3 +16,23 @@
     //padding-top: 5px;
     color: $cor_3;
 }
+
+@media only screen and (max-width: 30.999em) {
+
+    .h1-seja-bem-vindo {
+        //background-color: ;
+        margin-left: 15%;
+        margin-top: 150px;
+    }
+
+}
+
+@media only screen and (min-width: 31em) {
+
+    .h1-seja-bem-vindo {
+        //color: red;
+        margin-left: 38%;
+        margin-top: 210px;
+    }
+}
+
