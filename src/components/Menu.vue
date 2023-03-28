@@ -5,16 +5,19 @@
       <img v-img:src   class="logo"  src="@/assets/images/logo.png">
     </div>
     <ul v-show="!mobile" class="navigation">
-      <a><router-link  class="link"  to="/" style="text-decoration: none">Inicio</router-link></a>
-      <a><router-link  class="link"  to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></a>
-      <a><router-link  class="link"  to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></a>
+      <li><router-link  class="link"  to="/">Inicio</router-link></li>
+      <li><router-link  class="link"  to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></li>
+      <li><router-link  class="link"  to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></li>
     </ul>
     <div class="icon">
-      <i @click="toggleMobileNav" v-show="mobile" class="far fa-bars" :class="{ 'icon-active': mobileNav}"></i>
+      <span  v-show="mobile" @click="toggleMobileNav" >
+        <i class="fa-solid fa-bars" :class="{ 'icon-active': mobileNav}"></i>
+      </span> 
+      <!-- <button @click="toggleMobileNav" v-show="mobile">Clique aqui</button> -->
     </div>
     <transition name="mobile-nav">
       <ul v-show="mobileNav" class="dropdown-nav">
-        <li><router-link class="link" to="/" style="text-decoration: none">Inicio</router-link></li>
+        <li><router-link class="link" to="/">Inicio</router-link></li>
         <li><router-link class="link" to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></li>
         <li><router-link class="link" to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></li>
       </ul>
@@ -81,7 +84,7 @@ export default{
 header {
   background-color: #003A4C;
   height: 90px;
-  z-index: 99;
+  z-index: 209;
   width: 100%;
   //margin-top: ;
   //position: fixed;
@@ -89,15 +92,15 @@ header {
   color: #fff;
 
 
-  .logo{
-    position: absolute;
-    display: inline-block;
-    //padding: 20px;
-    //float:left;
-    margin-left: -170px;
-    margin-top: -12px;
-    padding: 20px;
-  }
+  // .logo{
+  //   position: absolute;
+  //   display: inline-block;
+  //   //padding: 20px;
+  //   //float:left;
+  //   margin-left: -170px;
+  //   margin-top: -12px;
+  //   padding: 20px;
+  // }
 
 nav {
   //background-color: red;
@@ -107,22 +110,23 @@ nav {
   flex-direction: row;
   padding: 29.5px 0;
   transition: 0.5s ease all;
-  width: 600px;
+  width: 90%;
   margin: 0 auto;
   //margin-left: 230px;
+
+  ul,.link {
+    font-weight: 500;
+    color: #fff;
+    list-style: none;
+    text-decoration: none;
+  }
 
   @media (min-width: 1140px) {
       max-width: 1140px;
   }
 
-      ul,.link {
-          font-weight: 500;
-          color: #fff;
-          list-style: none;
-          text-decoration: none;
-      }
 
-      ul a{
+      ul .link{
         text-decoration: none;
         margin-left: 10px;
         color:white;
@@ -132,6 +136,12 @@ nav {
         font-weight: 800;
       }
 
+      li{
+        text-transform: uppercase;
+        padding: 16px;
+        margin-left: 16px;
+      }
+
       .link {
           font-size: 14px;
           transform: 0.5s ease all;
@@ -139,8 +149,8 @@ nav {
           border-bottom: 1px solid transparent;
 
           &:hover {
-              color: blue;
-              border-color: blue;
+              // color: blue;
+              // border-color: blue;
           }
       }
 
@@ -149,16 +159,19 @@ nav {
       align-items: center;
 
       img {
-        width: 50px;
+        width: 200px;
+        margin-top: -10px;
         transition: 0.5s ease all;
       }
     }
 
     .navigation{
+      //background-color: red;
+      
       display: flex;
-      align-items: center;
+      //align-items: center;
       flex: 1;
-      justify-content: flex-end;
+      //justify-content: flex-end;
     }
 
 
@@ -177,11 +190,9 @@ nav {
       }
     }
 
-
     .icon-active{
       transform: rotate(180deg);
     }
-
 
     .dropdown-nav{
       display: flex;
@@ -190,13 +201,13 @@ nav {
       width: 100%;
       max-width: 250px;
       height: 100%;
-      background-color: red;
+      background-color: #fff;
       top: 0;
       left: 0;
 
       li{
         text-decoration: none !important;
-        margin-left: 0;
+        //margin-left: 0;
         font-family: arial;
         color: white;
         .link{
@@ -220,17 +231,17 @@ nav {
   }
 }
 
-.scrolled-nav{
-  background-color: #003A4C;
-  box-shadow: 0 4px 6px -1px;
-}
+// .scrolled-nav{
+//   background-color: #003A4C;
+//   box-shadow: 0 4px 6px -1px;
+// }
 
 nav{
   padding: 8px 0;
 
   .branding{
     img{
-      width: 40px;
+      //width: 100px;
       //box-shadow: 0 4px 6px -1px;
     }
   }
