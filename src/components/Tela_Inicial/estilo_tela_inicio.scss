@@ -27,12 +27,24 @@
 
 }
 
-@media only screen and (min-width: 31em) {
+@media only screen and (min-width: 31em){
 
     .h1-seja-bem-vindo {
-        //color: red;
-        margin-left: 38%;
+        // color: red;
+        margin-left: 32%;
         margin-top: 210px;
     }
 }
 
+
+@media only screen and (min-width: 48em){
+
+    .h1-seja-bem-vindo {
+        // color: blue;
+        margin-left: 40%;
+        margin-top: 210px;
+    }
+
+
+    
+}

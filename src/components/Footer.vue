@@ -36,39 +36,29 @@ h4{
 }
 
 
-@media only screen and (max-width: 30.999em) {
+/* @media only screen and (max-width: 30em) {
 
     h4{
         position: absolute;
         margin-top: 20%;
         font-size: 13px;
         color: white;
-        margin-left: -80px;
-    }
+        margin-left: -8%;
+    } 
 
-}
+} */
 
-@media only screen and (min-width: 31em) {
+@media only screen and (max-width: 45.5em) {
 
     h4{
+        /* color: red; */
         position: absolute;
         margin-top: 10%;
         font-size: 16px;
-        margin-left: -35px;
+        left: 30%;
     }
 
 }
 
 
-/* @media (min-width: 601px) and (max-width: 850px) {
-
-    h4{
-        position: absolute;
-        margin-top: 20%;
-        font-size: 20px;
-        color: white;
-        margin-left: 22%;   
-    }
-
-} */
 </style>

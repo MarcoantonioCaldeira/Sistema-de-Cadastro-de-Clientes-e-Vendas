@@ -165,8 +165,9 @@
     }
 }
 
-@media screen and (max-width: 77.999em) {
+@media screen and (max-width: 72.999em) {
     #corpo {
+        background-color: red;
         height: 400px;
     }
 
@@ -180,32 +181,32 @@
     .titulo {
         //color: blue;
         font-size: 35px;
-        margin-left: 17%;
+        margin-left: 25%;
     }
 
-    // #Area_Pessoa_Fisica {
-    //     position: relative;
-    //     width: 70%;
-    //     height: 70px;
-    //     margin-top: 30%;
-    //     margin-left: 16%;
-    // }
+    #Area_Pessoa_Fisica {
+        position: relative;
+        width: 70%;
+        height: 70px;
+        // margin-top: 30%;
+        margin-left: 30%;
+    }
 
-    // #Area_Pessoa_Juridica {
-    //     position: relative;
-    //     width: 70%;
-    //     height: 70px;
-    //     margin-top: 10%;
-    //     margin-left: 16%;
-    // }
+    #Area_Pessoa_Juridica {
+        position: relative;
+        width: 70%;
+        height: 70px;
+        // margin-top: 10%;
+        margin-left: 30%;
+    }
 
-    // #Area_Pessoa_Estrangeira {
-    //     position: relative;
-    //     width: 70%;
-    //     height: 70px;
-    //     margin-top: 10%;
-    //     margin-left: 16%;
-    // }
+    #Area_Pessoa_Estrangeira {
+        position: relative;
+        width: 70%;
+        height: 70px;
+        // margin-top: 10%;
+        margin-left: 30%;
+    }
 
     .h2_p_juridica,
     .h2_p_fisica,

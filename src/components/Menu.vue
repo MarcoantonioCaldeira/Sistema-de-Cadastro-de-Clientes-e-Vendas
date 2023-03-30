@@ -5,9 +5,9 @@
       <img v-img:src   class="logo"  src="@/assets/images/logo.png">
     </div>
     <ul v-show="!mobile" class="navigation">
-      <li><router-link  class="link"  to="/">Inicio</router-link></li>
-      <li><router-link  class="link"  to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></li>
-      <li><router-link  class="link"  to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></li>
+      <li><router-link  class="link"  to="/" @click="barra_prograsso()">Inicio</router-link></li>
+      <li><router-link  class="link"  to="Selecao_Tipo_Pessoa" @click="barra_prograsso()">Cadastro de Clientes</router-link></li>
+      <li><router-link  class="link"  to="Cadastro_De_Vendas" @click="barra_prograsso()">Cadastro de Vendas</router-link></li>
     </ul>
     <div class="icon">
       <span  v-show="mobile" @click="toggleMobileNav" >
@@ -17,12 +17,15 @@
     </div>
     <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
-          <li style="margin-top: 40px;"><router-link class="link" to="/">Inicio</router-link></li>
-          <li><router-link class="link" to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link></li>
-          <li><router-link class="link" to="Cadastro_De_Vendas">Cadastro de Vendas</router-link></li>
+          <li style="margin-top: 40px;"><router-link class="link" to="/" onclick="barra_prograsso()">Inicio</router-link></li>
+          <li><router-link class="link" to="Selecao_Tipo_Pessoa" onclick="barra_prograsso()">Cadastro de Clientes</router-link></li>
+          <li><router-link class="link" to="Cadastro_De_Vendas" onclick="barra_prograsso()">Cadastro de Vendas</router-link></li>
         </ul>
     </transition>
   </nav>
+  <div id="area_barra_progresso">
+       <div id="barra_progresso"></div>
+  </div>
 </header>
 </template>
 
@@ -49,28 +52,58 @@ export default{
   methods: {
     toggleMobileNav() {
       this.mobileNav = !this.mobileNav;
-    },
+  },
 
-    updateScroll(){
-      const scrollPosition = window.scrollY;
-      if(scrollPosition > 50){
-        this.scrolledNav = true;
-        return;
-      }
-      this.scrolledNav = false;
-    },
+  updateScroll(){
+    const scrollPosition = window.scrollY;
+    if(scrollPosition > 50){
+          this.scrolledNav = true;
+          return;
+    }
+    this.scrolledNav = false;
+  },
 
-    checkScreen() { 
-       this.windowWidth = window.innerWidth;
-       if(this.windowWidth <= 750){
+  checkScreen() { 
+      this.windowWidth = window.innerWidth;
+      if(this.windowWidth <= 750){
         this.mobile = true;
         return;
-       }
-       this.mobile = false;
-       this.mobileNav = false;
-       return;
-    },
+      }
+      this.mobile = false;
+      this.mobileNav = false;
+      return;
   },
+
+    barra_prograsso() {
+      var elem = document.getElementById("barra_progresso");
+      var container = document.getElementById("area_barra_progresso");
+      var visibilidade = true;
+
+      var width = 1;
+      var id = setInterval(frame, 10);
+
+        function frame() {
+          if(visibilidade){
+
+            if(width >=100){        
+            container.style.display = 'none';          
+            }
+
+            visibilidade = false;
+
+            if (width >= 100) {
+                clearInterval(id);
+              } else {
+                width++; 
+                elem.style.width = width + '%'; 
+              }
+          }else{
+            container.style.display = "block";
+            visibilidade = true;
+        }
+      }
+    }
+  }
 };
 
 </script>
@@ -80,6 +113,8 @@ export default{
   margin: 0;
   padding: 0;
 }
+
+
 
 header {
   background-color: #003A4C;
@@ -91,6 +126,20 @@ header {
   transition: 0.5s ease all;
   color: #fff;
 
+
+  #area_barra_progresso{
+    margin: 0;
+    position: relative;
+    //background-color: red;
+    width: 100%;
+    height: 6px;
+  }
+
+  #barra_progresso{
+    width:0%; 
+    height: 3px; 
+    background-color:#057ee0;
+  }
 
   // .logo{
   //   position: absolute;
@@ -108,7 +157,7 @@ nav {
   position: relative;
   display: flex;
   flex-direction: row;
-  padding: 29.5px 0;
+  padding: 16px 0;
   transition: 0.5s ease all;
   width: 90%;
   margin: 0 auto;
@@ -140,8 +189,19 @@ nav {
       li{
         text-transform: uppercase;
         padding: 16px;
-        //background-color: red;
+        font-family: 'Poppins';
         margin-left: 16px;
+      }
+
+      @media only screen and (max-width: 54em) {
+
+        ul{
+          //text-align:left;
+          //background-color:aqua;
+
+          margin-top: -3%;
+        }
+
       }
 
       .link {
@@ -212,7 +272,7 @@ nav {
       li{
         text-decoration: none !important;
         //margin-left: 0;
-        font-family: arial;
+        font-family: 'Poppins' !important;
         color: red;
         .link{
           color: white;

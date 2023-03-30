@@ -39,9 +39,9 @@
             <input type="text" class="InputForm_Vendas" placeholder="Valor do Frete">
             <input type="text" class="InputForm_Vendas" placeholder="Tipo de Venda">
         </div>
-        
+    </div>
+    <div>
         <router-link to="Itens_da_Venda"><button class="btn_concluir_cadastro_vendas" type="submit">Concluir Cadastro</button></router-link>
-
     </div>
     <Footer />
 </template>
