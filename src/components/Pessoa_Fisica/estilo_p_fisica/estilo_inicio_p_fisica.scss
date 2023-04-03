@@ -360,15 +360,12 @@ label {
   font-size: 16px;
 }
 
-///////////////////////////////////////
-
-
 
 .btn_proxima_etapa {
   position: relative;
   margin-left: 5%;
-  margin-top: 40px;
-  background: $cor_1;
+  margin-top: 20%;
+  background-color: $cor_1;
   font-weight: 100;
   font-family: $font_2;
   border-radius: 5px;
@@ -391,445 +388,46 @@ label {
 }
 
 
-@media only screen and (max-width: 35.999em) {
+@media (max-width: 36em) {
 
   * {
     margin: 0;
     padding: 0;
   }
 
-
   #corpo_formulario {
-    width: 100%;
-    min-height: 3750px !important;
-    max-height: 4050px !important;
-  }
-
-  #h1-titulo {
-    font-size: 20px;
-  }
-
-  #h2-informacoes {
-    font-size: 19px;
-  }
-
-  .InputForm {
-    width: 80%;
-  }
-
-
-  .InputSecundario {
-    width: 85%;
-    margin-left: 5%;
-  }
-
-  .Input_Data_Cadastro {
-    width: 50.5%;
     position: relative;
-    background-color: $cor_4;
-    display: inline-block;
-    margin-left: 5px;
-    border: 1px solid;
-    box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
-    border-radius: 5px;
-    font-family: $font_2;
-    border-color: $cor_4;
-    height: 40px;
-  }
-
-  .Input_Data_Nascimento {
-    width: 48%;
-    position: relative;
-    background-color: $cor_4;
-    display: inline-block;
-    margin-left: 5px;
-    border: 1px solid;
-    box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
-    border-radius: 5px;
-    font-family: $font_2;
-    border-color: $cor_4;
-    height: 40px;
-  }
-
-  #AreaSuframa {
-    height: 300px;
-    width: 100%;
-    margin-left: 0;
-    margin-top: 15%;
-
-  }
-
-  #suframa {
-    width: 100%;
-    margin-left: 5%;
-    margin-top: 5%;
-  }
-
-  .h2_suframa {
-    font-size: 100%;
-    margin-left: 5% !important;
-    margin-top: 7%;
-  }
-
-  .label_codigo_suframa {
-    margin-left: 5% !important;
-  }
-
-  .SelectSuframa {
-    margin-left: 5%;
-    width: 86%;
-  }
-
-  .CodigoSuframa {
-    // display: inline;
-    width: 80% !important;
-    margin-left: 5% !important;
-  }
-
-  .label_num_incricao {
-    font-family: $font_2;
-    color: $cor_4;
-  }
-
-  .InputInscricao {
-    width: 80%;
-    margin-top: 6%;
-    margin-left: 5%;
-  }
-
-  .TextArea {
-    width: 85%;
-  }
-
-  #AreaObservacoes {
-    // position: absolute;
-    background-color: #9B9A9A;
-    position: relative;
-    top: -10% !important;
-    left: 4%;
-    display: inline;
+    //display: table;
+    background-color:red;
+    width: 100% !important;
+    height: 4000px;
   }
 
 
-  #Area_Enderecos {
-    width: 100%;
-    height: 2150px;
-    margin-top: -2%;
-  }
+  // #footer{display: none;}
 
-  #AreaEnderecoPrincipal {
-    width: 100%;
-    margin-left: 0;
-    // background-color: blue;
-  }
-
-
-  #AreaEnderecoSecundario {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 10%;
-    // background-color: blue;
-  }
-
-
-  #AreaEnderecoTerciario {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 10%;
-    // background-color: blue;
-  }
-
-  .input_cep {
-    //background-color: red;
-    width: 79% !important;
-  }
-
-  .input_endereco {
-    //background-color: red;
-    width: 79% !important;
-  }
-
-  .btn_proxima_etapa {
-    margin-top: 12% !important;
-    margin-left: 5%;
-    // background: $cor_1;
-    // font-weight: 100;
-    // font-family: 'Poppins';
-    // border-radius: 5px;
-    // border-color: $cor_1;
-    // border: 1px solid #003A4C;
-    // font-family: arial;
-    // color: $cor_5;
-    // text-align: 20%;
-    // height: 56px;
-    // width: 120px;
-  }
-}
-
-
-
-@media only screen and (max-width: 62.188em) {
-
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-
-  #corpo_formulario {
-    width: 100%;
-    min-height: 3750px !important;
-    max-height: 4050px !important;
-  }
-
-  #h1-titulo {
-    font-size: 20px;
-  }
-
-  #h2-informacoes {
-    font-size: 19px;
-  }
-
-  // .InputForm {
-  //   width: 350px;
-  // }
-
-
-  // .InputSecundario {
-  //   width: 350px;
-  //   margin-left: 5%;
-  // }
-
-  .Input_Data_Cadastro {
-    width: 210px;
-    position: relative;
-    background-color: $cor_4;
-    display: inline-block;
-    margin-left: 5px;
-    border: 1px solid;
-    box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
-    border-radius: 5px;
-    font-family: $font_2;
-    border-color: $cor_4;
-    height: 40px;
-
-  }
-
-  .Input_Data_Nascimento {
-    width: 200px;
-    position: relative;
-    background-color: $cor_4;
-    display: inline-block;
-    margin-left: 5px;
-    border: 1px solid;
-    box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
-    border-radius: 5px;
-    font-family: $font_2;
-    border-color: $cor_4;
-    height: 40px;
-  }
-
-  #AreaSuframa {
-    height: 300px;
-    //background-color: #003A4C;
-    width: 100%;
-    margin-left: 0;
-    margin-top: 15%;
-
-  }
-
-  .h2_suframa {
-    font-size: 100%;
-    margin-left: 5% !important;
-    margin-top: 7%;
-  }
-
-  .label_codigo_suframa {
-    margin-left: 5% !important;
-  }
-
-  .SelectSuframa {
-    margin-left: 5%;
-    width: 370px;
-  }
-
-  .CodigoSuframa {
-    // display: inline;
-    width: 350px;
-    margin-left: 5% !important;
-  }
-
-  .label_num_incricao {
-    font-family: $font_2;
-    color: $cor_4;
-  }
-
-  .InputInscricao {
-    width: 350px;
-    margin-top: 6%;
-    margin-left: 5%;
-  }
-
-  .p_obs{
-    margin-top: 5%;
-  }
-
-  .TextArea {
-    width: 380px;
-  }
-
-  #AreaObservacoes {
-    // position: absolute;
-    background-color: #9B9A9A;
-    position: relative;
-    //top: -10% !important;
-    left: 4%;
-    display: inline;
-  }
-
-
-  #Area_Enderecos {
-    width: 100%;
-    height: 1600px;
-    //margin-top: -2%;
+  #AreaEnderecoPrincipal{
+    //margin-top: 70%;
+    background-color: blue;
+    display: block;
   }
 
   #AreaEnderecoSecundario{
-    margin-left: 40%;
+    background-color: rgb(0, 247, 255);
+    display: block;
   }
 
-  #AreaEnderecoTerciario {
-    display: inline-block;
+  #AreaEnderecoTerciario{
+    background-color: rgb(216, 15, 189);
+    display: block;
   }
 
-
-  .input_cep {
-    //background-color: red;
-    width: 350px;
+  #AreaSuframa{
+    background-color: beige;
+    margin-left: 0;
+    margin-top: 80px;
+    display: block;
   }
-
-  .input_endereco {
-    //background-color: red;
-    width: 350px;
-  }
-
-
-  .btn_proxima_etapa {
-    margin-top: 12% !important;
-    margin-left: 5%;
-  }
-
 
 }
 
-
-
-@media screen and (max-width: 77.999em) {
-
-  #h1-titulo {
-    margin-top: 14px;
-  }
-
-  #corpo_formulario {
-    //background-color: red;
-    min-height: 2800px;
-    //max-height: 2100px;
-  }
-
-  .h2 {
-    top: 30%;
-    margin-left: 5%;
-    font-size: 17px;
-  }
-
-
-  #nome_apelido {
-    background-color: $cor_4;
-    padding: 0px 12px;
-    border: 1px solid;
-    margin: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
-    font-family: $font_2;
-    border-color: $cor_4;
-    display: block;
-    margin-left: 5%;
-    height: 40px;
-    width: 70% !important;
-    line-height: 45px;
-    opacity: 0.8;
-  }
-
-
-  #suframa {
-    position: relative;
-    height: 500px;
-    width: 100%;
-    margin-left: 2%;
-    margin-top: 5%;
-  }
-
-  .h2_suframa {
-    font-size: 100%;
-    margin-left: 2%;
-  }
-
-  .input_suframa {
-    width: 75%;
-    margin-left: 2%;
-  }
-
-  .label_num_inscricao,
-  .label_codigo_suframa,
-  .p_obs {
-    margin-left: 2%;
-  }
-
-  .select {
-    width: 80%;
-    margin-left: 2%;
-  }
-
-  .btn_adicionar_email {
-    margin-left: 27%;
-  }
-
-  .input_inscricao {
-    width: 75%;
-    margin-top: 8%;
-    margin-left: 2%;
-  }
-
-  .text_area {
-    width: 80%;
-    margin-left: 2%;
-  }
-
-  .input_secundario_rg {
-    width: 60%;
-  }
-
-  .input_secundario_data {
-    width: 75%;
-    margin-left: 5%;
-  }
-
-  #AreaEnderecoSecundario{
-    margin-left: 18%;
-    // background-color: blue;
-  }
-
-  #AreaEnderecoTerciario {
-    display: block;
-    margin-left: 6%;
-    margin-top: 2%;
-    // background-color: blue;
-  }
-
-  .btn_proxima_etapa {
-    position: relative;
-    margin-left: 7%;
-    //margin-top: 5% !important;
-  }
-
-}

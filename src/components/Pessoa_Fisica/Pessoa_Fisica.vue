@@ -19,6 +19,7 @@ export default {
     position: center;
     color: $cor_3;
     padding-top: 30px;
+    margin-left: 24%;
     text-decoration: none;
 }
 

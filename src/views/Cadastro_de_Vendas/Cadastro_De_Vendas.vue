@@ -59,6 +59,6 @@ export default{
 </script>
 
 
-<style src="./estilo.scss" lang="scss">
+<style src="./estilo_cadastro_vendas.scss" lang="scss">
 
 </style>

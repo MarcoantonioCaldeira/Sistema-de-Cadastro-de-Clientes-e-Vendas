@@ -17,6 +17,7 @@ export default{
 .h2_p_juridica {
   color: $cor_3;
   position: center;
+  margin-left: 22%;
   padding-top: 30px;
   text-decoration: none;
 }

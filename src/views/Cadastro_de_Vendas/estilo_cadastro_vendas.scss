@@ -79,6 +79,41 @@
 }
 
 
+@media (min-width: 62.75em) and (max-width: 90em){
+
+    .Formulario_2 {
+        position: absolute;
+        display: inline-block;
+        //position: relative;
+        width: 32%;
+        margin-left: 70px;
+        margin-top: 12px;
+        //background-color: aquamarine;
+    }
+
+            
+}
+
+@media (max-width: 62.75em){
+
+    #Formulario {
+        width: 100%;
+        //background-color: red;
+        height: 1570px;
+    }
+
+    .Formulario_2 {
+        position: absolute;
+        display: block;
+        width: 32%;
+        margin-left: 50px;
+        margin-top: 20px;
+    }
+
+            
+}
+
+
 // @media only screen and (max-width: 35.999em) {
 
 
