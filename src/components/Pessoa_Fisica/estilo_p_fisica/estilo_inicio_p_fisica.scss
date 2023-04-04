@@ -7,8 +7,7 @@
 #corpo_formulario {
   margin-top: 5%;
   width: 100%;
-  min-height: 2150px;
-  max-height: 2450px;
+   height: 2150px;
 }
 
 
@@ -390,17 +389,13 @@ label {
 
 @media (max-width: 36em) {
 
-  * {
-    margin: 0;
-    padding: 0;
-  }
 
   #corpo_formulario {
     position: relative;
     //display: table;
     background-color:red;
     width: 100% !important;
-    height: 4000px;
+    height: 4500px;
   }
 
 
@@ -423,10 +418,20 @@ label {
   }
 
   #AreaSuframa{
-    background-color: beige;
+    //background-color: beige;
     margin-left: 0;
-    margin-top: 80px;
-    display: block;
+    margin-top: 50px;
+    display:block;
+
+    #AreaObservacoes{
+      margin-left: -50px;
+    }
+    
+    .TextArea {
+      display: grid;
+     margin-left: 50px;
+     background-color: rgb(0, 255, 157);
+    }
   }
 
 }
