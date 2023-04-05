@@ -387,33 +387,39 @@ label {
 }
 
 
-@media (max-width: 36em) {
+@media (max-width: 24.625em) {
 
 
   #corpo_formulario {
     position: relative;
-    //display: table;
-    background-color:red;
+    //background-color:red;
     width: 100% !important;
-    height: 4500px;
+    height: 4000px;
+  }
+
+  .InputForm{
+    display: block;
+    width: 300px;
   }
 
 
   // #footer{display: none;}
 
+  #Area_Enderecos{
+    margin-top: -70px;
+    background-color: royalblue;
+  }
+
   #AreaEnderecoPrincipal{
     //margin-top: 70%;
-    background-color: blue;
     display: block;
   }
 
   #AreaEnderecoSecundario{
-    background-color: rgb(0, 247, 255);
     display: block;
   }
 
   #AreaEnderecoTerciario{
-    background-color: rgb(216, 15, 189);
     display: block;
   }
 

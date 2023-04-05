@@ -16,7 +16,7 @@
 
 .Input_Form_Itens_Venda {
     margin-left: 6% !important;
-    width: 20%;
+    width: 350px;
     background-color: $cor_4;
     padding: 0px 12px;
     border: 1px solid;
@@ -43,3 +43,26 @@
     margin-top: 5%;
     @include button-add-processeguir;
 }
+
+
+
+@media (max-width: 403em){
+
+    .Input_Form_Itens_Venda {
+        margin-left: 6% !important;
+        width: 300px;
+        background-color: $cor_4;
+        padding: 0px 12px;
+        border: 1px solid;
+        margin: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+        font-family: $font_2;
+        border-color: $cor_4;
+        display: block;
+        margin-left: 5%;
+        height: 40px;
+    }
+
+}
+
