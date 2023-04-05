@@ -57,7 +57,7 @@ label {
 
 
 .Input_Forma_P_Juridica {
-  width: 20%;
+  width: 350px;
   background-color: $cor_4;
   padding: 0px 12px;
   border: 1px solid;
@@ -66,7 +66,7 @@ label {
   border-radius: 5px;
   font-family: $font_2;
   border-color: $cor_4;
-  display: block;
+  display: inline;
   margin-left: 5%;
   height: 40px;
 }
@@ -121,10 +121,13 @@ label {
 
 
 #AreaSuframa {
+  position: relative;
+  display: inline-block;
   width: 40%;
   height: 500px;
-  margin-left: 33%;
-  margin-top: -30%;
+  //float: left;
+  margin-left: 100px;
+  margin-top: -230px;
 }
 
 .h2_suframa {
@@ -191,28 +194,33 @@ label {
   width: 40%;
   height: 400px;
   margin-left: 33%;
-  margin-top: -8%;
+  margin-top: -13%;
 }
 
 
 .p_obs {
   font-family: $font_1;
+  color: red;
   font-weight: 500;
   font-size: 22px;
-  margin: 0;
+  margin-top: 5%;
+  margin-left: 60px;
+  //smargin: 0;
 }
 
 
 .text_area {
   width: 63%;
+  background-color: red;
   height: 200px;
-  padding: 12px 20px;
-  margin-top: 2%;
+  //padding: 12px 20px;
+  margin-top: 12px;
+  margin-left: 70px;
   box-sizing: border-box;
   border: 1px solid;
   border-color: $cor_4;
   border-radius: 5px;
-  background-color: $cor_4;
+  //background-color: $cor_4;
   box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
   font-size: 16px;
   resize: none;
@@ -229,8 +237,9 @@ label {
 #AreaEnderecoPrincipal {
   width: 22%;
   height: 700px;
-  margin-top: 5%;
-  margin-left: 4%;
+  display: inline-block;
+  //margin-top: 5%;
+  //margin-left: 4%;
 }
 
 
@@ -280,22 +289,17 @@ label {
 #AreaEnderecoSecundario {
   width: 22%;
   height: 700px;
-  margin-left: 32%;
-  margin-top: -35.2%;
-}
-
-.p_obs {
-  font-family: $font_1;
-  font-weight: 500;
-  font-size: 22px;
-  margin: 0;
+  display: inline-block;
+  // margin-left: 32%;
+  // margin-top: -35.2%;
 }
 
 #AreaEnderecoTerciario {
   width: 22%;
   height: 700px;
-  margin-left: 60%;
-  margin-top: -35.2%;
+  display: inline-block;
+  // margin-left: 60%;
+  // margin-top: -35.2%;
 }
 
 .btn_proxima_etapa {

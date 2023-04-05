@@ -22,7 +22,7 @@
 
         <div id="AreaSuframa">
             
-            <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência da<br>Zona Franca de Manaus)</h2>    
+            <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência <br>da Zona Franca de Manaus)</h2>    
             <br>
             <select class="select" v-model="suframa_tipo">
                 <option>ZFM(Zona Franca de Manaus)</option>
