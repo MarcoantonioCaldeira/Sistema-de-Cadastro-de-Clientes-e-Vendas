@@ -29,7 +29,7 @@
   margin-left: 5%;
   font-weight: 500;
   color: $cor_2;
-  margin-top: 6%;
+  margin-top: 130px;
 }
 
 
@@ -66,7 +66,7 @@ label {
   border-radius: 5px;
   font-family: $font_2;
   border-color: $cor_4;
-  display: inline;
+  display: block;
   margin-left: 5%;
   height: 40px;
 }
@@ -90,9 +90,9 @@ label {
 
 
 .Input_Inscricao_Estadual {
-  margin-left: 5px;
+  margin-left: 3px;
   display: inline;
-  width: 12%;
+  width: 200px;
   background-color: $cor_4;
   padding: 0px 12px;
   border: 1px solid;
@@ -106,7 +106,7 @@ label {
 
 .Input_Data_Fundacao {
   display: inline;
-  width: 13% !important;
+  width: 22w0px !important;
   height: 40px;
   position: relative;
   background-color: $cor_4;
@@ -122,12 +122,12 @@ label {
 
 #AreaSuframa {
   position: relative;
-  display: inline-block;
-  width: 40%;
+  display: block;
   height: 500px;
-  //float: left;
-  margin-left: 100px;
-  margin-top: -230px;
+  width: 45%;
+  margin-left: 500px;
+  margin-top: -620px;
+  height: 400px;
 }
 
 .h2_suframa {
@@ -200,30 +200,29 @@ label {
 
 .p_obs {
   font-family: $font_1;
-  color: red;
+  color: $cor_3;
   font-weight: 500;
   font-size: 22px;
-  margin-top: 5%;
+  margin-top: 150px;
   margin-left: 60px;
   //smargin: 0;
 }
 
 
 .text_area {
-  width: 63%;
-  background-color: red;
+  //width: 350px;
+  background-color: $cor_4;
   height: 200px;
-  //padding: 12px 20px;
+  padding: 12px 90px;
   margin-top: 12px;
-  margin-left: 70px;
-  box-sizing: border-box;
+  margin-left: 60px;
+  //box-sizing: border-box;
   border: 1px solid;
   border-color: $cor_4;
   border-radius: 5px;
-  //background-color: $cor_4;
   box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
   font-size: 16px;
-  resize: none;
+  //resize: none;
 }
 
 #Area_Enderecos {
@@ -238,8 +237,8 @@ label {
   width: 22%;
   height: 700px;
   display: inline-block;
-  //margin-top: 5%;
-  //margin-left: 4%;
+  margin-top: 120px;
+  margin-left: 50px;
 }
 
 
@@ -255,7 +254,7 @@ label {
 }
 
 .input_cep {
-  width: 90%;
+  width: 350px;
   background-color: $cor_4;
   padding: 0px 12px;
   border: 1px solid;
@@ -270,7 +269,7 @@ label {
 }
 
 .input_endereco {
-  width: 90%;
+  width: 350px;
   background-color: $cor_4;
   padding: 0px 12px;
   border: 1px solid;
@@ -290,7 +289,7 @@ label {
   width: 22%;
   height: 700px;
   display: inline-block;
-  // margin-left: 32%;
+  margin-left: 150px;
   // margin-top: -35.2%;
 }
 
@@ -298,13 +297,13 @@ label {
   width: 22%;
   height: 700px;
   display: inline-block;
-  // margin-left: 60%;
+  margin-left: 150px;
   // margin-top: -35.2%;
 }
 
 .btn_proxima_etapa {
   margin-left: 5%;
-  margin-top: 3%;
+  margin-top: 130px;
   background: $cor_1;
   font-weight: 100;
   font-family: 'Poppins';
@@ -318,12 +317,12 @@ label {
   width: 120px;
 }
 
-@media only screen and (max-width: 35.999em) {
+@media (max-width: 35em) {
 
   #corpo_formulario_p_juridica {
     width: 100%;
-    min-height: 3750px;
-    max-height: 4050px;
+    //background-color: red;
+    height: 4000px;
   }
 
   #h1-titulo {
@@ -341,11 +340,13 @@ label {
 
 
   .Input_Inscricao_Estadual {
-    width: 41%;
+    //background-color: blue;
+    width: 220px !important;
   }
 
   .Input_Data_Fundacao {
-    width: 45% !important;
+    //background-color: #9B9A9A;
+    width: 240px !important;
   }
 
   #h2-informacoes {
@@ -358,21 +359,17 @@ label {
     opacity: 0.8;
   }
 
-  .input_secundario_inscricao {
-    width: 55%;
-  }
-
-  .input_secundario_data {
-    width: 80%;
-    margin-left: 5%;
-  }
+  // .input_secundario_data {
+  //   width: 80%;
+  //   margin-left: 5%;
+  // }
 
   //Area da Suframa
   #AreaSuframa {
     position: relative;
     width: 100%;
     margin-left: 5%;
-    margin-top: 18%;
+    margin-top: -120px;
   }
 
   .h2_suframa {
@@ -399,31 +396,34 @@ label {
   }
 
   #AreaObservacoes {
+    //background-color: #003A4C;
     position: relative;
     width: 100%;
     margin-left: 0;
-    margin-top: -35%;
+    margin-top: -350px !important;
   }
 
   .p_obs {
     margin-left: 5%;
-  }
+  } 
 
   .text_area {
     margin-left: 5%;
-    width: 90%;
+    //background-color: antiquewhite;
+    width:200px !important;
   }
 
   #Area_Enderecos {
     width: 100%;
     height: 2150px;
-    margin-top: -20%;
-    // background-color: aqua;
+    margin-top: -5%;
+    //background-color: aqua;
   }
 
   #AreaEnderecoPrincipal {
     width: 100%;
     margin-left: 0;
+    margin-top: 2px;
     // background-color: green;
   }
 
@@ -442,7 +442,7 @@ label {
   }
 
   .btn_proxima_etapa {
-    margin-top: 10%;
+    margin-top: -20%;
     margin-left: 5%;
     background: $cor_1;
     font-weight: 100;
@@ -458,12 +458,13 @@ label {
   }
 }
 
-@media screen and (max-width: 47.999em) {
+@media (min-width: 35em) and (max-width: 50em) {
 
 
   #corpo_formulario_p_juridica {
+    //background-color: aqua;
     width: 100%;
-    height: 3850px;
+    height: 4300px ;
   }
 
   #h1-titulo {
@@ -477,12 +478,13 @@ label {
   }
 
   .Input_Inscricao_Estadual {
-    width: 67%;
+    width:62% !important;
   }
 
-  .Input_Data_Fundacao {
-    width: 70% !important;
+  .Input_Data_Fundacao{
+    width: 65% !important;
   }
+
 
   #h2-informacoes {
     font-size: 19px;
@@ -496,11 +498,6 @@ label {
 
   .input_secundario_inscricao {
     width: 55%;
-  }
-
-  .input_secundario_data {
-    width: 80%;
-    margin-left: 5%;
   }
 
   //Area da Suframa
@@ -531,6 +528,7 @@ label {
 
   .Input_Inscricao_Municipal {
     width: 87%;
+    //background-color: red;
     margin-top: 2%;
   }
 
@@ -538,16 +536,17 @@ label {
     position: relative;
     width: 100%;
     margin-left: 0;
-    margin-top: -20%;
+    margin-top: 50px;
   }
 
   .p_obs {
     margin-left: 5%;
+    margin-top: 20px;
   }
 
   .text_area {
     margin-left: 5%;
-    width: 90%;
+    width: 61% !important;
   }
 
   #Area_Enderecos {
@@ -596,14 +595,155 @@ label {
 }
 
 //Tamanho para Telas medias
-@media screen and(max-width: 56.688em) {
+// @media screen and(max-width: 56.688em) {
+
+//   #corpo_formulario_p_juridica {
+//     width: 100%;
+//     //height: 4000px;
+//   }
+
+//   #h1-titulo {
+//     font-size: 20px;
+//     margin-left: 2%;
+//   }
+
+//   p {
+//     margin-left: 2%;
+//   }
+
+//   .Input_Forma_P_Juridica {
+//     width: 85%;
+//   }
+
+
+//   .Input_Inscricao_Estadual {
+//     width: 68%;
+//   }
+
+//   .Input_Data_Fundacao {
+//     width: 15% !important;
+//   }
+
+//   #h2-informacoes {
+//     font-size: 19px;
+//     margin-top: 10%;
+//   }
+
+//   .input_apelido {
+//     width: 80%;
+//     opacity: 0.8;
+//   }
+
+//   .input_secundario_inscricao {
+//     width: 55%;
+//   }
+
+//   .input_secundario_data {
+//     width: 80%;
+//     margin-left: 5%;
+//   }
+
+//   //Area da Suframa
+//   #AreaSuframa {
+//     // background-color: red;
+//     position: relative;
+//     height: 650px;
+//     width: 100%;
+//     margin-left: 5%;
+//     margin-top: 12%;
+//   }
+
+//   .h2_suframa {
+//     font-size: 100%;
+//   }
+
+//   .select {
+//     width: 89% !important;
+//   }
+
+//   .input_suframa {
+//     width: 86%;
+//   }
+
+
+//   .label_num_incricao {
+//     font-family: $font_2;
+//     color: $cor_4;
+//   }
+
+//   .Input_Inscricao_Municipal {
+//     width: 86%;
+//     margin-top: 2%;
+//   }
+
+//   #AreaObservacoes {
+//     position: relative;
+//     width: 100%;
+//     margin-left: 0;
+//     margin-top: -35%;
+//   }
+
+//   .p_obs {
+//     // margin-top: 10%;
+//     margin-left: 5%;
+//   }
+
+//   .text_area {
+//     margin-left: 5%;
+//     width: 89%;
+//   }
+
+//   #Area_Enderecos {
+//     width: 100%;
+//     height: 2250px;
+//     margin-top: -10%;
+//   }
+
+//   #AreaEnderecoPrincipal {
+//     width: 100%;
+//     margin-left: 0;
+//   }
+
+//   #AreaEnderecoSecundario,
+//   #AreaEnderecoTerciario {
+//     width: 100%;
+//     margin-left: 0;
+//     margin-top: 10%;
+//   }
+
+
+//   .input_cep,
+//   .input_endereco {
+//     width: 85%;
+//   }
+
+//   .btn_proxima_etapa {
+//     margin-top: 10%;
+//     margin-left: 5%;
+//     background: $cor_1;
+//     font-weight: 100;
+//     font-family: 'Poppins';
+//     border-radius: 5px;
+//     border-color: $cor_1;
+//     border: 1px solid #003A4C;
+//     font-family: arial;
+//     color: $cor_5;
+//     text-align: 20%;
+//     height: 56px;
+//     width: 120px;
+//   }
+
+// }
+
+@media(max-width: 75em) {
+
 
   #corpo_formulario_p_juridica {
     width: 100%;
-    height: 4000px;
+    //height: 4000px;
   }
 
-  #h1-titulo {
+  #h1-titulo { 
     font-size: 20px;
     margin-left: 2%;
   }
@@ -622,148 +762,7 @@ label {
   }
 
   .Input_Data_Fundacao {
-    width: 15% !important;
-  }
-
-  #h2-informacoes {
-    font-size: 19px;
-    margin-top: 10%;
-  }
-
-  .input_apelido {
-    width: 80%;
-    opacity: 0.8;
-  }
-
-  .input_secundario_inscricao {
-    width: 55%;
-  }
-
-  .input_secundario_data {
-    width: 80%;
-    margin-left: 5%;
-  }
-
-  //Area da Suframa
-  #AreaSuframa {
-    // background-color: red;
-    position: relative;
-    height: 650px;
-    width: 100%;
-    margin-left: 5%;
-    margin-top: 12%;
-  }
-
-  .h2_suframa {
-    font-size: 100%;
-  }
-
-  .select {
-    width: 89% !important;
-  }
-
-  .input_suframa {
-    width: 86%;
-  }
-
-
-  .label_num_incricao {
-    font-family: $font_2;
-    color: $cor_4;
-  }
-
-  .Input_Inscricao_Municipal {
-    width: 86%;
-    margin-top: 2%;
-  }
-
-  #AreaObservacoes {
-    position: relative;
-    width: 100%;
-    margin-left: 0;
-    margin-top: -35%;
-  }
-
-  .p_obs {
-    // margin-top: 10%;
-    margin-left: 5%;
-  }
-
-  .text_area {
-    margin-left: 5%;
-    width: 89%;
-  }
-
-  #Area_Enderecos {
-    width: 100%;
-    height: 2250px;
-    margin-top: -10%;
-  }
-
-  #AreaEnderecoPrincipal {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  #AreaEnderecoSecundario,
-  #AreaEnderecoTerciario {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 10%;
-  }
-
-
-  .input_cep,
-  .input_endereco {
-    width: 85%;
-  }
-
-  .btn_proxima_etapa {
-    margin-top: 10%;
-    margin-left: 5%;
-    background: $cor_1;
-    font-weight: 100;
-    font-family: 'Poppins';
-    border-radius: 5px;
-    border-color: $cor_1;
-    border: 1px solid #003A4C;
-    font-family: arial;
-    color: $cor_5;
-    text-align: 20%;
-    height: 56px;
-    width: 120px;
-  }
-
-}
-
-@media screen and(max-width: 74.999em) {
-
-
-  #corpo_formulario_p_juridica {
-    width: 100%;
-    height: 4000px;
-  }
-
-  #h1-titulo {
-    font-size: 20px;
-    margin-left: 2%;
-  }
-
-  p {
-    margin-left: 2%;
-  }
-
-  .Input_Forma_P_Juridica {
-    width: 85%;
-  }
-
-
-  .Input_Inscricao_Estadual {
-    width: 68%;
-  }
-
-  .Input_Data_Fundacao {
-    width: 15% !important;
+    width: 15%;
   }
 
   #h2-informacoes {
