@@ -11,9 +11,9 @@
         
         <input type="text" for="email_nfe" placeholder="Seu email nfe" class="input" v-model="e_mail_nfe">
     
-        <input type="number" placeholder="Seu telefone" class="input" v-model="telefone">
+        <input type="text" placeholder="Seu telefone" class="input" v-model="telefone">
 
-        <input type="number" placeholder="Celular" class="input" v-model="celular">
+        <input type="text" placeholder="Celular" class="input" v-model="celular">
         
         <input type="text"  v-model="CMPJ" placeholder="CNPJ" class="input"/>
         

@@ -45,7 +45,14 @@ const routes = [
     name: 'Cadastro_concluido',
 
     component: () => import('../views/Cadastro_concluido/Cadastro_concluido.vue')
+  },
+  {
+    path: '/Cincronizacao',
+    name: 'Cincronizacao_Vendas',
+
+    component: () => import('../views/Cincronizacao/Cincronizacao')
   }
+
 ]
 
 const router = createRouter({
