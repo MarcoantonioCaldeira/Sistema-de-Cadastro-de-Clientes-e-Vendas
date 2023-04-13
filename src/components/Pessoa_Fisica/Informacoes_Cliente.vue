@@ -35,8 +35,8 @@
 
             <input type="text" placeholder="Codigo do cliente" class="InputForm" v-model="cod_cliente">
 
-            <input type="text" placeholder="Codigo do vendedor" class="InputForm" v-model="cod_vendedor">
-
+            <input type="text" placeholder="Nome do vendedor" class="InputForm" v-model="cod_vendedor">
+        
             <input type="text" placeholder="Classificação de entrega" class="InputForm" v-model="classificacao_entrega">
 
             <label class="lb_dt">Data do Cadastro: </label><input type="date" class="Input_Data_Cadastro" v-model="data_cadastro">
@@ -138,6 +138,7 @@
 import axios from 'axios';
 import api from '../api';
 import VueImg from 'v-img';
+import { container } from 'webpack';
 
 
 export default {
@@ -378,8 +379,27 @@ export default {
                 .finally(function () {
 
                 });
-        }
+        },
 
+    //    render: function(){
+
+    //         var btn = document.getElementById('btn_add_vendedor');
+    //         var div  = document.getElementById('div_pesquisa_vendedor');
+
+    //         btn.addEventListener('click', function() {
+
+
+    //             if(div.style.display === 'block'){
+
+    //                 div.style.display = 'none';
+
+    //             }else{
+
+    //                 div.style.display = 'block';
+    //             }
+                 
+    //         })
+    //     }
     }
 }
 </script>

@@ -51,27 +51,27 @@ export default{
   }, 
   methods: {
     toggleMobileNav() {
-      this.mobileNav = !this.mobileNav;
-  },
+        this.mobileNav = !this.mobileNav;
+    },
 
-  updateScroll(){
-    const scrollPosition = window.scrollY;
-    if(scrollPosition > 50){
-          this.scrolledNav = true;
-          return;
-    }
-    this.scrolledNav = false;
-  },
-  checkScreen() { 
-      this.windowWidth = window.innerWidth;
-      if(this.windowWidth <= 750){
-        this.mobile = true;
-        return;
+    updateScroll(){
+      const scrollPosition = window.scrollY;
+      if(scrollPosition > 50){
+            this.scrolledNav = true;
+            return;
       }
-      this.mobile = false;
-      this.mobileNav = false;
-      return;
-  },
+      this.scrolledNav = false;
+    },
+    checkScreen() { 
+        this.windowWidth = window.innerWidth;
+        if(this.windowWidth <= 750){
+          this.mobile = true;
+          return;
+        }
+        this.mobile = false;
+        this.mobileNav = false;
+        return;
+    },
 
     barra_prograsso() {
       var elem = document.getElementById("barra_progresso");
