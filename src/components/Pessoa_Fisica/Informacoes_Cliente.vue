@@ -136,9 +136,10 @@
 
 <script>
 import axios from 'axios';
-import api from '../api';
+import api from '../services/api';
 import VueImg from 'v-img';
-import { container } from 'webpack';
+import { throwStatement } from '@babel/types';
+//import Response from './Response.vue'
 
 
 export default {
@@ -152,6 +153,7 @@ export default {
     data() {
         return {
             Icone_Adicionar_Email: "./assets/images/icon_add_email.svg",
+            enviandoDados: false,
             nome: "",
             nome_fantasia: "",
             classificacao: "1",
@@ -220,7 +222,11 @@ export default {
 
     methods: {
         Cadastrar() {
-            api.post("/clientes", {
+
+            this.enviandoDados = true;
+
+            api.post("/clientes",
+            {
                     clientes: [{
                         nome: this.nome,
                         nome_fantasia: this.nome_fantasia,
@@ -278,11 +284,22 @@ export default {
                             tipo_endereco: this.tipo_endereco_3
                         }]
                     }]
+                },
+                {headers:{'Content-Type': 'multipart/form-data', authorization: 'Bearer ' + this.$session.get('/auth'),}})
+                .then((response) =>  {
+                    if (response.data.cod_status == 1){                  
+                        this.Cadastrar();         
+                    }            
+                    else{             
+                        this.response.show = true;
+                        this.response.class = 'warning';
+                        this.response.msg = response.data.erros[0].nome;
+                    }   
                 })
-                .then((response) => {
-                    if (response.data.accessToken) {
-                        TokenService.setUser(response.data);
-                    }
+                .catch(function() {
+                })
+                .finally(function() {
+                    this.enviandoDados = false;
                 })
         },
 
@@ -376,32 +393,13 @@ export default {
                     console.log(error);
                 })
 
-                .finally(function () {
+                .finally(function() {
 
                 });
-        },
-
-    //    render: function(){
-
-    //         var btn = document.getElementById('btn_add_vendedor');
-    //         var div  = document.getElementById('div_pesquisa_vendedor');
-
-    //         btn.addEventListener('click', function() {
-
-
-    //             if(div.style.display === 'block'){
-
-    //                 div.style.display = 'none';
-
-    //             }else{
-
-    //                 div.style.display = 'block';
-    //             }
-                 
-    //         })
-    //     }
+        }
     }
-}
+
+    }
 </script>
 
 <style>
