@@ -139,6 +139,7 @@ import axios from 'axios';
 import api from '../services/api';
 import VueImg from 'v-img';
 import { throwStatement } from '@babel/types';
+import mxSession from '@/mixins/session';
 //import Response from './Response.vue'
 
 
@@ -150,10 +151,19 @@ export default {
         this.add_email();
     },
 
+    mixins: [mxSession],
+
     data() {
         return {
+            response: {
+                show: false,
+                class: 'warning',
+                msg : '',
+            }, 
+
             Icone_Adicionar_Email: "./assets/images/icon_add_email.svg",
             enviandoDados: false,
+
             nome: "",
             nome_fantasia: "",
             classificacao: "1",
@@ -225,7 +235,7 @@ export default {
 
             this.enviandoDados = true;
 
-            api.post("/clientes",
+            api.post("http:localhost:9000/clientes",
             {
                     clientes: [{
                         nome: this.nome,
@@ -285,21 +295,24 @@ export default {
                         }]
                     }]
                 },
-                {headers:{'Content-Type': 'multipart/form-data', authorization: 'Bearer ' + this.$session.get('/auth'),}})
-                .then((response) =>  {
+                {
+                    headers:{
+                        'Content-Type': 'multipart/form-data', authorization: 'Bearer ' + this.$session.get('token') 
+                    }
+                }).then((response) =>  {
                     if (response.data.cod_status == 1){                  
                         this.Cadastrar();         
                     }            
                     else{             
                         this.response.show = true;
                         this.response.class = 'warning';
-                        this.response.msg = response.data.erros[0].nome;
+                        this.response.data.erros[0].nome;
                     }   
                 })
                 .catch(function() {
-                })
+                }) 
                 .finally(function() {
-                    this.enviandoDados = false;
+                    //this.enviandoDados = false;
                 })
         },
 
