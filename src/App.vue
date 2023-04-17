@@ -1,22 +1,18 @@
-<template> 
-    <div class="App">
-       <Menu />
-    </div>
-    <router-view />
+<template>
+  <v-app>
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
-<script> 
+<script>
 
-import Menu from './components/Menu.vue'
-
-export default{
+export default {
   name: 'App',
-  components:{
-    Menu
-  }
-};
+
+  data: () => ({
+    //
+  }),
+}
 </script>
-
-<style> 
-
-</style>

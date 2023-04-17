@@ -235,7 +235,7 @@ export default {
 
             this.enviandoDados = true;
 
-            api.post("http:localhost:9000/clientes",
+            api.post("/clientes",
             {
                     clientes: [{
                         nome: this.nome,
