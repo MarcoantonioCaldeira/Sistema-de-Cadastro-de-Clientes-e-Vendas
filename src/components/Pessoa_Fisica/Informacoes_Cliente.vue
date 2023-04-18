@@ -163,7 +163,7 @@ export default {
             }, 
 
             Icone_Adicionar_Email: "./assets/images/icon_add_email.svg",
-            enviandoDados: false,
+            //enviandoDados: false,
 
             nome: "",
             nome_fantasia: "",
@@ -236,8 +236,9 @@ export default {
 
 
             var self = this;
-            self.enviandoDados = true;
+            //self.enviandoDados = true;
 
+            
             api.post("/clientes",
             {
                     clientes: [{
@@ -298,9 +299,20 @@ export default {
                         }]
                     }],
                     headers:{
-                        'Content-Type': 'multipart/form-data', authorization: 'Bearer ' + self.$session.get('token') 
+                        'Content-Type': 'application/json', 
+                        key_auth: '3G5T8W7Y1K',
+                        authorization: 'Basic Og==' + self.$session.get('token')
                     }
-                })
+                }).then(
+                    function(response){                    
+                        if (response.data.cod_status == 1){                  
+                            //self.initializeEmpreendimento();  
+                            //self.toEmpreendimentos();        
+                        }            
+                        else{             
+                            console.log('Error');
+                        }   
+                })  
         },
 
         add_email() {
