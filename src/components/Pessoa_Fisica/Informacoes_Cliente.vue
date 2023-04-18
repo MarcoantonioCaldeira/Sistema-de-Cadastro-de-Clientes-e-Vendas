@@ -75,6 +75,7 @@
 
             <div id="AreaObservacoes">
                 <p class="p_obs">Observações</p>
+
                 <textarea class="TextArea" v-model="observacao">
 
                 </textarea>
@@ -233,7 +234,9 @@ export default {
     methods: {
         Cadastrar() {
 
-            this.enviandoDados = true;
+
+            var self = this;
+            self.enviandoDados = true;
 
             api.post("/clientes",
             {
@@ -293,26 +296,10 @@ export default {
                             estado: this.estado_end_3,
                             tipo_endereco: this.tipo_endereco_3
                         }]
-                    }]
-                },
-                {
+                    }],
                     headers:{
-                        'Content-Type': 'multipart/form-data', authorization: 'Bearer ' + this.$session.get('token') 
+                        'Content-Type': 'multipart/form-data', authorization: 'Bearer ' + self.$session.get('token') 
                     }
-                }).then((response) =>  {
-                    if (response.data.cod_status == 1){                  
-                        this.Cadastrar();         
-                    }            
-                    else{             
-                        this.response.show = true;
-                        this.response.class = 'warning';
-                        this.response.data.erros[0].nome;
-                    }   
-                })
-                .catch(function() {
-                }) 
-                .finally(function() {
-                    //this.enviandoDados = false;
                 })
         },
 
