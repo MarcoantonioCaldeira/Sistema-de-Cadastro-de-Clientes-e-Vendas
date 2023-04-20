@@ -1,54 +1,54 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 
-import { memoizedRefreshToken } from './refreshToken';
+// import { memoizedRefreshToken } from './refreshToken';
 
-axios.defaults.baseURL = 'http://localhost:9000/auth';
+// axios.defaults.baseURL = 'http://localhost:9000/auth';
 
 
-axios.interceptors.request.use(
-    async (config) => {
-        const session = JSON.parse(localStorage.getItem("session"));
+// axios.interceptors.request.use(
+//     async (config) => {
+//         const session = JSON.parse(localStorage.getItem("session"));
     
-        if (session?.accessToken) {
-          config.headers = {
-            ...config.headers,
-            authorization: `Bearer ${session?.accessToken}`,
-          };
-        }
+//         if (session?.accessToken) {
+//           config.headers = {
+//             ...config.headers,
+//             authorization: `Bearer ${session?.accessToken}`,
+//           };
+//         }
     
-        return config;
-    },
+//         return config;
+//     },
 
-    (error) => Promise.reject(error)
-);
+//     (error) => Promise.reject(error)
+// );
 
-axios.interceptors.response.use(
+// axios.interceptors.response.use(
 
-    (response) => response,
-    async (error) => {
+//     (response) => response,
+//     async (error) => {
 
-        const config = error?.config;
+//         const config = error?.config;
 
-        if (error?.response?.status === 401 && !config?.sent) {
+//         if (error?.response?.status === 401 && !config?.sent) {
 
-            config.sent = true;
+//             config.sent = true;
 
-            const result = await memoizedRefreshToken();
+//             const result = await memoizedRefreshToken();
 
-            if (result?.accessToken) {
-                config.headers = {
-                    ...config.headers,
-                    authorization: `Bearer ${result?.accessToken}`,
-                };
-            }
+//             if (result?.accessToken) {
+//                 config.headers = {
+//                     ...config.headers,
+//                     authorization: `Bearer ${result?.accessToken}`,
+//                 };
+//             }
 
-            return axios(config);
-        }
+//             return axios(config);
+//         }
 
-        return Promise.reject(error);
-    } 
-);
+//         return Promise.reject(error);
+//     } 
+// );
 
 
-export const axiosPrivate = axios;
+// export const axiosPrivate = axios;
