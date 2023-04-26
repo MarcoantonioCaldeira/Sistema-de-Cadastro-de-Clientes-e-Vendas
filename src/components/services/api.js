@@ -1,61 +1,68 @@
 import axios from 'axios';
 
 
+
 const api = axios.create({ 
     baseURL: 'http://localhost:9000'
 });
 
 
-api.interceptors.request.use((request) => {
-        
-    const token =  localStorage.getItem('token');
-           
-    if (token) {
-        request.headers.Authorization = `Bearer ${token}`;
-    }
-    
-    return request;
-});
 
-api.interceptors.response.use((response) => {
-  
+api.interceptors.request.use(
+
+  config => {
+    var token = localStorage.getItem('access_token');
+
+    if (token != '') {
+      config.headers['Authorization'] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  error => {
+    return Promise.reject(error);
+  }
+
+);
+
+api.interceptors.response.use(
+
+  response => {
+
     return response;
 
-}, async (error) => {
-    
-    const originalRequest = error.config;
-    
-    if (error?.response?.status === 401 && 
-        !originalRequest?.__isRetryRequest
-    ){
+  },
+  
+  error => {
 
-        originalRequest.retry = true;
-        
-        const refreshToken = localStorage.getItem("refreshToken");
+    var originalRequest = error.config;
 
-        
-        if(!refreshToken) {
+    if (error.response.status === 401 && !originalRequest._retry) {
 
-            localStorage.clear();
+      originalRequest._retry = true;
+      
+      var refreshToken = localStorage.getItem('refresh_token');
 
-            return (window.location.href = "/");
-        }
-        
-        const response = await refresh(refreshToken);
+      return api.get('/auth',{headers:{
+        key_auth: '3G5T8W7Y1K',
+      }
+      } ,{ refresh_token: refreshToken })
 
-        const data = {
-            // accessToken = response.token;
-            // refreshToken = response.refreshToken;
-        };
-       
-        localStorage.setItem(JSON.stringify(data), "refreshToken");
-   
-        return api(originalRequest);
+        .then(response => {
+
+          var { access_token } = response.data;
+          localStorage.setItem('access_token', access_token);
+          originalRequest.headers['Authorization'] = `Bearer ${access_token}`;
+          
+          return api(originalRequest);
+
+        }).catch(error => {
+          return Promise.reject(error);
+        });
     }
-   
     return Promise.reject(error);
-});
-
+  }
+);
 
 
 export default api;
+   
