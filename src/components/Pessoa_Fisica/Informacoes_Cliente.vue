@@ -137,7 +137,9 @@
 
 <script>
 import axios from 'axios';
-import api from '../services/api';
+import api from '../services/api'
+import { token } from '../services/api'
+import { access_token } from '../services/api'
 import VueImg from 'v-img';
 import { throwStatement } from '@babel/types';
 import mxSession from '@/mixins/session';
@@ -233,7 +235,8 @@ export default {
 
     methods: {
         Cadastrar() {
-
+            //var self = this
+            
             api.post("/clientes",
             {
                     clientes: [{
@@ -291,10 +294,15 @@ export default {
                             cod_pais: this.cod_pais_3,
                             estado: this.estado_end_3,
                             tipo_endereco: this.tipo_endereco_3
-                        }]
                     }],
-                }) 
-        },
+                    
+                    // headers: {
+                    //     authorization: 'Bearer' + self.$session.get(token)
+                    // }
+                }]
+                }, 
+                )
+            },
 
         add_email() {
             this.inputs.push({
