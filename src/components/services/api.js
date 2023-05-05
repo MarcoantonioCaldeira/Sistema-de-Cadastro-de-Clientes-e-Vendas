@@ -3,14 +3,18 @@ import axios from 'axios';
 
 
 const api = axios.create({ 
-    baseURL: 'http://localhost:9000'
+    baseURL: 'http://localhost:9000',
+    withCredentials: true, // importante para manter as credenciais (cookies) entre requisições
+    headers: {
+      'Content-Type': 'application/json',
+    },
 });
-
 
 
 api.interceptors.request.use(
 
   config => {
+    
     var token = localStorage.getItem('access_token');
 
     if (token != '') {
@@ -32,32 +36,29 @@ api.interceptors.response.use(
 
   },
   
-  error => {
+  async error => {
 
-    var originalRequest = error.config;
+    const originalRequest = error.config;
 
     if (error.response.status === 401 && !originalRequest._retry) {
 
       originalRequest._retry = true;
       
-      var refreshToken = localStorage.getItem('refresh_token');
+      const refreshToken = localStorage.getItem('refresh_token');
 
-      return api.get('/auth',{headers:{
-        key_auth: '3G5T8W7Y1K',
-      }
-      } ,{ refresh_token: refreshToken })
-
-        .then(response => {
-
-          var { access_token } = response.data;
-          localStorage.setItem('access_token', access_token);
-          originalRequest.headers['Authorization'] = `Bearer ${access_token}`;
-          
-          return api(originalRequest);
-
-        }).catch(error => {
-          return Promise.reject(error);
-        });
+      try {
+            const response = await api.get('/auth', {
+                headers: {
+                    key_auth: '3G5T8W7Y1K',
+                }
+            }, { refresh_token: refreshToken });
+            const { access_token } = response.data;
+            localStorage.setItem('access_token', access_token);
+            originalRequest.headers['Authorization'] = `Bearer ${access_token}`;
+            return await api(originalRequest);
+        } catch (error_1) {
+            return await Promise.reject(error_1);
+        }
     }
     return Promise.reject(error);
   }
