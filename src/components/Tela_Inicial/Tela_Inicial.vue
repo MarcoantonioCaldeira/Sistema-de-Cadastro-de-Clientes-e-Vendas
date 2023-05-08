@@ -10,7 +10,7 @@
 
 <script>
 import Footer from '../Footer.vue';
-
+ 
 export default{
     name: 'Tela_Inicial',
     components:{

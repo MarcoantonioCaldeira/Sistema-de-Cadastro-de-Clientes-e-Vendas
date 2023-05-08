@@ -2,7 +2,7 @@
 <header :class="{ 'scrolled-nav': scrolledNav }">
   <nav>
     <div class="branding">
-      <img v-img:src   class="logo"  src="@/assets/images/logo.png">
+      <img  class="logo"  src="@/assets/images/logo.png">
     </div>
     <ul v-show="!mobile" class="navigation">
       <li><router-link  class="link"  to="/" @click="barra_prograsso()">Inicio</router-link></li>

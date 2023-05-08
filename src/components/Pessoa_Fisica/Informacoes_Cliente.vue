@@ -292,7 +292,13 @@ export default{
                             tipo_endereco: self.tipo_endereco_3
                     }],
                 }],
-            }, {headers: {authorization: 'Bearer '+ self.$session.get('token')} }).then(function(resp){
+             }, 
+            {
+                headers: {
+
+                    authorization: 'Bearer '+ self.$session.get('token')
+
+                }}).then(function(resp){
                 console.log("Inserio o Cliente", resp)
             })
         },
@@ -366,7 +372,7 @@ export default{
 
         CONSULTA_CEP_TER() {
             var self = this;
-
+    
             axios
                 .get('https://viacep.com.br/ws/' + this.cep_3 + '/json/')
                 .then(function (response) {
