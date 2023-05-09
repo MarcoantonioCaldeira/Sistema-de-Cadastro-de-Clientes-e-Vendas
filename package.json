@@ -25,6 +25,7 @@
     "v-img": "^0.2.0",
     "v-mask": "^0.1.0",
     "vue": "^3.2.13",
+    "vue-inputmask": "^0.2.1",
     "vue-loader": "^17.0.1",
     "vue-router": "^4.0.3",
     "vue-session": "^1.0.0",
