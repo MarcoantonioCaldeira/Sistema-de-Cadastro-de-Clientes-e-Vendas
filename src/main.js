@@ -17,5 +17,5 @@ loadFonts()
 createApp(App)
   .use(router)
   .mount('#app')
-
+  app.directive('mask', mask);
   Vue.use(VueSession);

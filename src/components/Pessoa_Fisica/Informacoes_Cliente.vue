@@ -41,20 +41,20 @@
 
             <label class="lb_dt">Data do Cadastro: </label><input type="date" class="Input_Data_Cadastro" v-model="data_cadastro">
 
-            <input type=" celphone" placeholder="Seu telefone" class="InputForm" v-model="telefone_2">
+            <input type=" celphone" placeholder="Seu telefone"  v-maskTelefone class="InputForm" v-model="telefone_2" maxlength="10">
 
-            <input type="text" placeholder="Celular" class="InputForm" v-model="celular">
+            <input type="text" placeholder="Celular"   v-maskTelefone  class="InputForm" v-model="celular" maxlength="11">
 
-            <input type="text" placeholder="Seu CPF" class="InputForm" v-model="cnpj_cpf">
+            <input type="text" placeholder="Seu CPF"  v-maskCpf  class="InputForm" v-model="cnpj_cpf" maxlength="14">
 
-            <input v-mask="'###.###.###-##'" placeholder="CPF de Entrega" class="InputForm" v-model="cnpj_cpf_entrega">
+            <input placeholder="CPF de Entrega"  v-maskCpf  class="InputForm" v-model="cnpj_cpf_entrega" maxlength="14">
 
-            <input type="text" placeholder="Seu RG" class="InputForm" v-model="inscricao_rg">
+            <input type="text" placeholder="Seu RG"  v-maskRG  class="InputForm" v-model="rg">
 
             <br><label class="lb_dt">Data de Nascimento:</label><input type="date" class="Input_Data_Nascimento"
                 v-model="nascimento">
 
-            <!--Tipo Suframa-->
+            <!-- Tipo Suframa-->
 
             <div id="AreaSuframa">
                 <h2 class="h2_suframa">Tipo <strong>SUFRAMA</strong>(Superintendência <br>da Zona Franca de Manaus)</h2>
@@ -71,7 +71,7 @@
                     v-model="inscricao_municipal">
             </div>
 
-            <!--Observacoes do cliente-->
+            <!--Observacoes do cliente -->
 
             <div id="AreaObservacoes">
                 <p class="p_obs">Observações</p>
@@ -85,7 +85,7 @@
                 <div id="AreaEnderecoPrincipal">
                     <h2 class="h2_endereco">Endereço Principal</h2>
 
-                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep" v-on:blur="CONSULTA_CEP">
+                    <input type="text" placeholder="Seu CEP"  v-maskCEP class="input_cep" v-model="cep" v-on:blur="CONSULTA_CEP" maxlength="9">
                     <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco_end_1.logradouro">
                     <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_1">
                     <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_1">
@@ -100,7 +100,7 @@
                 <div id="AreaEnderecoSecundario">
                     <h2 class="h2_endereco">Endereço Secundario(Opcional)</h2>
 
-                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep_2" v-on:blur="CONSULTA_CEP_COB">
+                    <input type="text" placeholder="Seu CEP"  v-maskCEP class="input_cep" v-model="cep_2" v-on:blur="CONSULTA_CEP_COB" maxlength="9">
                     <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco_end_2.logradouro">
                     <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_2">
                     <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_2">
@@ -116,7 +116,7 @@
                 <div id="AreaEnderecoTerciario">
                     <h2 class="h2_endereco">Endereço Terciario(Opcional)</h2>
 
-                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep_3" v-on:blur="CONSULTA_CEP_TER">
+                    <input type="text" placeholder="Seu CEP"  v-maskCEP class="input_cep" v-model="cep_3" v-on:blur="CONSULTA_CEP_TER" maxlength="9">
                     <input type="text" placeholder="Endereço" class="input_endereco" v-model="bairro_end_3.logradouro">
                     <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_3">
                     <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_3">
@@ -137,14 +137,22 @@
 
 <script>
 import axios from 'axios';
-import api from '../services/api'
+import api from '../services/api';
 import VueImg from 'v-img';
 import { throwStatement } from '@babel/types';
+import {maskCpf, maskRG, maskTelefone, maskCEP} from '../services/funcoes';
 
 
 export default{
 
     name: 'Informacoes_Cliente',
+
+    directives: {
+        maskCpf,
+        maskRG,
+        maskTelefone,
+        maskCEP
+    },
 
     created() {
         this.add_email();
@@ -177,7 +185,7 @@ export default{
             celular: "",
             cnpj_cpf: "",
             cnpj_cpf_entrega: "",
-            inscricao_rg: "",
+            rg: "",
             nascimento: "",
             suframa_tipo: "",
             suframa: "",
@@ -251,7 +259,7 @@ export default{
                         celular: self.celular,
                         cnpj_cpf: self.cnpj_cpf,
                         cnpj_cpf_entrega: self.cnpj_cpf_entrega,
-                        inscricao_rg: self.inscricao_rg,
+                        rg: self.inscricao_rg,
                         nascimento: self.nascimento,
                         suframa_tipo: self.suframa_tipo,
                         suframa: self.suframa,
@@ -396,7 +404,26 @@ export default{
                 .finally(function() {
 
                 });
-        }
+        },
+
+
+        // Mascara_CPF(){
+
+        //     const input_cpf = document.getElementById("InputCPF") 
+
+        //     input_cpf.addEventListener('keypress', () => {
+        //             let Inputlength = input_cpf.value.length
+
+        //             if(Inputlength == 3 || Inputlength == 7){
+
+        //                 input_cpf.value += '.'
+
+        //             }else if (Inputlength == 11 ){
+
+        //                 input_cpf.valeu += '-'
+        //             }
+        //     })
+        // }
     }
 
     }
