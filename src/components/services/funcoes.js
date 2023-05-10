@@ -68,20 +68,33 @@ export function maskTelefone(el){
 
 }
 
-export function maskCEP(el){
+// maskCepDirective.js
+// export const maskCep = {
 
-    el.addEventListener('input', function(e){
-        let value = e.target.value;
-        value = value.replace(/\D/g, '');
-      
-        if (value.length > 5) {
+//   bind: function maskCepBind(el) {
 
-          value = value.replace(/^(\d{5})(\d{0,3})$/, '$1-$2'); // Coloca o hífen após os primeiros 5 dígitos
-        }
-  
-        e.target.value = value;
-    })
+//     el.addEventListener('input', function(e) {
+//       let value = e.target.value;
+//       value = value.replace(/\D/g, ''); // Remove tudo que não é número
 
-    e.target.value = value;
-}
+//       if (value.length > 5) {
+//         value = value.replace(/^(\d{5})(\d{0,3})$/, '$1-$2'); // Coloca o hífen após os primeiros 5 dígitos
+//       }
+
+//       // Remove o traço antes de atribuir o valor ao modelo
+//       const modelProperty = el.getAttribute('v-model');
+
+//       if (modelProperty) {
+//         const modelValue = modelProperty.split('.').reduce((obj, prop) => obj[prop], e.target);
+//         modelValue[modelProperty.split('.').pop()] = value.replace('-', '');
+//       }
+
+//       e.target.value = value;
+//     });
+//   },
+//   unbind: function maskCepUnbind(el) {
+//     el.removeEventListener('input', null);
+//   }
+// };
+
  
