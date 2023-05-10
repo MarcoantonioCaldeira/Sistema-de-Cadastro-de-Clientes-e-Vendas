@@ -12,21 +12,19 @@
 
             <input type="text" placeholder="Seu email principal" class="InputForm" v-model="e_mail">
 
-            <div class="Form_Email" v-for="(input, index) in inputs"  v-if="Mostrar_Email">
+            <div class="Form_Email" v-for="(input, index) in inputs">
 
-                <div>
-                    <input type="text" :name="'contact[' + index + '][email]'" placeholder="Seu E-mail secundario" class="InputForm_Email_Opcional" v-model="e_mail_adicional">
-                </div>
-
-                <button type="button"  @click="Deletar_Email(index)" class="btn btn-outline-danger rounded-circle">
-                    <i class="fa fa-times"></i>
+                <button  class="btn_add_email" v-if="!Mostrar_Email" @click="Mostrar_Email = true">
+                    Adicionar outro E-mail<i class="fa-solid fa-circle-plus"></i> 
                 </button>
 
-            </div>
+                <div v-if="Mostrar_Email">    
+                <!-- <img v-img:src   class="icon_btn_add_email"  src="@/assets/images/icon_add_email.png"> -->
+                    <input type="text" v-if="Mostrar_Email" placeholder="Seu E-mail secundario" class="InputForm_Email_Opcional" v-model="e_mail_adicional">
+                    <i @click="clearInput"  id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
+                   
+                </div>
 
-            <div class="add_email" @click="Mostrar_Email = !show">
-                <img v-img:src   class="icon_btn_add_email"  src="@/assets/images/icon_add_email.png">
-                <button  class="btn_add_email" onclick='this.disabled=true'>Adicionar outro E-mail</button>
             </div>
 
             <!-- class="btn btn-outline-secondary" -->
@@ -51,8 +49,8 @@
 
             <input type="text" placeholder="Seu RG"  v-maskRG  class="InputForm" v-model="rg">
 
-            <br><label class="lb_dt">Data de Nascimento:</label><input type="date" class="Input_Data_Nascimento"
-                v-model="nascimento">
+            <br><label class="lb_dt">Data de Nascimento:</label><input type="date" class="Input_Data_Nascimento" v-model="nascimento">
+
 
             <!-- Tipo Suframa-->
 
@@ -85,7 +83,7 @@
                 <div id="AreaEnderecoPrincipal">
                     <h2 class="h2_endereco">Endereço Principal</h2>
 
-                    <input type="text" placeholder="Seu CEP"  v-maskCEP class="input_cep" v-model="cep" v-on:blur="CONSULTA_CEP" maxlength="9">
+                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep" v-on:blur="CONSULTA_CEP" maxlength="9">
                     <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco_end_1.logradouro">
                     <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_1">
                     <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_1">
@@ -100,7 +98,7 @@
                 <div id="AreaEnderecoSecundario">
                     <h2 class="h2_endereco">Endereço Secundario(Opcional)</h2>
 
-                    <input type="text" placeholder="Seu CEP"  v-maskCEP class="input_cep" v-model="cep_2" v-on:blur="CONSULTA_CEP_COB" maxlength="9">
+                    <input type="text" placeholder="Seu CEP"  class="input_cep" v-model="cep_2" v-on:blur="CONSULTA_CEP_COB" maxlength="9">
                     <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco_end_2.logradouro">
                     <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_2">
                     <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_2">
@@ -116,7 +114,7 @@
                 <div id="AreaEnderecoTerciario">
                     <h2 class="h2_endereco">Endereço Terciario(Opcional)</h2>
 
-                    <input type="text" placeholder="Seu CEP"  v-maskCEP class="input_cep" v-model="cep_3" v-on:blur="CONSULTA_CEP_TER" maxlength="9">
+                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep_3" v-on:blur="CONSULTA_CEP_TER" maxlength="9">
                     <input type="text" placeholder="Endereço" class="input_endereco" v-model="bairro_end_3.logradouro">
                     <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_3">
                     <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_3">
@@ -136,11 +134,12 @@
 </template>
 
 <script>
+import '@fortawesome/fontawesome-free/css/all.css'
 import axios from 'axios';
 import api from '../services/api';
 import VueImg from 'v-img';
 import { throwStatement } from '@babel/types';
-import {maskCpf, maskRG, maskTelefone, maskCEP} from '../services/funcoes';
+import {maskCpf, maskRG, maskTelefone, maskCep} from '../services/funcoes';
 
 
 export default{
@@ -151,7 +150,7 @@ export default{
         maskCpf,
         maskRG,
         maskTelefone,
-        maskCEP
+        // 'mask-cep': maskCep
     },
 
     created() {
@@ -167,6 +166,7 @@ export default{
             }, 
 
             Icone_Adicionar_Email: "./assets/images/icon_add_email.svg",
+            Mostrar_Email: false,
             enviandoDados: false,
             token: '',
             nome: "",
@@ -230,7 +230,6 @@ export default{
             tipo_endereco_3: "",
 
             cep_keys: [],
-            Mostrar_Email: false,
             inputs: []
         }
     },
@@ -317,9 +316,10 @@ export default{
             })
         },
 
-        Deletar_Email(index) {
-            this.inputs.splice(index, 1);
+        clearInput(){
+            this.Mostrar_Email = false;
         },
+
 
         CONSULTA_CEP() {
             var self = this;
@@ -404,26 +404,7 @@ export default{
                 .finally(function() {
 
                 });
-        },
-
-
-        // Mascara_CPF(){
-
-        //     const input_cpf = document.getElementById("InputCPF") 
-
-        //     input_cpf.addEventListener('keypress', () => {
-        //             let Inputlength = input_cpf.value.length
-
-        //             if(Inputlength == 3 || Inputlength == 7){
-
-        //                 input_cpf.value += '.'
-
-        //             }else if (Inputlength == 11 ){
-
-        //                 input_cpf.valeu += '-'
-        //             }
-        //     })
-        // }
+        }
     }
 
     }

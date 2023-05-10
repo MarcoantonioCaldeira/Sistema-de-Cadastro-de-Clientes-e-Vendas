@@ -68,6 +68,7 @@ label {
 
 
 .InputForm {
+  position: relative;
   width: 350px;
   background-color: #CECCCC;
   //background-color: red;
@@ -87,11 +88,11 @@ label {
 .Form_Email {
   margin-left: 5%;
   width: 21.5%;
-  height: 67px;
+  height: 40px;
 }
 
 .InputForm_Email_Opcional {
-  width: 350px;
+  width: 300px;
   background-color: $cor_4;
   padding: 0px 12px;
   border: 1px solid;
@@ -103,9 +104,24 @@ label {
   height: 40px;
 }
 
-.btn_add_email {
+//icone para excluir o email
+#fa-solid-li{
+  color: $cor_3;
   position: relative;
+  left: 350px;
+  top: -30px;
+}
+
+.btn_add_email {
+  width: 180px;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  position: relative;
+  margin-left: 100px;
   font-weight: 500;
+  border-radius: 5px;
+  border: 1px solid;
   font-family: $font_2;
   border: none;
   height: 40px;
@@ -113,46 +129,25 @@ label {
   color: $cor_2;
 }
 
-.btn_add_email:disabled {
-  display: none;
-}
-
-.icon_btn_add_email {
+//icone para adicionar o email
+.fa-solid{
   position: absolute;
-  width: 1.5%;
-  margin-top: 6px;
-  left: 19%;
-}
-
-//Div
-.add_email {
-  border: 1px solid;
-  border-radius: 5px;
-  border-color: $cor_4;
-  background-color: $cor_4;
-  width: 200px;
-  height: 40px;
-  margin-left: 150px;
-}
-
-.deletar_email {
-  background-color: red;
-  width: 20px;
-  height: 20px;
+  left: 160px;
 }
 
 
-.input_separado_rg {
-  background-color: $cor_4;
-  padding: 0px 12px;
-  border: 1px solid;
-  box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
-  border-radius: 5px;
-  font-family: $font_2;
-  border-color: $cor_4;
-  height: 40px;
-  width: 16%;
-}
+// .input_separado_rg {
+//   background-color:red;
+//   background-color: $cor_4;
+//   padding: 0px 12px;
+//   border: 1px solid;
+//   box-shadow: 0 4px 8px 0 rgba(32, 32, 32, 0.2), 0 6px 20px 0 rgba(51, 51, 51, 0.19);
+//   border-radius: 5px;
+//   font-family: $font_2;
+//   border-color: $cor_4;
+//   height: 40px;
+//   width: 16%;
+// }
 
 
 .Input_Data_Cadastro {
@@ -270,7 +265,7 @@ label {
 #AreaEnderecoPrincipal {
   display: inline-block;
   width: 22%;
-  height: 700px;
+  height: 500px;
   margin-top: 270px;
   margin-left: 50px;
 }
@@ -278,7 +273,7 @@ label {
 #AreaEnderecoSecundario {
   display: inline-block;
   width: 22%;
-  height: 700px;
+  height: 500px;
   margin-left: 10%;
   //margin-top: -735px;
   //background-color: blue;
@@ -287,7 +282,7 @@ label {
 #AreaEnderecoTerciario {
   display: inline-block;
   width: 22%;
-  height: 700px;
+  height: 500px;
   margin-left: 10%;
   //margin-top: -700px;
   //background-color: blue;
@@ -363,7 +358,7 @@ label {
 .btn_proxima_etapa {
   position: relative;
   margin-left: 5%;
-  margin-top: 20%;
+  margin-top: 5%;
   background-color: $cor_1;
   font-weight: 100;
   font-family: $font_2;
