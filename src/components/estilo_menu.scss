@@ -10,7 +10,6 @@
     z-index: 209;
     width: 100%;
     //margin-top: ;
-    //position: fixed;
     transition: 0.5s ease all;
     color: #fff;
   
@@ -31,7 +30,7 @@
   
   
   nav {
-    background-color: red;
+    //background-color: red;
     text-decoration: none;
     position: relative;
     display: flex;
@@ -52,7 +51,6 @@
     @media (min-width: 1140px) {
         max-width: 1140px;
     }
-  
   
         ul .link{
           text-decoration: none;
@@ -105,8 +103,7 @@
       }
   
       .navigation{
-        //background-color: red;
-        
+        //background-color: red;   
         display: flex;
         align-items: center;
         flex: 1;
@@ -183,6 +180,9 @@
     padding: 8px 0;
   
     .branding{
+      display: flex;
+      align-items: center;
+
       img{
         //width: 100px;
         //box-shadow: 0 4px 6px -1px;
