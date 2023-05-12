@@ -30,14 +30,14 @@
   
   
   nav {
-    //background-color: red;
+    //background-color: #057ee0;
     text-decoration: none;
     position: relative;
     display: flex;
-    flex-direction: row;
-    padding: 16px 0;
+    //flex-direction: row;
+    padding: 13px 0;
     transition: 0.5s ease all;
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     //margin-left: 230px;
   
@@ -65,9 +65,9 @@
   
         li{
           text-transform: uppercase;
-          padding: 16px;
+          padding: 10px;
           font-family: 'Poppins';
-          margin-left: 16px;
+          margin-left: 10px;
         }
   
         @media only screen and (max-width: 54em) {
@@ -75,7 +75,7 @@
           ul{
             margin-top: -3%;
           }
-  
+          
         }
         .link {
             font-size: 14px;
@@ -91,7 +91,7 @@
   
       .branding {
         display: flex;
-        // background-color: red;
+        //background-color: red;
         margin-left: -12%;
         align-items: center;
   
@@ -103,23 +103,26 @@
       }
   
       .navigation{
-        //background-color: red;   
+       // background-color: red;   
         display: flex;
         align-items: center;
-        flex: 1;
+        margin-left: 100px;
+        //flex: 1;
         justify-content: flex-end;
       }
   
   
       .icon{
+        //background-color: aqua;
         display: flex;
         position: absolute;
         align-items: center;
         top: 0;
-        right: 24px;
-        height: 100%;
+        right: 5px;
+        height: 90px;
   
         i {
+          color: white;
           cursor: pointer;
           font-size: 24px;
           transition: 0.8s ease all;
@@ -127,23 +130,21 @@
       }
   
       .icon-active{
-        transform: rotate(180deg);
+        //transform: rotate(180deg);
       }
   
       .dropdown-nav{
+        z-index: 200;
         display: flex;
-        position: absolute;
         flex-direction: column;
         position: fixed;
         width: 100%;
         max-width: 250px;
         height: 100%;
-        box-shadow: 5px;
-        z-index: 200;
-        background-color: #002c3a;
+        background-color: #002b38;
         top: 0;
         left: 0;
-  
+           
         li{
           text-decoration: none !important;
           //margin-left: 0;
@@ -157,7 +158,7 @@
   
       .mobile-nav-enter-active,.mobile-nav-leave-active{
         transition: 1s ease all;
-        // z-index: 200;
+        z-index: 200;
       }
   
   
@@ -183,10 +184,10 @@
       display: flex;
       align-items: center;
 
-      img{
+      //img{
         //width: 100px;
         //box-shadow: 0 4px 6px -1px;
-      }
+      //}
     }
   }
   

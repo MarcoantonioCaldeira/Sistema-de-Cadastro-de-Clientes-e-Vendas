@@ -150,6 +150,24 @@ label {
 // }
 
 
+.Select_Nome_Vendedor{
+  position: relative;
+  width: 373px;
+  background-color: #CECCCC;
+  //background-color: red;
+  padding: 0px 12px;
+  border: 1px solid;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: #CECCCC;
+  display: block;
+  margin-left: 5%;
+  height: 40px;
+}
+
+
 .Input_Data_Cadastro {
   width: 215px;
   position: relative;
@@ -397,6 +415,10 @@ label {
     width: 300px;
   }
 
+  .Select_Nome_Vendedor{
+    display: block;
+    width: 300px;
+  }
 
   // #footer{display: none;}
 

@@ -33,7 +33,12 @@
 
             <input type="text" placeholder="Codigo do cliente" class="InputForm" v-model="cod_cliente">
 
-            <input type="text" placeholder="Nome do vendedor" class="InputForm" v-model="cod_vendedor">
+            <!-- <input type="text" placeholder="Nome do vendedor" class="InputForm" v-model="cod_vendedor"> -->
+
+            <select class="Select_Nome_Vendedor" v-model="vendedorSelecionado">
+                <option value="" disabled selected style="color:#9B9A9A;">Nome do Vendedor</option>
+                <option v-for="nomeVendedor in nomesVendedores" :value="nomeVendedor">{{ nomeVendedor }}</option>
+            </select>
         
             <input type="text" placeholder="Classificação de entrega" class="InputForm" v-model="classificacao_entrega">
 
@@ -137,6 +142,7 @@
 import '@fortawesome/fontawesome-free/css/all.css'
 import axios from 'axios';
 import api from '../services/api';
+import api_2  from '../services/api_2';
 import VueImg from 'v-img';
 import { throwStatement } from '@babel/types';
 import {maskCpf, maskRG, maskTelefone, maskCep} from '../services/funcoes';
@@ -159,6 +165,12 @@ export default{
 
     data() {
         return {
+            cod_vendedor: "",
+            cod_vendedor_data: {},
+            cod_vendedor_keys: [],
+            nomesVendedores: [],
+            vendedorSelecionado: '',
+
             response: {
                 show: false,
                 class: 'warning',
@@ -174,7 +186,6 @@ export default{
             classificacao: "1",
             classificacao_entrega: "",
             cod_cliente: "",
-            cod_vendedor: "",
             e_mail: "",
             e_mail_adicional: "",
             e_mail_2:"",
@@ -404,7 +415,29 @@ export default{
                 .finally(function() {
 
                 });
+        },
+
+        Requisicao_Vendedores(){
+            var self = this;
+
+            api_2.get(`/vendedores?cod_vendedor=${self.cod_vendedor}`)
+
+            .then((response) => {
+                console.log(response);
+                self.cod_vendedor_data = response.data;
+                self.cod_vendedor_keys = Object.keys(self.cod_vendedor_data);
+
+
+                const nomesVendedores = Object.values(self.cod_vendedor_data).map(vendedor => vendedor.nome);
+
+                self.nomesVendedores = nomesVendedores;
+            })
+            .catch((error) => {
+                console.log(error);
+                alert("Erro ao buscar dados do vendedor");
+            });
         }
+
     }
 
     }

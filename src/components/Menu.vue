@@ -31,6 +31,7 @@
 
 <script> 
 import VueImg from 'v-img';
+import '@fortawesome/fontawesome-free/css/all.css'
 
 export default{
   name: 'Menu',
