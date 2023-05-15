@@ -142,8 +142,7 @@
 <script>
 import '@fortawesome/fontawesome-free/css/all.css'
 import axios from 'axios';
-import api from '../services/api';
-import api_2  from '../services/api_2';
+import api, { getToken } from '../services/api';
 import VueImg from 'v-img';
 import { throwStatement } from '@babel/types';
 import {maskCpf, maskRG, maskTelefone, maskCep} from '../services/funcoes';
@@ -249,78 +248,79 @@ export default{
 
     methods: {
 
-     Cadastrar() {
+    async Cadastrar() {
 
-            var self = this;
+        try {
+     
+            const token = await getToken();
+            const headers = { Authorization: `Bearer ${token}` };
 
-            api.post("/clientes",{
+            await api.post("/clientes",{
                     clientes: [{
-                        nome: self.nome,
-                        nome_fantasia: self.nome_fantasia,
-                        classificacao: self.classificacao,
-                        classificacao_entrega: self.classificacao_entrega,
-                        cod_cliente: self.cod_cliente,
-                        cod_vendedor: self.cod_vendedor,
-                        e_mail: self.e_mail,
-                        e_mail: self.e_mail_adicional,
-                        observacao: self.observacao,
-                        e_mail_nfe: self.e_mail_nfe,
-                        data_cadastro: self.data_cadastro,
-                        telefone_2: self.telefone_2,
-                        celular: self.celular,
-                        cnpj_cpf: self.cnpj_cpf,
-                        cnpj_cpf_entrega: self.cnpj_cpf_entrega,
-                        rg: self.inscricao_rg,
-                        nascimento: self.nascimento,
-                        suframa_tipo: self.suframa_tipo,
-                        suframa: self.suframa,
-                        inscricao_municipal: self.inscricao_municipal,
+                        nome: this.nome,
+                        nome_fantasia: this.nome_fantasia,
+                        classificacao: this.classificacao,
+                        classificacao_entrega: this.classificacao_entrega,
+                        cod_cliente: this.cod_cliente,
+                        cod_vendedor: this.cod_vendedor,
+                        e_mail: this.e_mail,
+                        e_mail: this.e_mail_adicional,
+                        observacao: this.observacao,
+                        e_mail_nfe: this.e_mail_nfe,
+                        data_cadastro: this.data_cadastro,
+                        telefone_2: this.telefone_2,
+                        celular: this.celular,
+                        cnpj_cpf: this.cnpj_cpf,
+                        cnpj_cpf_entrega: this.cnpj_cpf_entrega,
+                        rg: this.inscricao_rg,
+                        nascimento: this.nascimento,
+                        suframa_tipo: this.suframa_tipo,
+                        suframa: this.suframa,
+                        inscricao_municipal: this.inscricao_municipal,
                         cliente_enderecos: [{
 
-                            cep: self.cep,
-                            endereco: self.endereco_end_1,
-                            end_numero: self.end_numero_1,
-                            complemento: self.complemento_1,
-                            bairro: self.bairro_end_1,
-                            cidade: self.cidade_end_1,
-                            cod_cidade: self.cod_cidade_1,
-                            cod_pais: self.cod_pais_1,
-                            estado: self.estado_end_1,
-                            tipo_endereco: self.tipo_endereco_1,
+                            cep: this.cep,
+                            endereco: this.endereco_end_1,
+                            end_numero: this.end_numero_1,
+                            complemento: this.complemento_1,
+                            bairro: this.bairro_end_1,
+                            cidade: this.cidade_end_1,
+                            cod_cidade: this.cod_cidade_1,
+                            cod_pais: this.cod_pais_1,
+                            estado: this.estado_end_1,
+                            tipo_endereco: this.tipo_endereco_1,
 
-                            cep: self.cep_2,
-                            endereco: self.endereco_end_2,
-                            end_numero: self.end_numero_2,
-                            complemento: self.complemento_2,
-                            bairro: self.bairro_end_2,
-                            cidade: self.cidade_end_2,
-                            cod_cidade: self.cod_cidade_2,
-                            cod_pais: self.cod_pais_2,
-                            estado: self.estado_end_2,
-                            tipo_endereco: self.tipo_endereco_2,
+                            cep: this.cep_2,
+                            endereco: this.endereco_end_2,
+                            end_numero: this.end_numero_2,
+                            complemento: this.complemento_2,
+                            bairro: this.bairro_end_2,
+                            cidade: this.cidade_end_2,
+                            cod_cidade: this.cod_cidade_2,
+                            cod_pais: this.cod_pais_2,
+                            estado: this.estado_end_2,
+                            tipo_endereco: this.tipo_endereco_2,
 
-                            cep: self.cep_3,
-                            endereco: self.endereco_end_3,
-                            end_numero: self.end_numero_3,
-                            complemento: self.complemento_3,
-                            bairro: self.bairro_end_3,
-                            cidade: self.cidade_end_3,
-                            cod_cidade: self.cod_cidade_3,
-                            cod_pais: self.cod_pais_3,
-                            estado: self.estado_end_3,
-                            tipo_endereco: self.tipo_endereco_3
+                            cep: this.cep_3,
+                            endereco: this.endereco_end_3,
+                            end_numero: this.end_numero_3,
+                            complemento: this.complemento_3,
+                            bairro: this.bairro_end_3,
+                            cidade: this.cidade_end_3,
+                            cod_cidade: this.cod_cidade_3,
+                            cod_pais: this.cod_pais_3,
+                            estado: this.estado_end_3,
+                            tipo_endereco: this.tipo_endereco_3
                     }],
                 }],
-             }, 
-            {
-                headers: {
-
-                    authorization: 'Bearer '+ self.$session.get('token')
-
-                }}).then(function(resp){
+             },{ headers }).then(function(resp){
                 console.log("Inserio o Cliente", resp)
             })
-        },
+        }catch(error){
+            console.log(error);
+            alert("Erro ao buscar dados do vendedor");
+        };
+    },
 
         add_email() {
             this.inputs.push({
@@ -418,25 +418,30 @@ export default{
                 });
         },
 
-        Requisicao_Vendedores(){                                                                                                                                                                                                                    
+        async Requisicao_Vendedores(){
+            
+            
             var self = this;
 
-            api_2.get(`/vendedores?cod_vendedor=${self.cod_vendedor}`)
+            try {
 
-            .then((response) => {
-                console.log(response);
-                self.cod_vendedor_data = response.data;
-                self.cod_vendedor_keys = Object.keys(self.cod_vendedor_data);
+                const token = await getToken();
+                const headers = { Authorization: `Bearer ${token}` };
 
-                const nomesVendedores = Object.values(self.cod_vendedor_data).map(vendedor => vendedor.nome);
+                await api.get(`/vendedores?cod_vendedor=${self.cod_vendedor}`, { headers })
 
-                self.nomesVendedores = nomesVendedores;
-            })
-            .catch((error) => {
-
+                .then((response) => {
+                    
+                    console.log(response);
+                    self.cod_vendedor_data = response.data;
+                    self.cod_vendedor_keys = Object.keys(self.cod_vendedor_data);
+                })
+                
+            }catch(error){
                 console.log(error);
                 alert("Erro ao buscar dados do vendedor");
-            });
+            };
+            
         }
 
     }
