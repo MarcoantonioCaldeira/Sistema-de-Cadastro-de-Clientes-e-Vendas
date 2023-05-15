@@ -150,6 +150,24 @@ label {
 // }
 
 
+.Select_Nome_Vendedor{
+  position: relative;
+  width: 373px;
+  background-color: #CECCCC;
+  //background-color: red;
+  padding: 0px 12px;
+  border: 1px solid;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: #CECCCC;
+  display: block;
+  margin-left: 5%;
+  height: 40px;
+}
+
+
 .Input_Data_Cadastro {
   width: 215px;
   position: relative;
@@ -358,7 +376,7 @@ label {
 .btn_proxima_etapa {
   position: relative;
   margin-left: 5%;
-  margin-top: 5%;
+  margin-top: 5% !important;
   background-color: $cor_1;
   font-weight: 100;
   font-family: $font_2;
@@ -382,40 +400,62 @@ label {
 }
 
 
-@media (max-width: 24.625em) {
+@media (max-width: 36.75em) {
+  
 
 
   #corpo_formulario {
     position: relative;
-    //background-color:red;
+    //background-color: red;
     width: 100% !important;
-    height: 4000px;
+    height: 4400px;
   }
 
-  .InputForm{
+  #h1-titulo{
+    position: relative;
+    font-size: 25px;
+    margin-left: 5px;
+    margin-top: 2% !important;
+  }
+
+  p{
+    display: none;   
+  }
+
+  .InputForm, .CodigoSuframa, .InputInscricao{
+    display: block;
+    width: 270px;
+  }
+
+  .InputForm_Email_Opcional{
+    width: 230px;
+  }
+
+  .Input_Data_Nascimento, .Input_Data_Cadastro, .SelectSuframa, .CodigoSuframa, .InputInscricao{
+    margin-left: 20px;
+    width: 290px;
+  }
+
+  .lb_dt{
+    margin-left: 20px;
+  }
+
+  .btn_add_email{
+    margin-left: 55px;
+  }
+
+  .h2_suframa, .label_codigo_suframa{
+    font-size:15px;
+    margin-left: 20px;
+  }
+
+  .Select_Nome_Vendedor{
     display: block;
     width: 300px;
   }
 
-
-  // #footer{display: none;}
-
-  #Area_Enderecos{
-    margin-top: -70px;
-    background-color: royalblue;
-  }
-
-  #AreaEnderecoPrincipal{
-    //margin-top: 70%;
-    display: block;
-  }
-
-  #AreaEnderecoSecundario{
-    display: block;
-  }
-
-  #AreaEnderecoTerciario{
-    display: block;
+  .SelectSuframa{
+    width: 300px;
   }
 
   #AreaSuframa{
@@ -423,17 +463,89 @@ label {
     margin-left: 0;
     margin-top: 50px;
     display:block;
-
-    #AreaObservacoes{
-      margin-left: -50px;
-    }
-    
-    .TextArea {
-      display: grid;
-     margin-left: 50px;
-     background-color: rgb(0, 255, 157);
-    }
   }
+
+  #AreaObservacoes{
+    background-color: red;
+    margin-top: -50px;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  // .p_obs{
+  //   //margin-left: 20px;
+  //   color: aqua;
+  //   font-size: 150px;
+  //   margin-top: 50%;
+  //  }
+  
+  .TextArea {
+    margin-left: 20px;
+    margin-top: 30%;
+    width: 270px !important;
+    height: 180px;
+    //background-color: rgb(0, 255, 157);
+  }
+
+  #Area_Enderecos{
+    height: 2300px;
+    margin-top: -270px;
+  }
+
+  #Area_Enderecos input{
+    width: 270px !important;
+ }
+
+  #AreaEnderecoPrincipal, #AreaEnderecoSecundario, #AreaEnderecoTerciario{
+    //background-color: rgb(0, 60, 255);
+    display: block;
+    margin-top: 70%;
+    margin-left: 5px;
+  }
+
+ .h2_endereco{
+  margin-left: 20px;
+ }
 
 }
 
+
+@media (min-width: 38.5em ) and (max-width:61.999em){
+
+  #corpo_formulario {
+    height: 3550px;
+    //background-color: blue;
+  }
+
+
+  #Area_Enderecos{
+    //background-color: #003A4C;
+    height: 2300px;
+  }
+
+  #AreaEnderecoPrincipal{
+    //background-color: rgb(0, 60, 255);
+    display: block;
+    margin-top: 40%;
+    margin-left: 5px;
+  }
+
+  #AreaEnderecoSecundario{
+    display: inline-block;
+    margin-top: 40%;
+    margin-left: 5px;
+  }
+
+
+  #AreaEnderecoTerciario{
+    display: inline-block;
+    margin-top: 40%;
+    margin-left: 50%;
+  }
+
+
+  .btn_proxima_etapa{
+    margin-top: -20px;
+  }
+
+}
