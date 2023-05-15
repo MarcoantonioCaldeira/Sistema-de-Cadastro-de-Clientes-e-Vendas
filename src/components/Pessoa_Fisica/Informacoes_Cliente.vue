@@ -35,18 +35,20 @@
 
             <!-- <input type="text" placeholder="Nome do vendedor" class="InputForm" v-model="cod_vendedor"> -->
 
-            <select class="Select_Nome_Vendedor" v-model="vendedorSelecionado">
+            <select class="Select_Nome_Vendedor" v-model="vendedorSelecionado" @change="Requisicao_Vendedores">
+
                 <option value="" disabled selected style="color:#9B9A9A;">Nome do Vendedor</option>
                 <option v-for="nomeVendedor in nomesVendedores" :value="nomeVendedor">{{ nomeVendedor }}</option>
+
             </select>
         
             <input type="text" placeholder="Classificação de entrega" class="InputForm" v-model="classificacao_entrega">
 
             <label class="lb_dt">Data do Cadastro: </label><input type="date" class="Input_Data_Cadastro" v-model="data_cadastro">
 
-            <input type=" celphone" placeholder="Seu telefone"  v-maskTelefone class="InputForm" v-model="telefone_2" maxlength="10">
+            <input type=" celphone" placeholder="Seu telefone"  v-maskTelefone class="InputForm" v-model="telefone_2" maxlength="14">
 
-            <input type="text" placeholder="Celular"   v-maskTelefone  class="InputForm" v-model="celular" maxlength="11">
+            <input type="text" placeholder="Celular"   v-maskTelefone  class="InputForm" v-model="celular" maxlength="15">
 
             <input type="text" placeholder="Seu CPF"  v-maskCpf  class="InputForm" v-model="cnpj_cpf" maxlength="14">
 
@@ -70,8 +72,7 @@
 
                 <br><label class="label_codigo_suframa">Codigo SUFRAMA:</label><input type="text" class="CodigoSuframa" v-model="suframa">
 
-                <input type="text" placeholder="Numero de Inscrição Municipal" class="InputInscricao"
-                    v-model="inscricao_municipal">
+                <input type="text" placeholder="Numero de Inscrição Municipal" class="InputInscricao" v-model="inscricao_municipal">
             </div>
 
             <!--Observacoes do cliente -->
@@ -417,7 +418,7 @@ export default{
                 });
         },
 
-        Requisicao_Vendedores(){
+        Requisicao_Vendedores(){                                                                                                                                                                                                                    
             var self = this;
 
             api_2.get(`/vendedores?cod_vendedor=${self.cod_vendedor}`)
@@ -427,12 +428,12 @@ export default{
                 self.cod_vendedor_data = response.data;
                 self.cod_vendedor_keys = Object.keys(self.cod_vendedor_data);
 
-
                 const nomesVendedores = Object.values(self.cod_vendedor_data).map(vendedor => vendedor.nome);
 
                 self.nomesVendedores = nomesVendedores;
             })
             .catch((error) => {
+
                 console.log(error);
                 alert("Erro ao buscar dados do vendedor");
             });

@@ -40,6 +40,9 @@
     width: 80%;
     margin: 0 auto;
     //margin-left: 230px;
+    @media (min-width: 1140px) {
+      max-width: 1140px;
+    }
   
     ul,.link {
       font-weight: 500;
@@ -48,9 +51,6 @@
       text-decoration: none;
     }
   
-    @media (min-width: 1140px) {
-        max-width: 1140px;
-    }
   
         ul .link{
           text-decoration: none;
@@ -122,7 +122,7 @@
         height: 90px;
   
         i {
-          color: white;
+          color: #002b38;
           cursor: pointer;
           font-size: 24px;
           transition: 0.8s ease all;
