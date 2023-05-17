@@ -6,6 +6,7 @@ export  function maskCpf(el) {
       value = value.replace(/(\d{3})(\d)/, '$1.$2'); // Coloca o primeiro ponto
       value = value.replace(/(\d{3})(\d)/, '$1.$2'); // Coloca o segundo ponto
       value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Coloca o traço no final
+      
       e.target.value = value;
     });
 
