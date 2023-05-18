@@ -19,7 +19,7 @@
                 </button>
 
                 <div v-if="Mostrar_Email">    
-                <!-- <img v-img:src   class="icon_btn_add_email"  src="@/assets/images/icon_add_email.png"> -->
+                    <!-- <img v-img:src   class="icon_btn_add_email"  src="@/assets/images/icon_add_email.png"> -->
                     <input type="text" v-if="Mostrar_Email" placeholder="Seu E-mail secundario" class="InputForm_Email_Opcional" v-model="e_mail_adicional">
                     <i @click="clearInput"  id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
                    
@@ -35,8 +35,11 @@
 
             <!-- <input type="text" placeholder="Nome do vendedor" class="InputForm" v-model="cod_vendedor"> -->
 
-            <select class="Select_Nome_Vendedor" v-model="selectedVendedor">
-                <option v-for="vendedor in vendedores" :value="vendedor.cod_vendedor" :key="vendedor.cod_vendedor">{{ vendedor.nome }}</option>
+            <p>Selecione o nome do vendedor</p>
+           
+            <select class="Select_Nome_Vendedor" v-model="selectedVendedor" v-on:click="Requisicao_Vendedores">
+                <option v-for="vendedor in vendedores" :value="vendedor">{{ vendedor.nome }}</option>
+                <!-- <option v-for="vendedor in vendedores" :value="vendedor">{{ vendedor.nome }}</option> -->
             </select>
         
             <input type="text" placeholder="Classificação de entrega" class="InputForm" v-model="classificacao_entrega">
@@ -45,11 +48,11 @@
 
             <input type=" text" placeholder="Seu telefone"  v-maskTelefone class="InputForm" v-model="telefone_2" maxlength="14">
 
-            <input type="text" placeholder="Celular"   v-maskTelefone  class="InputForm" v-model="celular" maxlength="15">
+            <input type="text" placeholder="Celular"   v-maskCelular  class="InputForm" v-model="celular" maxlength="15">
 
             <input type="text" placeholder="Seu CPF"  v-maskCpf  class="InputForm" v-model="cnpj_cpf" maxlength="14">
 
-            <input type="text" placeholder="CPF de Entrega"  v-maskCpf  class="InputForm" v-model="cnpj_cpf_entrega" maxlength="14">
+            <input type="text" placeholder="CNPJ de Entrega"  v-maskCnpj  class="InputForm" v-model="cnpj_cpf_entrega" maxlength="14">
 
             <input type="text" placeholder="Seu RG"  v-maskRG  class="InputForm" v-model="rg">
 
@@ -86,7 +89,7 @@
                 <div id="AreaEnderecoPrincipal">
                     <h2 class="h2_endereco">Endereço Principal</h2>
 
-                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep" v-on:blur="CONSULTA_CEP">
+                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep">
                     <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco">
                     <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero">
                     <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento">
@@ -140,7 +143,7 @@ import axios from 'axios';
 import api, { getToken } from '../services/api';
 import VueImg from 'v-img';
 import { throwStatement } from '@babel/types';
-import {maskCpf, maskRG, maskTelefone, maskCep} from '../services/funcoes';
+import {maskCpf, maskCnpj ,maskRG, maskTelefone, maskCelular} from '../services/funcoes';
 
 
 export default{
@@ -151,7 +154,8 @@ export default{
         maskCpf,
         maskRG,
         maskTelefone,
-        // 'mask-cep': maskCep
+        maskCelular,
+        maskCnpj
     },
 
     created() {
@@ -160,8 +164,14 @@ export default{
 
     data() {
         return {
-            vendedores: [],
+            //vendedores: [],
             selectedVendedor: null,
+            vendedores: [],
+            codigos:[
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+                15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
+            ],
+            
 
             response: {
                 show: false,
@@ -173,75 +183,76 @@ export default{
             Mostrar_Email: false,
             enviandoDados: false,
             token: '',
+           
 
-                nome: "",
-                nome_fantasia: "",
-                classificacao: "1",
-                classificacao_entrega: "",
-                cod_cliente: "",
-                e_mail: "",
-                e_mail_adicional: "",
-                e_mail_2:"",
-                observacao: "",
-                e_mail_nfe: "",
-                data_cadastro: "",
-                telefone_2: "",
-                celular: "",
-                cnpj_cpf: "",
-                cnpj_cpf_entrega: "",
-                rg: "",
-                nascimento: "",
-                suframa_tipo: "",
-                suframa: "",
-                inscricao_municipal: "",
-                cep: "",
-                cep_2: "",
-                cep_3: "",
+            nome: "",
+            nome_fantasia: "",
+            classificacao: "1",
+            classificacao_entrega: "",
+            cod_cliente: "",
+            e_mail: "",
+            e_mail_adicional: "",
+            e_mail_2:"",
+            observacao: "",
+            e_mail_nfe: "",
+            data_cadastro: "",
+            telefone_2: "",
+            celular: "",
+            cnpj_cpf: "",
+            cnpj_cpf_entrega: "",
+            rg: "",
+            nascimento: "",
+            suframa_tipo: "",
+            suframa: "",
+            inscricao_municipal: "",
+            cep: "",
+            cep_2: "",
+            cep_3: "",
 
-                //teste
-                endereco: "",
-                end_numero: "",
-                complemento: "",
-                bairro: "",
-                cidade: "",
-                cod_cidade: null,
-                estado: "",
-                tipo_endereco: "",
+            //teste
+            endereco: "",
+            end_numero: "",
+            complemento: "",
+            bairro: "",
+            cidade: "",
+            cod_cidade: null,
+            estado: "",
+            tipo_endereco: "",
 
 
-                //end_numero_1: "",
-                end_numero_2: "",
-                end_numero_3: "",
+            //end_numero_1: "",
+            end_numero_2: "",
+            end_numero_3: "",
 
-                //complemento_1: "",
-                complemento_2: "",
-                complemento_3: "",
+            //complemento_1: "",
+            complemento_2: "",
+            complemento_3: "",
 
-                //endereco_end_1: "",
+            //endereco_end_1: "",
                 //bairro_end_1: "",
                 //cidade_end_1: "",
                 //estado_end_1: "",
 
-                endereco_end_2: "",
-                bairro_end_2: "",
-                cidade_end_2: "",
-                estado_end_2: "",
+            endereco_end_2: "",
+            bairro_end_2: "",
+            cidade_end_2: "",
+            estado_end_2: "",
 
-                endereco_end_3: "",
-                bairro_end_3: "",
-                cidade_end_3: "",
-                estado_end_3: "",
+            endereco_end_3: "",
+            bairro_end_3: "",
+            cidade_end_3: "",
+            estado_end_3: "",
 
-                //cod_cidade_1: "",
-                cod_cidade_2: "",
-                cod_cidade_3: "",
+            //cod_cidade_1: "",
+            cod_cidade_2: "",
+            cod_cidade_3: "",
 
-                cod_pais: "1058",
+            cod_pais: "1058",
                 
 
-                //tipo_endereco_1: "",
-                tipo_endereco_2: "",
-                tipo_endereco_3: "",
+            //tipo_endereco_1: "",
+            tipo_endereco_2: "",
+            tipo_endereco_3: "",
          
            
             cep_keys: [],
@@ -250,7 +261,7 @@ export default{
     },
 
     mounted(){
-        //this.Requisicao_Vendedores();
+        this.Requisicao_Vendedores();
     },
 
 
@@ -429,20 +440,27 @@ export default{
                 });
         },
  
-        // async Requisicao_Vendedores(){                                                     
+        async Requisicao_Vendedores(){                                                     
 
-        //     try {
-        //         const token = await getToken();
-        //         const headers = { Authorization: `Bearer ${token}` };
-        //         const response = await api.get(`/vendedores?cod_vendedor=${this.cod_vendedor}`, { headers });
+            try {
+                const token = await getToken();
+                const headers = { Authorization: `Bearer ${token}` };
+
+
+                const promises = this.codigos.map( async codigo => {
+                    const response = await api.get(`/vendedores?cod_vendedor=${codigo}`, { headers });
+                    return response.data;
+                });
+            
                                
-        //         this.vendedores  = response.data;
+                const results = await Promise.all(promises);
+                this.vendedores  = results.flat();
                            
-        //     }catch(error){
-        //         console.log(error);
-        //         alert("Erro ao buscar dados do vendedor");
-        //     };  
-        // }
+            }catch(error){
+                console.log(error);
+                alert("Erro ao buscar dados do vendedor");
+            };  
+        }
     }
 
     }
