@@ -35,10 +35,10 @@
 
             <!-- <input type="text" placeholder="Nome do vendedor" class="InputForm" v-model="cod_vendedor"> -->
 
-            <p>Selecione o nome do vendedor</p>
+            <p>Selecione o nome do vendedor: </p>
            
             <select class="Select_Nome_Vendedor" v-model="selectedVendedor" v-on:click="Requisicao_Vendedores">
-                <option v-for="vendedor in vendedores" :value="vendedor">{{ vendedor.nome }}</option>
+                <option  class="option_p"  v-for="vendedor in vendedores" :value="vendedor">{{ vendedor.nome }}</option>
                 <!-- <option v-for="vendedor in vendedores" :value="vendedor">{{ vendedor.nome }}</option> -->
             </select>
         
