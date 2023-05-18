@@ -5,13 +5,13 @@ const api = axios.create({
 });
 
 
-
 let token = null;
 
 
 export const setToken = newToken => {
 
   token = newToken;
+  
 }
 
 export const getToken = async () => {
@@ -42,8 +42,6 @@ const refreshToken = async () => {
     console.error('Erro ao obter novo token', error);
   }
 };
-
-
 
 
 export default api;

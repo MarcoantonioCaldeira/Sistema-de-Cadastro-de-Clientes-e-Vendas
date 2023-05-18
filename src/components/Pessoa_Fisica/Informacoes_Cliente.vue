@@ -19,11 +19,11 @@
                 </button>
 
                 <div v-if="Mostrar_Email">    
-                <!-- <img v-img:src   class="icon_btn_add_email"  src="@/assets/images/icon_add_email.png"> -->
+                    <!-- <img v-img:src   class="icon_btn_add_email"  src="@/assets/images/icon_add_email.png"> -->
                     <input type="text" v-if="Mostrar_Email" placeholder="Seu E-mail secundario" class="InputForm_Email_Opcional" v-model="e_mail_adicional">
                     <i @click="clearInput"  id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
                    
-                </div>
+                </div>       
 
             </div>
 
@@ -35,24 +35,24 @@
 
             <!-- <input type="text" placeholder="Nome do vendedor" class="InputForm" v-model="cod_vendedor"> -->
 
-            <select class="Select_Nome_Vendedor" v-model="vendedorSelecionado" @change="Requisicao_Vendedores">
-
-                <option value="" disabled selected style="color:#9B9A9A;">Nome do Vendedor</option>
-                <option v-for="nomeVendedor in nomesVendedores" :value="nomeVendedor">{{ nomeVendedor }}</option>
-
+            <p>Selecione o nome do vendedor</p>
+           
+            <select class="Select_Nome_Vendedor" v-model="selectedVendedor" v-on:click="Requisicao_Vendedores">
+                <option v-for="vendedor in vendedores" :value="vendedor">{{ vendedor.nome }}</option>
+                <!-- <option v-for="vendedor in vendedores" :value="vendedor">{{ vendedor.nome }}</option> -->
             </select>
         
             <input type="text" placeholder="Classificação de entrega" class="InputForm" v-model="classificacao_entrega">
 
             <label class="lb_dt">Data do Cadastro: </label><input type="date" class="Input_Data_Cadastro" v-model="data_cadastro">
 
-            <input type=" celphone" placeholder="Seu telefone"  v-maskTelefone class="InputForm" v-model="telefone_2" maxlength="14">
+            <input type=" text" placeholder="Seu telefone"  v-maskTelefone class="InputForm" v-model="telefone_2" maxlength="14">
 
-            <input type="text" placeholder="Celular"   v-maskTelefone  class="InputForm" v-model="celular" maxlength="15">
+            <input type="text" placeholder="Celular"   v-maskCelular  class="InputForm" v-model="celular" maxlength="15">
 
             <input type="text" placeholder="Seu CPF"  v-maskCpf  class="InputForm" v-model="cnpj_cpf" maxlength="14">
 
-            <input placeholder="CPF de Entrega"  v-maskCpf  class="InputForm" v-model="cnpj_cpf_entrega" maxlength="14">
+            <input type="text" placeholder="CNPJ de Entrega"  v-maskCnpj  class="InputForm" v-model="cnpj_cpf_entrega" maxlength="14">
 
             <input type="text" placeholder="Seu RG"  v-maskRG  class="InputForm" v-model="rg">
 
@@ -89,22 +89,22 @@
                 <div id="AreaEnderecoPrincipal">
                     <h2 class="h2_endereco">Endereço Principal</h2>
 
-                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep" v-on:blur="CONSULTA_CEP" maxlength="9">
-                    <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco_end_1.logradouro">
-                    <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_1">
-                    <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_1">
-                    <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro_end_1.bairro">
-                    <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_end_1.localidade">
-                    <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_1">
-                    <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_1.uf">
-                    <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_1">
-                    <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_1">
-                </div>
+                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep">
+                    <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco">
+                    <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero">
+                    <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento">
+                    <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro">
+                    <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade">
+                    <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade">
+                    <input type="text" placeholder="Estado" class="input_endereco" v-model="estado">
+                    <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco">
+                    
+                </div>                                                                        
               
                 <div id="AreaEnderecoSecundario">
                     <h2 class="h2_endereco">Endereço Secundario(Opcional)</h2>
 
-                    <input type="text" placeholder="Seu CEP"  class="input_cep" v-model="cep_2" v-on:blur="CONSULTA_CEP_COB" maxlength="9">
+                    <input type="text" placeholder="Seu CEP"  class="input_cep" v-model="cep_2" v-on:blur="CONSULTA_CEP_COB">
                     <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco_end_2.logradouro">
                     <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_2">
                     <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_2">
@@ -112,7 +112,6 @@
                     <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_end_2.localidade">
                     <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_2">
                     <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_2.uf">
-                    <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_2">
                     <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_2">
                 </div>
                
@@ -120,7 +119,7 @@
                 <div id="AreaEnderecoTerciario">
                     <h2 class="h2_endereco">Endereço Terciario(Opcional)</h2>
 
-                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep_3" v-on:blur="CONSULTA_CEP_TER" maxlength="9">
+                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep_3" v-on:blur="CONSULTA_CEP_TER">
                     <input type="text" placeholder="Endereço" class="input_endereco" v-model="bairro_end_3.logradouro">
                     <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_3">
                     <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_3">
@@ -128,7 +127,6 @@
                     <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_end_3.localidade">
                     <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_3">
                     <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_3.uf">
-                    <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_3">
                     <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_3">
                 </div>
 
@@ -145,7 +143,7 @@ import axios from 'axios';
 import api, { getToken } from '../services/api';
 import VueImg from 'v-img';
 import { throwStatement } from '@babel/types';
-import {maskCpf, maskRG, maskTelefone, maskCep} from '../services/funcoes';
+import {maskCpf, maskCnpj ,maskRG, maskTelefone, maskCelular} from '../services/funcoes';
 
 
 export default{
@@ -156,7 +154,8 @@ export default{
         maskCpf,
         maskRG,
         maskTelefone,
-        // 'mask-cep': maskCep
+        maskCelular,
+        maskCnpj
     },
 
     created() {
@@ -165,11 +164,14 @@ export default{
 
     data() {
         return {
-            cod_vendedor: "",
-            cod_vendedor_data: {},
-            cod_vendedor_keys: [],
-            nomesVendedores: [],
-            vendedorSelecionado: '',
+            //vendedores: [],
+            selectedVendedor: null,
+            vendedores: [],
+            codigos:[
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+                15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
+            ],
+            
 
             response: {
                 show: false,
@@ -181,6 +183,8 @@ export default{
             Mostrar_Email: false,
             enviandoDados: false,
             token: '',
+           
+
             nome: "",
             nome_fantasia: "",
             classificacao: "1",
@@ -205,18 +209,29 @@ export default{
             cep_2: "",
             cep_3: "",
 
-            end_numero_1: "",
+            //teste
+            endereco: "",
+            end_numero: "",
+            complemento: "",
+            bairro: "",
+            cidade: "",
+            cod_cidade: null,
+            estado: "",
+            tipo_endereco: "",
+
+
+            //end_numero_1: "",
             end_numero_2: "",
             end_numero_3: "",
 
-            complemento_1: "",
+            //complemento_1: "",
             complemento_2: "",
             complemento_3: "",
 
-            endereco_end_1: "",
-            bairro_end_1: "",
-            cidade_end_1: "",
-            estado_end_1: "",
+            //endereco_end_1: "",
+                //bairro_end_1: "",
+                //cidade_end_1: "",
+                //estado_end_1: "",
 
             endereco_end_2: "",
             bairro_end_2: "",
@@ -228,31 +243,48 @@ export default{
             cidade_end_3: "",
             estado_end_3: "",
 
-            cod_cidade_1: "",
+            //cod_cidade_1: "",
             cod_cidade_2: "",
             cod_cidade_3: "",
 
-            cod_pais_1: "",
-            cod_pais_2: "",
-            cod_pais_3: "",
+            cod_pais: "1058",
+                
 
-            tipo_endereco_1: "",
+            //tipo_endereco_1: "",
             tipo_endereco_2: "",
             tipo_endereco_3: "",
-
+         
+           
             cep_keys: [],
             inputs: []
         }
     },
 
+    mounted(){
+        this.Requisicao_Vendedores();
+    },
+
 
     methods: {
+
+    add_email() {
+        this.inputs.push({
+            email: null
+        })
+    },
+
+    clearInput(){
+        this.Mostrar_Email = false;
+    },
+
+
 
     async Cadastrar() {
 
         try {
      
             const token = await getToken();
+
             const headers = { Authorization: `Bearer ${token}` };
 
             await api.post("/clientes",{
@@ -280,15 +312,15 @@ export default{
                         cliente_enderecos: [{
 
                             cep: this.cep,
-                            endereco: this.endereco_end_1,
-                            end_numero: this.end_numero_1,
-                            complemento: this.complemento_1,
-                            bairro: this.bairro_end_1,
-                            cidade: this.cidade_end_1,
-                            cod_cidade: this.cod_cidade_1,
-                            cod_pais: this.cod_pais_1,
-                            estado: this.estado_end_1,
-                            tipo_endereco: this.tipo_endereco_1,
+                            endereco: this.endereco,
+                            end_numero: this.end_numero,
+                            complemento: this.complemento,
+                            bairro: this.bairro,
+                            cidade: this.cidade,
+                            cod_cidade: this.cod_cidade,
+                            cod_pais: this.cod_pais,
+                            estado: this.estado,
+                            tipo_endereco: this.tipo_endereco,
 
                             cep: this.cep_2,
                             endereco: this.endereco_end_2,
@@ -297,7 +329,7 @@ export default{
                             bairro: this.bairro_end_2,
                             cidade: this.cidade_end_2,
                             cod_cidade: this.cod_cidade_2,
-                            cod_pais: this.cod_pais_2,
+                            cod_pais: this.cod_pais,
                             estado: this.estado_end_2,
                             tipo_endereco: this.tipo_endereco_2,
 
@@ -308,30 +340,20 @@ export default{
                             bairro: this.bairro_end_3,
                             cidade: this.cidade_end_3,
                             cod_cidade: this.cod_cidade_3,
-                            cod_pais: this.cod_pais_3,
+                            cod_pais: this.cod_pais,
                             estado: this.estado_end_3,
                             tipo_endereco: this.tipo_endereco_3
+
                     }],
                 }],
              },{ headers }).then(function(resp){
-                console.log("Inserio o Cliente", resp)
+                console.log("Cliente inserido com sucesso", resp)
             })
         }catch(error){
             console.log(error);
             alert("Erro ao buscar dados do vendedor");
         };
     },
-
-        add_email() {
-            this.inputs.push({
-                email: null
-            })
-        },
-
-        clearInput(){
-            this.Mostrar_Email = false;
-        },
-
 
         CONSULTA_CEP() {
             var self = this;
@@ -417,33 +439,28 @@ export default{
 
                 });
         },
-
-        async Requisicao_Vendedores(){
-            
-            
-            var self = this;
+ 
+        async Requisicao_Vendedores(){                                                     
 
             try {
-
                 const token = await getToken();
                 const headers = { Authorization: `Bearer ${token}` };
 
-                await api.get(`/vendedores?cod_vendedor=${self.cod_vendedor}`, { headers })
 
-                .then((response) => {
-                    
-                    console.log(response);
-                    self.cod_vendedor_data = response.data;
-                    self.cod_vendedor_keys = Object.keys(self.cod_vendedor_data);
-                })
-                
+                const promises = this.codigos.map( async codigo => {
+                    const response = await api.get(`/vendedores?cod_vendedor=${codigo}`, { headers });
+                    return response.data;
+                });
+            
+                               
+                const results = await Promise.all(promises);
+                this.vendedores  = results.flat();
+                           
             }catch(error){
                 console.log(error);
                 alert("Erro ao buscar dados do vendedor");
-            };
-            
+            };  
         }
-
     }
 
     }

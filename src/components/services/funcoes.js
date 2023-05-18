@@ -1,13 +1,43 @@
 export  function maskCpf(el) {
 
     el.addEventListener('input', function(e) {       
+
       let value = e.target.value;
       value = value.replace(/\D/g, ''); // Remove tudo que não é número
+
+      // Remove os pontos e traços fazendo com que eles não sejam enviados para a API
+      value = value.replace(/[.-]/g, '');
+
+      e.target.dataset.cpf = value; // Armazena o CPF sem pontos e traços nos atributos de dados
+
       value = value.replace(/(\d{3})(\d)/, '$1.$2'); // Coloca o primeiro ponto
       value = value.replace(/(\d{3})(\d)/, '$1.$2'); // Coloca o segundo ponto
       value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Coloca o traço no final
+      
       e.target.value = value;
     });
+
+}
+
+export  function maskCnpj(el) {
+
+  el.addEventListener('input', function(e) {       
+
+    let value = e.target.value;
+    value = value.replace(/\D/g, ''); // Remove tudo que não é número
+
+    // Remove os pontos e traços fazendo com que eles não sejam enviados para a API
+    value = value.replace(/[.-/]/g, '');
+
+    e.target.dataset.cpf = value; // Armazena o CPF sem pontos e traços nos atributos de dados
+
+    value = value.replace(/(\d{3})(\d)/, '$1.$2'); // Coloca o primeiro ponto
+    value = value.replace(/(\d{3})(\d)/, '$1.$2'); // Coloca o segundo ponto
+    value = value.replace(/(\d{3})(\d)$/, '$1/$2'); // Coloca o traço no final
+    value = value.replace(/(\d{4})(\d{1,2})$/, '$1-$2'); // Coloca o traço no final
+    
+    e.target.value = value;
+  });
 
 }
 
@@ -19,6 +49,9 @@ export function maskRG(el) {
         value = value.replace(/\D/g, ''); // Remove tudo que não é número
     
         // Aplica a máscara do RG de acordo com o formato esperado
+
+        // Remove os pontos e traços fazendo com que eles não sejam enviados para a API
+        value = value.replace(/[.-]/g, '');
 
         if (value.length <= 2) {
 
@@ -38,7 +71,6 @@ export function maskRG(el) {
 
         } else {
 
-
           value = value.replace(/^(\d{0,2})(\d{0,3})(\d{0,3})(\d{0,1}).*/, '$1.$2.$3-$4');
 
         }
@@ -50,21 +82,35 @@ export function maskRG(el) {
 export function maskTelefone(el){
 
     el.addEventListener('input', function(e){
-        let value = e.target.value;
-        value = value.replace(/\D/g, '');
+      let value = e.target.value;
+      value = value.replace(/\D/g, '');
 
-            if(value.length <= 10){
-                                        //(parte_1) parte_2 - parte_3
-                value = value.replace(/^(\d{0,2})(\d{0,4})(\d{0,4})$/, '($1) $2-$3');
+      // Remove os pontos e traços fazendo com que eles não sejam enviados para a API
+      value = value.replace(/[\(\)-]/g, '');
 
-            }else{
+      //Telefone           
+      //(parte_1) parte_2 - parte_3
+      value = value.replace(/^(\d{0,2})(\d{0,4})(\d{0,4})$/, '($1) $2-$3');
 
-                value = value.replace(/^(\d{0,2})(\d{0,5})(\d{0,4})$/, '($1) $2-$3');
-
-            }
-
-            e.target.value = value;
+      e.target.value = value;
     });
+
+}
+
+export function maskCelular(el){
+
+  el.addEventListener('input', function(e){
+    let value = e.target.value;
+    value = value.replace(/\D/g, '');
+
+    // Remove os pontos e traços fazendo com que eles não sejam enviados para a API
+    value = value.replace(/[\(\)-]/g, '');
+   
+    //Celular
+    value = value.replace(/^(\d{0,2})(\d{0,5})(\d{0,4})$/, '($1) $2-$3');
+
+    e.target.value = value;
+  });
 
 }
 
