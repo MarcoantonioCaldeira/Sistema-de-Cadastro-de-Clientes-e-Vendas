@@ -52,7 +52,7 @@
 
             <input type="text" placeholder="Seu CPF"  v-maskCpf  class="InputForm" v-model="cnpj_cpf" maxlength="14">
 
-            <input type="text" placeholder="CNPJ de Entrega"  v-maskCnpj  class="InputForm" v-model="cnpj_cpf_entrega" maxlength="14">
+            <input type="text" placeholder="CNPJ de Entrega"  v-maskCnpj  class="InputForm" v-model="cnpj_cpf_entrega" maxlength="15">
 
             <input type="text" placeholder="Seu RG"  v-maskRG  class="InputForm" v-model="rg">
 

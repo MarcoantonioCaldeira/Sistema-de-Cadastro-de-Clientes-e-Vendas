@@ -24,7 +24,7 @@ export  function maskCnpj(el) {
   el.addEventListener('input', function(e) {       
 
     let value = e.target.value;
-    value = value.replace(/\D/g, ''); // Remove tudo que não é número
+    //value = value.replace(/\D/g, ''); // Remove tudo que não é número
 
     // Remove os pontos e traços fazendo com que eles não sejam enviados para a API
     value = value.replace(/[.-/]/g, '');
@@ -86,7 +86,7 @@ export function maskTelefone(el){
       value = value.replace(/\D/g, '');
 
       // Remove os pontos e traços fazendo com que eles não sejam enviados para a API
-      value = value.replace(/[\(\)-]/g, '');
+      value = value.replace( / [\(\)-]/g, '');
 
       //Telefone           
       //(parte_1) parte_2 - parte_3
