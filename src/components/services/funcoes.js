@@ -16,7 +16,6 @@ export  function maskCpf(el) {
       
       e.target.value = value;
     });
-
 }
 
 export  function maskCnpj(el) {
