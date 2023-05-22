@@ -7,6 +7,33 @@
 
             <input type="text" class="InputForm_Vendas"   placeholder="Codigo da Empresa">
 
+            <button class="btn_nome_cliente" v-on:click="openModal">Selecione o nome do cliente</button>
+
+
+            <div v-if="clienteSelecionado">
+
+                Nome do cliente: {{ clienteSelecionado.nome}}
+
+            </div>
+
+            <div v-if="showModal" class="modal">
+
+                <div class="modal-content">
+
+                    <!--  X para cancelar -->
+                    <i @click="closeModal"  id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
+
+                    <input type="text" v-model="filtro"  placeholder="Pesquisar o nome do cliente" />
+
+                    <!-- A API ja deixa todos os nomes pre-carregados -->
+                    <div v-for="cliente in (Clientes_Filtrados)" :key="cliente.codigo" v-on:click="selecionarCliente(cliente)">
+                        {{ cliente.nome }}
+                    </div>
+
+                </div>
+
+            </div>
+
             <p class="p_data_e">Tabela de preço: </p>
         
             <select class="Select_Descricao_Tab_Preco" v-model="selectedDescricao" v-on:click="Requisicao_Descricao_Tab_Preco">
@@ -60,12 +87,12 @@
           
             <p class="p_data_e">Situação do frete: </p>
             <select  v-model="situacao_frete"  class="Select_Forma_Pagamento">
-                <option value="0">Por conta remetente(CIF)</option>
-                <option value="1">Por conta do destinatario(FOB)</option>
-                <option value="2">Por conta de Terceiros</option>
-                <option value="3">Transporte próprio por conta de remetente</option>
-                <option value="4">Transporte próprio por conta de destinatario</option>
-                <option value="9">Sem Ocorrência de frete</option>
+                <option value="0">0 - Por conta remetente(CIF)</option>
+                <option value="1">1 - Por conta do destinatario(FOB)</option>
+                <option value="2">2 - Por conta de Terceiros</option>
+                <option value="3">3 - Transporte próprio por conta de remetente</option>
+                <option value="4">4 - Transporte próprio por conta de destinatario</option>
+                <option value="9">5 - Sem Ocorrência de frete</option>
             </select>
 
             <input type="text" class="InputForm_Vendas" placeholder="Valor do Frete">
@@ -86,8 +113,10 @@
 
 <script>
 import axios from 'axios';
+import '@fortawesome/fontawesome-free/css/all.css'
 import api, { getToken } from '../../components/services/api';
 import Footer from '@/components/Footer.vue'
+import { promises } from 'stream';
 
 export default{
     name: 'Cadastro_De_Vendas',
@@ -100,6 +129,7 @@ export default{
         selectedVendedor: null,
         selectedDescricao: null,
         selectedTipoVenda: null,
+        showModal: false,
         vendedores: [],
         precos:[],
         tipo_venda:[],
@@ -116,8 +146,13 @@ export default{
         ],
         token: '',
         tipo_frete: '',
-        situacao_frete: ''
-
+        situacao_frete: '',   
+        searchQuery: '',
+        searchResults: [],
+        cpf_cnpj: "",
+        filtro: '',
+        clientes: [],
+        clienteSelecionado: null
     }
   },
 
@@ -127,7 +162,28 @@ export default{
         this.Requisicao_Tipo_Venda();
   },
 
+
+  created(){
+    this.Pesquisar_Cliente();
+  },
+
+  computed:{
+    Clientes_Filtrados() {
+
+        return this.clientes.filter(cliente =>
+            cliente.nome.toLowerCase().includes(this.filtro.toLowerCase())).sort((a, b) => a.nome.localeCompare(b.nome));
+    },
+  },    
+
   methods:{
+
+    openModal(){
+        this.showModal = true;
+    },
+
+    closeModal(){
+        this.showModal = false;
+    },
 
     async Requisicao_Vendedores(){                                                     
 
@@ -189,7 +245,28 @@ export default{
             console.log(error);
             alert("Erro ao buscar o tipo da Venda");
         }
-    }
+    },
+
+    async Pesquisar_Cliente(){
+        try{
+            const token = await getToken();
+            const headers = {Authorization: `Bearer ${token}`};
+
+            
+            const response = await api.get(`/clientes`, { headers });
+            this.clientes = response.data;
+
+        }catch(error){
+           console.error(error);
+            
+        }
+    },
+
+    selecionarCliente(cliente) {
+
+      this.clienteSelecionado = cliente; // Armazena o cliente selecionado na variável clienteSelecionado
+      console.log('Cliente selecionado:', cliente);
+    },
 
   }
 }
