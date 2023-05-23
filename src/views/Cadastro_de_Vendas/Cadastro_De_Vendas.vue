@@ -7,34 +7,63 @@
 
             <input type="text" class="InputForm_Vendas"   placeholder="Codigo da Empresa">
 
-            <button class="btn_nome_cliente" v-on:click="openModal">Selecione o nome do cliente</button>
+            <button class="btn_nome_cliente" v-on:click="openModal">
+                <p class="p_nome_cliente">Selecione o nome do cliente</p><i  style="margin-left: 8px; margin-top: 2px;"  class="fa-solid fa-circle-plus"></i> 
+            </button>
 
+            <div  id="area_nome_cliente"  v-if="clienteSelecionado">
 
-            <div v-if="clienteSelecionado">
-
-                Nome do cliente: {{ clienteSelecionado.nome}}
+                <p class="p_nome_cliente_r">Nome: {{ clienteSelecionado.nome }}</p>
 
             </div>
 
             <div v-if="showModal" class="modal">
 
-                <div class="modal-content">
+                <div class="modal-content animate">
 
                     <!--  X para cancelar -->
-                    <i @click="closeModal"  id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
+                    <i @click="closeModal"  
+                        style="position: absolute; 
+                               color:#9B9A9A; 
+                               margin-left: 87%;
+                               margin-top: 16px;"   
+                                id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
 
-                    <input type="text" v-model="filtro"  placeholder="Pesquisar o nome do cliente" />
+                    <input  class="input_pesquisa_nome_cliente"  type="text" v-model="filtro"  placeholder="Pesquise pelo nome do cliente" />
 
                     <!-- A API ja deixa todos os nomes pre-carregados -->
-                    <div v-for="cliente in (Clientes_Filtrados)" :key="cliente.codigo" v-on:click="selecionarCliente(cliente)">
-                        {{ cliente.nome }}
+                    <div class="conteudo_registro">
+
+                        <div  v-for="cliente in (Clientes_Filtrados)" :key="cliente.codigo" v-on:click="selecionarCliente(cliente)">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <th>Nome do Cliente</th>
+                                    <th>Nome Fantasia</th>
+                                    <th>Cidade</th>
+                                    <th>UF</th>
+                                    <th>CNPJ_CPF</th>
+                                </tr>
+                                <tr>
+                                    <td>{{ cliente.nome }}</td>
+                                    <td>{{ cliente.nome_fantasia }}</td>
+                                    <td>{{ cliente.cidade }}</td>
+                                    <td>{{ cliente.estado}}</td> 
+                                    <td>{{ cliente.cnpj_cpf }}</td>
+                                </tr>
+                                
+                                    
+                                
+                            </table>
+                            
+                        </div>
+
                     </div>
 
                 </div>
 
             </div>
 
-            <p class="p_data_e">Tabela de preço: </p>
+            <br><p class="p_data_e">Tabela de preço: </p>
         
             <select class="Select_Descricao_Tab_Preco" v-model="selectedDescricao" v-on:click="Requisicao_Descricao_Tab_Preco">
                 <option  class="option_p"  v-for=" preco in precos" :value="preco">{{ preco.descricao }}</option>
@@ -254,7 +283,16 @@ export default{
 
             
             const response = await api.get(`/clientes`, { headers });
-            this.clientes = response.data;
+            this.clientes = response.data.map(cliente => {
+
+                return{
+                    ...cliente,
+                    cidade: cliente.cliente_enderecos.length > 0 ? cliente.cliente_enderecos[0].cidade: '',
+                    estado: cliente.cliente_enderecos.length > 0 ? cliente.cliente_enderecos[0].estado: ''
+                    
+                }
+            });
+            
 
         }catch(error){
            console.error(error);
