@@ -34,7 +34,7 @@
                     <!-- A API ja deixa todos os nomes pre-carregados -->
                     <div class="conteudo_registro">
 
-                        <div  v-for="cliente in (Clientes_Filtrados)" :key="cliente.codigo" v-on:click="selecionarCliente(cliente)">
+                        <div  v-for="cliente in (Clientes_Filtrados)" :key="cliente.codigo" v-on:click="selecionarCliente(cliente)" @change="atualizarVendedores">
                             <table style="width: 100%;">
                                 <tr>
                                     <th>Nome do Cliente</th>
@@ -50,9 +50,7 @@
                                     <td>{{ cliente.estado}}</td> 
                                     <td>{{ cliente.cnpj_cpf }}</td>
                                 </tr>
-                                
-                                    
-                                
+                                                
                             </table>
                             
                         </div>
@@ -62,18 +60,18 @@
                 </div>
 
             </div>
+            
+            <!-- Nome do vendedor -->
+            <br><p class="p_data_e">Selecione o nome do vendedor: </p>
 
-            <br><p class="p_data_e">Tabela de preço: </p>
-        
-            <select class="Select_Descricao_Tab_Preco" v-model="selectedDescricao" v-on:click="Requisicao_Descricao_Tab_Preco">
-                <option  class="option_p"  v-for=" preco in precos" :value="preco">{{ preco.descricao }}</option>
+            <select class="Select_Nome_Vendedor" v-model="selectedVendedor"  v-on:click="Requisicao_Vendedores">
+                <option  class="option_p" v-for="vendedor in vendedores" :key="vendedor.cod_vendedor" :value="vendedor.cod_vendedor">{{ vendedor.nome }}</option>
             </select>
 
-            <!-- Nome do vendedor -->
-            <p class="p_data_e">Selecione o nome do vendedor: </p>
-
-            <select class="Select_Nome_Vendedor" v-model="selectedVendedor" v-on:click="Requisicao_Vendedores">
-                <option  class="option_p"  v-for="vendedor in vendedores" :value="vendedor">{{ vendedor.nome }}</option>
+            <p class="p_data_e">Tabela de preço: </p>
+        
+            <select class="Select_Descricao_Tab_Preco" v-on:click="Requisicao_Descricao_Tab_Preco">
+                <option  class="option_p"  v-for=" preco in Tabela_de_preco_Vendedores" :key="preco.cod_tab_preco"  :value="preco.cod_tab_preco">{{ preco.descricao }}</option>
             </select>
 
             <div>
@@ -84,35 +82,46 @@
                 <p class="p_data_p">Data de Previsão de Entrega Solicitada: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
             </div>            
         
-            <input type="text" class="InputForm_Vendas" placeholder="desconto_n1">
-            <input type="text" class="InputForm_Vendas" placeholder="desconto_n2">
-            <input type="text" class="InputForm_Vendas" placeholder="desconto_n3">
-            <input type="text" class="InputForm_Vendas" placeholder="desconto_n4">
-    
-        </div>
-    
-        <div class="Formulario_2">
-            <input type="text" class="InputForm_Vendas" placeholder="Desconto de Pagamento">
-            <input type="text" class="InputForm_Vendas" placeholder="desconto_s1">
-            <input type="text" class="InputForm_Vendas" placeholder="desconto_s2">
-            <input type="text" class="InputForm_Vendas" placeholder="desconto_s3">
-            <input type="text" class="InputForm_Vendas" placeholder="desconto_s4">
-        
-           <p class="p_data_e">Tipo do Frete: </p>
-           <select  v-model="tipo_frete"  class="Select_Tipo_Frete">
-                <option value="0">Por valor</option>
-                <option value="1">Por percentual</option>
-           </select>
-            
-           <p class="p_data_e">Forma de pagamento: </p>
-           <select  v-model="forma_pagto_x"  class="Select_Forma_Pagamento">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n1">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n2">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n3">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n4">
+
+
+            <p class="p_data_e">Forma de pagamento: </p>
+           <select  v-model="forma_pagto"  :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento">
                 <option value="0">A vista</option>
                 <option value="1">Contra Apresentação</option>
                 <option value="3">A prazo</option>
            </select>
 
+           <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="Codigo do Prazo">
+    
+        </div>
+    
+        <div class="Formulario_2">
+            <input type="text" class="InputForm_Vendas"  v-model="desconto_pagto"  placeholder="Desconto de Pagamento">
 
-            <input type="text" class="InputForm_Vendas" placeholder="Codigo do Prazo">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s1">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s2">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s3">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s4">
+    
+            
+           <p class="p_data_e">Forma de pagamento X: </p>
+           <select  v-model="forma_pagto_x"  :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" class="Select_Forma_Pagamento">
+                <option value="0">A vista</option>
+                <option value="1">Contra Apresentação</option>
+                <option value="3">A prazo</option>
+           </select>
+
+           <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }"  placeholder="Codigo do Prazo X">
+
+           <br><br><br><p class="p_data_e">Tipo do Frete: </p>
+           <select  v-model="tipo_frete"  class="Select_Tipo_Frete">
+                <option value="0">Por valor</option>
+                <option value="1">Por percentual</option>
+           </select>
           
             <p class="p_data_e">Situação do frete: </p>
             <select  v-model="situacao_frete"  class="Select_Forma_Pagamento">
@@ -128,7 +137,7 @@
 
             <p class="p_data_e">Selecione o tipo da Venda</p>
 
-            <select  v-model="selectedTipoVenda"  class="Select_Tipo_Venda" v-on:click="Requisicao_Tipo_Venda">
+            <select  class="Select_Tipo_Venda" v-on:click="Requisicao_Tipo_Venda">
                 <option v-for="venda in tipo_venda" :value="venda"> {{ venda.desc_tipo_venda }}</option>
             </select>
 
@@ -141,11 +150,12 @@
 </template>
 
 <script>
-import axios from 'axios';
+//import axios from 'axios';
 import '@fortawesome/fontawesome-free/css/all.css'
 import api, { getToken } from '../../components/services/api';
 import Footer from '@/components/Footer.vue'
-import { promises } from 'stream';
+//import { promises } from 'stream';
+//mport { table } from 'console';
 
 export default{
     name: 'Cadastro_De_Vendas',
@@ -156,8 +166,8 @@ export default{
   data(){
     return{
         selectedVendedor: null,
-        selectedDescricao: null,
-        selectedTipoVenda: null,
+        // selectedDescricao: null,
+        // selectedTipoVenda: null,
         showModal: false,
         vendedores: [],
         precos:[],
@@ -181,7 +191,9 @@ export default{
         cpf_cnpj: "",
         filtro: '',
         clientes: [],
-        clienteSelecionado: null
+        clienteSelecionado: null,
+        vendedorSelecionado: null,
+        desconto_pagto: null
     }
   },
 
@@ -197,11 +209,20 @@ export default{
   },
 
   computed:{
-    Clientes_Filtrados() {
+    Clientes_Filtrados(){
 
         return this.clientes.filter(cliente =>
             cliente.nome.toLowerCase().includes(this.filtro.toLowerCase())).sort((a, b) => a.nome.localeCompare(b.nome));
     },
+
+    Vendedores_do_Cliente_Selecionado(){
+        if(this.clienteSelecionado){
+            return this.vendedores.filter(vendedor => vendedor.cod_vendedor === this.clienteSelecionado.cod_vendedor)
+        }
+        return null;
+    }
+
+
   },    
 
   methods:{
@@ -227,7 +248,11 @@ export default{
             
             const results = await Promise.all(promises);
             this.vendedores  = results.flat();
-                    
+
+            // const vendedorCliente = this.clientes.find(cliente => cliente.cod_vendedor === this.codigos )
+            // if(vendedorCliente){
+            //     this.vendedorSelecionado = vendedorCliente.cod_vendedor;
+            // }   
         }catch(error){
             console.log(error);
             alert("Erro ao buscar dados do vendedor");
@@ -282,8 +307,8 @@ export default{
             const headers = {Authorization: `Bearer ${token}`};
 
             
-            const response = await api.get(`/clientes`, { headers });
-            this.clientes = response.data.map(cliente => {
+            const responseClientes = await api.get(`/clientes`, { headers });
+            this.clientes = responseClientes.data.map(cliente => {
 
                 return{
                     ...cliente,
@@ -292,7 +317,7 @@ export default{
                     
                 }
             });
-            
+
 
         }catch(error){
            console.error(error);
@@ -302,9 +327,15 @@ export default{
 
     selecionarCliente(cliente) {
 
-      this.clienteSelecionado = cliente; // Armazena o cliente selecionado na variável clienteSelecionado
-      console.log('Cliente selecionado:', cliente);
+      this.clienteSelecionado = cliente; 
+      //console.log('Cliente selecionado:', cliente);
     },
+
+    selecionarVendedor(vendedor){
+
+        this.vendedorSelecionado = vendedor;
+        //console.log('Vededor selecionado:', vendedor);
+    }
 
   }
 }
