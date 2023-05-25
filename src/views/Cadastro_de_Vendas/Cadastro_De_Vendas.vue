@@ -64,8 +64,8 @@
             <!-- Nome do vendedor -->
             <br><p class="p_data_e">Selecione o nome do vendedor: </p>
 
-            <select class="Select_Nome_Vendedor" v-model="selectedVendedor"  v-on:click="Requisicao_Vendedores">
-                <option  class="option_p" v-for="vendedor in vendedores" :key="vendedor.cod_vendedor" :value="vendedor.cod_vendedor">{{ vendedor.nome }}</option>
+            <select class="Select_Nome_Vendedor" v-model="vendedorSelecionado">
+                <option  class="option_p" v-for="vendedor in vendedores" :key="vendedor.cod_vendedor" :value="vendedor.cod_vendedor"  :selected="vendedor === vendedorSelecionado">{{ vendedor.nome }}</option>
             </select>
 
             <p class="p_data_e">Tabela de preço: </p>
@@ -77,15 +77,19 @@
             <div>
                 <p class="p_data_e">Data de Emissão: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Emissão">
             </div>
+
+            <div>
+                <p class="p_data_p">Data de Previsão de Entrega da Empresa: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
+            </div>
             
             <div>
                 <p class="p_data_p">Data de Previsão de Entrega Solicitada: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
             </div>            
         
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n1">
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n2">
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n3">
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n4">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n1 (%)">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n2 (%)">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n3 (%)">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n4 (R$)">
 
 
             <p class="p_data_e">Forma de pagamento: </p>
@@ -102,10 +106,10 @@
         <div class="Formulario_2">
             <input type="text" class="InputForm_Vendas"  v-model="desconto_pagto"  placeholder="Desconto de Pagamento">
 
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s1">
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s2">
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s3">
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s4">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s1 (%)">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s2 (%)">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s3 (%)">
+            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s4 (R$)">
     
             
            <p class="p_data_e">Forma de pagamento X: </p>
@@ -115,13 +119,19 @@
                 <option value="3">A prazo</option>
            </select>
 
-           <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }"  placeholder="Codigo do Prazo X">
+           <p class="p_data_e">Prazo de pagamento: </p>
+           <select class="Select_Forma_Pagamento" v-on:click="Consultando_prazos">
+                <option  v-for="prazos in prazo" :key="prazos.cod_prazo" :value="prazos.cod_prazo">{{ prazos.descricao }}</option>
+           </select>
+           <!-- <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }"  placeholder="Codigo do Prazo X"> -->
 
            <br><br><br><p class="p_data_e">Tipo do Frete: </p>
            <select  v-model="tipo_frete"  class="Select_Tipo_Frete">
-                <option value="0">Por valor</option>
-                <option value="1">Por percentual</option>
+                <option value="Valor">Por valor</option>
+                <option value="Percentual">Por percentual</option>
            </select>
+
+           <input type="text" v-model="displayItem"  class="InputForm_Vendas" placeholder="Valor do Frete">
           
             <p class="p_data_e">Situação do frete: </p>
             <select  v-model="situacao_frete"  class="Select_Forma_Pagamento">
@@ -132,8 +142,6 @@
                 <option value="4">4 - Transporte próprio por conta de destinatario</option>
                 <option value="9">5 - Sem Ocorrência de frete</option>
             </select>
-
-            <input type="text" class="InputForm_Vendas" placeholder="Valor do Frete">
 
             <p class="p_data_e">Selecione o tipo da Venda</p>
 
@@ -165,14 +173,18 @@ export default{
 
   data(){
     return{
-        selectedVendedor: null,
+        //selectedVendedor: null,
         // selectedDescricao: null,
         // selectedTipoVenda: null,
         showModal: false,
         vendedores: [],
         precos:[],
         tipo_venda:[],
-        
+        prazo:[],
+        cod_prazo:[
+            1,2,3,4,5,6,7
+        ],
+
         codigo_tab_preco:[
             1,2,3,4
         ],
@@ -184,7 +196,10 @@ export default{
             1,2,3
         ],
         token: '',
+
         tipo_frete: '',
+        displayItem: '',
+
         situacao_frete: '',   
         searchQuery: '',
         searchResults: [],
@@ -193,7 +208,13 @@ export default{
         clientes: [],
         clienteSelecionado: null,
         vendedorSelecionado: null,
-        desconto_pagto: null
+        desconto_pagto: null,
+    }
+  },
+
+  watch: {
+    tipo_frete(newVal) {
+      this.displayItem = newVal;
     }
   },
 
@@ -201,6 +222,7 @@ export default{
         this.Requisicao_Vendedores();
         this.Requisicao_Descricao_Tab_Preco();
         this.Requisicao_Tipo_Venda();
+        this.Consultando_prazos();
   },
 
 
@@ -215,12 +237,12 @@ export default{
             cliente.nome.toLowerCase().includes(this.filtro.toLowerCase())).sort((a, b) => a.nome.localeCompare(b.nome));
     },
 
-    Vendedores_do_Cliente_Selecionado(){
-        if(this.clienteSelecionado){
-            return this.vendedores.filter(vendedor => vendedor.cod_vendedor === this.clienteSelecionado.cod_vendedor)
-        }
-        return null;
-    }
+    // Vendedores_do_Cliente_Selecionado(){
+    //     if(this.clienteSelecionado){
+    //         return this.vendedores.filter(vendedor => vendedor.cod_vendedor === this.clienteSelecionado.cod_vendedor)
+    //     }
+    //     return null;
+    // }
 
 
   },    
@@ -249,10 +271,10 @@ export default{
             const results = await Promise.all(promises);
             this.vendedores  = results.flat();
 
-            // const vendedorCliente = this.clientes.find(cliente => cliente.cod_vendedor === this.codigos )
-            // if(vendedorCliente){
-            //     this.vendedorSelecionado = vendedorCliente.cod_vendedor;
-            // }   
+            const vendedorCliente = this.clientes.find(cliente => cliente.nome === this.vendedorCliente );
+            if(vendedorCliente){
+                this.vendedorSelecionado = this.codigos.find(vendedor => vendedor.cod_vendedor === vendedorCliente.cod_vendedor);
+            }   
         }catch(error){
             console.log(error);
             alert("Erro ao buscar dados do vendedor");
@@ -322,6 +344,28 @@ export default{
         }catch(error){
            console.error(error);
             
+        }
+    },
+
+    async Consultando_prazos(){
+        try{
+
+            const token = await getToken();
+            const headers = {Authorization: `Bearer ${token}`};
+
+
+            const promises = this.cod_prazo.map( async codigo => {
+                const response = await api.get(`/prazos?cod_prazo=${codigo}`, { headers });
+                return response.data;
+            });
+
+            const results = await Promise.all(promises);
+            this.prazo = results.flat();
+            
+
+        }catch(error){
+            console.error(error);
+            alert("Erro ao buscar os Prazos de Entrega");
         }
     },
 
