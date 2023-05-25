@@ -47,7 +47,7 @@
                                     <td>{{ cliente.nome }}</td>
                                     <td>{{ cliente.nome_fantasia }}</td>
                                     <td>{{ cliente.cidade }}</td>
-                                    <td>{{ cliente.estado}}</td> 
+                                    <td>{{ cliente.estado }}</td> 
                                     <td>{{ cliente.cnpj_cpf }}</td>
                                 </tr>
                                                 

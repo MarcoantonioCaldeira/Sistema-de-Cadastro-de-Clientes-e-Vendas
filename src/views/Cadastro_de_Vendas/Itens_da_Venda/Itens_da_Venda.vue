@@ -28,21 +28,31 @@
 
                     <input type="text"   v-model="filtro" placeholder="Pesquisar produto"  v-on:click="selecionarItem(cliente)"/>
 
-                    <div  v-for="Item in (Itens_Filtrados)" :key="Item.referencia" class="conteudo_registro" style="background-color: red;">
-                        
-                       <p>Referencia Alternativa</p> {{ Item.ref_alternativa_cor }}
-                        <!-- {{ Item.descricao }}
-                        {{ Item.unidade }} -->
+                    <div  v-for="Item in (Itens_Filtrados)" :key="Item.referencia" class="conteudo_registro">
 
+                        <table>
+                            <tr>
+                                <th>Referencia Alternativa</th>
+                                <th>Descrição</th>
+                                <th>Unidade</th>
+                            </tr>
+                            <tr>
+                                <td>{{ Item.ref_alternativa_cor }}</td>
+                                <td>{{ Item.descricao }}</td>
+                                <td>Item.unidade</td>
+                            </tr>
+                        </table>
+            
                     </div>
 
                 </div>
-
+                
             </div>
-            
-            
+
+            <br><button>Adicionar Item</button>
 
         </div>
+        
     
 <!-- 
         <button class="btn_cadastro_itens_venda">Cadastrar Itens da Venda</button> -->
@@ -71,6 +81,9 @@ export default{
         }
     },
 
+    mounted(){
+        this.Consulta_de_Itens();
+    },
 
     created(){
         this.Consulta_de_Itens
@@ -104,7 +117,6 @@ export default{
 
            }catch(error){
                 console.log(error);
-                alert('Erro ao buscar os itens')
            }
         },
 
