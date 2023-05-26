@@ -152,7 +152,7 @@
         </div>
     </div>
     <div>
-        <router-link to="Itens_da_Venda"><button class="btn_concluir_cadastro_vendas" type="submit">Cadastrar Venda</button></router-link>
+        <router-link to="Itens_da_Venda"><button class="btn_concluir_cadastro_vendas" type="submit">Prosseguir</button></router-link>
     </div>
     <Footer />
 </template>
@@ -237,12 +237,12 @@ export default{
             cliente.nome.toLowerCase().includes(this.filtro.toLowerCase())).sort((a, b) => a.nome.localeCompare(b.nome));
     },
 
-    // Vendedores_do_Cliente_Selecionado(){
-    //     if(this.clienteSelecionado){
-    //         return this.vendedores.filter(vendedor => vendedor.cod_vendedor === this.clienteSelecionado.cod_vendedor)
-    //     }
-    //     return null;
-    // }
+    Vendedores_do_Cliente_Selecionado(){
+        if(this.clienteSelecionado){
+            return this.vendedores.filter(vendedor => vendedor.cod_vendedor === this.clienteSelecionado.cod_vendedor)
+        }
+        return null;
+    }
 
 
   },    
@@ -386,6 +386,6 @@ export default{
 </script>
 
 
-<style src="./estilo_cadastro_vendas.scss" lang="scss">
+<style src="./estilo_cadastro_vendas.scss" lang="scss" scoped>
 
 </style>
