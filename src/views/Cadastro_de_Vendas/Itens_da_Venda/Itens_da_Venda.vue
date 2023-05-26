@@ -13,16 +13,16 @@
 
                 <div class="modal-content animate">
 
-                    <i @click="closeModal_S_Item"  
+                    <i v-on:click="closeModal_S_Item"  
                      style="position: absolute; 
                             color:#9B9A9A; 
                             margin-left: 87%;
                             margin-top: 16px;"
                             id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
 
-                    <input type="text"   class="input_pesquisa_nome_item" v-model="filtro" placeholder="Pesquisar produto"  v-on:click="selecionarItem(cliente)"/>
-
-                    <div  v-for="Item in (Itens_Filtrados)" :key="Item.referencia" class="conteudo_registro">
+                    <input type="text"   class="input_pesquisa_nome_item" v-model="filtro" placeholder="Pesquisar produto" />
+                    
+                    <div  v-for="Item in (Itens_Filtrados)" :key="Item.referencia" class="conteudo_registro" v-on:click="selecionarItem(Item)">
 
                         <table style="width: 100%;">
                             <tr>
@@ -35,15 +35,21 @@
                                 <td>{{ Item.descricao }}</td>
                                 <td>{{ Item.unidade }}</td>
                             </tr>
-                        </table>
-            
+                        </table>  
+
                     </div>
+      
+                    <!-- <div v-if="showOtherDiv">
+                        <h2>Aqui ficam os outros campos</h2>
+
+                    </div> -->
 
                 </div>
                 
             </div>
 
-            <br><button class="btn_cadastrar_item" v-on:click="openModal_C_Item">
+      
+            <!-- <br><button class="btn_cadastrar_item" v-on:click="openModal_C_Item">
                 <p class="p_nome_item">Adicione um Item</p><i  style="margin-left: 10px; margin-top: 2px;"  class="fa-solid fa-circle-plus"></i>
             </button>
 
@@ -78,8 +84,14 @@
                 </div>
                 
             </div>
-        
+         -->
         </div>
+
+        <!-- <div v-if="Item_selecionado">
+
+            {{ Item.ref_alternativa_cor }}
+
+        </div> -->
 
         <h2 class="Titulo_Itens_Selecionados">Itens Selecionados</h2>
         <div id="conteudos-selecionados">
@@ -106,8 +118,8 @@ export default{
             produtos:[],
             filtro:'',
             showModal: false,
-            showModal_2: false,
-            Item_selecionado: null
+            showOtherDiv: false,
+            Item_selecionado: null,
         }
     },
 
@@ -116,7 +128,7 @@ export default{
     },
 
     created(){
-        this.Consulta_de_Itens
+        this.Consulta_de_Itens();
     },
 
     computed:{
@@ -136,14 +148,9 @@ export default{
             this.showModal = false;
         },
 
-
-        openModal_C_Item(){
-            this.showModal_2 = true;
-        },
-
-        closeModal_C_Item(){
-            this.showModal_2 = false;
-        },
+        // showOtherFields() {
+        //     this.showOtherDiv = true;
+        // },
 
 
         async Consulta_de_Itens(){
@@ -161,7 +168,6 @@ export default{
         },
 
         selecionarItem(Item) {
-
            this.Item_selecionado = Item; 
             //console.log('Cliente selecionado:', cliente);
         },
