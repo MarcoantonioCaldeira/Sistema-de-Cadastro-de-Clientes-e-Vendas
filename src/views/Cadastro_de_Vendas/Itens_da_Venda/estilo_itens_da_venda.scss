@@ -14,28 +14,12 @@
     margin-top: 3%;
 }
 
-// .Input_Form_Itens_Venda {
-//     margin-left: 6% !important;
-//     width: 350px;
-//     background-color: $cor_4;
-//     padding: 0px 12px;
-//     border: 1px solid;
-//     margin: 20px;
-//     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-//     border-radius: 5px;
-//     font-family: $font_2;
-//     border-color: $cor_4;
-//     display: block;
-//     margin-left: 5%;
-//     height: 40px;
-// }
-
-// .Titulo_Itens_Venda {
-//     font-family: $font_1;
-//     color: $cor_2;
-//     margin-left: 5.8%;
-//     margin-top: 5%;
-// }
+.Titulo_Itens_Venda {
+    font-family: $font_1;
+    color: $cor_2;
+    margin-left: 5.8%;
+    margin-top: 5%;
+}
 
 // .btn_cadastro_itens_venda {
 //     width: 21% !important;
@@ -66,3 +50,213 @@
 
 // }
 
+
+.btn_nome_Item{
+    width: 170px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    position: relative;
+    margin-left: 100px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid;
+    font-family: $font_2;
+    border: none;
+    height: 40px;
+    background-color: $cor_4;
+    color: $cor_2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.p_nome_item{
+    margin-left: 10px;
+}
+
+.p_nome_item_r{
+    margin-left: 10px;
+    font-family: $font_2;
+    font-weight: 600;
+    color: $cor_2;
+}
+
+.modal{ 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content{
+    width: 90%;
+    height: 600px;
+    overflow-y: scroll;
+    background-color: $cor_4;
+    margin: 5% auto 15% auto;
+}
+
+.modal-content::-webkit-scrollbar-track{
+	border-radius:0;
+	background-color: #D0D4CE;
+}
+
+.modal-content::-webkit-scrollbar{
+	width: 10px;
+	background-color: #D0D4CE;
+}
+
+.modal-content::-webkit-scrollbar-thumb{
+	border-radius:5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #71806B;
+}
+
+.conteudo_registro{
+    margin-top: 100px;
+    font-family: $font_1;
+    font-weight: 600;
+    //background-color: blue;
+}
+
+.input_pesquisa_nome_item{
+    width: 420px;
+    margin-left: 33%;
+    margin-top: 50px;
+    //height: 45px;
+    padding: 12px 20px;
+    background-color: $cor_4;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 1.5px solid $cor_3;
+}
+
+table, th, td {
+    border:1px solid $cor_2;
+    width: 200px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  th{
+    color: #696969;
+  }
+
+  td{
+    color: $cor_2;
+  }
+
+  td:hover{
+    background-color: $cor_5;
+    transition: 0.7s;
+}
+
+
+//Animação
+.animate{
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+/////////////////////////////////
+
+
+.btn_cadastrar_item{
+    width: 170px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    position: relative;
+    margin-left: 100px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid;
+    font-family: $font_2;
+    border: none;
+    height: 40px;
+    background-color: $cor_4;
+    color: $cor_2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+  .modal_add_item{
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+  }
+
+  .modal-content_add_item{
+    width: 90%;
+    height: 650px;
+    overflow-y: scroll;
+    background-color: $cor_4;
+    margin: 5% auto 15% auto;
+  }
+
+
+.Input_Form_Itens_Venda {
+    margin-left: 6% !important;
+    width: 350px;
+    background-color: #b9b8b8;
+    padding: 0px 12px;
+    border: 1px solid;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: #b9b8b8;
+    display: block;
+    margin-left: 5%;
+    height: 40px;
+}
+
+.btn_finalizar{
+    margin-left: 80px;
+    margin-top: 3%;
+    background: $cor_1;
+    font-weight: 100;
+    font-family: $font_2;
+    border-radius: 5px;
+    border-color: $cor_1;
+    border: 1px solid #003A4C;
+    font-family: arial;
+    color: $cor_5;
+    text-align: 20%;
+    height: 56px;
+    width: 120px;
+}
+
+.modal-content_add_item::-webkit-scrollbar-track{
+	border-radius:0;
+	background-color: #D0D4CE;
+}
+
+.modal-content_add_item::-webkit-scrollbar{
+	width: 10px;
+	background-color: #D0D4CE;
+}
+
+.modal-content_add_item::-webkit-scrollbar-thumb{
+	border-radius:5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #71806B;
+}

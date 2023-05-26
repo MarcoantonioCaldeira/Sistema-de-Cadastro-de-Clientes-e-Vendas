@@ -5,32 +5,26 @@
 
         <div id="conteudo_formulario">
 
-            <button class="btn_nome_cliente" v-on:click="openModal">Selecionar o Item</button>
-
-            <!-- <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de linha" v-model="cod_referencia">
-            <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de modelo" v-model="cod_referencia">
-            <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de cor" v-model="cod_referencia">
-
-            <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa" v-model="qtd_caixa">
-            <input type="text" class="Input_Form_Itens_Venda" placeholder="tipo do Item" v-model="tipo_do_item">
-            <input type="text" class="Input_Form_Itens_Venda" placeholder="Observação do Item" v-model="obs_item">
-
-            <input type="text" class="Input_Form_Itens_Venda" placeholder="Temanho" v-model="tamanho">
-            <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens"  v-model="qtd_tamanho">
-            <input type="text" class="Input_Form_Itens_Venda" placeholder="Valor Unitario" v-model="valor_unitario"> -->
-
+            <button class="btn_nome_Item" v-on:click="openModal_S_Item">
+                <p class="p_nome_item">Selecione o Item</p><i  style="margin-left: 18px; margin-top: 2px;"  class="fa-solid fa-circle-plus"></i>
+            </button>
             
             <div v-if="showModal" class="modal">
 
                 <div class="modal-content animate">
 
-                    <i @click="closeModal"  id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
+                    <i @click="closeModal_S_Item"  
+                     style="position: absolute; 
+                            color:#9B9A9A; 
+                            margin-left: 87%;
+                            margin-top: 16px;"
+                            id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
 
-                    <input type="text"   v-model="filtro" placeholder="Pesquisar produto"  v-on:click="selecionarItem(cliente)"/>
+                    <input type="text"   class="input_pesquisa_nome_item" v-model="filtro" placeholder="Pesquisar produto"  v-on:click="selecionarItem(cliente)"/>
 
                     <div  v-for="Item in (Itens_Filtrados)" :key="Item.referencia" class="conteudo_registro">
 
-                        <table>
+                        <table style="width: 100%;">
                             <tr>
                                 <th>Referencia Alternativa</th>
                                 <th>Descrição</th>
@@ -39,7 +33,7 @@
                             <tr>
                                 <td>{{ Item.ref_alternativa_cor }}</td>
                                 <td>{{ Item.descricao }}</td>
-                                <td>Item.unidade</td>
+                                <td>{{ Item.unidade }}</td>
                             </tr>
                         </table>
             
@@ -49,8 +43,42 @@
                 
             </div>
 
-            <br><button>Adicionar Item</button>
+            <br><button class="btn_cadastrar_item" v-on:click="openModal_C_Item">
+                <p class="p_nome_item">Adicione um Item</p><i  style="margin-left: 10px; margin-top: 2px;"  class="fa-solid fa-circle-plus"></i>
+            </button>
 
+            <div v-if="showModal_2" class="modal_add_item">
+
+
+                <div class="modal-content_add_item animate">
+
+                    <i @click="closeModal_C_Item"  
+                     style="position: absolute; 
+                            color:#9B9A9A; 
+                            margin-left: 87%;
+                            margin-top: 16px;"
+                            id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
+
+                    <h2 class="Titulo_Itens_Venda">Preencha os Campos abaixo</h2>
+
+                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de linha" v-model="cod_referencia">
+                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de modelo" v-model="cod_referencia">
+                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de cor" v-model="cod_referencia">
+
+                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa" v-model="qtd_caixa">
+                    <input type="text" class="Input_Form_Itens_Venda" placeholder="tipo do Item" v-model="tipo_do_item">
+                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Observação do Item" v-model="obs_item">
+
+                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Temanho" v-model="tamanho">
+                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens"  v-model="qtd_tamanho">
+                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Valor Unitario" v-model="valor_unitario">
+
+                    <button class="btn_finalizar">Finalizar</button>
+
+                </div>
+                
+            </div>
+        
         </div>
         
     
@@ -77,6 +105,7 @@ export default{
             produtos:[],
             filtro:'',
             showModal: false,
+            showModal_2: false,
             Item_selecionado: null
         }
     },
@@ -98,13 +127,23 @@ export default{
 
     methods:{
 
-        openModal(){
+        openModal_S_Item(){
             this.showModal = true;
         },
 
-        closeModal(){
+        closeModal_S_Item(){
             this.showModal = false;
         },
+
+
+        openModal_C_Item(){
+            this.showModal_2 = true;
+        },
+
+        closeModal_C_Item(){
+            this.showModal_2 = false;
+        },
+
 
         async Consulta_de_Itens(){
            try{
