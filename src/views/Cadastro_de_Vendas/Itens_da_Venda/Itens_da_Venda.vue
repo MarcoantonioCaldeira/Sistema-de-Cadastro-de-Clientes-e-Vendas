@@ -80,10 +80,11 @@
             </div>
         
         </div>
-        
-    
-<!-- 
-        <button class="btn_cadastro_itens_venda">Cadastrar Itens da Venda</button> -->
+
+        <h2 class="Titulo_Itens_Selecionados">Itens Selecionados</h2>
+        <div id="conteudos-selecionados">
+
+        </div>
     </div>
     <Footer />
 </template>
