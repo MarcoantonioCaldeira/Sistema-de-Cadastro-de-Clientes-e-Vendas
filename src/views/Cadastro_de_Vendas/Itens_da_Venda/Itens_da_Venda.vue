@@ -51,50 +51,35 @@
                     
                     <div v-if="showOtherDiv" class="pagina-branco">
                         
-                        <h2>Página em branco</h2>
+                        <h2 class="Titulo_Itens_Venda">Preencha os Campos abaixo</h2>
+
+                        <!-- <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de linha" v-model="cod_referencia">
+                        <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de modelo" v-model="cod_referencia">
+                        <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de cor" v-model="cod_referencia"> -->
+
+                        <div  v-for="tamanho in Item.grades_tam" :key="tamanho.tamanho">
+
+                            <h3>Vão ter os campos com as grades</h3>
+
+                            <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa">
+                            <input type="text" class="Input_Form_Itens_Venda" placeholder="tipo do Item" >
+                            <input type="text" class="Input_Form_Itens_Venda" placeholder="Observação do Item">
+
+                            <input type="text" class="Input_Form_Itens_Venda" placeholder="Temanho">
+                            <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens">
+                            <input type="text" class="Input_Form_Itens_Venda" placeholder="Valor Unitario">
+                            
+                        </div>
+
+
+                        <button class="btn_finalizar">Finalizar</button>
                       
                     </div>
 
                 </div>
                 
             </div>
-      
-            <!-- <br><button class="btn_cadastrar_item" v-on:click="openModal_C_Item">
-                <p class="p_nome_item">Adicione um Item</p><i  style="margin-left: 10px; margin-top: 2px;"  class="fa-solid fa-circle-plus"></i>
-            </button>
 
-            <div v-if="showModal_2" class="modal_add_item">
-
-
-                <div class="modal-content_add_item animate">
-
-                    <i @click="closeModal_C_Item"  
-                     style="position: absolute; 
-                            color:#9B9A9A; 
-                            margin-left: 87%;
-                            margin-top: 16px;"
-                            id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
-
-                    <h2 class="Titulo_Itens_Venda">Preencha os Campos abaixo</h2>
-
-                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de linha" v-model="cod_referencia">
-                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de modelo" v-model="cod_referencia">
-                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de cor" v-model="cod_referencia">
-
-                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa" v-model="qtd_caixa">
-                    <input type="text" class="Input_Form_Itens_Venda" placeholder="tipo do Item" v-model="tipo_do_item">
-                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Observação do Item" v-model="obs_item">
-
-                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Temanho" v-model="tamanho">
-                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens"  v-model="qtd_tamanho">
-                    <input type="text" class="Input_Form_Itens_Venda" placeholder="Valor Unitario" v-model="valor_unitario">
-
-                    <button class="btn_finalizar">Finalizar</button>
-
-                </div>
-                
-            </div>
-         -->
         </div>
 
         <h2 class="Titulo_Itens_Selecionados">Itens Selecionados</h2>
@@ -125,6 +110,8 @@ export default{
         return{
             token: '',
             produtos:[],
+            grades_tam:[],
+            Items:[],
             filtro:'',
             showModal: false,
             showOtherDiv: false,
@@ -134,10 +121,12 @@ export default{
 
     mounted(){
         this.Consulta_de_Itens();
+        this.Consulta_Grade_de_Tamanho();
     },
 
     created(){
         this.Consulta_de_Itens();
+        this.Consulta_Grade_de_Tamanho();
     },
 
     computed:{
@@ -178,8 +167,31 @@ export default{
 
         selecionarItem(Item) {
            this.Item_selecionado = Item; 
-            //console.log('Cliente selecionado:', cliente);
+
+           if (this.Item_selecionado.cod_grade) { 
+                this.Consulta_Grade_de_Tamanho(this.Item_selecionado.cod_grade);
+            }
+
+            if(this.Items.length > 1){
+
+                this.showOtherDiv = true;
+
+            }else{
+
+                this.showOtherDiv = false;
+            }
         },
+
+
+        async Consulta_Grade_de_Tamanho(cod_grade){
+            try{
+                const response = await api.get(`/grades_tam?cod_grade=${cod_grade}`);
+                this.grades_tam = response.data;
+
+            }catch(error){
+                console.log(error)
+            }
+        }
     }
 }
 

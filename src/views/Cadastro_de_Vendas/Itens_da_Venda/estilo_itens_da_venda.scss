@@ -166,7 +166,7 @@ table, th, td {
   td{
     color: $cor_2;
   }
-  
+
   tr:hover{
     background-color: $cor_5;
     transition: 0.7s;
@@ -246,9 +246,12 @@ table, th, td {
     height: 40px;
 }
 
+.pagina-branco{
+  height: 750px;
+}
 .btn_finalizar{
     margin-left: 80px;
-    margin-top: 3%;
+    margin-top: 2%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background: $cor_1;
     font-weight: 100;
