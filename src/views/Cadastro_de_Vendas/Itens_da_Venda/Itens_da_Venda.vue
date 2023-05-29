@@ -71,23 +71,18 @@
                             
                         </div>
 
-
                         <button class="btn_finalizar">Finalizar</button>
                       
                     </div>
-
                 </div>
-                
             </div>
-
         </div>
 
         <h2 class="Titulo_Itens_Selecionados">Itens Selecionados</h2>
         <div id="conteudos-selecionados">
 
             <div v-if="Item_selecionado">
-
-                    {{ Item_selecionado.ref_alternativa_cor }}
+                {{ Item_selecionado.ref_alternativa_cor }}
             </div>
 
         </div>
@@ -111,6 +106,7 @@ export default{
             token: '',
             produtos:[],
             grades_tam:[],
+            //cod_grade:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
             Items:[],
             filtro:'',
             showModal: false,
@@ -154,14 +150,14 @@ export default{
         async Consulta_de_Itens(){
            try{
 
-                const token = await getToken();
-                const headers = { Authorization: `Bearer ${token}` };
+            const token = await getToken();
+            const headers = { Authorization: `Bearer ${token}` };
                
-                const response = await api.get(`/produtos`, { headers });
-                this.produtos =  response.data;
+            const response = await api.get(`/produtos`, { headers });
+            produto =  response.data;
 
            }catch(error){
-                console.log(error);
+            console.log(error);
            }
         },
 
@@ -173,11 +169,8 @@ export default{
             }
 
             if(this.Items.length > 1){
-
                 this.showOtherDiv = true;
-
             }else{
-
                 this.showOtherDiv = false;
             }
         },
@@ -187,9 +180,10 @@ export default{
             try{
                 const response = await api.get(`/grades_tam?cod_grade=${cod_grade}`);
                 this.grades_tam = response.data;
+                
 
             }catch(error){
-                console.log(error)
+                console.log(error);
             }
         }
     }
