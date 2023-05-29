@@ -117,7 +117,6 @@
 }
 
 .conteudo_registro{
-    margin-top: 100px;
     font-family: $font_1;
     font-weight: 600;
     //background-color: blue;
@@ -135,9 +134,27 @@
     border: 1.5px solid $cor_3;
 }
 
+.btn_proximo{
+  position: fixed; 
+  z-index: 150;
+  margin-top: 530px;
+  margin-left: 24%; 
+  background: $cor_1;
+  font-weight: 100;
+  font-family: $font_2;
+  border-radius: 5px;
+  border-color: $cor_1;
+  border: 1px solid #003A4C;
+  font-family: arial;
+  color: $cor_5;
+  text-align: 20%;
+  height: 56px;
+  width: 120px;
+}
+
 table, th, td {
     border:1px solid $cor_2;
-    width: 200px;
+    width: 300px;
     cursor: pointer;
     text-align: center;
   }
@@ -149,8 +166,8 @@ table, th, td {
   td{
     color: $cor_2;
   }
-
-  td:hover{
+  
+  tr:hover{
     background-color: $cor_5;
     transition: 0.7s;
 }
@@ -232,6 +249,7 @@ table, th, td {
 .btn_finalizar{
     margin-left: 80px;
     margin-top: 3%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background: $cor_1;
     font-weight: 100;
     font-family: $font_2;
@@ -243,6 +261,10 @@ table, th, td {
     text-align: 20%;
     height: 56px;
     width: 120px;
+}
+
+.disabled-field {
+  opacity: 0.7;
 }
 
 .modal-content_add_item::-webkit-scrollbar-track{
