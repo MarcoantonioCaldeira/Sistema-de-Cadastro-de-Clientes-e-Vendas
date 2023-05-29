@@ -6,7 +6,7 @@
         <div id="conteudo_formulario">
 
             <button class="btn_nome_Item" v-on:click="openModal_S_Item">
-                <p class="p_nome_item">Selecione o Item</p><i  style="margin-left: 18px; margin-top: 2px;"  class="fa-solid fa-circle-plus"></i>
+                <p class="p_nome_item">Adicione o Item</p><i  style="margin-left: 18px; margin-top: 2px;"  class="fa-solid fa-circle-plus"></i>
             </button>
             
             <div v-if="showModal" class="modal">
@@ -20,34 +20,44 @@
                             margin-top: 16px;"
                             id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
 
-                    <input type="text"   class="input_pesquisa_nome_item" v-model="filtro" placeholder="Pesquisar produto" />
+                    <div v-if="!showOtherDiv">
+
+                        <input type="text" class="input_pesquisa_nome_item" :disabled=Item_selecionado :class="{ 'disabled-field': Item_selecionado }" v-model="filtro" placeholder="Pesquisar produto" />
                     
-                    <div  v-for="Item in (Itens_Filtrados)" :key="Item.referencia" class="conteudo_registro" v-on:click="selecionarItem(Item)">
+                        <button class="btn_proximo"  v-if="Item_selecionado"  @click="showOtherFields">Prosseguir</button>
 
-                        <table style="width: 100%;">
-                            <tr>
-                                <th>Referencia Alternativa</th>
-                                <th>Descrição</th>
-                                <th>Unidade</th>
-                            </tr>
-                            <tr>
-                                <td>{{ Item.ref_alternativa_cor }}</td>
-                                <td>{{ Item.descricao }}</td>
-                                <td>{{ Item.unidade }}</td>
-                            </tr>
-                        </table>  
+                        <div :class="{ 'disabled-field': Item_selecionado }" style="margin-top: 100px;">
 
+                            <div v-for="Item in (Itens_Filtrados)" :key="Item.referencia" class="conteudo_registro" v-on:click="selecionarItem(Item)">
+
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <th>Referencia Alternativa</th>
+                                        <th>Descrição</th>
+                                        <th>Unidade</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{ Item.ref_alternativa_cor }}</td>
+                                        <td>{{ Item.descricao }}</td>
+                                        <td>{{ Item.unidade }}</td>
+                                    </tr>
+                                </table>
+                                    
+                            </div>
+
+                        </div>       
+                
                     </div>
-      
-                    <!-- <div v-if="showOtherDiv">
-                        <h2>Aqui ficam os outros campos</h2>
-
-                    </div> -->
+                    
+                    <div v-if="showOtherDiv" class="pagina-branco">
+                        
+                        <h2>Página em branco</h2>
+                      
+                    </div>
 
                 </div>
                 
             </div>
-
       
             <!-- <br><button class="btn_cadastrar_item" v-on:click="openModal_C_Item">
                 <p class="p_nome_item">Adicione um Item</p><i  style="margin-left: 10px; margin-top: 2px;"  class="fa-solid fa-circle-plus"></i>
@@ -87,14 +97,13 @@
          -->
         </div>
 
-        <!-- <div v-if="Item_selecionado">
-
-            {{ Item.ref_alternativa_cor }}
-
-        </div> -->
-
         <h2 class="Titulo_Itens_Selecionados">Itens Selecionados</h2>
         <div id="conteudos-selecionados">
+
+            <div v-if="Item_selecionado">
+
+                    {{ Item_selecionado.ref_alternativa_cor }}
+            </div>
 
         </div>
     </div>
@@ -148,9 +157,9 @@ export default{
             this.showModal = false;
         },
 
-        // showOtherFields() {
-        //     this.showOtherDiv = true;
-        // },
+        showOtherFields() {
+            this.showOtherDiv = true;
+        },
 
 
         async Consulta_de_Itens(){
