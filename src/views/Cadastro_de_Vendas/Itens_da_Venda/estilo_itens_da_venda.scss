@@ -247,11 +247,61 @@ table, th, td {
 }
 
 .pagina-branco{
-  height: 750px;
+  height: 850px;
 }
+
+.p_tipo_produto{
+  margin-left: 85px;
+  font-family: $font_2;
+  font-weight: 600;
+  color: $cor_2;
+}
+
+.select_tipo_produto{
+  position: relative;
+  width: 373px;
+  background-color: #b9b8b8;
+  padding: 0px 12px;
+  border: 1px solid;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: #b9b8b8;
+  display: block;
+  margin-left:85px;
+  height: 40px;
+}
+
+
+.area-observacao{
+  width: 370px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 200px;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #b9b8b8;
+  background-color: #b9b8b8;
+  margin-left: 85px;
+}
+
+.p_tipo_produto{
+  margin-top: 35px;
+}
+
+.table{
+  margin-left: 85px;
+}
+
+.input_valores{
+  width: 100%;
+  background-color: #D0D4CE; 
+  border: none;
+}
+
 .btn_finalizar{
     margin-left: 80px;
-    margin-top: 2%;
+    margin-top: 4%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background: $cor_1;
     font-weight: 100;
