@@ -32,11 +32,13 @@
 
                                 <table style="width: 100%;">
                                     <tr>
+                                        <th>Codigo da grade</th>
                                         <th>Referencia Alternativa</th>
                                         <th>Descrição</th>
                                         <th>Unidade</th>
                                     </tr>
                                     <tr>
+                                        <td>{{ Item.cod_grade }}</td>
                                         <td>{{ Item.ref_alternativa_cor }}</td>
                                         <td>{{ Item.descricao }}</td>
                                         <td>{{ Item.unidade }}</td>
@@ -49,7 +51,7 @@
                 
                     </div>
                     
-                    <div v-if="showOtherDiv" class="pagina-branco">
+                    <div v-if="Item_selecionado" class="pagina-branco">
                         
                         <h2 class="Titulo_Itens_Venda">Preencha os Campos abaixo</h2>
 
@@ -57,19 +59,42 @@
                         <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de modelo" v-model="cod_referencia">
                         <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de cor" v-model="cod_referencia"> -->
 
-                        <div  v-for="tamanho in Item.grades_tam" :key="tamanho.tamanho">
+                        <!-- Valor pre definido - 1 -->
+                        <!-- <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa"> -->
+                        <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens" >
+                        <input type="text" class="Input_Form_Itens_Venda" placeholder="Valor Unitario">
 
-                            <h3>Vão ter os campos com as grades</h3>
+                        <p class="p_tipo_produto">Tipo do Item: </p>
 
-                            <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa">
-                            <input type="text" class="Input_Form_Itens_Venda" placeholder="tipo do Item" >
-                            <input type="text" class="Input_Form_Itens_Venda" placeholder="Observação do Item">
+                        <select class="select_tipo_produto">
+                            <option>Pronta Entrega</option>
+                            <option>Encomenda</option>
+                        </select>
 
-                            <input type="text" class="Input_Form_Itens_Venda" placeholder="Temanho">
-                            <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens">
-                            <input type="text" class="Input_Form_Itens_Venda" placeholder="Valor Unitario">
-                            
+                        <p class="p_tipo_produto">Observações: </p>
+                        <br>
+                        <textarea class="area-observacao">
+
+                        </textarea>
+
+                        <div v-if="mostrarCamposAdicionais">
+
+                            <p class="p_tipo_produto">Grade Corrida: </p>
+                            <br>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th v-for="(tamanho) in tamanhosGrade" :key="index">{{ tamanho.desc_tamanho }}</th>
+                                    </tr>
+                                    <tr>                                    
+                                        <td v-for="(index) in tamanhosGrade" :key="index">
+                                            <input class="input_valores"  type="text" v-model="quantidades[index]" min="0">
+                                        </td>
+                                    </tr>
+                                </tbody>        
+                            </table>
                         </div>
+                       
 
                         <button class="btn_finalizar">Finalizar</button>
                       
@@ -92,6 +117,7 @@
 
 <script>
 import '@fortawesome/fontawesome-free/css/all.css'
+import axios from 'axios'
 import api, { getToken } from '../../../components/services/api';
 import Footer from '@/components/Footer.vue';
 
@@ -106,8 +132,10 @@ export default{
             token: '',
             produtos:[],
             grades_tam:[],
-            //cod_grade:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            cod_grade:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
             Items:[],
+            quantidades:[],
+            mostrarCamposAdicionais: false,
             filtro:'',
             showModal: false,
             showOtherDiv: false,
@@ -117,12 +145,14 @@ export default{
 
     mounted(){
         this.Consulta_de_Itens();
-        this.Consulta_Grade_de_Tamanho();
+        //this.Consulta_Grade_de_Tamanho();
+        this.selecionarItem();
     },
 
     created(){
         this.Consulta_de_Itens();
-        this.Consulta_Grade_de_Tamanho();
+        //this.Consulta_Grade_de_Tamanho();]
+        this.selecionarItem();
     },
 
     computed:{
@@ -150,42 +180,57 @@ export default{
         async Consulta_de_Itens(){
            try{
 
-            const token = await getToken();
-            const headers = { Authorization: `Bearer ${token}` };
+                const token = await getToken();
+                const headers = { Authorization: `Bearer ${token}` };
                
-            const response = await api.get(`/produtos`, { headers });
-            produto =  response.data;
+                const response = await api.get(`/produtos`, { headers });
+                this.produtos =  response.data;
 
            }catch(error){
-            console.log(error);
+                console.log(error);
            }
         },
 
-        selecionarItem(Item) {
+        async selecionarItem(Item) {
            this.Item_selecionado = Item; 
 
-           if (this.Item_selecionado.cod_grade) { 
-                this.Consulta_Grade_de_Tamanho(this.Item_selecionado.cod_grade);
-            }
+           try{
+            
+                const response = await api.get(`http://localhost:9000/grades_tam?cod_grade=${Item.cod_grade}`);
+                const tamanhosGrade = response.data;
 
-            if(this.Items.length > 1){
-                this.showOtherDiv = true;
-            }else{
-                this.showOtherDiv = false;
-            }
+                if(tamanhosGrade.length > 1){
+                    this.mostrarCamposAdicionais = true;
+                    this.tamanhosGrade = tamanhosGrade;
+
+                    //Conta quantos tamanhos do item vamos ter
+                    const quantidade_tamanho = tamanhosGrade.length;
+                    this.quantidade_tamanho = quantidade_tamanho;
+
+                }else{
+                    this.mostrarCamposAdicionais = false;
+                    this.tamanhosGrade = [];
+                    this.quantidade_tamanho = 0;
+                }
+
+           }catch(error){
+                console.log(error);
+           }
+
+           
         },
 
 
-        async Consulta_Grade_de_Tamanho(cod_grade){
-            try{
-                const response = await api.get(`/grades_tam?cod_grade=${cod_grade}`);
-                this.grades_tam = response.data;
+        // async Consulta_Grade_de_Tamanho(cod_grade){
+        //     try{
+        //         const response = await api.get(`/grades_tam?cod_grade=${cod_grade}`);
+        //         this.grades_tam = response.data;
                 
 
-            }catch(error){
-                console.log(error);
-            }
-        }
+        //     }catch(error){
+        //         console.log(error);
+        //     }
+        // }
     }
 }
 
