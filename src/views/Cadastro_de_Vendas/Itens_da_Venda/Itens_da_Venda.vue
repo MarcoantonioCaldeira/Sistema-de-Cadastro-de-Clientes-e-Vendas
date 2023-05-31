@@ -13,23 +13,21 @@
 
                 <div class="modal-content animate">
 
-                    <i v-on:click="closeModal_S_Item"  
-                     style="position: absolute; 
-                            color:#9B9A9A; 
-                            margin-left: 87%;
-                            margin-top: 16px;"
-                            id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
+                    <i v-on:click="closeModal_S_Item" id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
 
                     <div v-if="!showOtherDiv">
-
+                        <!-- Campo para pesquisar os itens -->
                         <input type="text" class="input_pesquisa_nome_item" :disabled=Item_selecionado :class="{ 'disabled-field': Item_selecionado }" v-model="filtro" placeholder="Pesquisar produto" />
                     
+                        <!-- Botão de prosseguir -->
                         <button class="btn_proximo"  v-if="Item_selecionado"  @click="showOtherFields">Prosseguir</button>
 
+                        <!-- Div para desabilitar a selecao de itens na hora que aparecer a opção de presseguir -->
                         <div :class="{ 'disabled-field': Item_selecionado }" style="margin-top: 100px;">
 
                             <div v-for="Item in (Itens_Filtrados)" :key="Item.referencia" class="conteudo_registro" v-on:click="selecionarItem(Item)">
 
+                                <!-- Tabela onde aparecem os  Itens -->
                                 <table style="width: 100%;">
                                     <tr>
                                         <th>Codigo da grade</th>
@@ -43,19 +41,17 @@
                                         <td>{{ Item.descricao }}</td>
                                         <td>{{ Item.unidade }}</td>
                                     </tr>
-                                </table>
-                                    
+                                </table>                                    
                             </div>
-
-                        </div>       
-                
+                        </div>                     
                     </div>
                     
+                    <!-- Segunda Parte do Cadastro de Itens -->
                     <div v-if="Item_selecionado" class="pagina-branco">
                         
                         <h2 class="Titulo_Itens_Venda">Preencha os Campos abaixo</h2>
 
-                       
+                       <!-- Div onde aparece o Item Selecionado -->
                         <div class="Area_Selecionada">
                             <h3>Item escolhido</h3><br>
 
@@ -63,15 +59,15 @@
 
                             <p>Referencia Alternativa: {{ Item_selecionado.ref_alternativa_cor }}</p>
                         </div>
-                       
-                        <!-- <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de linha" v-model="cod_referencia">
-                        <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de modelo" v-model="cod_referencia">
-                        <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de cor" v-model="cod_referencia"> -->
 
-                        <!-- Valor pre definido - 1 -->
-                        <!-- <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa"> -->
+                        <!-- Se o For Item de Tamanho unico mostramos quantidade de caixa -->
+                        <div v-if="mostrarCamposAdicionais">
+                            <br><input type="text" v-model=" quantidade_caixa"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa" >
+                        </div>                     
+                        <div v-else>
+                            <br><input type="text" v-model=" quantidade_itens"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens" >
+                        </div>
                         
-                        <br><input type="text" v-model=" quantidade_itens"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens" >
                         <input type="text" v-model="valor_unitario"  class="Input_Form_Itens_Venda" placeholder="Valor Unitario">
 
                         <p class="p_tipo_produto">Tipo do Item: </p>
@@ -81,12 +77,12 @@
                             <option>Encomenda</option>
                         </select>
 
-                        <p class="p_tipo_produto">Observações: </p>
-                        <br>
+                        <p class="p_tipo_produto">Observações: </p><br>
                         <textarea  v-model="observacoes" class="area-observacao">
 
                         </textarea>
 
+                        <!-- Area Onde aparecem os Resumos -->
                         <div v-if="mostrarCamposAdicionais">
 
                             <p class="p_tipo_produto">Grade Corrida: </p>
