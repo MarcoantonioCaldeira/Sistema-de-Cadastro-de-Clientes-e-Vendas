@@ -55,25 +55,35 @@
                         
                         <h2 class="Titulo_Itens_Venda">Preencha os Campos abaixo</h2>
 
+                       
+                        <div class="Area_Selecionada">
+                            <h3>Item escolhido</h3><br>
+
+                            <p>Descrição: {{ Item_selecionado.descricao }}</p><br>
+
+                            <p>Referencia Alternativa: {{ Item_selecionado.ref_alternativa_cor }}</p>
+                        </div>
+                       
                         <!-- <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de linha" v-model="cod_referencia">
                         <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de modelo" v-model="cod_referencia">
                         <input type="text" class="Input_Form_Itens_Venda" placeholder="Codigo de cor" v-model="cod_referencia"> -->
 
                         <!-- Valor pre definido - 1 -->
                         <!-- <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa"> -->
-                        <input type="text" class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens" >
-                        <input type="text" class="Input_Form_Itens_Venda" placeholder="Valor Unitario">
+                        
+                        <br><input type="text" v-model=" quantidade_itens"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens" >
+                        <input type="text" v-model="valor_unitario"  class="Input_Form_Itens_Venda" placeholder="Valor Unitario">
 
                         <p class="p_tipo_produto">Tipo do Item: </p>
 
-                        <select class="select_tipo_produto">
+                        <select  v-model="tipo_produto"  class="select_tipo_produto">
                             <option>Pronta Entrega</option>
                             <option>Encomenda</option>
                         </select>
 
                         <p class="p_tipo_produto">Observações: </p>
                         <br>
-                        <textarea class="area-observacao">
+                        <textarea  v-model="observacoes" class="area-observacao">
 
                         </textarea>
 
@@ -84,10 +94,10 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th v-for="(tamanho) in tamanhosGrade" :key="index">{{ tamanho.desc_tamanho }}</th>
+                                        <th v-for="(tamanho, index) in tamanhosGrade" :key="index">{{ tamanho.desc_tamanho }}</th>
                                     </tr>
                                     <tr>                                    
-                                        <td v-for="(index) in tamanhosGrade" :key="index">
+                                        <td v-for="(tamanho, index) in tamanhosGrade" :key="index">
                                             <input class="input_valores"  type="text" v-model="quantidades[index]" min="0">
                                         </td>
                                     </tr>
@@ -95,8 +105,7 @@
                             </table>
                         </div>
                        
-
-                        <button class="btn_finalizar">Finalizar</button>
+                        <button class="btn_finalizar" v-on:click="Mostrar_resumo();  closeModal_S_Item()">Finalizar</button>
                       
                     </div>
                 </div>
@@ -106,10 +115,38 @@
         <h2 class="Titulo_Itens_Selecionados">Itens Selecionados</h2>
         <div id="conteudos-selecionados">
 
-            <div v-if="Item_selecionado">
-                {{ Item_selecionado.ref_alternativa_cor }}
+            <div v-for="(Item, index) in Itens_selecionados" :key="index"> 
+                    <table>
+                        <tr>
+                            <th>Referencia alternativa de Cor</th>
+                            <th>Quantidade de Itens</th>
+                            <th>Valor Unitario</th>
+                            <th>Tipo do Produto</th>
+                            <th>Observações</th>
+                            <th v-for="(tamanho, idx) in Item.tamanhosGrade" :key="idx">{{ tamanho }}</th>
+                        </tr>
+                        <tr>
+                            <td>{{ Item.ref_alternativa_cor }}</td>
+                            <td>{{ Item.quantidade_itens }}</td>
+                            <td>{{ Item.valor_unitario }}</td>
+                            <td>{{ Item.tipo_produto }}</td>
+                            <td>{{ Item.observacoes }}</td> 
+                            <td v-for="(quantidade, idx) in Item.quantidades" :key="idx">{{ quantidade }}</td>
+                        
+                        </tr>
+                        <!-- <td>
+                            <table>
+                                <tr>
+                                    <th v-for="(tamanho, idx) in Item.tamanhosGrade" :key="idx">{{ tamanho }}</th>
+                                </tr>
+                                <tr>
+                                    <td v-for="(quantidade, idx) in Item.quantidade" :key="idx">{{ quantidade }}</td>
+                                </tr>
+                            </table>
+                        </td> -->
+                    </table>
+                    <hr>
             </div>
-
         </div>
     </div>
     <Footer />
@@ -134,12 +171,20 @@ export default{
             grades_tam:[],
             cod_grade:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
             Items:[],
-            quantidades:[],
             mostrarCamposAdicionais: false,
             filtro:'',
             showModal: false,
             showOtherDiv: false,
+            showSummary: false,
+           
+            Itens_selecionados:[],
             Item_selecionado: null,
+            //Item_selecionado_parte_2:null,
+            quantidade_itens: null,
+            valor_unitario:null,
+            tipo_produto: null,
+            observacoes: '',
+            quantidades:[],            
         }
     },
 
@@ -166,14 +211,55 @@ export default{
 
         openModal_S_Item(){
             this.showModal = true;
+            
         },
 
         closeModal_S_Item(){
             this.showModal = false;
+            this.showOtherDiv = false;
+            this.filtro = '';
+            this.Item_selecionado = null;
+            this.quantidade_itens = '';
+            this.valor_unitario = '';
+            this.tipo_produto = '';
+            this.observacoes = '';
+            this.mostrarCamposAdicionais = false;
+            this.tamanhosGrade = [];
+            this.quantidades = [];
+            this.quantidade_tamanho = 0;
         },
 
         showOtherFields() {
             this.showOtherDiv = true;
+        },
+
+
+        Mostrar_resumo(){
+
+            const resumoItem = {
+                refAlternativaCor: this.Item_selecionado.ref_alternativa_cor,
+                quantidadeItens: this.quantidade_itens,
+                valorUnitario: this.valor_unitario,
+                tipoProduto: this.tipo_produto,
+                observacoes: this.observacoes,
+                tamanhosGrade: this.tamanhosGrade.map((tamanho) => tamanho.desc_tamanho),
+                quantidades: this.quantidades
+            };
+
+            this.Itens_selecionados.push(resumoItem);
+
+
+            //Limpar os campos para um novo item
+            this.Item_selecionado = null;
+            this.quantidade_itens = '';
+            this.valor_unitario = '';
+            this.tipo_produto = '';
+            this.observacoes = '';
+            this.mostrarCamposAdicionais = false;
+            this.tamanhosGrade = [];
+            this.quantidades = [];
+            this.quantidade_tamanho = 0;
+            this.closeModal_S_Item();
         },
 
 
@@ -194,29 +280,27 @@ export default{
         async selecionarItem(Item) {
            this.Item_selecionado = Item; 
 
-           try{
-            
+           try{            
                 const response = await api.get(`http://localhost:9000/grades_tam?cod_grade=${Item.cod_grade}`);
                 const tamanhosGrade = response.data;
 
                 if(tamanhosGrade.length > 1){
                     this.mostrarCamposAdicionais = true;
                     this.tamanhosGrade = tamanhosGrade;
-
                     //Conta quantos tamanhos do item vamos ter
-                    const quantidade_tamanho = tamanhosGrade.length;
-                    this.quantidade_tamanho = quantidade_tamanho;
-
+                    this.quantidade_tamanho = tamanhosGrade.length;
+                    this.quantidades = Array(tamanhosGrade.length).fill('');
+     
                 }else{
                     this.mostrarCamposAdicionais = false;
                     this.tamanhosGrade = [];
                     this.quantidade_tamanho = 0;
+                    this.quantidades = []
                 }
-
+                //this.showSummary = false;
            }catch(error){
                 console.log(error);
            }
-
            
         },
 

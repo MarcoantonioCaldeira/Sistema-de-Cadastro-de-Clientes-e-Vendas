@@ -97,7 +97,7 @@
     height: 600px;
     overflow-y: scroll;
     background-color: $cor_4;
-    margin: 5% auto 15% auto;
+    margin: -36px auto 10% auto;
 }
 
 .modal-content::-webkit-scrollbar-track{
@@ -138,7 +138,7 @@
   position: fixed; 
   z-index: 150;
   margin-top: 530px;
-  margin-left: 24%; 
+  margin-left: 375px; 
   background: $cor_1;
   font-weight: 100;
   font-family: $font_2;
@@ -247,7 +247,31 @@ table, th, td {
 }
 
 .pagina-branco{
-  height: 850px;
+  height: 1050px;
+  //background-color: red;
+}
+
+.Area_Selecionada{
+  width: 373px;
+  height: 170px;
+  background-color: #b9b8b8;
+  margin-left: 80px;
+  padding-left: 12px;
+  padding-top: 10px;
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: $font_2;
+}
+
+
+.Area_Selecionada h3{
+  color:$cor_2;
+  margin-left: 110px;
+}
+
+.Area_Selecionada p{
+  color:$cor_2;
 }
 
 .p_tipo_produto{
@@ -276,6 +300,7 @@ table, th, td {
 
 .area-observacao{
   width: 370px;
+  display: block;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   height: 200px;
   border-radius: 5px;
@@ -300,8 +325,9 @@ table, th, td {
 }
 
 .btn_finalizar{
+    position: relative;
     margin-left: 80px;
-    margin-top: 4%;
+    margin-top: 50px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background: $cor_1;
     font-weight: 100;
@@ -346,6 +372,7 @@ table, th, td {
 
 #conteudos-selecionados{
     //position: relative;
+    overflow-y: scroll;
     width: 100%;
     margin-top: 13%;
     height: 450px;
