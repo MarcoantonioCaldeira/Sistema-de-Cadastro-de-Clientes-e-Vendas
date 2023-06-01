@@ -178,7 +178,7 @@ table, th, td {
   tr:hover{
     background-color: $cor_5;
     transition: 0.7s;
-}
+  }
 
 
 //Animação
@@ -381,10 +381,26 @@ table, th, td {
 #conteudos-selecionados{
     //position: relative;
     //overflow-y: scroll;
+    font-family: $font_1;
     width: 100%;
     margin-top: 13%;
     height: 450px;
     background-color: $cor_4;
+}
+
+
+#conteudos-selecionados table{
+  width: 70%;
+}
+
+
+#conteudo-selecionado tr:hover{
+  background-color: #c7c5c5;
+}
+
+#conteudo-selecionado:hover{
+  background-color: #c7c5c5;
+  transition: 0.5s;
 }
 
 #fa-solid-li-2{
