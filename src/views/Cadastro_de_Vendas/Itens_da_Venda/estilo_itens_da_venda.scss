@@ -380,10 +380,17 @@ table, th, td {
 
 #conteudos-selecionados{
     //position: relative;
-    overflow-y: scroll;
+    //overflow-y: scroll;
     width: 100%;
     margin-top: 13%;
     height: 450px;
     background-color: $cor_4;
+}
+
+#fa-solid-li-2{
+  position: absolute; 
+  color:#9B9A9A; 
+  margin-left: 97%;
+  margin-top: 45px;
 }
 

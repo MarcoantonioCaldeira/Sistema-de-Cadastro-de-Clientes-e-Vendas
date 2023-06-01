@@ -61,12 +61,9 @@
                         </div>
 
                         <!-- Se o For Item de Tamanho unico mostramos quantidade de caixa -->
-                        <div v-if="mostrarCamposAdicionais">
-                            <br><input type="text" v-model=" quantidade_caixa"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa" >
-                        </div>                     
-                        <div v-else>
-                            <br><input type="text" v-model=" quantidade_itens"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens" >
-                        </div>
+                        <br><input v-if="mostrarCamposAdicionais" type="text" v-model="quantidade_caixa"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa" >                                 
+                        
+                        <br><input v-if="!mostrarCamposAdicionais" type="text" v-model="quantidade_itens"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens" >
                         
                         <input type="text" v-model="valor_unitario"  class="Input_Form_Itens_Venda" placeholder="Valor Unitario">
 
@@ -82,7 +79,7 @@
 
                         </textarea>
 
-                        <!-- Area Onde aparecem os Resumos -->
+                        <!-- Campo de grade de corrida se o produto for de varios tamanhos -->
                         <div v-if="mostrarCamposAdicionais">
 
                             <p class="p_tipo_produto">Grade Corrida: </p>
@@ -109,39 +106,33 @@
         </div>
 
         <h2 class="Titulo_Itens_Selecionados">Itens Selecionados</h2>
+         
+        <!-- Area onde aparecem os itens que foram selecionados -->
         <div id="conteudos-selecionados">
 
-            <div v-for="(Item, index) in Itens_selecionados" :key="index"> 
-                    <table>
-                        <tr>
-                            <th>Referencia alternativa de Cor</th>
-                            <th>Quantidade de Itens</th>
-                            <th>Valor Unitario</th>
-                            <th>Tipo do Produto</th>
-                            <th>Observações</th>
-                            <th v-for="(tamanho, idx) in Item.tamanhosGrade" :key="idx">{{ tamanho }}</th>
-                        </tr>
-                        <tr>
-                            <td>{{ Item.ref_alternativa_cor }}</td>
-                            <td>{{ Item.quantidade_itens }}</td>
-                            <td>{{ Item.valor_unitario }}</td>
-                            <td>{{ Item.tipo_produto }}</td>
-                            <td>{{ Item.observacoes }}</td> 
-                            <td v-for="(quantidade, idx) in Item.quantidades" :key="idx">{{ quantidade }}</td>
-                        
-                        </tr>
-                        <!-- <td>
-                            <table>
-                                <tr>
-                                    <th v-for="(tamanho, idx) in Item.tamanhosGrade" :key="idx">{{ tamanho }}</th>
-                                </tr>
-                                <tr>
-                                    <td v-for="(quantidade, idx) in Item.quantidade" :key="idx">{{ quantidade }}</td>
-                                </tr>
-                            </table>
-                        </td> -->
-                    </table>
-                    <hr>
+            <div v-if="!showDivResumo"  v-for="(Item, index) in Itens_selecionados" :key="index"> 
+                <i v-on:click="Fechar_Resumo" id="fa-solid-li-2"  class="fa-solid fa-circle-xmark"></i>
+                <table>
+                    <tr>
+                        <th>Referencia alternativa de Cor</th>       
+                        <th v-if="Item.tamanhoUnico">Quantidade de Itens</th>
+                        <th v-if="!Item.taman">Quantidade de Caixa</th>
+                        <th>Valor Unitario</th>
+                        <th>Tipo do Produto</th>
+                        <th>Observações</th>
+                        <th v-for="(tamanho, idx) in Item.tamanhosGrade" :key="idx">{{ tamanho }}</th>
+                    </tr>
+                    <tr>
+                        <td>{{ Item.ref_alternativa_cor }}</td>  
+                        <td v-if="Item.tamanhoUnico">{{ Item.quantidade }}</td>
+                        <td v-if="!Item.gradeTamanho">{{ Item.quantidade }}</td>            
+                        <td>{{ Item.valorUnitario }}</td>
+                        <td>{{ Item.tipoProduto }}</td>
+                        <td>{{ Item.Observacoes }}</td> 
+                        <td v-for="(quantidade, idx) in Item.quantidades" :key="idx">{{ quantidade }}</td>                    
+                    </tr>
+                </table>
+                <hr>
             </div>
         </div>
     </div>
@@ -165,18 +156,19 @@ export default{
             token: '',
             produtos:[],
             grades_tam:[],
-            cod_grade:[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
             Items:[],
             mostrarCamposAdicionais: false,
             filtro:'',
             showModal: false,
             showOtherDiv: false,
             showSummary: false,
+            showDivResumo:false,
            
-            Itens_selecionados:[],
-            Item_selecionado: null,
-            //Item_selecionado_parte_2:null,
+            Itens_selecionados:[], //Array que vai armazenar todos os itens 
+            Item_selecionado: null, 
+
             quantidade_itens: null,
+            quantidade_caixa:null,
             valor_unitario:null,
             tipo_produto: null,
             observacoes: '',
@@ -186,28 +178,25 @@ export default{
 
     mounted(){
         this.Consulta_de_Itens();
-        //this.Consulta_Grade_de_Tamanho();
         this.selecionarItem();
     },
 
     created(){
         this.Consulta_de_Itens();
-        //this.Consulta_Grade_de_Tamanho();]
         this.selecionarItem();
     },
 
     computed:{
+        // Filtra os itens para serem exibidos por ordem alfabetica
         Itens_Filtrados(){
-            return this.produtos.filter(produto => 
-                produto.descricao.toLowerCase().includes(this.filtro.toLowerCase())).sort((a, b) => a.descricao.localeCompare(b.descricao))
+            return this.produtos.filter(produto => produto.descricao.toLowerCase().includes(this.filtro.toLowerCase())).sort((a, b) => a.descricao.localeCompare(b.descricao))
         }
     },
 
     methods:{
 
         openModal_S_Item(){
-            this.showModal = true;
-            
+            this.showModal = true;            
         },
 
         closeModal_S_Item(){
@@ -215,6 +204,7 @@ export default{
             this.showOtherDiv = false;
             this.filtro = '';
             this.Item_selecionado = null;
+            this.quantidade_caixa = '';
             this.quantidade_itens = '';
             this.valor_unitario = '';
             this.tipo_produto = '';
@@ -225,20 +215,37 @@ export default{
             this.quantidade_tamanho = 0;
         },
 
+        // Metodo para abrir a segunda parte do cadastro
         showOtherFields() {
             this.showOtherDiv = true;
         },
 
+        Fechar_Resumo(){
+            this.showDivResumo = true;
+        },
 
         Mostrar_resumo(){
 
+            const gradeTamanho = this.tamanhosGrade.length > 1;
+
+            // Verifica se a quantidade é referente a caixas ou itens
+            let quantidade = 0;
+            if(gradeTamanho){
+                quantidade = this.quantidades.reduce((acc, value) => acc + parseInt(value), 0);
+            }else{
+                quantidade = gradeTamanho ? this.quantidade_caixa : this.quantidade_itens
+            }
+            gradeTamanho ? this.quantidade_caixa : this.quantidade_itens;
+
             const resumoItem = {
-                refAlternativaCor: this.Item_selecionado.ref_alternativa_cor,
-                quantidadeItens: this.quantidade_itens,
+                ref_alternativa_cor: this.Item_selecionado.ref_alternativa_cor,
+                quantidade: quantidade,
+                tamanhoUnico: !gradeTamanho,
+                gradeTamanho: gradeTamanho,
                 valorUnitario: this.valor_unitario,
                 tipoProduto: this.tipo_produto,
-                observacoes: this.observacoes,
-                tamanhosGrade: this.tamanhosGrade.map((tamanho) => tamanho.desc_tamanho),
+                Observacoes: this.observacoes,
+                tamanhosGrade: this.tamanhosGrade.map(tamanho => tamanho.desc_tamanho),
                 quantidades: this.quantidades
             };
 
@@ -248,13 +255,11 @@ export default{
             //Limpar os campos para um novo item
             this.Item_selecionado = null;
             this.quantidade_itens = '';
+            this.quantidade_caixa = '';
             this.valor_unitario = '';
             this.tipo_produto = '';
-            this.observacoes = '';
-            this.mostrarCamposAdicionais = false;
-            this.tamanhosGrade = [];
+            this.observacoes = '';          
             this.quantidades = [];
-            this.quantidade_tamanho = 0;
             this.closeModal_S_Item();
         },
 
@@ -286,31 +291,21 @@ export default{
                     //Conta quantos tamanhos do item vamos ter
                     this.quantidade_tamanho = tamanhosGrade.length;
                     this.quantidades = Array(tamanhosGrade.length).fill('');
+                    this.quantidade_caixa = '';
      
                 }else{
                     this.mostrarCamposAdicionais = false;
                     this.tamanhosGrade = [];
                     this.quantidade_tamanho = 0;
-                    this.quantidades = []
+                    this.quantidades = [];
+                    this.quantidade_caixa = '';
                 }
-                //this.showSummary = false;
+                
            }catch(error){
                 console.log(error);
            }
            
         },
-
-
-        // async Consulta_Grade_de_Tamanho(cod_grade){
-        //     try{
-        //         const response = await api.get(`/grades_tam?cod_grade=${cod_grade}`);
-        //         this.grades_tam = response.data;
-                
-
-        //     }catch(error){
-        //         console.log(error);
-        //     }
-        // }
     }
 }
 
