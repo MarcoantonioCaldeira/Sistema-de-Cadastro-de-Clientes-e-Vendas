@@ -110,13 +110,13 @@
         <!-- Area onde aparecem os itens que foram selecionados -->
         <div id="conteudos-selecionados">
 
-            <div v-if="!showDivResumo"  v-for="(Item, index) in Itens_selecionados" :key="index"> 
+            <div  id="conteudo-selecionado"  v-if="!showDivResumo"  v-for="(Item, index) in Itens_selecionados" :key="index"> 
                 <i v-on:click="Fechar_Resumo" id="fa-solid-li-2"  class="fa-solid fa-circle-xmark"></i>
                 <table>
                     <tr>
                         <th>Referencia alternativa de Cor</th>       
                         <th v-if="Item.tamanhoUnico">Quantidade de Itens</th>
-                        <th v-if="!Item.taman">Quantidade de Caixa</th>
+                        <th v-if="!Item.tamanhoUnico">Quantidade de Caixa</th>
                         <th>Valor Unitario</th>
                         <th>Tipo do Produto</th>
                         <th>Observações</th>
