@@ -50,7 +50,7 @@
                     <div v-if="Item_selecionado" class="pagina-branco">
                         
                         <h2 class="Titulo_Itens_Venda">Preencha os Campos abaixo</h2>
-
+                        
                        <!-- Div onde aparece o Item Selecionado -->
                         <div class="Area_Selecionada">
                             <h3>Item escolhido</h3><br>
@@ -114,22 +114,26 @@
                 <i v-on:click="Fechar_Resumo" id="fa-solid-li-2"  class="fa-solid fa-circle-xmark"></i>
                 <table>
                     <tr>
-                        <th>Referencia alternativa de Cor</th>       
+                        <th>Referencia alternativa de Cor</th>              
                         <th v-if="Item.tamanhoUnico">Quantidade de Itens</th>
                         <th v-if="!Item.tamanhoUnico">Quantidade de Caixa</th>
                         <th>Valor Unitario</th>
                         <th>Tipo do Produto</th>
                         <th>Observações</th>
                         <th v-for="(tamanho, idx) in Item.tamanhosGrade" :key="idx">{{ tamanho }}</th>
+                        <th>Soma total dos Itens</th>
+                        <!-- <th>Total da Compra</th> -->
                     </tr>
                     <tr>
                         <td>{{ Item.ref_alternativa_cor }}</td>  
                         <td v-if="Item.tamanhoUnico">{{ Item.quantidade }}</td>
-                        <td v-if="!Item.gradeTamanho">{{ Item.quantidade }}</td>            
+                        <td v-if="!Item.tamanhoUnico">{{ Item.quantidade }}</td>            
                         <td>{{ Item.valorUnitario }}</td>
                         <td>{{ Item.tipoProduto }}</td>
                         <td>{{ Item.Observacoes }}</td> 
-                        <td v-for="(quantidade, idx) in Item.quantidades" :key="idx">{{ quantidade }}</td>                    
+                        <td v-for="(quantidades_g, index) in Item.quantidades" :key="index">{{ quantidades_g }}</td>
+                        <td>{{ Calcular_Total() }}</td>
+                        <!-- <td>{{ (Item.quantidade * Item.valorUnitario).count }}</td>                     -->
                     </tr>
                 </table>
                 <hr>
@@ -169,7 +173,7 @@ export default{
 
             quantidade_itens: null,
             quantidade_caixa:null,
-            valor_unitario:null,
+            valor_unitario: null,
             tipo_produto: null,
             observacoes: '',
             quantidades:[],            
@@ -230,6 +234,7 @@ export default{
 
             // Verifica se a quantidade é referente a caixas ou itens
             let quantidade = 0;
+
             if(gradeTamanho){
                 quantidade = this.quantidades.reduce((acc, value) => acc + parseInt(value), 0);
             }else{
@@ -246,21 +251,45 @@ export default{
                 tipoProduto: this.tipo_produto,
                 Observacoes: this.observacoes,
                 tamanhosGrade: this.tamanhosGrade.map(tamanho => tamanho.desc_tamanho),
-                quantidades: this.quantidades
+                quantidades: this.quantidades,
+                //Valor_Total: this.valor_unitario * this.gradeTamanho
             };
 
             this.Itens_selecionados.push(resumoItem);
-
-
+            
             //Limpar os campos para um novo item
             this.Item_selecionado = null;
             this.quantidade_itens = '';
             this.quantidade_caixa = '';
             this.valor_unitario = '';
-            this.tipo_produto = '';
+            this.tipo_produto = 'Pronta Entrega';
             this.observacoes = '';          
             this.quantidades = [];
             this.closeModal_S_Item();
+        },
+
+        Calcular_Total(Item){
+
+            let Valor_Total = 0;
+            
+                if(this.tamanhoUnico){
+
+                    const quantidadeItens = parseInt(this.quantidade_itens);
+                    const valor_u = parseInt(this.valor_unitario);
+
+                    Valor_Total = quantidadeItens * valor_u;
+                    
+                }else{
+                    this.quantidades.forEach((quantidade) => {
+                        const quantidadeItens = parseInt(quantidade);
+                        const valor_u = parseInt(this.valor_unitario);
+                        Valor_Total += quantidadeItens * valor_u;
+                    })
+
+                }
+ 
+
+            return Valor_Total;
         },
 
 
@@ -286,14 +315,17 @@ export default{
                 const tamanhosGrade = response.data;
 
                 if(tamanhosGrade.length > 1){
+
                     this.mostrarCamposAdicionais = true;
                     this.tamanhosGrade = tamanhosGrade;
+
                     //Conta quantos tamanhos do item vamos ter
                     this.quantidade_tamanho = tamanhosGrade.length;
                     this.quantidades = Array(tamanhosGrade.length).fill('');
                     this.quantidade_caixa = '';
      
                 }else{
+
                     this.mostrarCamposAdicionais = false;
                     this.tamanhosGrade = [];
                     this.quantidade_tamanho = 0;
