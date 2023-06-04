@@ -47,7 +47,7 @@
                     </div>
                     
                     <!-- Segunda Parte do Cadastro de Itens -->
-                    <div v-if="Item_selecionado" class="pagina-branco">
+                    <div v-if="Item_selecionado" class="info_item_parte_2">
                         
                         <h2 class="Titulo_Itens_Venda">Preencha os Campos abaixo</h2>
                         
@@ -104,13 +104,18 @@
                 </div>
             </div>
         </div>
-        <!-- <h2 class="Titulo_Itens_Selecionados">Itens Selecionados</h2> -->
     </div>
     <!-- Area onde aparecem os itens que foram selecionados -->
     <div id="conteudos-selecionados">
 
-        <div  id="conteudo-selecionado"  v-if="!showDivResumo"  v-for="(Item, index) in Itens_selecionados" :key="index"> 
-            <i v-on:click="Fechar_Resumo" id="fa-solid-li-2"  class="fa-solid fa-circle-xmark"></i>
+        <div style="height: 130px; width: 100%;">
+            <h2 class="Titulo_Itens_Selecionados">Itens Selecionados</h2>
+        </div>
+       
+
+        <div  id="conteudo-selecionado"  v-for="(Item, index) in Itens_selecionados" :key="index"> 
+            <i v-on:click="Fechar_Resumo(index)" id="fa-solid-li-2"  class="fa-solid fa-circle-xmark"></i>
+            <hr>
             <table>
                 <tr>
                     <th>Referencia alternativa de Cor</th>              
@@ -222,8 +227,8 @@ export default{
             this.showOtherDiv = true;
         },
 
-        Fechar_Resumo(){
-            this.showDivResumo = true;
+        Fechar_Resumo(index){
+            this.Itens_selecionados.splice(index, 1);
         },
 
         Mostrar_resumo(){

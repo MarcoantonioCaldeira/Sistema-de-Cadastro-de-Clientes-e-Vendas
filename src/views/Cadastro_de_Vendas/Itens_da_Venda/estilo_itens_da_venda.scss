@@ -17,7 +17,7 @@
 .Titulo_Itens_Venda {
     font-family: $font_1;
     color: $cor_2;
-    margin-left: 5.8%;
+    margin-left: 90px;
     margin-top: 5%;
 }
 
@@ -240,7 +240,6 @@ table, th, td {
 
 
 .Input_Form_Itens_Venda {
-    margin-left: 6% !important;
     width: 350px;
     background-color: #b9b8b8;
     padding: 0px 12px;
@@ -251,20 +250,20 @@ table, th, td {
     font-family: $font_2;
     border-color: #b9b8b8;
     display: block;
-    margin-left: 5%;
+    margin-left: 90px;
     height: 40px;
 }
 
-.pagina-branco{
+.info_item_parte_2{
   height: 1050px;
   //background-color: red;
 }
 
 .Area_Selecionada{
-  width: 373px;
+  width: 368px;
   height: 170px;
   background-color: #b9b8b8;
-  margin-left: 80px;
+  margin-left: 90px;
   padding-left: 12px;
   padding-top: 10px;
   margin-top: 10px;
@@ -273,10 +272,9 @@ table, th, td {
   font-family: $font_2;
 }
 
-
 .Area_Selecionada h3{
   color:$cor_2;
-  margin-left: 110px;
+  margin-left: 5px;
 }
 
 .Area_Selecionada p{
@@ -376,7 +374,7 @@ table, th, td {
     font-family: $font_1;
     color: $cor_2;
     margin-left: 5.8%;
-    margin-top: 7%;
+    margin-top: 4%;
 }
 
 #conteudos-selecionados{
@@ -385,7 +383,8 @@ table, th, td {
     font-family: $font_1;
     width: 100%;
     margin-top: 13%;
-    height: 450px;
+    min-height: 450px;
+    height: auto;
     background-color: $cor_4;
 }
 
@@ -403,6 +402,11 @@ table, th, td {
 #conteudo-selecionado:hover{
   background-color: #c7c5c5;
   transition: 0.5s;
+}
+
+#conteudo-selecionado{
+  //position: relative;
+  //padding-top: 7px;
 }
 
 #fa-solid-li-2{
