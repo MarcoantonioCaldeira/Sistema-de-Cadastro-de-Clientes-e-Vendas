@@ -104,42 +104,39 @@
                 </div>
             </div>
         </div>
+        <!-- <h2 class="Titulo_Itens_Selecionados">Itens Selecionados</h2> -->
+    </div>
+    <!-- Area onde aparecem os itens que foram selecionados -->
+    <div id="conteudos-selecionados">
 
-        <h2 class="Titulo_Itens_Selecionados">Itens Selecionados</h2>
-         
-        <!-- Area onde aparecem os itens que foram selecionados -->
-        <div id="conteudos-selecionados">
-
-            <div  id="conteudo-selecionado"  v-if="!showDivResumo"  v-for="(Item, index) in Itens_selecionados" :key="index"> 
-                <i v-on:click="Fechar_Resumo" id="fa-solid-li-2"  class="fa-solid fa-circle-xmark"></i>
-                <table>
-                    <tr>
-                        <th>Referencia alternativa de Cor</th>              
-                        <th v-if="Item.tamanhoUnico">Quantidade de Itens</th>
-                        <th v-if="!Item.tamanhoUnico">Quantidade de Caixa</th>
-                        <th>Valor Unitario</th>
-                        <th>Tipo do Produto</th>
-                        <th>Observações</th>
-                        <th v-for="(tamanho, idx) in Item.tamanhosGrade" :key="idx">{{ tamanho }}</th>
-                        <th>Soma total dos Itens</th>
-                        <!-- <th>Total da Compra</th> -->
-                    </tr>
-                    <tr>
-                        <td>{{ Item.ref_alternativa_cor }}</td>  
-                        <td v-if="Item.tamanhoUnico">{{ Item.quantidade }}</td>
-                        <td v-if="!Item.tamanhoUnico">{{ Item.quantidade }}</td>            
-                        <td>{{ Item.valorUnitario }}</td>
-                        <td>{{ Item.tipoProduto }}</td>
-                        <td>{{ Item.Observacoes }}</td> 
-                        <td v-for="(quantidades_g, index) in Item.quantidades" :key="index">{{ quantidades_g }}</td>
-                        <td>{{ Calcular_Total() }}</td>
-                        <!-- <td>{{ (Item.quantidade * Item.valorUnitario).count }}</td>                     -->
-                    </tr>
-                </table>
-                <hr>
-            </div>
+        <div  id="conteudo-selecionado"  v-if="!showDivResumo"  v-for="(Item, index) in Itens_selecionados" :key="index"> 
+            <i v-on:click="Fechar_Resumo" id="fa-solid-li-2"  class="fa-solid fa-circle-xmark"></i>
+            <table>
+                <tr>
+                    <th>Referencia alternativa de Cor</th>              
+                    <th v-if="Item.tamanhoUnico">Quantidade de Itens</th>
+                    <th v-if="!Item.tamanhoUnico">Quantidade de Caixa</th>
+                    <th>Valor Unitario</th>
+                    <th>Tipo do Produto</th>
+                    <th>Observações</th>
+                    <th v-for="(tamanho, index) in Item.tamanhosGrade" :key="index">{{ tamanho }}</th>
+                    <!-- <th>Soma total dos Itens</th> -->
+                </tr>
+                <tr>
+                    <td>{{ Item.ref_alternativa_cor }}</td>  
+                    <td v-if="Item.tamanhoUnico">{{ Item.quantidade }}</td>
+                    <td v-if="!Item.tamanhoUnico">{{ Item.quantidade_caixa }}</td>            
+                    <td>{{ Item.valorUnitario }}</td>
+                    <td>{{ Item.tipoProduto }}</td>
+                    <td>{{ Item.Observacoes }}</td> 
+                    <td v-for="(quantidades_g, index) in Item.quantidades" :key="index">{{ quantidades_g }}</td>
+                    <!-- <td>{{ Calcular_Total() }}</td>          -->
+                </tr>
+            </table>
+            <hr>
         </div>
     </div>
+
     <Footer />
 </template>
 
@@ -183,6 +180,7 @@ export default{
     mounted(){
         this.Consulta_de_Itens();
         this.selecionarItem();
+
     },
 
     created(){
@@ -240,19 +238,19 @@ export default{
             }else{
                 quantidade = gradeTamanho ? this.quantidade_caixa : this.quantidade_itens
             }
-            gradeTamanho ? this.quantidade_caixa : this.quantidade_itens;
 
             const resumoItem = {
                 ref_alternativa_cor: this.Item_selecionado.ref_alternativa_cor,
                 quantidade: quantidade,
-                tamanhoUnico: !gradeTamanho,
-                gradeTamanho: gradeTamanho,
+                quantidade_caixa:this.quantidade_caixa,
                 valorUnitario: this.valor_unitario,
                 tipoProduto: this.tipo_produto,
                 Observacoes: this.observacoes,
+                tamanhoUnico: !gradeTamanho,
+                gradeTamanho: gradeTamanho,
                 tamanhosGrade: this.tamanhosGrade.map(tamanho => tamanho.desc_tamanho),
                 quantidades: this.quantidades,
-                //Valor_Total: this.valor_unitario * this.gradeTamanho
+                
             };
 
             this.Itens_selecionados.push(resumoItem);
@@ -268,29 +266,24 @@ export default{
             this.closeModal_S_Item();
         },
 
-        Calcular_Total(Item){
+        // Calcular_Total(){
 
-            let Valor_Total = 0;
-            
-                if(this.tamanhoUnico){
+        //     let resultado = 0;
 
-                    const quantidadeItens = parseInt(this.quantidade_itens);
-                    const valor_u = parseInt(this.valor_unitario);
+        //     if(this.tamanhoUnico){
+        //         resultado = parseInt(this.Item_selecionado.valorUnitario) * parseInt(this.Item_selecionado.Item.quantidade);                 
+        //     }
+        //     // else{
+        //     //     // this.quantidades.forEach((quantidade) => {
+        //     //     //     const quantidadeItens = parseFloat(quantidade);
+        //     //     //     const valor_u = parseFloat(this.valor_unitario);
+        //     //     //     Valor_Total += quantidadeItens * valor_u;
+        //     //     // })
+        //     // }
 
-                    Valor_Total = quantidadeItens * valor_u;
-                    
-                }else{
-                    this.quantidades.forEach((quantidade) => {
-                        const quantidadeItens = parseInt(quantidade);
-                        const valor_u = parseInt(this.valor_unitario);
-                        Valor_Total += quantidadeItens * valor_u;
-                    })
+        //     return resultado;
 
-                }
- 
-
-            return Valor_Total;
-        },
+        // },
 
 
         async Consulta_de_Itens(){
@@ -322,7 +315,7 @@ export default{
                     //Conta quantos tamanhos do item vamos ter
                     this.quantidade_tamanho = tamanhosGrade.length;
                     this.quantidades = Array(tamanhosGrade.length).fill('');
-                    this.quantidade_caixa = '';
+                    //this.quantidade_caixa = '';
      
                 }else{
 
@@ -330,7 +323,7 @@ export default{
                     this.tamanhosGrade = [];
                     this.quantidade_tamanho = 0;
                     this.quantidades = [];
-                    this.quantidade_caixa = '';
+                    //this.quantidade_caixa = '';
                 }
                 
            }catch(error){
