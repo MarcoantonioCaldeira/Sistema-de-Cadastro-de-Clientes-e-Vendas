@@ -125,7 +125,7 @@
                     <th>Tipo do Produto</th>
                     <th>Observações</th>
                     <th v-for="(tamanho, index) in Item.tamanhosGrade" :key="index">{{ tamanho }}</th>
-                    <!-- <th>Soma total dos Itens</th> -->
+                    <th>Valor total dos Itens</th>
                 </tr>
                 <tr>
                     <td>{{ Item.ref_alternativa_cor }}</td>  
@@ -135,7 +135,7 @@
                     <td>{{ Item.tipoProduto }}</td>
                     <td>{{ Item.Observacoes }}</td> 
                     <td v-for="(quantidades_g, index) in Item.quantidades" :key="index">{{ quantidades_g }}</td>
-                    <!-- <td>{{ Calcular_Total() }}</td>          -->
+                    <td>{{ FormatarDinheiro(Calcular_Total(Item)) }}</td>         
                 </tr>
             </table>
             <hr>
@@ -178,13 +178,16 @@ export default{
             valor_unitario: null,
             tipo_produto: null,
             observacoes: '',
-            quantidades:[],            
+            quantidades:[],    
+            ValorTotal:null
+                    
         }
     },
 
     mounted(){
         this.Consulta_de_Itens();
         this.selecionarItem();
+        //this.Calcular_Total()
 
     },
 
@@ -220,6 +223,7 @@ export default{
             this.tamanhosGrade = [];
             this.quantidades = [];
             this.quantidade_tamanho = 0;
+            
         },
 
         // Metodo para abrir a segunda parte do cadastro
@@ -255,7 +259,6 @@ export default{
                 gradeTamanho: gradeTamanho,
                 tamanhosGrade: this.tamanhosGrade.map(tamanho => tamanho.desc_tamanho),
                 quantidades: this.quantidades,
-                
             };
 
             this.Itens_selecionados.push(resumoItem);
@@ -268,28 +271,41 @@ export default{
             this.tipo_produto = 'Pronta Entrega';
             this.observacoes = '';          
             this.quantidades = [];
-            this.closeModal_S_Item();
+            this.closeModal_S_Item();          
         },
 
-        // Calcular_Total(){
+        Calcular_Total(Item) {
+            let resultado = 0;
+            const valor_u = parseFloat(Item.valorUnitario);
 
-        //     let resultado = 0;
+            if(Item.tamanhoUnico){
 
-        //     if(this.tamanhoUnico){
-        //         resultado = parseInt(this.Item_selecionado.valorUnitario) * parseInt(this.Item_selecionado.Item.quantidade);                 
-        //     }
-        //     // else{
-        //     //     // this.quantidades.forEach((quantidade) => {
-        //     //     //     const quantidadeItens = parseFloat(quantidade);
-        //     //     //     const valor_u = parseFloat(this.valor_unitario);
-        //     //     //     Valor_Total += quantidadeItens * valor_u;
-        //     //     // })
-        //     // }
+                const quantidadeItens = parseFloat(Item.quantidade);
 
-        //     return resultado;
+                if(!isNaN(valor_u) && !isNaN(quantidadeItens)){
+                    resultado = valor_u * quantidadeItens;
+                }
 
-        // },
+            }else{
 
+                const quant_caixa = parseFloat(Item.quantidade_caixa);
+
+                Item.quantidades.forEach((quantidade) => {
+                    const quantidadeItens = parseFloat(quantidade);
+
+                    if(!isNaN(quantidadeItens) && !isNaN(valor_u) && !isNaN(quant_caixa)){
+                        resultado += quantidadeItens * valor_u * quant_caixa;
+                    }
+                    
+                });
+            }
+            // Atualizar o valor total apenas para o item atual
+            return resultado;
+        },
+
+        FormatarDinheiro(valor){
+            return valor.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'});
+        },
 
         async Consulta_de_Itens(){
            try{
@@ -320,15 +336,12 @@ export default{
                     //Conta quantos tamanhos do item vamos ter
                     this.quantidade_tamanho = tamanhosGrade.length;
                     this.quantidades = Array(tamanhosGrade.length).fill('');
-                    //this.quantidade_caixa = '';
      
                 }else{
-
                     this.mostrarCamposAdicionais = false;
                     this.tamanhosGrade = [];
                     this.quantidade_tamanho = 0;
                     this.quantidades = [];
-                    //this.quantidade_caixa = '';
                 }
                 
            }catch(error){
