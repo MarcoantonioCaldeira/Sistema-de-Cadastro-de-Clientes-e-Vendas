@@ -149,7 +149,34 @@
                 <option v-for="venda in tipo_venda" :value="venda"> {{ venda.desc_tipo_venda }}</option>
             </select>
 
+            <input type="text" placeholder="Observacao do Faturamento" />
+
+            <input type="text" placeholder="Observação da Nota Fiscal" />
+
+            <input type="text" placeholder="Observação do Pedido"/>
+
+            <input type="text" placeholder="Observação da Produção"/>
+
+            <p>Situação do Frete de Redespacho</p>
+
+            <select>
+                <option>Em branco</option>
+                <option>0 - Por Conta do Remetente(CIF)</option>
+                <option>1 - Por Conta do Destinatário(FOB)</option>
+                <option>2 - Por Conta de Terceiros</option>
+                <option>3 - Transporte próprio por conta do Remetente</option>
+                <option>4 - Transporte próprio por conta do Destinatário</option>
+                <option>5 - Sem Ocorrência de Frete</option>
+            </select>
+            
+            <input type="text" placeholder="Valor do Frete" />
+
+            <input type="text" placeholder="Código do Tipo da Venda" />
+            
+            <input type="text" placeholder="Código da situação de cobrança" />
+            
         </div>
+
     </div>
     <div>
         <router-link to="Itens_da_Venda"><button class="btn_concluir_cadastro_vendas" type="submit">Prosseguir</button></router-link>
