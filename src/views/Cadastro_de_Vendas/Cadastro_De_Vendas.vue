@@ -74,6 +74,12 @@
                 <option  class="option_p"  v-for=" preco in Tabela_de_preco_Vendedores" :key="preco.cod_tab_preco"  :value="preco.cod_tab_preco">{{ preco.descricao }}</option>
             </select>
 
+            <p class="p_data_e">Selecione o tipo da Venda</p>
+
+            <select  class="Select_Tipo_Venda" v-on:click="Requisicao_Tipo_Venda">
+                <option v-for="venda in tipo_venda" :value="venda"> {{ venda.desc_tipo_venda }}</option>
+            </select>
+
             <div>
                 <p class="p_data_e">Data de Emissão: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Emissão">
             </div>
@@ -84,27 +90,53 @@
             
             <div>
                 <p class="p_data_p">Data de Previsão de Entrega Solicitada: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
-            </div>            
-        
+            </div>     
+            
+            <p>Transportadora</p>
+
+            <select class="Select_Trasportadora">
+                <option></option>
+            </select>
+
+            <br><br><br><p class="p_data_e">Tipo do Frete: </p>
+           <select  v-model="tipo_frete"  class="Select_Tipo_Frete">
+                <option value="Valor">Por valor</option>
+                <option value="Percentual">Por percentual</option>
+           </select>
+
+           <input type="text" placeholder="Valor do Frete" />
+
+
+           <p class="p_data_e">Situação do frete: </p>
+            <select  v-model="situacao_frete"  class="Select_Forma_Pagamento">
+                <option value="0">0 - Por conta remetente(CIF)</option>
+                <option value="1">1 - Por conta do destinatario(FOB)</option>
+                <option value="2">2 - Por conta de Terceiros</option>
+                <option value="3">3 - Transporte próprio por conta de remetente</option>
+                <option value="4">4 - Transporte próprio por conta de destinatario</option>
+                <option value="9">5 - Sem Ocorrência de frete</option>
+            </select>
+
+
+            <p>Redespacho</p>
+            <select class="Select_Resdespacho">
+                <option>Em branco</option>
+                <option>0 - Por Conta do Remetente(CIF)</option>
+                <option>1 - Por Conta do Destinatário(FOB)</option>
+                <option>2 - Por Conta de Terceiros</option>
+                <option>3 - Transporte próprio por conta do Remetente</option>
+                <option>4 - Transporte próprio por conta do Destinatário</option>
+                <option>5 - Sem Ocorrência de Frete</option>
+            </select>
+
+        </div>
+    
+        <div class="Formulario_2">
+
             <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n1 (%)">
             <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n2 (%)">
             <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n3 (%)">
             <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n4 (R$)">
-
-
-            <p class="p_data_e">Forma de pagamento: </p>
-           <select  v-model="forma_pagto"  :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento">
-                <option value="0">A vista</option>
-                <option value="1">Contra Apresentação</option>
-                <option value="3">A prazo</option>
-           </select>
-
-           <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="Codigo do Prazo">
-    
-        </div>
-    
-        <div class="Formulario_2">
-            <input type="text" class="InputForm_Vendas"  v-model="desconto_pagto"  placeholder="Desconto de Pagamento">
 
             <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s1 (%)">
             <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s2 (%)">
@@ -119,68 +151,57 @@
                 <option value="3">A prazo</option>
            </select>
 
-           <p class="p_data_e">Prazo de pagamento: </p>
-           <select class="Select_Forma_Pagamento" v-on:click="Consultando_prazos">
-                <option  v-for="prazos in prazo" :key="prazos.cod_prazo" :value="prazos.cod_prazo">{{ prazos.descricao }}</option>
+           <p class="p_data_e">Forma de pagamento: </p>
+           <select  v-model="forma_pagto"  :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento">
+                <option value="0">A vista</option>
+                <option value="1">Contra Apresentação</option>
+                <option value="3">A prazo</option>
            </select>
-           <!-- <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }"  placeholder="Codigo do Prazo X"> -->
 
-           <br><br><br><p class="p_data_e">Tipo do Frete: </p>
-           <select  v-model="tipo_frete"  class="Select_Tipo_Frete">
-                <option value="Valor">Por valor</option>
-                <option value="Percentual">Por percentual</option>
-           </select>
+           <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="Codigo do Prazo">
+
+           <input type="text" class="InputForm_Vendas"  v-model="desconto_pagto"  placeholder="Desconto de Pagamento">
 
            <input type="text" v-model="displayItem"  class="InputForm_Vendas" placeholder="Valor do Frete">
           
-            <p class="p_data_e">Situação do frete: </p>
-            <select  v-model="situacao_frete"  class="Select_Forma_Pagamento">
-                <option value="0">0 - Por conta remetente(CIF)</option>
-                <option value="1">1 - Por conta do destinatario(FOB)</option>
-                <option value="2">2 - Por conta de Terceiros</option>
-                <option value="3">3 - Transporte próprio por conta de remetente</option>
-                <option value="4">4 - Transporte próprio por conta de destinatario</option>
-                <option value="9">5 - Sem Ocorrência de frete</option>
-            </select>
-
-            <p class="p_data_e">Selecione o tipo da Venda</p>
-
-            <select  class="Select_Tipo_Venda" v-on:click="Requisicao_Tipo_Venda">
-                <option v-for="venda in tipo_venda" :value="venda"> {{ venda.desc_tipo_venda }}</option>
-            </select>
-
-            <input type="text" placeholder="Observacao do Faturamento" />
-
-            <input type="text" placeholder="Observação da Nota Fiscal" />
-
-            <input type="text" placeholder="Observação do Pedido"/>
-
-            <input type="text" placeholder="Observação da Produção"/>
-
-            <p>Situação do Frete de Redespacho</p>
-
-            <select>
-                <option>Em branco</option>
-                <option>0 - Por Conta do Remetente(CIF)</option>
-                <option>1 - Por Conta do Destinatário(FOB)</option>
-                <option>2 - Por Conta de Terceiros</option>
-                <option>3 - Transporte próprio por conta do Remetente</option>
-                <option>4 - Transporte próprio por conta do Destinatário</option>
-                <option>5 - Sem Ocorrência de Frete</option>
-            </select>
             
-            <input type="text" placeholder="Valor do Frete" />
+            <p class="p_data_e">Forma de pagamento X: </p>
+           <select  v-model="forma_pagto"  :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento">
+                <option value="0">A vista</option>
+                <option value="1">Contra Apresentação</option>
+                <option value="3">A prazo</option>
+           </select>
 
-            <input type="text" placeholder="Código do Tipo da Venda" />
+           <p class="p_data_e">Prazo de pagamento: </p>
+           <select class="Select_Forma_Pagamento" v-on:click="Consultando_prazos">
+                <option  v-for="prazos in prazo" :key="prazos.cod_prazo">{{ prazos.descricao }}</option>
+           </select>         
             
-            <input type="text" placeholder="Código da situação de cobrança" />
-            
+           
+        </div>
+        
+        <div class="Formulario_3">
+
+            <p>Observação do Pedido</p>
+            <textarea></textarea>
+
+            <p>Observacao do Faturamento</p>
+            <textarea></textarea>
+
+            <p>Observação da Nota Fiscal</p>
+            <textarea></textarea>
+
+            <p>Observação da Produção</p>
+            <textarea></textarea>
+
         </div>
 
     </div>
+
     <div>
         <router-link to="Itens_da_Venda"><button class="btn_concluir_cadastro_vendas" type="submit">Prosseguir</button></router-link>
     </div>
+
     <Footer />
 </template>
 
@@ -201,14 +222,14 @@ export default{
   data(){
     return{
         //selectedVendedor: null,
-        // selectedDescricao: null,
-        // selectedTipoVenda: null,
+        //selectedDescricao: null,
+        //selectedTipoVenda: null,
         showModal: false,
         vendedores: [],
         precos:[],
         tipo_venda:[],
         prazo:[],
-        cod_prazo:[
+        codigos_prazo:[
             1,2,3,4,5,6,7
         ],
 
@@ -380,7 +401,7 @@ export default{
             const headers = {Authorization: `Bearer ${token}`};
 
 
-            const promises = this.cod_prazo.map( async codigo => {
+            const promises = this.codigos_prazo.map( async codigo => {
                 const response = await api.get(`/prazos?cod_prazo=${codigo}`, { headers });
                 return response.data;
             });
