@@ -4,7 +4,7 @@
 
 #Formulario {
     width: 100%;
-    height: 1300px;
+    height: 1500px;
 }
 
 
@@ -244,6 +244,25 @@ table, th, td {
     height: 40px;
 }
 
+
+.Select_Trasportadora{
+    position: relative;
+    width: 373px;
+    background-color: #CECCCC;
+    //background-color: red;
+    padding: 0px 12px;
+    border: 1px solid;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: #CECCCC;
+    display: block;
+    margin-left: 5%;
+    height: 40px;
+}
+
+
 .Select_Tipo_Frete{
     position: relative;
     width: 373px;
@@ -276,6 +295,34 @@ table, th, td {
     display: block;
     margin-left: 5%;
     height: 40px;
+}
+
+.Select_Resdespacho{
+    position: relative;
+    width: 373px;
+    background-color: #CECCCC;
+    //background-color: red;
+    padding: 0px 12px;
+    border: 1px solid;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: #CECCCC;
+    display: block;
+    margin-left: 5%;
+    height: 40px;
+}
+
+
+.Formulario_3{
+    position: absolute;
+    display: inline-block;
+    //position: relative;
+    width: 32%;
+    margin-left: 33%;
+    margin-top: 12px;
+    background-color: rgb(247, 65, 65);
 }
 
 
