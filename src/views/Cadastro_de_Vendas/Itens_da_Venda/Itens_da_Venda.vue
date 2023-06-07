@@ -25,23 +25,31 @@
                         <!-- Div para desabilitar a selecao de itens na hora que aparecer a opção de presseguir -->
                         <div :class="{ 'disabled-field': Item_selecionado }" style="margin-top: 100px;">
 
-                            <div v-for="Item in (Itens_Filtrados)" :key="Item.referencia" class="conteudo_registro" v-on:click="selecionarItem(Item)">
+                            <div v-for="(Item, index) in Itens_Filtrados" :key="Item.referencia" class="conteudo_registro" v-on:click="selecionarItem(Item)">
 
                                 <!-- Tabela onde aparecem os  Itens -->
-                                <table style="width: 100%;">
+                                <table v-if="index == 0"  style="width: 100%;">
                                     <tr>
                                         <th>Codigo da grade</th>
                                         <th>Referencia Alternativa</th>
                                         <th>Descrição</th>
                                         <th>Unidade</th>
                                     </tr>
+                                    <tr v-for="(Item, index) in Itens_selecionados" :key="index">
+                                        <td>{{ Item.cod_grade }}</td>
+                                        <td>{{ Item.ref_alternativa_cor }}</td>
+                                        <td>{{ Item.descricao }}</td>
+                                        <td>{{ Item.unidade }}</td>
+                                    </tr>
+                                </table>   
+                                <table v-else style="width: 100%;">
                                     <tr>
                                         <td>{{ Item.cod_grade }}</td>
                                         <td>{{ Item.ref_alternativa_cor }}</td>
                                         <td>{{ Item.descricao }}</td>
                                         <td>{{ Item.unidade }}</td>
                                     </tr>
-                                </table>                                    
+                                </table>                                 
                             </div>
                         </div>                     
                     </div>

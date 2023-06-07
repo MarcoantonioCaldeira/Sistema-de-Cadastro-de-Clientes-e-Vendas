@@ -26,9 +26,9 @@ const routes = [
     component: () => import('../views/Cadastro_pt_1/Cadastro_pt_1_P_Fisica.vue')
   },
   {
-    path: '/Cadastro_De_Vendas',
-    name: 'Cadastro_De_Vendas',
-    component: () => import('../views/Cadastro_de_Vendas/Cadastro_De_Vendas.vue')
+    path: '/Informacoes_Venda',
+    name: 'Informacoes_Venda',
+    component: () => import('../views/Cadastro_de_Vendas/Informacoes_Venda.vue')
   },
   {
     path: '/Cadastro_pt_1_P_Juridica',
