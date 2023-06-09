@@ -7,13 +7,6 @@ const routes = [
     name: 'Tela_Inicial',
     component: Tela_Inicial
   },
-
-  {
-    path: '/Itens_da_Venda',
-    name: 'Itens_da_Venda',
-    component: () => import('../views/Cadastro_de_Vendas/Itens_da_Venda/Itens_da_Venda.vue')
-
-  },
   {
     path: '/Selecao_Tipo_Pessoa',
     name: 'Selecao_Tipo_Pessoa',
@@ -29,6 +22,19 @@ const routes = [
     path: '/Informacoes_Venda',
     name: 'Informacoes_Venda',
     component: () => import('../views/Cadastro_de_Vendas/Informacoes_Venda.vue')
+  },
+  // Componente pai
+  {
+    path:'/Cadastro',
+    name:'Cadastro',
+    component: () => import('../views/Cadastro_de_Vendas/Cadastro/Cadastro.vue')
+  },
+
+  {
+    path: '/Itens_da_Venda',
+    name: 'Itens_da_Venda',
+    component: () => import('../views/Cadastro_de_Vendas/Itens_da_Venda/Itens_da_Venda.vue')
+
   },
   {
     path: '/Cadastro_pt_1_P_Juridica',

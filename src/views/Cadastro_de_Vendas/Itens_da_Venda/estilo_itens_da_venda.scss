@@ -416,3 +416,20 @@ table, th, td {
   margin-top: 45px;
 }
 
+.btn_validar_cadastro{
+  position: relative;
+  margin-left: 90%;
+  margin-top: -5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: $cor_1;
+  font-weight: 100;
+  font-family: $font_2;
+  border-radius: 5px;
+  border-color: $cor_1;
+  border: 1px solid #003A4C;
+  font-family: arial;
+  color: $cor_5;
+  text-align: 20%;
+  height: 56px;
+  width: 120px;
+}

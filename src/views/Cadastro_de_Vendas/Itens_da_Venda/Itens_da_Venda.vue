@@ -77,7 +77,7 @@
 
                         <p class="p_tipo_produto">Tipo do Item: </p>
 
-                        <select  v-model="tipo_produto"  class="select_tipo_produto">
+                        <select  v-model="tipo_produto" class="select_tipo_produto">
                             <option>Pronta Entrega</option>
                             <option>Encomenda</option>
                         </select>
@@ -112,6 +112,8 @@
                 </div>
             </div>
         </div>
+
+        <button class="btn_validar_cadastro" v-on:click="validar_cadastro">Validar Cadastro</button>
     </div>
     <!-- Area onde aparecem os itens que foram selecionados -->
     <div id="conteudos-selecionados">
@@ -182,12 +184,24 @@ export default{
             Item_selecionado: null, 
 
             quantidade_itens: null,
-            quantidade_caixa:null,
             valor_unitario: null,
-            tipo_produto: null,
-            observacoes: '',
             quantidades:[],    
-            ValorTotal:null
+            ValorTotal:null,
+
+            // cod_referencia: '',
+            //obs_item:'',
+            observacoes: '',
+            quantidade_caixa:null,
+            tipo_produto: null,
+            // qtd_tamanho: '',
+            // tamanho: '',
+            // valor_unitario: '',
+            // cod_referencia: '',
+            // obs_item:'',
+            // qtd_caixa:'',
+            // qtd_tamanho:'',
+            // tamanho:'',
+            // valor_unitario:''
                     
         }
     },
@@ -212,6 +226,42 @@ export default{
     },
 
     methods:{
+
+
+        EnviarDados(){
+            
+            const Itens_da_Venda = {
+
+                vendas_itens: [{
+                    cod_referencia: Item.cod_referencia,
+                    obs_item: this.observacoes,
+                    qtd_caixa: this.quantidade_caixa,
+                    tipo_do_item: this.tipo_produto,
+                    vendas_itens_tamanhos: [{
+                        // qtd_tamanho: ,
+                        // tamanho:,
+                        valor_unitario: this.valor_unitario,
+                    },
+                    {
+                        // qtd_tamanho: ,
+                        // tamanho:,
+                        valor_unitario: this.valor_unitario,
+                    },
+                    {
+                        // qtd_tamanho: ,
+                        // tamanho: ,
+                        valor_unitario: this.valor_unitario,
+                    },
+                    {
+                        // qtd_tamanho: ,
+                        // tamanho:,
+                        valor_unitario: this.valor_unitario,
+                    }]
+                }]
+            }
+            
+            this.$emit('ItensdaVendaEnviado', Itens_da_Venda)
+        },
 
         openModal_S_Item(){
             this.showModal = true;            
