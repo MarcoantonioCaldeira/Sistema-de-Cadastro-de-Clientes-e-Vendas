@@ -1,211 +1,204 @@
 <template>
-    <div id="Formulario">
+    <form @submit.prevent="Enviar_Dados_do_Formulario">
+        <div id="Formulario">
 
-        <h1 class="Titulo_Cadastro_Vendas">Cadastro de Vendas</h1>
-    
-        <div class="Formulario_1">
-
-            <input type="text" class="InputForm_Vendas"   placeholder="Codigo da Empresa">
-
-            <button class="btn_nome_cliente" v-on:click="openModal">
-                <p class="p_nome_cliente">Selecione o nome do cliente</p><i  style="margin-left: 8px; margin-top: 2px;"  class="fa-solid fa-circle-plus"></i> 
-            </button>
-
-            <div  id="area_nome_cliente"  v-if="clienteSelecionado">
-
-                <p class="p_nome_cliente_r">Nome: {{ clienteSelecionado.nome }}</p>
-
-            </div>
-
-            <div v-if="showModal" class="modal">
-
-                <div class="modal-content animate">
-
-                    <!--  X para cancelar -->
-                    <i @click="closeModal" id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
-
-                    <input  class="input_pesquisa_nome_cliente"  type="text" v-model="filtro"  placeholder="Pesquise pelo nome do cliente" />
-
-                    <!-- A API ja deixa todos os nomes pre-carregados -->
-                    <div class="conteudo_registro">
-
-                        <div v-for="(cliente, index) in Clientes_Filtrados" :key="cliente.codigo" v-on:click="selecionarCliente(cliente)" @change="atualizarVendedores">
-                            <table v-if="index == 0"  style="width: 100%;">
-                                <tr>
-                                    <th>Nome do Cliente</th>
-                                    <th>Nome Fantasia</th>
-                                    <th>Cidade</th>
-                                    <th>UF</th>
-                                    <th>CNPJ_CPF</th>
-                                </tr>
-                                <tr>
-                                    <td>{{ cliente.nome }}</td>
-                                    <td>{{ cliente.nome_fantasia }}</td>
-                                    <td>{{ cliente.cidade }}</td>
-                                    <td>{{ cliente.estado }}</td> 
-                                    <td>{{ cliente.cnpj_cpf }}</td>
-                                </tr>
-                            </table>
-                            <table v-else style="width: 100%;">
-                                <tr>
-                                    <td>{{ cliente.nome }}</td>
-                                    <td>{{ cliente.nome_fantasia }}</td>
-                                    <td>{{ cliente.cidade }}</td>
-                                    <td>{{ cliente.estado }}</td> 
-                                    <td>{{ cliente.cnpj_cpf }}</td>
-                                </tr>
-                            </table>
-                            
-                        </div>
-
-                    </div>
-
+            <h1 class="Titulo_Cadastro_Vendas">Cadastro de Vendas</h1>
+            <!-- Campos da esquerda do formulario -->
+            <div class="Formulario_1">
+                <!-- Esses campos de input são ligagos ao data() com a diretiva v-model -->
+                <input type="text" class="InputForm_Vendas"   placeholder="Codigo da Empresa" v-model="cod_empresa">
+                <!-- Botão para selecionar o nome do cliente -->
+                <button class="btn_nome_cliente" v-on:click="openModal">
+                    <p class="p_nome_cliente">Selecione o nome do cliente</p><i  style="margin-left: 8px; margin-top: 2px;"  class="fa-solid fa-circle-plus"></i> 
+                </button>
+                <!-- Area onde vai aparecer o nome do cliente selecionado -->
+                <div  id="area_nome_cliente"  v-if="clienteSelecionado">
+                    <p class="p_nome_cliente_r">Nome: {{ clienteSelecionado.nome }}</p>
+                    <!-- <p class="p_nome_cliente_r">Fax: {{ clienteSelecionado.telefone }}</p> -->
                 </div>
 
-            </div>
-            
-            <!-- Nome do vendedor -->
-            <br><p class="p_data_e">Selecione o nome do vendedor: </p>
-            
-            <select class="Select_Nome_Vendedor" v-model="vendedorSelecionado">
-                <option  class="option_p" v-for="vendedor in vendedores" :key="vendedor.cod_vendedor" :value="vendedor.cod_vendedor"  :selected="vendedor === vendedorSelecionado">{{ vendedor.nome }}</option>
-            </select>
+                <div v-if="showModal" class="modal">
 
-            <p class="p_data_e">Tabela de preço: </p>
+                    <div class="modal-content animate">
+
+                        <!--  X para cancelar -->
+                        <i @click="closeModal" id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
+
+                        <!-- Campos de pesquisa para o nome do cliente -->
+                        <input  class="input_pesquisa_nome_cliente"  type="text" v-model="filtro"  placeholder="Pesquise pelo nome do cliente" />
+
+                        <!-- A API ja deixa todos os nomes pre-carregados -->
+                        <div class="conteudo_registro">
+                            <!-- Tabela com os nomes e outros dados dos clientes -->
+                            <div v-for="(cliente, index) in Clientes_Filtrados" :key="cliente.codigo" v-on:click="selecionarCliente(cliente)" @change="atualizarVendedores">
+                                <table v-if="index == 0"  style="width: 100%;">
+                                    <tr>
+                                        <th>Nome do Cliente</th>
+                                        <th>Nome Fantasia</th>
+                                        <th>Cidade</th>
+                                        <th>UF</th>
+                                        <th>CNPJ_CPF</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{ cliente.nome }}</td>
+                                        <td>{{ cliente.nome_fantasia }}</td>
+                                        <td>{{ cliente.cidade }}</td>
+                                        <td>{{ cliente.estado }}</td> 
+                                        <td>{{ cliente.cnpj_cpf }}</td>
+                                    </tr>
+                                </table>
+                                <table v-else style="width: 100%;">
+                                    <tr>
+                                        <td>{{ cliente.nome }}</td>
+                                        <td>{{ cliente.nome_fantasia }}</td>
+                                        <td>{{ cliente.cidade }}</td>
+                                        <td>{{ cliente.estado }}</td> 
+                                        <td>{{ cliente.cnpj_cpf }}</td>
+                                    </tr>
+                                </table>                          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nome do vendedor -->
+                <br><p class="p_data_e">Selecione o nome do vendedor: </p>          
+                <select class="Select_Nome_Vendedor" v-model="cod_vendedor">
+                    <option  class="option_p" v-for="vendedor in vendedores" :key="vendedor.cod_vendedor" :value="vendedor.cod_vendedor"  :selected="vendedor === vendedorSelecionado">{{ vendedor.nome }}</option>
+                </select>
+
+                <!-- Seleção da tabela de preço -->
+                <p class="p_data_e">Tabela de preço: </p>       
+                <select class="Select_Descricao_Tab_Preco" v-on:click="Requisicao_Descricao_Tab_Preco" v-model="tabela_Preco">
+                    <option  class="option_p"  v-for=" preco in Tabela_de_preco_Vendedores" :key="preco.cod_tab_preco"  :value="preco.cod_tab_preco">{{ preco.descricao }}</option>
+                </select>
+
+                <!-- Seleção do tipo da Venda -->
+                <p class="p_data_e">Selecione o tipo da Venda</p>
+                <select  class="Select_Tipo_Venda" v-on:click="Requisicao_Tipo_Venda" v-model="Tipo_Venda">
+                    <option v-for="venda in tipo_venda" :value="venda"> {{ venda.desc_tipo_venda }}</option>
+                </select>
+
+                <div>
+                    <p class="p_data_e">Data de Emissão: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Emissão" v-model="Data_emissao">
+                </div>
+
+                <div>
+                    <p class="p_data_p">Data de Previsão de Entrega da Empresa: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada" v-model="Data_Prev_Entrega">
+                </div>
+                
+                <div>
+                    <p class="p_data_p">Data de Previsão de Entrega Solicitada: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada" v-model="Data_Entrega_Solicitada">
+                </div>     
+                
+                <p class="p_data_e">Transportadora:</p>
+                <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras" v-model="cod_transportadora">
+                    <option v-for="transportadoras in transportadora"  :value="transportadoras.codigo_transportadoras">{{ transportadoras.nome }}</option>
+                </select>
+
+                <br><br><br><p class="p_data_e">Tipo do Frete: </p>
+                <select  v-model="tipo_frete"  class="Select_Tipo_Frete">
+                        <option value="Valor">Por valor</option>
+                        <option value="Percentual">Por percentual</option>
+                </select>
+
+            <input type="text" v-model="displayItem"  class="InputForm_Vendas"  placeholder="Valor do Frete">
+
+
+            <p class="p_data_e">Situação do frete: </p>
+                <select  v-model="situacao_frete"  class="Select_Forma_Pagamento">
+                    <option value="0">0 - Por conta remetente(CIF)</option>
+                    <option value="1">1 - Por conta do destinatario(FOB)</option>
+                    <option value="2">2 - Por conta de Terceiros</option>
+                    <option value="3">3 - Transporte próprio por conta de remetente</option>
+                    <option value="4">4 - Transporte próprio por conta de destinatario</option>
+                    <option value="9">5 - Sem Ocorrência de frete</option>
+                </select>
+
+
+                <p class="p_data_e">Transportadora Redespacho</p>
+                <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras">
+                    <option></option>
+                    <option v-for="transportadoras in transportadora"  :value="transportadoras.codigo_transportadoras">{{ transportadoras.nome }}</option>
+                </select>
+
+                <p class="p_data_e">Situação do Redespacho: </p>
+                <select  v-model="redespacho_situacao_frete"  class="Select_Forma_Pagamento">
+                    <option value="0">0 - Por conta remetente(CIF)</option>
+                    <option value="1">1 - Por conta do destinatario(FOB)</option>
+                    <option value="2">2 - Por conta de Terceiros</option>
+                    <option value="3">3 - Transporte próprio por conta de remetente</option>
+                    <option value="4">4 - Transporte próprio por conta de destinatario</option>
+                    <option value="9">5 - Sem Ocorrência de frete</option>
+                </select>
+
+
+
+            </div>
         
-            <select class="Select_Descricao_Tab_Preco" v-on:click="Requisicao_Descricao_Tab_Preco">
-                <option  class="option_p"  v-for=" preco in Tabela_de_preco_Vendedores" :key="preco.cod_tab_preco"  :value="preco.cod_tab_preco">{{ preco.descricao }}</option>
+            <div class="Formulario_2">
+
+                <input type="text" v-model="desconto_n1" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n1 (%)">
+                <input type="text" v-model="desconto_n2" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n2 (%)">
+                <input type="text" v-model="desconto_n3" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n3 (%)">
+                <input type="text" v-model="desconto_n4" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n4 (R$)">
+
+                <p class="p_data_e">Forma de pagamento: </p>
+                <select  v-model="forma_pagto"  :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento">
+                        <option value="0">A vista</option>
+                        <option value="1">Contra Apresentação</option>
+                        <option value="3">A prazo</option>
+                </select>
+
+            <p class="p_data_e">Prazo de pagamento: </p>
+            <select  v-model="prazo_pagamento" class="Select_Forma_Pagamento" v-on:click="Consultando_prazos">
+                    <option  v-for="prazos in prazo" :key="prazos.cod_prazo">{{ prazos.descricao }}</option>
             </select>
 
-            <p class="p_data_e">Selecione o tipo da Venda</p>
+            <input type="text" class="InputForm_Vendas"  v-model="desconto_pagto"  placeholder="Desconto de Pagamento">
 
-            <select  class="Select_Tipo_Venda" v-on:click="Requisicao_Tipo_Venda">
-                <option v-for="venda in tipo_venda" :value="venda"> {{ venda.desc_tipo_venda }}</option>
-            </select>
-
-            <div>
-                <p class="p_data_e">Data de Emissão: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Emissão">
-            </div>
-
-            <div>
-                <p class="p_data_p">Data de Previsão de Entrega da Empresa: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
-            </div>
+                <input type="text"  v-model="desconto_s1" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s1 (%)">
+                <input type="text"  v-model="desconto_s2" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s2 (%)">
+                <input type="text"  v-model="desconto_s3" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s3 (%)">
+                <input type="text"  v-model="desconto_s4" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s4 (R$)">
             
-            <div>
-                <p class="p_data_p">Data de Previsão de Entrega Solicitada: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
-            </div>     
-            
-            <p class="p_data_e">Transportadora</p>
-
-            <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras">
-                <option v-for="transportadoras in transportadora"  :value="transportadoras.codigo_transportadoras">{{ transportadoras.nome }}</option>
-            </select>
-
-            <br><br><br><p class="p_data_e">Tipo do Frete: </p>
-           <select  v-model="tipo_frete"  class="Select_Tipo_Frete">
-                <option value="Valor">Por valor</option>
-                <option value="Percentual">Por percentual</option>
-           </select>
-
-           <input type="text" placeholder="Valor do Frete" class="InputForm_Vendas"/>
-
-
-           <p class="p_data_e">Situação do frete: </p>
-            <select  v-model="situacao_frete"  class="Select_Forma_Pagamento">
-                <option value="0">0 - Por conta remetente(CIF)</option>
-                <option value="1">1 - Por conta do destinatario(FOB)</option>
-                <option value="2">2 - Por conta de Terceiros</option>
-                <option value="3">3 - Transporte próprio por conta de remetente</option>
-                <option value="4">4 - Transporte próprio por conta de destinatario</option>
-                <option value="9">5 - Sem Ocorrência de frete</option>
-            </select>
-
-
-            <p class="p_data_e">Transportadora Redespacho</p>
-            <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras">
-                <option></option>
-                <option v-for="transportadoras in transportadora"  :value="transportadoras.codigo_transportadoras">{{ transportadoras.nome }}</option>
-            </select>
-
-            <p class="p_data_e">Situação do Redespacho: </p>
-            <select  v-model="situacao_frete"  class="Select_Forma_Pagamento">
-                <option value="0">0 - Por conta remetente(CIF)</option>
-                <option value="1">1 - Por conta do destinatario(FOB)</option>
-                <option value="2">2 - Por conta de Terceiros</option>
-                <option value="3">3 - Transporte próprio por conta de remetente</option>
-                <option value="4">4 - Transporte próprio por conta de destinatario</option>
-                <option value="9">5 - Sem Ocorrência de frete</option>
-            </select>
-
-
-
-        </div>
-    
-        <div class="Formulario_2">
-
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n1 (%)">
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n2 (%)">
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n3 (%)">
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" placeholder="desconto_n4 (R$)">
-
-            <p class="p_data_e">Forma de pagamento: </p>
-            <select  v-model="forma_pagto"  :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento">
+                
+            <p class="p_data_e">Forma de pagamento X: </p>
+            <select  v-model="forma_pagto_x"  :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento">
                     <option value="0">A vista</option>
                     <option value="1">Contra Apresentação</option>
                     <option value="3">A prazo</option>
             </select>
 
-           <p class="p_data_e">Prazo de pagamento: </p>
-           <select class="Select_Forma_Pagamento" v-on:click="Consultando_prazos">
-                <option  v-for="prazos in prazo" :key="prazos.cod_prazo">{{ prazos.descricao }}</option>
-           </select>
-
-           <input type="text" class="InputForm_Vendas"  v-model="desconto_pagto"  placeholder="Desconto de Pagamento">
-
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s1 (%)">
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s2 (%)">
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s3 (%)">
-            <input type="text" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s4 (R$)">
-
-           <input type="text" v-model="displayItem"  class="InputForm_Vendas" placeholder="Valor do Frete">
-          
+            <p class="p_data_e">Prazo de pagamento X: </p>
+            <select v-model="prazo_pagamento_x"  class="Select_Forma_Pagamento" v-on:click="Consultando_prazos">
+                    <option v-for="prazos in prazo" :key="prazos.cod_prazo">{{ prazos.descricao }}</option>
+            </select>         
+                
             
-           <p class="p_data_e">Forma de pagamento X: </p>
-           <select  v-model="forma_pagto"  :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento">
-                <option value="0">A vista</option>
-                <option value="1">Contra Apresentação</option>
-                <option value="3">A prazo</option>
-           </select>
-
-           <p class="p_data_e">Prazo de pagamento X: </p>
-           <select class="Select_Forma_Pagamento" v-on:click="Consultando_prazos">
-                <option  v-for="prazos in prazo" :key="prazos.cod_prazo">{{ prazos.descricao }}</option>
-           </select>         
+            </div>
             
-           
-        </div>
-        
-        <div class="Formulario_3">
+            <div class="Formulario_3">
 
-            <p class="p_data_e">Observação do Pedido</p><br>
-            <textarea class="area_obs_pedido"></textarea>
+                <p class="p_data_e">Observação do Pedido</p><br>
+                <textarea  v-model="observacoes_pedido" class="area_obs_pedido"></textarea>
 
-            <br><br><p class="p_data_e">Observacao do Faturamento</p><br>
-            <textarea  class="area_obs_faturamento"></textarea>
+                <br><br><p class="p_data_e">Observacao do Faturamento</p><br>
+                <textarea  v-model="observacoes_faturamento" class="area_obs_faturamento"></textarea>
 
-            <br><br><p class="p_data_e">Observação da Nota Fiscal</p><br>
-            <textarea  class="area_obs_nota"></textarea>
+                <br><br><p class="p_data_e">Observação da Nota Fiscal</p><br>
+                <textarea  v-model="observacoes_nota" class="area_obs_nota"></textarea>
 
-            <br><br><p class="p_data_e">Observação da Produção</p><br>
-            <textarea  class="area_obs_producao"></textarea>
+                <br><br><p class="p_data_e">Observação da Produção</p><br>
+                <textarea  v-model="observacoes_producao" class="area_obs_producao"></textarea>
+
+            </div>
 
         </div>
-
-    </div>
-
-    <div>
-        <router-link to="Itens_da_Venda"><button class="btn_concluir_cadastro_vendas" type="submit">Prosseguir</button></router-link>
-    </div>
+        <div>
+            <router-link to="Itens_da_Venda"><button class="btn_concluir_cadastro_vendas"  v-on:click="prosseguir"  type="submit">Prosseguir</button></router-link>
+        </div>
+    </form>
 
     <Footer />
 </template>
@@ -225,10 +218,35 @@ export default{
   },
 
   data(){
-    return{
-        //selectedVendedor: null,
-        //selectedDescricao: null,
-        //selectedTipoVenda: null,
+    return{ 
+        cod_empresa: "",
+        cod_vendedor:"",
+        tabela_Preco:"",
+        Tipo_Venda:"",
+        cod_transportadora:"",
+        clienteSelecionado: null,
+        vendedorSelecionado: null,
+        Data_emissao:"",
+        Data_Prev_Entrega:"",
+        Data_Entrega_Solicitada:null,
+        desconto_n1:null,
+        desconto_n2:null,
+        desconto_n3:null,
+        desconto_n4:null,
+        forma_pagto:null,
+        prazo_pagamento:null,
+        desconto_pagto:null,
+        desconto_s1:null,
+        desconto_s2:null,
+        desconto_s3:null,
+        desconto_s4:null,
+        forma_pagto_x:null,
+        prazo_pagamento_x:null,
+        observacoes_pedido:"",
+        observacoes_faturamento:"",
+        observacoes_nota: "",
+        observacoes_producao:"",
+
         showModal: false,
         vendedores: [],
         precos:[],
@@ -238,8 +256,10 @@ export default{
         codigos_prazo:[
             1,2,3,4,5,6,7
         ],
-
         codigo_tab_preco:[
+            1,2,3,4
+        ],
+        codigo_transportadoras:[
             1,2,3,4
         ],
         codigos:[
@@ -249,23 +269,16 @@ export default{
         cod_tipo_venda:[
             1,2,3
         ],
-
-        codigo_transportadoras:[1,2,3,4],
-        
         token: '',
-
         tipo_frete: '',
         displayItem: '',
-
         situacao_frete: '',   
+        redespacho_situacao_frete:null,
         searchQuery: '',
         searchResults: [],
         cpf_cnpj: "",
         filtro: '',
-        clientes: [],
-        clienteSelecionado: null,
-        vendedorSelecionado: null,
-        desconto_pagto: null,
+        clientes: []
     }
   },
 
@@ -289,7 +302,6 @@ export default{
 
   computed:{
     Clientes_Filtrados(){
-
         return this.clientes.filter(cliente =>
             cliente.nome.toLowerCase().includes(this.filtro.toLowerCase())).sort((a, b) => a.nome.localeCompare(b.nome));
     },
@@ -304,6 +316,92 @@ export default{
   },    
 
   methods:{
+
+    Enviar_Dados_do_Formulario(){
+        // const token = await getToken();
+        // const headers = {Authorization: `Bearer ${token}`}
+        const VendaDados = {
+            vendas:[{
+                cod_empresa: this.cod_empresa,
+                cod_cliente: this.clienteSelecionado,
+                cod_vendedor: this.cod_vendedor,
+                cod_tab_preco: this.tabela_Preco,
+                cod_tipo_venda: this.Tipo_Venda,
+                cod_tab_preco: this.codigo_tab_preco,
+                data_emissao: this.Data_emissao,
+                data_prev_entrega: this.Data_Prev_Entrega,
+                data_entrega_solicitada: this.Data_Entrega_Solicitada,
+                codigo_transportadora: this.cod_transportadora,
+                desconto_n1: this.desconto_n1,
+                desconto_n2: this.desconto_n2,
+                desconto_n3: this.desconto_n3,
+                desconto_n4: this.desconto_n4,
+                forma_pagto: this.forma_pagto,
+                desconto_pagto: this.desconto_pagto,
+                desconto_s1: this.desconto_s1,
+                desconto_s2: this.desconto_s2,
+                desconto_s3: this.desconto_s3,
+                desconto_s4: this.desconto_s4,
+                forma_pagto_x:this.forma_pagto_x,
+                prazo_pagamento:this.prazo_pagamento,
+                prazo_pagamento_x:this.prazo_pagamento_x,
+                obs_pedido: this.observacoes_pedido,
+                obs_faturamento:this.observacoes_faturamento,
+                obs_nota:this.observacoes_nota,
+                obs_producao:this.observacoes_pruducao,
+                vr_frete: this.displayItem,
+                situacao_frete: this.situacao_frete,
+                redespacho_sit_frete: this.redespacho_situacao_frete,
+                clientes:{
+                    celular: clienteSelecionado.celular,
+                    classificacao:clienteSelecionado.classificacao,
+                    classificacao_entrega: clienteSelecionado.classificacao_entrega,
+                    cnpj_cpf:clienteSelecionado.cnpj_cpf,
+                    cnpj_cpf_entrega: clienteSelecionado.cnpj_cpf_entrega,
+                    cod_cliente:clienteSelecionado.cod_cliente,
+                    cod_vendedor:clienteSelecionado.cod_vendedor,
+                    data_cadastro:clienteSelecionado.data_cadastro,
+                    e_mail:clienteSelecionado.e_mail,
+                    e_mail_nfe:clienteSelecionado.e_mail_nfe,
+                    inscricao_municipal:clienteSelecionado.inscricao_municipal,
+                    inscricao_rg:clienteSelecionado.inscricao_rg,
+                    nascimento:clienteSelecionado.nascimento,
+                    nome:clienteSelecionado.nome,
+                    nome_fantasia:clienteSelecionado.nome_fantasia,
+                    observacao:clienteSelecionado.observacao,
+                    suframa:clienteSelecionado.suframa,
+                    suframa_tipo:clienteSelecionado.suframa_tipo,
+                    telefone_2:clienteSelecionado.telefone_2,
+                    cliente_enderecos:[{
+                        bairro: clienteSelecionado.bairro,
+                        cep: clienteSelecionado.cep,
+                        cidade: clienteSelecionado.cidade,
+                        cod_cidade: clienteSelecionado.cod_cidade,
+                        cod_pais: clienteSelecionado.cod_pais,
+                        complemento: clienteSelecionado.complemento,
+                        endereco: clienteSelecionado.endereco,
+                        end_numero: clienteSelecionado.end_numero,
+                        estado: clienteSelecionado.estado,
+                        fax: clienteSelecionado.fax,
+                        telefone: clienteSelecionado.telefone,
+                        tipo_endereco: clienteSelecionado.tipo_endereco
+                    }],
+                    cliente_emails: [{
+                        email: clienteSelecionado.email,
+                        email_recebe:[
+                            { recebe:0 },
+                            { recebe:1 },
+                            { recebe:2 }
+                        ]
+
+                    }]
+                }
+            }]
+        }
+
+        this.$emit("formularioVendasEnviado", VendaDados);
+        
+    },
 
     openModal(){
         this.showModal = true;
@@ -453,6 +551,7 @@ export default{
 
       this.clienteSelecionado = cliente; 
       //console.log('Cliente selecionado:', cliente);
+      this.closeModal();
     },
 
     selecionarVendedor(vendedor){
