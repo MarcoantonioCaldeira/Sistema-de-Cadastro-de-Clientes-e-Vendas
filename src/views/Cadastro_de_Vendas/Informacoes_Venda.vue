@@ -70,7 +70,7 @@
                 <!-- Seleção da tabela de preço -->
                 <p class="p_data_e">Tabela de preço: </p>       
                 <select class="Select_Descricao_Tab_Preco" v-on:click="Requisicao_Descricao_Tab_Preco" v-model="tabela_Preco">
-                    <option  class="option_p"  v-for=" preco in Tabela_de_preco_Vendedores" :key="preco.cod_tab_preco"  :value="preco.cod_tab_preco">{{ preco.descricao }}</option>
+                    <option  class="option_p"  v-for=" preco in precos" :key="preco.cod_tab_preco"  :value="preco.cod_tab_preco" >{{ preco.descricao }}</option>
                 </select>
 
                 <!-- Seleção do tipo da Venda -->
@@ -152,7 +152,7 @@
 
                 <p class="p_data_e">Prazo de pagamento: </p>
                 <select  v-model="prazo_pagamento" class="Select_Forma_Pagamento" v-on:click="Consultando_prazos">
-                    <option s v-for="prazos in prazo" :key="prazos.cod_prazo">{{ prazos.descricao }}</option>
+                    <option v-for="prazos in prazo" :key="prazos.cod_prazo" :value="prazos.cod_prazo">{{ prazos.descricao }}</option>
                 </select>
 
                 <input type="text" class="InputForm_Vendas"  v-model="desconto_pagto"  placeholder="Desconto de Pagamento">
@@ -192,12 +192,12 @@
             </div>
 
         </div>
-        <div>
+        <!-- <div>
             <router-link to="Itens_da_Venda"><button class="btn_concluir_cadastro_vendas"  v-on:click="Enviar_Dados_do_Formulario"  type="submit">Prosseguir</button></router-link>
-        </div>
+        </div> -->
     </form>
 
-    <Footer />
+    <!-- <Footer /> -->
 </template>
 
 <script>
@@ -438,7 +438,7 @@ export default{
             const token = await getToken();
             const headers = { Authorization: `Bearer ${token}` };
 
-            const promises = this.cod_tipo_venda.map( async codigo => {
+            const promises = this.codigo_tab_preco.map( async codigo => {
                 const response = await api.get(`/tabelas_precos?cod_tab_preco=${codigo}`, { headers });
                 return response.data;
             });
@@ -499,10 +499,8 @@ export default{
 
     async Consultando_prazos(){
         try{
-
             const token = await getToken();
             const headers = {Authorization: `Bearer ${token}`};
-
 
             const promises = this.codigos_prazo.map( async codigo => {
                 const response = await api.get(`/prazos?cod_prazo=${codigo}`, { headers });
@@ -510,7 +508,14 @@ export default{
             });
 
             const results = await Promise.all(promises);
-            this.prazo = results.flat();
+
+            // Para os valores não virem repetidos
+            const uniqueResults = results.filter((value, index, self) => {
+            return self.findIndex(obj => obj.id === value.id) === index;
+            });
+
+
+            this.prazo = uniqueResults.flat();
             
 
         }catch(error){
