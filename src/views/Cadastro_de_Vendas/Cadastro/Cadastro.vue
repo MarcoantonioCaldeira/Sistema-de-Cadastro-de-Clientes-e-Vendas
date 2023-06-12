@@ -1,8 +1,10 @@
 <template>
     <div>
  
-        <Informacoes_Venda v-if="mostrar_componente" @formularioVendasEnviado="receberFormularioVendas" />        
-        <Itens_da_Venda  v-else  @formularioItensValidado="receberFormularioItensVenda" @validar-cadastro="enviarDadosparaAPI"/>
+        <Informacoes_Venda v-if="mostrar_componente" @formularioVendasEnviado="receberFormularioVendas"></Informacoes_Venda>        
+        <Itens_da_Venda  v-else 
+         @formularioItensValidado="receberFormularioItensVenda" 
+         @validar-cadastro="enviarDadosparaAPI"></Itens_da_Venda>
  
   </div>
 </template>
@@ -48,28 +50,29 @@ export default{
             const dadosFormulario = {
                 vendas: [{
                     ...this.dadosFormulario.vendas[0],
-                    vendas_itens: this.dadosFormulario.vendas[0].vendas_itens.map(Item => ({
+                    vendas_itens: this.dadosFormulario.vendas[0].vendas_itens.map((Item) => ({
                         ...Item, 
-                        vendas_itens_tamanhos: Item.vendas_itens_tamanhos.tamanhos.map(tamanho => ({
+                        vendas_itens_tamanhos: Item.vendas_itens_tamanhos.tamanhos.map((tamanho) => ({
                             ...tamanho
-                        }))
+                        })),
                     })),
                     cliente: {
                         ...this.dadosFormulario.vendas[0].cliente,
-                        cliente_enderecos: this.dadosFormulario.vendas[0].cliente_enderecos.map(endereco => ({
+                        cliente_enderecos: this.dadosFormulario.vendas[0].cliente.cliente_enderecos.map((endereco) => ({
                             ...endereco
                         }))
                     }
                 }]
             };
 
-            await api.post("/vendas", dadosFormulario , {headers})
-            .then(response =>{
-                console.log(response.data)
-            })
-            .catch(error => {
-                console.error(error);
-            })
+            await api
+                .post("/vendas", dadosFormulario , {headers})
+                .then((response) =>{
+                    console.log(response.data)
+                })
+                .catch((error) => {
+                    console.error(error);
+                })
             
         }
     }
