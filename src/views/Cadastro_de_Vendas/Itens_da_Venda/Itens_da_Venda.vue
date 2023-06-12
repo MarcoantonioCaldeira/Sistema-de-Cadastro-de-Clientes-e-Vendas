@@ -244,23 +244,23 @@ export default{
                     qtd_caixa: this.quantidade_caixa,
                     tipo_do_item: this.tipo_produto,
                     vendas_itens_tamanhos: [{
-                        // qtd_tamanho: ,
-                        // tamanho:,
+                        qtd_tamanho: ,
+                        tamanho:,
                         valor_unitario: this.valor_unitario,
                     },
                     {
-                        // qtd_tamanho: ,
-                        // tamanho:,
+                        qtd_tamanho: ,
+                        tamanho:,
                         valor_unitario: this.valor_unitario,
                     },
                     {
-                        // qtd_tamanho: ,
-                        // tamanho: ,
+                        qtd_tamanho: ,
+                        tamanho: ,
                         valor_unitario: this.valor_unitario,
                     },
                     {
-                        // qtd_tamanho: ,
-                        // tamanho:,
+                        qtd_tamanho: ,
+                        tamanho:,
                         valor_unitario: this.valor_unitario,
                     }]
                 }]
