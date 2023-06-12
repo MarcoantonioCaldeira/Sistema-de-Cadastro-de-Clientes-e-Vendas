@@ -89,45 +89,44 @@
                 <div id="AreaEnderecoPrincipal">
                     <h2 class="h2_endereco">Endereço Principal</h2>
 
-                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep">
-                    <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco">
-                    <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero">
-                    <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento">
-                    <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro">
-                    <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade">
-                    <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade">
-                    <input type="text" placeholder="Estado" class="input_endereco" v-model="estado">
-                    <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco">
+                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="Endereco_1.cep" @blur="CONSULTA_CEP">
+                    <input type="text" placeholder="Endereço" class="input_endereco" v-model="Endereco_1.endereco">
+                    <input type="text" placeholder="Numero" class="input_endereco" v-model="Endereco_1.end_numero">
+                    <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="Endereco_1.complemento">
+                    <input type="text" placeholder="Bairro" class="input_endereco" v-model="Endereco_1.bairro">
+                    <input type="text" placeholder="Cidade" class="input_endereco" v-model="Endereco_1.cidade">
+                    <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="Endereco_1.cod_cidade">
+                    <input type="text" placeholder="Estado" class="input_endereco" v-model="Endereco_1.estado">
+                    <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="Endereco_1.tipo_endereco">
                     
                 </div>                                                                        
               
                 <div id="AreaEnderecoSecundario">
                     <h2 class="h2_endereco">Endereço Secundario(Opcional)</h2>
 
-                    <input type="text" placeholder="Seu CEP"  class="input_cep" v-model="cep_2" v-on:blur="CONSULTA_CEP_COB">
-                    <input type="text" placeholder="Endereço" class="input_endereco" v-model="endereco_end_2.logradouro">
-                    <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_2">
-                    <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_2">
-                    <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro_end_2.bairro">
-                    <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_end_2.localidade">
-                    <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_2">
-                    <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_2.uf">
-                    <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_2">
+                    <input type="text" placeholder="Seu CEP"  class="input_cep" v-model="Endereco_2.cep" @blur="CONSULTA_CEP_COB">
+                    <input type="text" placeholder="Endereço" class="input_endereco" v-model="Endereco_2.endereco">
+                    <input type="text" placeholder="Numero" class="input_endereco" v-model="Endereco_2.end_numero">
+                    <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="Endereco_2.complemento">
+                    <input type="text" placeholder="Bairro" class="input_endereco" v-model="Endereco_2.bairro">
+                    <input type="text" placeholder="Cidade" class="input_endereco" v-model="Endereco_2.cidade">
+                    <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="Endereco_2.cod_cidade">
+                    <input type="text" placeholder="Estado" class="input_endereco" v-model="Endereco_2.estado">
+                    <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="Endereco_2.tipo_endereco">
                 </div>
-               
-                    
+                                   
                 <div id="AreaEnderecoTerciario">
                     <h2 class="h2_endereco">Endereço Terciario(Opcional)</h2>
 
-                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="cep_3" v-on:blur="CONSULTA_CEP_TER">
-                    <input type="text" placeholder="Endereço" class="input_endereco" v-model="bairro_end_3.logradouro">
-                    <input type="text" placeholder="Numero" class="input_endereco" v-model="end_numero_3">
-                    <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="complemento_3">
-                    <input type="text" placeholder="Bairro" class="input_endereco" v-model="bairro_end_3.bairro">
-                    <input type="text" placeholder="Cidade" class="input_endereco" v-model="cidade_end_3.localidade">
-                    <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="cod_cidade_3">
-                    <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_3.uf">
-                    <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_3">
+                    <input type="text" placeholder="Seu CEP" class="input_cep" v-model="Endereco_3.cep" @blur="CONSULTA_CEP_TER">
+                    <input type="text" placeholder="Endereço" class="input_endereco" v-model="Endereco_3.endereco">
+                    <input type="text" placeholder="Numero" class="input_endereco" v-model="Endereco_3.end_numero">
+                    <input type="text" placeholder="Complemento(opcional)" class="input_endereco" v-model="Endereco_3.complemento">
+                    <input type="text" placeholder="Bairro" class="input_endereco" v-model="Endereco_3.bairro">
+                    <input type="text" placeholder="Cidade" class="input_endereco" v-model="Endereco_3.cidade">
+                    <input type="text" placeholder="Codigo da Cidade" class="input_endereco" v-model="Endereco_3.cod_cidade">
+                    <input type="text" placeholder="Estado" class="input_endereco" v-model="Endereco_3.estado">
+                    <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="Endereco_3.tipo_endereco">
                 </div>
 
             </div>
@@ -184,7 +183,6 @@ export default{
             enviandoDados: false,
             token: '',
            
-
             nome: "",
             nome_fantasia: "",
             classificacao: "1",
@@ -205,57 +203,49 @@ export default{
             suframa_tipo: "",
             suframa: "",
             inscricao_municipal: "",
-            cep: "",
-            cep_2: "",
-            cep_3: "",
 
-            //teste
-            endereco: "",
-            end_numero: "",
-            complemento: "",
-            bairro: "",
-            cidade: "",
-            cod_cidade: null,
-            estado: "",
-            tipo_endereco: "",
-
-
-            //end_numero_1: "",
-            end_numero_2: "",
-            end_numero_3: "",
-
-            //complemento_1: "",
-            complemento_2: "",
-            complemento_3: "",
-
-            //endereco_end_1: "",
-                //bairro_end_1: "",
-                //cidade_end_1: "",
-                //estado_end_1: "",
-
-            endereco_end_2: "",
-            bairro_end_2: "",
-            cidade_end_2: "",
-            estado_end_2: "",
-
-            endereco_end_3: "",
-            bairro_end_3: "",
-            cidade_end_3: "",
-            estado_end_3: "",
-
-            //cod_cidade_1: "",
-            cod_cidade_2: "",
-            cod_cidade_3: "",
-
-            cod_pais: "1058",
-                
-
-            //tipo_endereco_1: "",
-            tipo_endereco_2: "",
-            tipo_endereco_3: "",
-         
-           
-            cep_keys: [],
+            // Informações do Primeiro Endereço
+            Endereco_1:{
+                cep: "",
+                cep_keys: [],
+                endereco: "",
+                end_numero: "",
+                complemento: "",
+                bairro: "",
+                cidade: "",
+                cod_cidade: null,
+                cod_pais:"1058",
+                estado: "",
+                tipo_endereco: "", 
+            },
+            //Informações do Segundo Endereço
+            Endereco_2:{
+                cep: "",
+                cep_keys: [],
+                endereco: "",
+                end_numero: "",
+                complemento: "",
+                bairro: "",
+                cidade: "",
+                cod_cidade: null,
+                cod_pais:"1058",
+                estado: "",
+                tipo_endereco: "", 
+            },
+            //Informações do Terceiro Endereço
+            Endereco_3:{
+                cep: "",
+                cep_keys: [],
+                endereco: "",
+                end_numero: "",
+                complemento: "",
+                bairro: "",
+                cidade: "",
+                cod_cidade: null,
+                cod_pais:"1058",
+                estado: "",
+                tipo_endereco: "", 
+            },
             inputs: []
         }
     },
@@ -263,8 +253,6 @@ export default{
     mounted(){
         this.Requisicao_Vendedores();
     },
-
-
     methods: {
 
     add_email() {
@@ -277,76 +265,73 @@ export default{
         this.Mostrar_Email = false;
     },
 
-
-
     async Cadastrar() {
 
         try {
      
             const token = await getToken();
-
             const headers = { Authorization: `Bearer ${token}` };
 
-            await api.post("/clientes",{
-                    clientes: [{
-                        nome: this.nome,
-                        nome_fantasia: this.nome_fantasia,
-                        classificacao: this.classificacao,
-                        classificacao_entrega: this.classificacao_entrega,
-                        cod_cliente: this.cod_cliente,
-                        cod_vendedor: this.cod_vendedor,
-                        e_mail: this.e_mail,
-                        e_mail: this.e_mail_adicional,
-                        observacao: this.observacao,
-                        e_mail_nfe: this.e_mail_nfe,
-                        data_cadastro: this.data_cadastro,
-                        telefone_2: this.telefone_2,
-                        celular: this.celular,
-                        cnpj_cpf: this.cnpj_cpf,
-                        cnpj_cpf_entrega: this.cnpj_cpf_entrega,
-                        rg: this.inscricao_rg,
-                        nascimento: this.nascimento,
-                        suframa_tipo: this.suframa_tipo,
-                        suframa: this.suframa,
-                        inscricao_municipal: this.inscricao_municipal,
-                        cliente_enderecos: [{
+            const clientes = {
+                nome: this.nome,
+                nome_fantasia: this.nome_fantasia,
+                classificacao: this.classificacao,
+                classificacao_entrega: this.classificacao_entrega,
+                cod_cliente: this.cod_cliente,
+                cod_vendedor: this.cod_vendedor,
+                e_mail: this.e_mail,
+                e_mail: this.e_mail_adicional,
+                observacao: this.observacao,
+                e_mail_nfe: this.e_mail_nfe,
+                data_cadastro: this.data_cadastro,
+                telefone_2: this.telefone_2,
+                celular: this.celular,
+                cnpj_cpf: this.cnpj_cpf,
+                cnpj_cpf_entrega: this.cnpj_cpf_entrega,
+                rg: this.inscricao_rg,
+                nascimento: this.nascimento,
+                suframa_tipo: this.suframa_tipo,
+                suframa: this.suframa,
+                inscricao_municipal: this.inscricao_municipal,
+                cliente_enderecos: [{
+                    cep: this.Endereco_1.cep,
+                    endereco: this.Endereco_1.endereco,
+                    end_numero: this.Endereco_1.end_numero,
+                    complemento: this.Endereco_1.complemento,
+                    bairro: this.Endereco_1.bairro,
+                    cidade: this.Endereco_1.cidade,
+                    cod_cidade: this.Endereco_1.cod_cidade,
+                    cod_pais: this.Endereco_1.cod_pais,
+                    estado: this.Endereco_1.estado,
+                    tipo_endereco: this.Endereco_1.tipo_endereco,
 
-                            cep: this.cep,
-                            endereco: this.endereco,
-                            end_numero: this.end_numero,
-                            complemento: this.complemento,
-                            bairro: this.bairro,
-                            cidade: this.cidade,
-                            cod_cidade: this.cod_cidade,
-                            cod_pais: this.cod_pais,
-                            estado: this.estado,
-                            tipo_endereco: this.tipo_endereco,
+                    cep: this.Endereco_2.cep,
+                    endereco: this.Endereco_2.endereco,
+                    end_numero: this.Endereco_2.end_numero,
+                    complemento: this.Endereco_2.complemento,
+                    bairro: this.Endereco_2.bairro,
+                    cidade: this.Endereco_2.cidade,
+                    cod_cidade: this.Endereco_2.cod_cidade,
+                    cod_pais: this.Endereco_2.cod_pais,
+                    estado: this.Endereco_2.estado,
+                    tipo_endereco: this.Endereco_2.tipo_endereco,
 
-                            cep: this.cep_2,
-                            endereco: this.endereco_end_2,
-                            end_numero: this.end_numero_2,
-                            complemento: this.complemento_2,
-                            bairro: this.bairro_end_2,
-                            cidade: this.cidade_end_2,
-                            cod_cidade: this.cod_cidade_2,
-                            cod_pais: this.cod_pais,
-                            estado: this.estado_end_2,
-                            tipo_endereco: this.tipo_endereco_2,
+                    cep: this.Endereco_3.cep,
+                    endereco: this.Endereco_3.endereco,
+                    end_numero: this.Endereco_3.end_numero,
+                    complemento: this.Endereco_3.complemento,
+                    bairro: this.Endereco_3.bairro,
+                    cidade: this.Endereco_3.cidade,
+                    cod_cidade: this.Endereco_3.cod_cidade,
+                    cod_pais: this.Endereco_3.cod_pais,
+                    estado: this.Endereco_3.estado,
+                    tipo_endereco: this.Endereco_3.tipo_endereco,
 
-                            cep: this.cep_3,
-                            endereco: this.endereco_end_3,
-                            end_numero: this.end_numero_3,
-                            complemento: this.complemento_3,
-                            bairro: this.bairro_end_3,
-                            cidade: this.cidade_end_3,
-                            cod_cidade: this.cod_cidade_3,
-                            cod_pais: this.cod_pais,
-                            estado: this.estado_end_3,
-                            tipo_endereco: this.tipo_endereco_3
-
-                    }],
                 }],
-             },{ headers }).then(function(resp){
+            }
+
+        await api.post("/clientes",{ clientes: [clientes]},{ headers })
+            .then(function(resp){
                 console.log("Cliente inserido com sucesso", resp)
             })
         }catch(error){
@@ -359,25 +344,23 @@ export default{
             var self = this;
 
             axios
-                .get('https://viacep.com.br/ws/' + this.cep + '/json/')
+                .get('https://viacep.com.br/ws/' + this.Endereco_1.cep + '/json/')
                 .then(function (response) {
-
+                    const data = response.data;
                     console.log(response);
-                    self.endereco_end_1 = response.data;
-                    self.cidade_end_1 = response.data;
-                    self.estado_end_1 = response.data;
-                    self.bairro_end_1 = response.data;
+                    self.Endereco_1.endereco = data.logradouro;
+                    self.Endereco_1.cidade = data.localidade;
+                    self.Endereco_1.estado = data.uf;
+                    self.Endereco_1.bairro = data.bairro;
 
-                    self.cep_keys = Object.keys(self.endereco_end_2);
-                    self.cep_keys = Object.keys(self.cidade_end_1);
-                    self.cep_keys = Object.keys(self.estado_end_1);
-                    self.cep_keys = Object.keys(self.bairro_end_1);
+                    self.Endereco_1.cep_keys = Object.keys(self.Endereco_1.endereco);
+                    self.Endereco_1.cep_keys = Object.keys(self.Endereco_1.cidade);
+                    self.Endereco_1.cep_keys = Object.keys(self.Endereco_1.estado);
+                    self.Endereco_1.cep_keys = Object.keys(self.Endereco_1.bairro);
                 })
-
                 .catch(function (error) {
-                    //console.log(error);
+                    console.log(error);
                 })
-
                 .finally(function () {
 
                 });
@@ -388,19 +371,20 @@ export default{
             var self = this;
 
             axios
-                .get('https://viacep.com.br/ws/' + this.cep_2 + '/json/')
+                .get('https://viacep.com.br/ws/' + this.Endereco_2.cep + '/json/')
                 .then(function (response) {
 
+                    const data = response.data;
                     console.log(response);
-                    self.endereco_end_2 = response.data;
-                    self.cidade_end_2 = response.data;
-                    self.estado_end_2 = response.data;
-                    self.bairro_end_2 = response.data;
+                    self.Endereco_2.endereco = data.logradouro;
+                    self.Endereco_2.cidade = data.localidade;
+                    self.Endereco_2.estado = data.uf;
+                    self.Endereco_2.bairro = data.bairro;
 
-                    self.cep_keys = Object.keys(self.endereco_end_2);
-                    self.cep_keys = Object.keys(self.cidade_end_2);
-                    self.cep_keys = Object.keys(self.estado_end_2);
-                    self.cep_keys = Object.keys(self.bairro_end_2);
+                    self.Endereco_2.cep_keys = Object.keys(self.Endereco_2.endereco);
+                    self.Endereco_2.cep_keys = Object.keys(self.Endereco_2.cidade);
+                    self.Endereco_2.cep_keys = Object.keys(self.Endereco_2.estado);
+                    self.Endereco_2.cep_keys = Object.keys(self.Endereco_2.bairro);
                 })
 
                 .catch(function (error) {
@@ -416,19 +400,20 @@ export default{
             var self = this;
     
             axios
-                .get('https://viacep.com.br/ws/' + this.cep_3 + '/json/')
+                .get('https://viacep.com.br/ws/' + this.Endereco_3.cep + '/json/')
                 .then(function (response) {
 
+                    const data = response.data;
                     console.log(response);
-                    self.endereco_end_3 = response.data;
-                    self.cidade_end_3 = response.data;
-                    self.estado_end_3 = response.data;
-                    self.bairro_end_3 = response.data;
+                    self.Endereco_3.endereco = data.logradouro;
+                    self.Endereco_3.cidade = data.localidade;
+                    self.Endereco_3.estado = data.uf;
+                    self.Endereco_3.bairro = data.bairro;
 
-                    self.cep_keys = Object.keys(self.endereco_end_3);
-                    self.cep_keys = Object.keys(self.cidade_end_3);
-                    self.cep_keys = Object.keys(self.estado_end_3);
-                    self.cep_keys = Object.keys(self.bairro_end_3);
+                    self.Endereco_3.cep_keys = Object.keys(self.Endereco_3.endereco);
+                    self.Endereco_3.cep_keys = Object.keys(self.Endereco_3.cidade);
+                    self.Endereco_3.cep_keys = Object.keys(self.Endereco_3.estado);
+                    self.Endereco_3.cep_keys = Object.keys(self.Endereco_3.bairro);
                 })
 
                 .catch(function (error) {

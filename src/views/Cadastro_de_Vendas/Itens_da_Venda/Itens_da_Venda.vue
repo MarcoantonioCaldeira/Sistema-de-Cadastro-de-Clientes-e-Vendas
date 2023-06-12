@@ -113,7 +113,7 @@
             </div>
         </div>
 
-        <button class="btn_validar_cadastro" v-on:click="validar_cadastro">Validar Cadastro</button>
+        <button class="btn_validar_cadastro"  @click="ValidarCadastro">Validar Cadastro</button>
     </div>
     <!-- Area onde aparecem os itens que foram selecionados -->
     <div id="conteudos-selecionados">
@@ -157,6 +157,7 @@
 
 <script>
 import '@fortawesome/fontawesome-free/css/all.css'
+import Componentepai from '../Cadastro/Cadastro.vue'
 import axios from 'axios'
 import api, { getToken } from '../../../components/services/api';
 import Footer from '@/components/Footer.vue';
@@ -202,6 +203,7 @@ export default{
             // qtd_tamanho:'',
             // tamanho:'',
             // valor_unitario:''
+            ItensValidados: false
                     
         }
     },
@@ -209,7 +211,7 @@ export default{
     mounted(){
         this.Consulta_de_Itens();
         this.selecionarItem();
-        //this.Calcular_Total()
+        //this.Calcular_Total(
 
     },
 
@@ -226,6 +228,10 @@ export default{
     },
 
     methods:{
+
+        ValidarCadastro(){
+            this.$emit('validar-cadastro');
+        },
 
 
         EnviarDados(){
@@ -259,8 +265,8 @@ export default{
                     }]
                 }]
             }
-            
-            this.$emit('ItensdaVendaEnviado', Itens_da_Venda)
+
+            this.$emit('formularioItensValidado', Itens_da_Venda)
         },
 
         openModal_S_Item(){

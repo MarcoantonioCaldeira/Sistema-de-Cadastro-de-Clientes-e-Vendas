@@ -1,8 +1,10 @@
 <template>
-
-<Informacoes_Venda v-if="mostrar_componente"  @formularioVendasEnviado="receberFormularioVendas"/>
-<Itens_da_Venda v-else   @formularioItensValidado="receberFormularioItensVenda"/>
-
+    <div>
+ 
+        <Informacoes_Venda v-if="mostrar_componente" @formularioVendasEnviado="receberFormularioVendas" />        
+        <Itens_da_Venda  v-else  @formularioItensValidado="receberFormularioItensVenda" @validar-cadastro="enviarDadosparaAPI"/>
+ 
+  </div>
 </template>
 
 <script>
@@ -33,17 +35,37 @@ export default{
 
         receberFormularioItensVenda(dadosItens){
             this.dadosFormulario.itens = dadosItens;
+            this.mostrar_componente = true;
+            this.$nextTick(() => {
+                this.$refs.Itens_da_Venda.itensValidados = true;
+            })
         },
 
         async enviarDadosparaAPI(){
             const token = await getToken()
             const headers = {Authorization: `Bearer ${token}`}
 
-            await api.post("/vendas", this.dadosFormulario)
+            const dadosFormulario = {
+                vendas: [{
+                    ...this.dadosFormulario.vendas[0],
+                    vendas_itens: this.dadosFormulario.vendas[0].vendas_itens.map(Item => ({
+                        ...Item, 
+                        vendas_itens_tamanhos: Item.vendas_itens_tamanhos.tamanhos.map(tamanho => ({
+                            ...tamanho
+                        }))
+                    })),
+                    cliente: {
+                        ...this.dadosFormulario.vendas[0].cliente,
+                        cliente_enderecos: this.dadosFormulario.vendas[0].cliente_enderecos.map(endereco => ({
+                            ...endereco
+                        }))
+                    }
+                }]
+            };
 
-
+            await api.post("/vendas", dadosFormulario , {headers})
             .then(response =>{
-                console.log(response.data);
+                console.log(response.data)
             })
             .catch(error => {
                 console.error(error);

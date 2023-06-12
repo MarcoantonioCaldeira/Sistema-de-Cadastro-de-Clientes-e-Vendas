@@ -97,20 +97,18 @@ export function maskTelefone(el){
 }
 
 export function maskCelular(el){
-
-  el.addEventListener('input', function(e){
+  el.addEventListener('input', function (e) {
     let value = e.target.value;
     value = value.replace(/\D/g, '');
 
     // Remove os pontos e traços fazendo com que eles não sejam enviados para a API
-    value = value.replace(/[\(\)-]/g, '');
-   
-    //Celular
+    value = value.replace(/[\(\)\-\s]/g, '');
+
+    // Celular
     value = value.replace(/^(\d{0,2})(\d{0,5})(\d{0,4})$/, '($1) $2-$3');
 
     e.target.value = value;
   });
-
 }
 
 // maskCepDirective.js
