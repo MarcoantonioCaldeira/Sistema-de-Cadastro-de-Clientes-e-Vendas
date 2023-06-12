@@ -145,36 +145,33 @@
 
                 <p class="p_data_e">Forma de pagamento: </p>
                 <select  v-model="forma_pagto"  :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento">
-                        <option value="0">A vista</option>
-                        <option value="1">Contra Apresentação</option>
-                        <option value="3">A prazo</option>
+                    <option value="0">A vista</option>
+                    <option value="1">Contra Apresentação</option>
+                    <option value="3">A prazo</option>
                 </select>
 
-            <p class="p_data_e">Prazo de pagamento: </p>
-            <select  v-model="prazo_pagamento" class="Select_Forma_Pagamento" v-on:click="Consultando_prazos">
-                    <option  v-for="prazos in prazo" :key="prazos.cod_prazo">{{ prazos.descricao }}</option>
-            </select>
+                <p class="p_data_e">Prazo de pagamento: </p>
+                <select  v-model="prazo_pagamento" class="Select_Forma_Pagamento" v-on:click="Consultando_prazos">
+                    <option s v-for="prazos in prazo" :key="prazos.cod_prazo">{{ prazos.descricao }}</option>
+                </select>
 
-            <input type="text" class="InputForm_Vendas"  v-model="desconto_pagto"  placeholder="Desconto de Pagamento">
-
+                <input type="text" class="InputForm_Vendas"  v-model="desconto_pagto"  placeholder="Desconto de Pagamento">
                 <input type="text"  v-model="desconto_s1" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s1 (%)">
                 <input type="text"  v-model="desconto_s2" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s2 (%)">
                 <input type="text"  v-model="desconto_s3" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s3 (%)">
                 <input type="text"  v-model="desconto_s4" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s4 (R$)">
-            
                 
-            <p class="p_data_e">Forma de pagamento X: </p>
-            <select  v-model="forma_pagto_x"  :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento">
+                <p class="p_data_e">Forma de pagamento X: </p>
+                <select  v-model="forma_pagto_x"  :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento">
                     <option value="0">A vista</option>
                     <option value="1">Contra Apresentação</option>
                     <option value="3">A prazo</option>
-            </select>
+                </select>
 
-            <p class="p_data_e">Prazo de pagamento X: </p>
-            <select v-model="prazo_pagamento_x"  class="Select_Forma_Pagamento" v-on:click="Consultando_prazos">
+                <p class="p_data_e">Prazo de pagamento X: </p>
+                <select v-model="prazo_pagamento_x"  class="Select_Forma_Pagamento" v-on:click="Consultando_prazos">
                     <option v-for="prazos in prazo" :key="prazos.cod_prazo">{{ prazos.descricao }}</option>
-            </select>         
-                
+                </select>                        
             
             </div>
             
@@ -196,7 +193,7 @@
 
         </div>
         <div>
-            <router-link to="Itens_da_Venda"><button class="btn_concluir_cadastro_vendas"  v-on:click="prosseguir"  type="submit">Prosseguir</button></router-link>
+            <router-link to="Itens_da_Venda"><button class="btn_concluir_cadastro_vendas"  v-on:click="Enviar_Dados_do_Formulario"  type="submit">Prosseguir</button></router-link>
         </div>
     </form>
 
@@ -318,8 +315,7 @@ export default{
   methods:{
 
     Enviar_Dados_do_Formulario(){
-        // const token = await getToken();
-        // const headers = {Authorization: `Bearer ${token}`}
+        
         const VendaDados = {
             vendas:[{
                 cod_empresa: this.cod_empresa,

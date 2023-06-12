@@ -1,11 +1,8 @@
 <template>
-    <div>
- 
+    <div style="width: 100%; height: 2000px; background-color: red;">
         <Informacoes_Venda v-if="mostrar_componente" @formularioVendasEnviado="receberFormularioVendas"></Informacoes_Venda>        
-        <Itens_da_Venda  v-else 
-         @formularioItensValidado="receberFormularioItensVenda" 
-         @validar-cadastro="enviarDadosparaAPI"></Itens_da_Venda>
- 
+        <Itens_da_Venda  v-else @formularioItensValidado="receberFormularioItensVenda"></Itens_da_Venda>
+        <button v-if="!mostrar_componente" @click="CadastrarDados">Finalizar Cadastro</button>
   </div>
 </template>
 
@@ -31,6 +28,11 @@ export default{
     },
 
     methods:{
+
+        CadastrarDados(){
+            this.enviarDadosparaAPI();
+        },
+
         receberFormularioVendas(dadosVendas){
             this.dadosFormulario.vendas = dadosVendas;
         },

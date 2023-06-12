@@ -113,7 +113,7 @@
             </div>
         </div>
 
-        <button class="btn_validar_cadastro"  @click="ValidarCadastro">Validar Cadastro</button>
+        <!-- <button class="btn_validar_cadastro"  @click="ValidarCadastro">Validar Cadastro</button> -->
     </div>
     <!-- Area onde aparecem os itens que foram selecionados -->
     <div id="conteudos-selecionados">
@@ -237,32 +237,16 @@ export default{
         EnviarDados(){
             
             const Itens_da_Venda = {
-
                 vendas_itens: [{
                     cod_referencia: Item.cod_referencia,
                     obs_item: this.observacoes,
                     qtd_caixa: this.quantidade_caixa,
                     tipo_do_item: this.tipo_produto,
                     vendas_itens_tamanhos: [{
-                        qtd_tamanho: ,
-                        tamanho:,
+                        qtd_tamanho: Item.qtd_tamanho,
+                        tamanho: Item.tamanho,
                         valor_unitario: this.valor_unitario,
-                    },
-                    {
-                        qtd_tamanho: ,
-                        tamanho:,
-                        valor_unitario: this.valor_unitario,
-                    },
-                    {
-                        qtd_tamanho: ,
-                        tamanho: ,
-                        valor_unitario: this.valor_unitario,
-                    },
-                    {
-                        qtd_tamanho: ,
-                        tamanho:,
-                        valor_unitario: this.valor_unitario,
-                    }]
+                    }],
                 }]
             }
 
