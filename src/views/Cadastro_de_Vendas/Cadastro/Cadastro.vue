@@ -1,20 +1,23 @@
 <template>
-    <div style="width: 100%; height: 2000px; background-color: red;">
-        <Informacoes_Venda v-if="mostrar_componente" @formularioVendasEnviado="receberFormularioVendas"></Informacoes_Venda>        
-        <Itens_da_Venda  v-else @formularioItensValidado="receberFormularioItensVenda"></Itens_da_Venda>
-        <button v-if="!mostrar_componente" @click="CadastrarDados">Finalizar Cadastro</button>
+    <div style="width: 100%; height: 2600px;">
+        <Informacoes_Venda @formularioVendasEnviado="receberFormularioVendas"></Informacoes_Venda>        
+        <Itens_da_Venda   @formularioItensValidado="receberFormularioItensVenda"></Itens_da_Venda>
   </div>
+  <button  @click="cadastrarDados">Finalizar Cadastro</button>
+
 </template>
 
 <script>
 import api, { getToken } from '@/components/services/api';
 import Informacoes_Venda from '../Informacoes_Venda.vue'
+// import Footer from '../../../components/Footer.vue'
 import Itens_da_Venda from '../Itens_da_Venda/Itens_da_Venda.vue';
 export default{
     name:'Cadastro',
     components:{
         Informacoes_Venda,
-        Itens_da_Venda
+        Itens_da_Venda,
+        // Footer
     },
     
     data(){
@@ -29,7 +32,7 @@ export default{
 
     methods:{
 
-        CadastrarDados(){
+        cadastrarDados(){
             this.enviarDadosparaAPI();
         },
 
@@ -47,7 +50,7 @@ export default{
 
         async enviarDadosparaAPI(){
             const token = await getToken()
-            const headers = {Authorization: `Bearer ${token}`}
+            const headers = {Authorization: `Bearer ${token}`};
 
             const dadosFormulario = {
                 vendas: [{
@@ -62,8 +65,8 @@ export default{
                         ...this.dadosFormulario.vendas[0].cliente,
                         cliente_enderecos: this.dadosFormulario.vendas[0].cliente.cliente_enderecos.map((endereco) => ({
                             ...endereco
-                        }))
-                    }
+                        })),
+                    },
                 }]
             };
 
