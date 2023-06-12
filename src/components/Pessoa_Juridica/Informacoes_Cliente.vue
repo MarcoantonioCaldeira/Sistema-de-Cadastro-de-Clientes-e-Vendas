@@ -58,7 +58,7 @@
                 <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_1">
                 <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_1">
             </div>
-    
+<!--     
             <div id="AreaEnderecoSecundario">
                 <h2 class="h2_endereco">Endereço Secundario(Opcional)</h2>
     
@@ -87,7 +87,7 @@
                 <input type="text" placeholder="Estado" class="input_endereco" v-model="estado_end_3.uf">
                 <input type="text" placeholder="Codigo do pais" class="input_endereco" v-model="cod_pais_3">
                 <input type="text" placeholder="Tipo de Endereço" class="input_endereco" v-model="tipo_endereco_3">
-            </div>
+            </div> -->
         </div>
 
         <input class="btn_proxima_etapa" type="submit" value="CADASTRAR">
@@ -160,7 +160,7 @@ import axios from 'axios';
         methods: {
             Cadastrar() {
                 api
-                .post("clientes",{
+                .post("/clientes",{
                     clientes:[{
                         nome: this.nome,
                         nome_fantasia: this.nome_fantasia,
