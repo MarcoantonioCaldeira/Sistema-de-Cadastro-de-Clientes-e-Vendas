@@ -14,7 +14,6 @@
                 <!-- Area onde vai aparecer o nome do cliente selecionado -->
                 <div  id="area_nome_cliente"  v-if="clienteSelecionado">
                     <p class="p_nome_cliente_r">Nome: {{ clienteSelecionado.nome }}</p>
-                    <!-- <p class="p_nome_cliente_r">Fax: {{ clienteSelecionado.telefone }}</p> -->
                 </div>
 
                 <div v-if="showModal" class="modal">
@@ -80,15 +79,15 @@
                 </select>
 
                 <div>
-                    <p class="p_data_e">Data de Emissão: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Emissão" v-model="Data_emissao">
+                    <p class="p_data_e">Data de Emissão: </p><input v-model="Data_emissao" type="date" class="InputForm_Vendas" placeholder="Data da Emissão">
                 </div>
 
                 <div>
-                    <p class="p_data_p">Data de Previsão de Entrega da Empresa: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada" v-model="Data_Prev_Entrega">
+                    <p class="p_data_p">Data de Previsão de Entrega da Empresa: </p><input  v-model="Data_Prev_Entrega"  type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
                 </div>
                 
                 <div>
-                    <p class="p_data_p">Data de Previsão de Entrega Solicitada: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada" v-model="Data_Entrega_Solicitada">
+                    <p class="p_data_p">Data de Previsão de Entrega Solicitada: </p><input v-model="Data_Entrega_Solicitada" type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
                 </div>     
                 
                 <p class="p_data_e">Transportadora:</p>
@@ -102,10 +101,10 @@
                         <option value="Percentual">Por percentual</option>
                 </select>
 
-            <input type="text" v-model="displayItem"  class="InputForm_Vendas"  placeholder="Valor do Frete">
+                <input type="text" v-model="displayItem"  class="InputForm_Vendas"  placeholder="Valor do Frete">
 
 
-            <p class="p_data_e">Situação do frete: </p>
+                <p class="p_data_e">Situação do frete: </p>
                 <select  v-model="situacao_frete"  class="Select_Forma_Pagamento">
                     <option value="0">0 - Por conta remetente(CIF)</option>
                     <option value="1">1 - Por conta do destinatario(FOB)</option>
@@ -156,6 +155,7 @@
                 </select>
 
                 <input type="text" class="InputForm_Vendas"  v-model="desconto_pagto"  placeholder="Desconto de Pagamento">
+
                 <input type="text"  v-model="desconto_s1" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s1 (%)">
                 <input type="text"  v-model="desconto_s2" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s2 (%)">
                 <input type="text"  v-model="desconto_s3" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s3 (%)">
@@ -317,13 +317,10 @@ export default{
     Enviar_Dados_do_Formulario(){
         
         const VendaDados = {
-            vendas:[{
                 cod_empresa: this.cod_empresa,
-                cod_cliente: this.clienteSelecionado,
                 cod_vendedor: this.cod_vendedor,
-                cod_tab_preco: this.tabela_Preco,
                 cod_tipo_venda: this.Tipo_Venda,
-                cod_tab_preco: this.codigo_tab_preco,
+                cod_tab_preco: this.tabela_Preco,
                 data_emissao: this.Data_emissao,
                 data_prev_entrega: this.Data_Prev_Entrega,
                 data_entrega_solicitada: this.Data_Entrega_Solicitada,
@@ -348,13 +345,13 @@ export default{
                 vr_frete: this.displayItem,
                 situacao_frete: this.situacao_frete,
                 redespacho_sit_frete: this.redespacho_situacao_frete,
-                clientes:{
+
+                cliente:{
                     celular: clienteSelecionado.celular,
                     classificacao:clienteSelecionado.classificacao,
                     classificacao_entrega: clienteSelecionado.classificacao_entrega,
                     cnpj_cpf:clienteSelecionado.cnpj_cpf,
                     cnpj_cpf_entrega: clienteSelecionado.cnpj_cpf_entrega,
-                    cod_cliente:clienteSelecionado.cod_cliente,
                     cod_vendedor:clienteSelecionado.cod_vendedor,
                     data_cadastro:clienteSelecionado.data_cadastro,
                     e_mail:clienteSelecionado.e_mail,
@@ -392,7 +389,6 @@ export default{
 
                     }]
                 }
-            }]
         }
 
         this.$emit("formularioVendasEnviado", VendaDados);
@@ -432,7 +428,6 @@ export default{
     },
 
     async Requisicao_Descricao_Tab_Preco(){
-
         try{
 
             const token = await getToken();
@@ -489,7 +484,6 @@ export default{
                     
                 }
             });
-
 
         }catch(error){
            console.error(error);

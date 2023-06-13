@@ -105,7 +105,7 @@
                                 </tbody>        
                             </table>
                         </div>
-                       
+                     
                         <button class="btn_finalizar" v-on:click="Mostrar_resumo();  closeModal_S_Item()">Finalizar</button>
                       
                     </div>
@@ -237,19 +237,20 @@ export default{
         EnviarDados(){
             
             const Itens_da_Venda = {
-                vendas_itens: [{
-                    cod_referencia: Item.cod_referencia,
-                    obs_item: this.observacoes,
-                    qtd_caixa: this.quantidade_caixa,
-                    tipo_do_item: this.tipo_produto,
-                    vendas_itens_tamanhos: [{
-                        qtd_tamanho: Item.qtd_tamanho,
-                        tamanho: Item.tamanho,
-                        valor_unitario: this.valor_unitario,
-                    }],
-                }]
-            }
 
+                vendas_itens: this.Itens_selecionados.map((Item) => ({
+                        cod_referencia: Item.cod_referencia,
+                        obs_item: Item.observacoes,
+                        qtd_caixa: Item.quantidade_caixa,
+                        tipo_do_item: Item.tipo_produto,
+                        vendas_itens_tamanhos: [{
+                            qtd_tamanho: Item.quantidade_itens,
+                            tamanho: Item.tamanho,
+                            valor_unitario: Item.valor_unitario,
+                        }],
+                })) 
+            };
+            
             this.$emit('formularioItensValidado', Itens_da_Venda)
         },
 
