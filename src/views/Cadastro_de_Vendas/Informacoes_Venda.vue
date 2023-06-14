@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="Enviar_Dados_do_Formulario">
+    <form>
         <div id="Formulario">
 
             <h1 class="Titulo_Cadastro_Vendas">Cadastro de Vendas</h1>
@@ -14,7 +14,6 @@
                 <!-- Area onde vai aparecer o nome do cliente selecionado -->
                 <div  id="area_nome_cliente"  v-if="clienteSelecionado">
                     <p class="p_nome_cliente_r">Nome: {{ clienteSelecionado.nome }}</p>
-                    <!-- <p class="p_nome_cliente_r">Fax: {{ clienteSelecionado.telefone }}</p> -->
                 </div>
 
                 <div v-if="showModal" class="modal">
@@ -80,15 +79,15 @@
                 </select>
 
                 <div>
-                    <p class="p_data_e">Data de Emissão: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Emissão" v-model="Data_emissao">
+                    <p class="p_data_e">Data de Emissão: </p><input v-model="Data_emissao" type="date" class="InputForm_Vendas" placeholder="Data da Emissão">
                 </div>
 
                 <div>
-                    <p class="p_data_p">Data de Previsão de Entrega da Empresa: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada" v-model="Data_Prev_Entrega">
+                    <p class="p_data_p">Data de Previsão de Entrega da Empresa: </p><input  v-model="Data_Prev_Entrega"  type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
                 </div>
                 
                 <div>
-                    <p class="p_data_p">Data de Previsão de Entrega Solicitada: </p><input type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada" v-model="Data_Entrega_Solicitada">
+                    <p class="p_data_p">Data de Previsão de Entrega Solicitada: </p><input v-model="Data_Entrega_Solicitada" type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
                 </div>     
                 
                 <p class="p_data_e">Transportadora:</p>
@@ -102,10 +101,10 @@
                         <option value="Percentual">Por percentual</option>
                 </select>
 
-            <input type="text" v-model="displayItem"  class="InputForm_Vendas"  placeholder="Valor do Frete">
+                <input type="text" v-model="displayItem"  class="InputForm_Vendas"  placeholder="Valor do Frete">
 
 
-            <p class="p_data_e">Situação do frete: </p>
+                <p class="p_data_e">Situação do frete: </p>
                 <select  v-model="situacao_frete"  class="Select_Forma_Pagamento">
                     <option value="0">0 - Por conta remetente(CIF)</option>
                     <option value="1">1 - Por conta do destinatario(FOB)</option>
@@ -156,6 +155,7 @@
                 </select>
 
                 <input type="text" class="InputForm_Vendas"  v-model="desconto_pagto"  placeholder="Desconto de Pagamento">
+
                 <input type="text"  v-model="desconto_s1" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s1 (%)">
                 <input type="text"  v-model="desconto_s2" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s2 (%)">
                 <input type="text"  v-model="desconto_s3" class="InputForm_Vendas" :disabled="desconto_pagto === '0'" :class="{ 'disabled-field': desconto_pagto === '0' }" placeholder="desconto_s3 (%)">
@@ -221,24 +221,24 @@ export default{
         tabela_Preco:"",
         Tipo_Venda:"",
         cod_transportadora:"",
-        clienteSelecionado: null,
-        vendedorSelecionado: null,
+        clienteSelecionado: "",
+        vendedorSelecionado: "",
         Data_emissao:"",
         Data_Prev_Entrega:"",
-        Data_Entrega_Solicitada:null,
-        desconto_n1:null,
-        desconto_n2:null,
-        desconto_n3:null,
-        desconto_n4:null,
-        forma_pagto:null,
-        prazo_pagamento:null,
-        desconto_pagto:null,
-        desconto_s1:null,
-        desconto_s2:null,
-        desconto_s3:null,
-        desconto_s4:null,
-        forma_pagto_x:null,
-        prazo_pagamento_x:null,
+        Data_Entrega_Solicitada:"",
+        desconto_n1:"",
+        desconto_n2:"",
+        desconto_n3:"",
+        desconto_n4:"",
+        forma_pagto:"",
+        prazo_pagamento:"",
+        desconto_pagto:"",
+        desconto_s1:"",
+        desconto_s2:"",
+        desconto_s3:"",
+        desconto_s4:"",
+        forma_pagto_x:"",
+        prazo_pagamento_x:"",
         observacoes_pedido:"",
         observacoes_faturamento:"",
         observacoes_nota: "",
@@ -317,13 +317,10 @@ export default{
     Enviar_Dados_do_Formulario(){
         
         const VendaDados = {
-            vendas:[{
                 cod_empresa: this.cod_empresa,
-                cod_cliente: this.clienteSelecionado,
                 cod_vendedor: this.cod_vendedor,
-                cod_tab_preco: this.tabela_Preco,
                 cod_tipo_venda: this.Tipo_Venda,
-                cod_tab_preco: this.codigo_tab_preco,
+                cod_tab_preco: this.tabela_Preco,
                 data_emissao: this.Data_emissao,
                 data_prev_entrega: this.Data_Prev_Entrega,
                 data_entrega_solicitada: this.Data_Entrega_Solicitada,
@@ -348,52 +345,52 @@ export default{
                 vr_frete: this.displayItem,
                 situacao_frete: this.situacao_frete,
                 redespacho_sit_frete: this.redespacho_situacao_frete,
-                clientes:{
-                    celular: clienteSelecionado.celular,
-                    classificacao:clienteSelecionado.classificacao,
-                    classificacao_entrega: clienteSelecionado.classificacao_entrega,
-                    cnpj_cpf:clienteSelecionado.cnpj_cpf,
-                    cnpj_cpf_entrega: clienteSelecionado.cnpj_cpf_entrega,
-                    cod_cliente:clienteSelecionado.cod_cliente,
-                    cod_vendedor:clienteSelecionado.cod_vendedor,
-                    data_cadastro:clienteSelecionado.data_cadastro,
-                    e_mail:clienteSelecionado.e_mail,
-                    e_mail_nfe:clienteSelecionado.e_mail_nfe,
-                    inscricao_municipal:clienteSelecionado.inscricao_municipal,
-                    inscricao_rg:clienteSelecionado.inscricao_rg,
-                    nascimento:clienteSelecionado.nascimento,
-                    nome:clienteSelecionado.nome,
-                    nome_fantasia:clienteSelecionado.nome_fantasia,
-                    observacao:clienteSelecionado.observacao,
-                    suframa:clienteSelecionado.suframa,
-                    suframa_tipo:clienteSelecionado.suframa_tipo,
-                    telefone_2:clienteSelecionado.telefone_2,
-                    cliente_enderecos:[{
-                        bairro: clienteSelecionado.bairro,
-                        cep: clienteSelecionado.cep,
-                        cidade: clienteSelecionado.cidade,
-                        cod_cidade: clienteSelecionado.cod_cidade,
-                        cod_pais: clienteSelecionado.cod_pais,
-                        complemento: clienteSelecionado.complemento,
-                        endereco: clienteSelecionado.endereco,
-                        end_numero: clienteSelecionado.end_numero,
-                        estado: clienteSelecionado.estado,
-                        fax: clienteSelecionado.fax,
-                        telefone: clienteSelecionado.telefone,
-                        tipo_endereco: clienteSelecionado.tipo_endereco
-                    }],
-                    cliente_emails: [{
-                        email: clienteSelecionado.email,
-                        email_recebe:[
-                            { recebe:0 },
-                            { recebe:1 },
-                            { recebe:2 }
-                        ]
 
-                    }]
-                }
-            }]
+                cliente:this.clienteSelecionado.map((cliente) => ({
+                        celular: cliente.celular,
+                        classificacao:cliente.classificacao,
+                        classificacao_entrega: cliente.classificacao_entrega,
+                        cnpj_cpf:cliente.cnpj_cpf,
+                        cnpj_cpf_entrega: cliente.cnpj_cpf_entrega,
+                        cod_vendedor:cliente.cod_vendedor,
+                        data_cadastro:cliente.data_cadastro,
+                        e_mail:cliente.e_mail,
+                        e_mail_nfe:cliente.e_mail_nfe,
+                        inscricao_municipal:cliente.inscricao_municipal,
+                        inscricao_rg:cliente.inscricao_rg,
+                        nascimento:cliente.nascimento,
+                        nome:cliente.nome,
+                        nome_fantasia:cliente.nome_fantasia,
+                        observacao:cliente.observacao,
+                        suframa:cliente.suframa,
+                        suframa_tipo:cliente.suframa_tipo,
+                        telefone_2:cliente.telefone_2,
+                        cliente_enderecos:[{
+                            bairro: cliente.bairro,
+                            cep: cliente.cep,
+                            cidade: cliente.cidade,
+                            cod_cidade: cliente.cod_cidade,
+                            cod_pais: cliente.cod_pais,
+                            complemento: cliente.complemento,
+                            endereco: cliente.endereco,
+                            end_numero: cliente.end_numero,
+                            estado: cliente.estado,
+                            fax: cliente.fax,
+                            telefone: cliente.telefone,
+                            tipo_endereco: cliente.tipo_endereco
+                        }],
+                        cliente_emails: [{
+                            email: cliente.email,
+                            email_recebe:[
+                                { recebe:0 },
+                                { recebe:1 },
+                                { recebe:2 }
+                            ]
+
+                        }]
+                }))       
         }
+        
 
         this.$emit("formularioVendasEnviado", VendaDados);
         
@@ -432,7 +429,6 @@ export default{
     },
 
     async Requisicao_Descricao_Tab_Preco(){
-
         try{
 
             const token = await getToken();
@@ -489,7 +485,6 @@ export default{
                     
                 }
             });
-
 
         }catch(error){
            console.error(error);

@@ -1,5 +1,6 @@
 <template>
-
+        <Message :msg="msg" v-show="msg"></Message>
+        <!-- Informações do cliente para a pessoa fisica -->
         <h2 id="h2-informacoes">Informações do cliente</h2>
 
         <form method="POST" @submit.prevent="Cadastrar">
@@ -21,8 +22,7 @@
                 <div v-if="Mostrar_Email">    
                     <!-- <img v-img:src   class="icon_btn_add_email"  src="@/assets/images/icon_add_email.png"> -->
                     <input type="text" v-if="Mostrar_Email" placeholder="Seu E-mail secundario" class="InputForm_Email_Opcional" v-model="e_mail_adicional">
-                    <i @click="clearInput"  id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
-                   
+                    <i @click="clearInput"  id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>                 
                 </div>       
 
             </div>
@@ -48,7 +48,7 @@
 
             <input type=" text" placeholder="Seu telefone"  v-maskTelefone class="InputForm" v-model="telefone_2" maxlength="14">
 
-            <input type="text" placeholder="Celular"   v-maskCelular  class="InputForm" v-model="celular" maxlength="15">
+            <input type="text" placeholder="Celular" class="InputForm" v-model="celular" maxlength="15" v-maskCelular>
 
             <input type="text" placeholder="Seu CPF"  v-maskCpf  class="InputForm" v-model="cnpj_cpf" maxlength="14">
 
@@ -137,7 +137,8 @@
 </template>
 
 <script>
-import '@fortawesome/fontawesome-free/css/all.css'
+import Message from '../Message/Message.vue';
+import '@fortawesome/fontawesome-free/css/all.css';
 import axios from 'axios';
 import api, { getToken } from '../services/api';
 import VueImg from 'v-img';
@@ -148,6 +149,10 @@ import {maskCpf, maskCnpj ,maskRG, maskTelefone, maskCelular} from '../services/
 export default{
 
     name: 'Informacoes_Cliente',
+
+    components:{
+        Message
+    },
 
     directives: {
         maskCpf,
@@ -175,7 +180,7 @@ export default{
             response: {
                 show: false,
                 class: 'warning',
-                msg : '',
+                //msg : '',
             }, 
 
             Icone_Adicionar_Email: "./assets/images/icon_add_email.svg",
@@ -246,7 +251,8 @@ export default{
                 estado: "",
                 tipo_endereco: "", 
             },
-            inputs: []
+            inputs: [],
+            msg: ''
         }
     },
 
@@ -265,10 +271,9 @@ export default{
         this.Mostrar_Email = false;
     },
 
-    async Cadastrar() {
+    async Cadastrar(){
 
         try {
-     
             const token = await getToken();
             const headers = { Authorization: `Bearer ${token}` };
 
@@ -330,13 +335,16 @@ export default{
                 }],
             }
 
-        await api.post("/clientes",{ clientes: [clientes]},{ headers })
-            .then(function(resp){
-                console.log("Cliente inserido com sucesso", resp)
+            var self = this;
+
+            await api.post("/clientes",{ clientes: [clientes]},{ headers })
+            .then(function(){
+                self.msg = "Cliente cadastrado com sucesso"
+                setTimeout(() => self.msg = "", 5000)
+
             })
         }catch(error){
             console.log(error);
-            alert("Erro ao buscar dados do vendedor");
         };
     },
 

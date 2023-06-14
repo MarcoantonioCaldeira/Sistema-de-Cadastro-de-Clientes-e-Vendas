@@ -105,7 +105,7 @@
                                 </tbody>        
                             </table>
                         </div>
-                       
+                     
                         <button class="btn_finalizar" v-on:click="Mostrar_resumo();  closeModal_S_Item()">Finalizar</button>
                       
                     </div>
@@ -122,7 +122,6 @@
             <h2 class="Titulo_Itens_Selecionados">Itens Selecionados</h2>
         </div>
        
-
         <div  id="conteudo-selecionado"  v-for="(Item, index) in Itens_selecionados" :key="index"> 
             <i v-on:click="Fechar_Resumo(index)" id="fa-solid-li-2"  class="fa-solid fa-circle-xmark"></i>
             <hr>
@@ -211,8 +210,6 @@ export default{
     mounted(){
         this.Consulta_de_Itens();
         this.selecionarItem();
-        //this.Calcular_Total(
-
     },
 
     created(){
@@ -229,27 +226,20 @@ export default{
 
     methods:{
 
-        ValidarCadastro(){
-            this.$emit('validar-cadastro');
-        },
-
-
-        EnviarDados(){
-            
+        EnviarDados(){         
             const Itens_da_Venda = {
-                vendas_itens: [{
-                    cod_referencia: Item.cod_referencia,
-                    obs_item: this.observacoes,
-                    qtd_caixa: this.quantidade_caixa,
-                    tipo_do_item: this.tipo_produto,
-                    vendas_itens_tamanhos: [{
-                        qtd_tamanho: Item.qtd_tamanho,
-                        tamanho: Item.tamanho,
-                        valor_unitario: this.valor_unitario,
-                    }],
-                }]
-            }
-
+                vendas_itens: this.Itens_selecionados.map((Item) => ({
+                        cod_referencia: Item.cod_referencia,
+                        obs_item: Item.observacoes,
+                        qtd_caixa: Item.quantidade_caixa,
+                        tipo_do_item: Item.tipo_do_item,
+                        vendas_itens_tamanhos: [{
+                            qtd_tamanho: Item.quantidade_itens,
+                            tamanho: Item.tamanho,
+                            valor_unitario: Item.valor_unitario
+                        }],
+                })) 
+            };
             this.$emit('formularioItensValidado', Itens_da_Venda)
         },
 
@@ -270,8 +260,7 @@ export default{
             this.mostrarCamposAdicionais = false;
             this.tamanhosGrade = [];
             this.quantidades = [];
-            this.quantidade_tamanho = 0;
-            
+            this.quantidade_tamanho = 0;          
         },
 
         // Metodo para abrir a segunda parte do cadastro

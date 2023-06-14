@@ -96,17 +96,19 @@ export function maskTelefone(el){
 
 }
 
-export function maskCelular(el){
-  
+export function maskCelular(el) {
   el.addEventListener('input', function (e) {
     let value = e.target.value;
     value = value.replace(/\D/g, '');
 
-    // Remove os pontos e traços fazendo com que eles não sejam enviados para a API
-    value = value.replace( / [\(\)\-\s]/g, '');
+    // Remove os pontos, traços, espaços e parênteses fazendo com que eles não sejam enviados para a API
+    value = value.replace(/[\(\)\-\s]/g, '');
 
-    // Celular
-    value = value.replace(/^(\d{0,2})(\d{0,5})(\d{0,4})$/, '($1) $2-$3');
+    // Verifica se o número de celular tem exatamente 11 dígitos numéricos
+    if (value.length === 11) {
+      // Celular
+      value = value.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+    }
 
     e.target.value = value;
   });
