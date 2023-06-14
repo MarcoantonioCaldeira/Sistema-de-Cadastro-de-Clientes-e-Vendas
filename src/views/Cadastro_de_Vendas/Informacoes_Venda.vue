@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="Enviar_Dados_do_Formulario">
+    <form>
         <div id="Formulario">
 
             <h1 class="Titulo_Cadastro_Vendas">Cadastro de Vendas</h1>
@@ -221,24 +221,24 @@ export default{
         tabela_Preco:"",
         Tipo_Venda:"",
         cod_transportadora:"",
-        clienteSelecionado: null,
-        vendedorSelecionado: null,
+        clienteSelecionado: "",
+        vendedorSelecionado: "",
         Data_emissao:"",
         Data_Prev_Entrega:"",
-        Data_Entrega_Solicitada:null,
-        desconto_n1:null,
-        desconto_n2:null,
-        desconto_n3:null,
-        desconto_n4:null,
-        forma_pagto:null,
-        prazo_pagamento:null,
-        desconto_pagto:null,
-        desconto_s1:null,
-        desconto_s2:null,
-        desconto_s3:null,
-        desconto_s4:null,
-        forma_pagto_x:null,
-        prazo_pagamento_x:null,
+        Data_Entrega_Solicitada:"",
+        desconto_n1:"",
+        desconto_n2:"",
+        desconto_n3:"",
+        desconto_n4:"",
+        forma_pagto:"",
+        prazo_pagamento:"",
+        desconto_pagto:"",
+        desconto_s1:"",
+        desconto_s2:"",
+        desconto_s3:"",
+        desconto_s4:"",
+        forma_pagto_x:"",
+        prazo_pagamento_x:"",
         observacoes_pedido:"",
         observacoes_faturamento:"",
         observacoes_nota: "",
@@ -346,50 +346,51 @@ export default{
                 situacao_frete: this.situacao_frete,
                 redespacho_sit_frete: this.redespacho_situacao_frete,
 
-                cliente:{
-                    celular: clienteSelecionado.celular,
-                    classificacao:clienteSelecionado.classificacao,
-                    classificacao_entrega: clienteSelecionado.classificacao_entrega,
-                    cnpj_cpf:clienteSelecionado.cnpj_cpf,
-                    cnpj_cpf_entrega: clienteSelecionado.cnpj_cpf_entrega,
-                    cod_vendedor:clienteSelecionado.cod_vendedor,
-                    data_cadastro:clienteSelecionado.data_cadastro,
-                    e_mail:clienteSelecionado.e_mail,
-                    e_mail_nfe:clienteSelecionado.e_mail_nfe,
-                    inscricao_municipal:clienteSelecionado.inscricao_municipal,
-                    inscricao_rg:clienteSelecionado.inscricao_rg,
-                    nascimento:clienteSelecionado.nascimento,
-                    nome:clienteSelecionado.nome,
-                    nome_fantasia:clienteSelecionado.nome_fantasia,
-                    observacao:clienteSelecionado.observacao,
-                    suframa:clienteSelecionado.suframa,
-                    suframa_tipo:clienteSelecionado.suframa_tipo,
-                    telefone_2:clienteSelecionado.telefone_2,
-                    cliente_enderecos:[{
-                        bairro: clienteSelecionado.bairro,
-                        cep: clienteSelecionado.cep,
-                        cidade: clienteSelecionado.cidade,
-                        cod_cidade: clienteSelecionado.cod_cidade,
-                        cod_pais: clienteSelecionado.cod_pais,
-                        complemento: clienteSelecionado.complemento,
-                        endereco: clienteSelecionado.endereco,
-                        end_numero: clienteSelecionado.end_numero,
-                        estado: clienteSelecionado.estado,
-                        fax: clienteSelecionado.fax,
-                        telefone: clienteSelecionado.telefone,
-                        tipo_endereco: clienteSelecionado.tipo_endereco
-                    }],
-                    cliente_emails: [{
-                        email: clienteSelecionado.email,
-                        email_recebe:[
-                            { recebe:0 },
-                            { recebe:1 },
-                            { recebe:2 }
-                        ]
+                cliente:this.clienteSelecionado.map((cliente) => ({
+                        celular: cliente.celular,
+                        classificacao:cliente.classificacao,
+                        classificacao_entrega: cliente.classificacao_entrega,
+                        cnpj_cpf:cliente.cnpj_cpf,
+                        cnpj_cpf_entrega: cliente.cnpj_cpf_entrega,
+                        cod_vendedor:cliente.cod_vendedor,
+                        data_cadastro:cliente.data_cadastro,
+                        e_mail:cliente.e_mail,
+                        e_mail_nfe:cliente.e_mail_nfe,
+                        inscricao_municipal:cliente.inscricao_municipal,
+                        inscricao_rg:cliente.inscricao_rg,
+                        nascimento:cliente.nascimento,
+                        nome:cliente.nome,
+                        nome_fantasia:cliente.nome_fantasia,
+                        observacao:cliente.observacao,
+                        suframa:cliente.suframa,
+                        suframa_tipo:cliente.suframa_tipo,
+                        telefone_2:cliente.telefone_2,
+                        cliente_enderecos:[{
+                            bairro: cliente.bairro,
+                            cep: cliente.cep,
+                            cidade: cliente.cidade,
+                            cod_cidade: cliente.cod_cidade,
+                            cod_pais: cliente.cod_pais,
+                            complemento: cliente.complemento,
+                            endereco: cliente.endereco,
+                            end_numero: cliente.end_numero,
+                            estado: cliente.estado,
+                            fax: cliente.fax,
+                            telefone: cliente.telefone,
+                            tipo_endereco: cliente.tipo_endereco
+                        }],
+                        cliente_emails: [{
+                            email: cliente.email,
+                            email_recebe:[
+                                { recebe:0 },
+                                { recebe:1 },
+                                { recebe:2 }
+                            ]
 
-                    }]
-                }
+                        }]
+                }))       
         }
+        
 
         this.$emit("formularioVendasEnviado", VendaDados);
         

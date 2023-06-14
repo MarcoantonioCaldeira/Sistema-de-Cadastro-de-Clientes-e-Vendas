@@ -57,12 +57,7 @@ export default{
                 const token = await getToken();
                 const headers = { Authorization: `Bearer ${token}` };
 
-                if(
-                    this.dadosFormulario.vendas &&
-                    this.dadosFormulario.vendas.length > 0 &&
-                    this.dadosFormulario.vendas[0].vendas_itens &&
-                    this.dadosFormulario.vendas[0].vendas_itens.length > 0
-                ){
+               
                 const dadosFormulario = {
                     vendas: [{
                         ...this.dadosFormulario.vendas[0],
@@ -91,18 +86,16 @@ export default{
 
                 await api.post("/vendas", dadosFormulario, { headers });
 
-                    this.$refs.Informacoes_Venda.doSomething();
-                    this.$refs.Itens_da_Venda.doSomethingElse();
+                    // this.$refs.Informacoes_Venda.doSomething();
+                    // this.$refs.Itens_da_Venda.doSomethingElse();
 
-                    console.log("Cadastro de venda concluído com sucesso!");
-                } else {
-                    //console.error("Dados de venda inválidos");
-                    alert("Erro ao cadastrar a venda");
-                }
+                console.log("Cadastro de venda concluído com sucesso!");
+                
             } catch (error) {
                 console.error(error);
                 alert("Erro ao cadastrar a venda");
-            }}
+            }
+        }
     }
 }
 </script>
