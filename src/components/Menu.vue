@@ -7,7 +7,7 @@
     <ul v-show="!mobile" class="navigation">
       <li><router-link  class="link"  to="/" @click="barra_prograsso()">Inicio</router-link></li>
       <li><router-link  class="link"  to="Selecao_Tipo_Pessoa" @click="barra_prograsso()">Cadastro de Clientes</router-link></li>
-      <li><router-link  class="link"  to="Cadastro" @click="barra_prograsso()">Cadastro de Vendas</router-link></li>
+      <li><router-link  class="link"  to="Cadastro_Teste" @click="barra_prograsso()">Cadastro de Vendas</router-link></li>
     </ul>
     <div class="icon">
       <span  v-show="mobile" @click="toggleMobileNav" >

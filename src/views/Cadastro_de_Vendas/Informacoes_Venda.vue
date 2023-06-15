@@ -286,15 +286,19 @@ export default{
   },
 
   mounted(){
-        this.Requisicao_Vendedores();
-        this.Requisicao_Descricao_Tab_Preco();
-        this.Requisicao_Tipo_Venda();
-        this.Consultando_prazos();
+    this.Requisicao_Vendedores();
+    this.Requisicao_Descricao_Tab_Preco();
+    this.Requisicao_Tipo_Venda();
+    this.Consultando_prazos();
+    this.Consulta_de_Itens();
+    this.selecionarItem();
   },
 
 
   created(){
     this.Pesquisar_Cliente();
+    this.Consulta_de_Itens();
+    this.selecionarItem();
   },
 
   computed:{
@@ -308,6 +312,10 @@ export default{
             return this.vendedores.filter(vendedor => vendedor.cod_vendedor === this.clienteSelecionado.cod_vendedor)
         }
         return null;
+    },
+
+    Itens_Filtrados(){
+        return this.produtos.filter(produto => produto.descricao.toLowerCase().includes(this.filtro.toLowerCase())).sort((a, b) => a.descricao.localeCompare(b.descricao))
     }
 
   },    

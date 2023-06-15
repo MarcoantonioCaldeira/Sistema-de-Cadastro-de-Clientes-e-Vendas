@@ -25,9 +25,9 @@ const routes = [
   },
   // Componente pai
   {
-    path:'/Cadastro',
-    name:'Cadastro',
-    component: () => import('../views/Cadastro_de_Vendas/Cadastro/Cadastro.vue')
+    path:'/Cadastro_Teste',
+    name:'Cadastro_Teste',
+    component: () => import('../views/Cadastro_de_Vendas/Cadastro_Teste/Cadastro_Teste.vue')
   },
 
   {
