@@ -1,0 +1,873 @@
+@import "@/assets/scss/fonts.scss";
+@import "@/assets/scss/cores.scss";
+@import "@/assets/scss/buttons.scss";
+
+#Formulario {
+    width: 100%;
+    min-height: 1600px;
+}
+
+
+.Titulo_Cadastro_Vendas {
+    font-family: $font_1;
+    color: $cor_2;
+    margin-left: 5.8%;
+    margin-top: 5%;
+}
+
+.p_data_e {
+    font-family: $font_1;
+    margin-left: 5%;
+    color: $cor_2;
+}
+
+.p_data_p {
+    font-family: $font_1;
+    margin-left: 5%;
+    color: $cor_2;
+}
+
+
+.Formulario_1 {
+    display: inline-block;
+    //position: relative;
+    width: 32%;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.btn_nome_cliente{
+    width: 230px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    position: relative;
+    margin-left: 100px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid;
+    font-family: $font_2;
+    border: none;
+    height: 40px;
+    background-color: $cor_4;
+    color: $cor_2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.p_nome_cliente{
+    margin-left: 10px;
+}
+
+.p_nome_cliente_r{
+    margin-left: 10px;
+    font-family: $font_2;
+    font-weight: 600;
+    color: $cor_2;
+}
+
+#area_nome_cliente{
+    width: 90%;
+    margin-left: 20px;
+    margin-top: 35px;
+    height: 50px;
+    //background-color: red;
+}
+
+// Div Modal
+.modal{ 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+#fa-solid-li{
+    position: absolute; 
+    color:#9B9A9A; 
+    margin-left: 87%;
+    margin-top: 16px;
+}
+
+.modal-content{
+    width: 90%;
+    height: 600px;
+    overflow-y: scroll;
+    background-color: $cor_4;
+    margin: 5% auto 15% auto;
+}
+
+.modal-content::-webkit-scrollbar-track{
+	border-radius:0;
+	background-color: #D0D4CE;
+}
+
+.modal-content::-webkit-scrollbar{
+	width: 10px;
+	background-color: #D0D4CE;
+}
+
+.modal-content::-webkit-scrollbar-thumb{
+	border-radius:5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #71806B;
+}
+
+.conteudo_registro{
+    margin-top: 100px;
+    font-family: $font_1;
+    font-weight: 600;
+    //background-color: blue;
+}
+
+.input_pesquisa_nome_cliente{
+    width: 420px;
+    margin-left: 33%;
+    margin-top: 50px;
+    //height: 45px;
+    padding: 12px 20px;
+    background-color: $cor_4;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 1.5px solid $cor_3;
+}
+
+table, th, td {
+    border:1px solid $cor_2;
+    width: 200px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+th{
+    color: #696969;
+  }
+
+td{
+    color: $cor_2;
+  }
+
+td:hover{
+    background-color: $cor_5;
+    transition: 0.7s;
+}
+
+
+//Animação
+.animate{
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+//////////////////////////////////
+
+
+.Formulario_2 {
+    position: absolute;
+    display: inline-block;
+    width: 32%;
+    margin-left: 8px;
+    margin-top: 12px;
+}
+
+.InputForm_Vendas {
+    width: 350px;
+    background-color: $cor_4;
+    padding: 0px 12px;
+    border: 1px solid;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: $cor_4;
+    display: block;
+    margin-left: 5%;
+    height: 40px;
+}
+
+.Select_Nome_Vendedor{
+    position: relative;
+    width: 373px;
+    background-color: #CECCCC;
+    //background-color: red;
+    padding: 0px 12px;
+    border: 1px solid;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: #CECCCC;
+    display: block;
+    margin-left: 5%;
+    height: 40px;
+}
+
+.Select_Descricao_Tab_Preco{
+    position: relative;
+    width: 373px;
+    background-color: #CECCCC;
+    //background-color: red;
+    padding: 0px 12px;
+    border: 1px solid;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: #CECCCC;
+    display: block;
+    margin-left: 5%;
+    height: 40px;
+}
+
+.Select_Tipo_Venda{
+    position: relative;
+    width: 373px;
+    background-color: #CECCCC;
+    //background-color: red;
+    padding: 0px 12px;
+    border: 1px solid;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: #CECCCC;
+    display: block;
+    margin-left: 5%;
+    height: 40px;
+}
+
+
+.Select_Trasportadora{
+    position: relative;
+    width: 373px;
+    background-color: #CECCCC;
+    //background-color: red;
+    padding: 0px 12px;
+    border: 1px solid;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: #CECCCC;
+    display: block;
+    margin-left: 5%;
+    height: 40px;
+}
+
+
+.Select_Tipo_Frete{
+    position: relative;
+    width: 373px;
+    background-color: #CECCCC;
+    //background-color: red;
+    padding: 0px 12px;
+    border: 1px solid;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: #CECCCC;
+    display: block;
+    margin-left: 5%;
+    height: 40px;
+}
+
+.Select_Forma_Pagamento{
+    position: relative;
+    width: 373px;
+    background-color: #CECCCC;
+    //background-color: red;
+    padding: 0px 12px;
+    border: 1px solid;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: #CECCCC;
+    display: block;
+    margin-left: 5%;
+    height: 40px;
+}
+
+.Select_Resdespacho{
+    position: relative;
+    width: 373px;
+    background-color: #CECCCC;
+    //background-color: red;
+    padding: 0px 12px;
+    border: 1px solid;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: #CECCCC;
+    display: block;
+    margin-left: 5%;
+    height: 40px;
+}
+
+
+.Formulario_3{
+    position: absolute;
+    display: inline-block;
+    //position: relative;
+    width: 32%;
+    margin-left: 33%;
+    margin-top: 25px;
+    //background-color: rgb(247, 65, 65);
+}
+
+.area_obs_pedido, .area_obs_faturamento, .area_obs_nota, .area_obs_producao{
+    width: 370px;
+    display: block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 180px;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: #b9b8b8;
+    background-color: #b9b8b8;
+    margin-left: 25px;
+}
+
+
+.btn_concluir_cadastro_vendas {
+    position: absolute;
+    margin-left: 70px;
+    margin-top: -6%;
+    background: $cor_1;
+    font-weight: 100;
+    font-family: $font_2;
+    border-radius: 5px;
+    border-color: $cor_1;
+    border: 1px solid #003A4C;
+    font-family: arial;
+    color: $cor_5;
+    text-align: 20%;
+    height: 56px;
+    width: 120px;
+}
+
+
+.disabled-field {
+    opacity: 0.7;
+}
+
+
+
+// Estilo do Itens da Venda
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#Formulario_Itens_Venda {
+    width: 100%;
+    height: 150px;
+}
+
+#conteudo_formulario {
+    margin-top: 3%;
+}
+
+.Titulo_Itens_Venda {
+    font-family: $font_1;
+    color: $cor_2;
+    margin-left: 90px;
+    margin-top: 5%;
+}
+
+// .btn_cadastro_itens_venda {
+//     width: 21% !important;
+//     margin-left: 6%;
+//     margin-top: 5%;
+//     @include button-add-processeguir;
+// }
+
+
+
+// @media (max-width: 403em){
+
+//     .Input_Form_Itens_Venda {
+//         margin-left: 6% !important;
+//         width: 300px;
+//         background-color: $cor_4;
+//         padding: 0px 12px;
+//         border: 1px solid;
+//         margin: 20px;
+//         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+//         border-radius: 5px;
+//         font-family: $font_2;
+//         border-color: $cor_4;
+//         display: block;
+//         margin-left: 5%;
+//         height: 40px;
+//     }
+
+// }
+
+
+.btn_nome_Item{
+    width: 170px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    position: relative;
+    margin-left: 100px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid;
+    font-family: $font_2;
+    border: none;
+    height: 40px;
+    background-color: $cor_4;
+    color: $cor_2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.p_nome_item{
+    margin-left: 10px;
+}
+
+.p_nome_item_r{
+    margin-left: 10px;
+    font-family: $font_2;
+    font-weight: 600;
+    color: $cor_2;
+}
+
+.modal{ 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content{
+    width: 90%;
+    height: 600px;
+    overflow-y: scroll;
+    background-color: $cor_4;
+    margin: -36px auto 10% auto;
+    
+}
+
+#fa-solid-li{
+  position: absolute; 
+    color:#9B9A9A; 
+    //background-color: red;
+    margin-left: 87%;
+    margin-top: 16px;
+}
+  
+
+.modal-content::-webkit-scrollbar-track{
+	border-radius:0;
+	background-color: #D0D4CE;
+}
+
+.modal-content::-webkit-scrollbar{
+	width: 10px;
+	background-color: #D0D4CE;
+}
+
+.modal-content::-webkit-scrollbar-thumb{
+	border-radius:5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #71806B;
+}
+
+.conteudo_registro{
+    font-family: $font_1;
+    font-weight: 600;
+    //background-color: blue;
+}
+
+.input_pesquisa_nome_item{
+    width: 420px;
+    margin-left: 33%;
+    margin-top: 50px;
+    //height: 45px;
+    padding: 12px 20px;
+    background-color: $cor_4;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 1.5px solid $cor_3;
+}
+
+.btn_proximo{
+  position: fixed; 
+  z-index: 150;
+  margin-top: 530px;
+  margin-left: 375px; 
+  background: $cor_1;
+  font-weight: 100;
+  font-family: $font_2;
+  border-radius: 5px;
+  border-color: $cor_1;
+  border: 1px solid #003A4C;
+  font-family: arial;
+  color: $cor_5;
+  text-align: 20%;
+  height: 56px;
+  width: 120px;
+}
+
+// table, th, td {
+//     border:1px solid $cor_2;
+//     width: 300px;
+//     cursor: pointer;
+//     text-align: center;
+//   }
+
+//   th{
+//     color: #696969;
+//   }
+
+//   td{
+//     color: $cor_2;
+//   }
+
+//   tr:hover{
+//     background-color: $cor_5;
+//     transition: 0.7s;
+//   }
+
+//Animação
+.animate{
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+/////////////////////////////////
+
+
+.btn_cadastrar_item{
+    width: 170px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    position: relative;
+    margin-left: 100px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid;
+    font-family: $font_2;
+    border: none;
+    height: 40px;
+    background-color: $cor_4;
+    color: $cor_2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+  .modal_add_item{
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+  }
+
+  .modal-content_add_item{
+    width: 90%;
+    height: 650px;
+    overflow-y: scroll;
+    background-color: $cor_4;
+    margin: 5% auto 15% auto;
+  }
+
+
+.Input_Form_Itens_Venda {
+    width: 350px;
+    background-color: #b9b8b8;
+    padding: 0px 12px;
+    border: 1px solid;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    font-family: $font_2;
+    border-color: #b9b8b8;
+    display: block;
+    margin-left: 90px;
+    height: 40px;
+}
+
+.info_item_parte_2{
+  height: 1050px;
+  //background-color: red;
+}
+
+.Area_Selecionada{
+  width: 368px;
+  height: 170px;
+  background-color: #b9b8b8;
+  margin-left: 90px;
+  padding-left: 12px;
+  padding-top: 10px;
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: $font_2;
+}
+
+.Area_Selecionada h3{
+  color:$cor_2;
+  margin-left: 5px;
+}
+
+.Area_Selecionada p{
+  color:$cor_2;
+}
+
+.p_tipo_produto{
+  margin-left: 85px;
+  font-family: $font_2;
+  font-weight: 600;
+  color: $cor_2;
+}
+
+.select_tipo_produto{
+  position: relative;
+  width: 373px;
+  background-color: #b9b8b8;
+  padding: 0px 12px;
+  border: 1px solid;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  font-family: $font_2;
+  border-color: #b9b8b8;
+  display: block;
+  margin-left:85px;
+  height: 40px;
+}
+
+
+.area-observacao{
+  width: 370px;
+  display: block;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 200px;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: #b9b8b8;
+  background-color: #b9b8b8;
+  margin-left: 85px;
+}
+
+.p_tipo_produto{
+  margin-top: 35px;
+}
+
+.table{
+  margin-left: 85px;
+}
+
+.input_valores{
+  width: 100%;
+  background-color: #D0D4CE; 
+  border: none;
+}
+
+.btn_finalizar{
+    position: relative;
+    margin-left: 80px;
+    margin-top: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: $cor_1;
+    font-weight: 100;
+    font-family: $font_2;
+    border-radius: 5px;
+    border-color: $cor_1;
+    border: 1px solid #003A4C;
+    font-family: arial;
+    color: $cor_5;
+    text-align: 20%;
+    height: 56px;
+    width: 120px;
+}
+
+.disabled-field {
+  opacity: 0.7;
+}
+
+.modal-content_add_item::-webkit-scrollbar-track{
+	border-radius:0;
+	background-color: #D0D4CE; 
+}
+
+.modal-content_add_item::-webkit-scrollbar{
+	width: 10px;
+	background-color: #D0D4CE;
+}
+
+.modal-content_add_item::-webkit-scrollbar-thumb{
+	border-radius:5px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #71806B;
+}
+
+.Titulo_Itens_Selecionados{
+    position: absolute;
+    font-family: $font_1;
+    color: $cor_2;
+    margin-left: 5.8%;
+    margin-top: 4%;
+}
+
+#conteudos-selecionados{
+    //position: relative;
+    //overflow-y: scroll;
+    font-family: $font_1;
+    width: 100%;
+    margin-top: 13%;
+    min-height: 450px;
+    height: auto;
+    background-color: $cor_4;
+}
+
+
+// #conteudos-selecionados table{
+//   width: 70%;
+//   height: 120px;
+// }
+
+
+// #conteudo-selecionado tr:hover{
+//   background-color: #c7c5c5;
+// }
+
+// #conteudo-selecionado:hover{
+//   background-color: #c7c5c5;
+//   transition: 0.5s;
+// }
+
+// #conteudo-selecionado{
+//   //position: relative;
+//   //padding-top: 7px;
+// }
+
+#fa-solid-li-2{
+  position: absolute; 
+  color:#9B9A9A; 
+  margin-left: 97%;
+  margin-top: 45px;
+}
+
+.btn_validar_cadastro{
+  position: relative;
+  margin-left: 90%;
+  margin-top: -5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: $cor_1;
+  font-weight: 100;
+  font-family: $font_2;
+  border-radius: 5px;
+  border-color: $cor_1;
+  border: 1px solid #003A4C;
+  font-family: arial;
+  color: $cor_5;
+  text-align: 20%;
+  height: 56px;
+  width: 120px;
+}
+
+
+
+@media (min-width: 62.75em) and (max-width: 90em){
+
+    .Formulario_2 {
+        position: absolute;
+        display: inline-block;
+        //position: relative;
+        width: 32%;
+        margin-left: 70px;
+        margin-top: 12px;
+        //background-color: aquamarine;
+    }
+
+            
+}
+
+@media (max-width: 62.75em){
+
+    #Formulario {
+        width: 100%;
+        //background-color: red;
+        height: 1650px;
+    }
+
+    .Formulario_2 {
+        position: absolute;
+        display: block;
+        width: 32%;
+        margin-left: 50px;
+        margin-top: 20px;
+    }
+
+    .btn_concluir_cadastro_vendas{
+        margin-top: -90px;
+        margin-left: 50px;
+
+    }
+            
+}
+
+
+@media (max-width: 26.938em){
+
+    #Formulario{
+        height: 2150px;
+    }
+
+
+    .btn_concluir_cadastro_vendas{
+        margin-top: -90px;
+        margin-left: 50px;
+
+    }
+
+    .InputForm_Vendas{
+        //background-color: blue;
+        width: 340px;
+        margin-left: -22px;
+    }
+
+    .Select_Nome_Vendedor, .Select_Descricao_Tab_Preco, .Select_Tipo_Venda, .Select_Tipo_Frete, .Select_Forma_Pagamento{
+        width: 370px;
+        margin-left: -22px;
+    }
+
+}
+
