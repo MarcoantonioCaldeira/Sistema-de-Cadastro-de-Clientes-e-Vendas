@@ -6,6 +6,7 @@
 #Corpo_Tela_Inicial {
     width: 100%;
     min-height: 1000px;
+    
 }
 
 .h1-seja-bem-vindo {
@@ -16,6 +17,28 @@
     //padding-top: 5px;
     color: $cor_3;
 }
+
+
+.h1_Cadastro_Cliente{
+    position: absolute;
+    font-family: $font_2;
+    display: inline-block;
+    text-decoration:underline;
+    margin-left: 30%;
+    //padding-top: 5px;
+    color: $cor_3 ;
+}
+
+.h1_Cadastro_Venda{
+    position: absolute;
+    font-family: $font_2;
+    display: inline-block;
+    text-decoration:underline;
+    margin-left: 50%;
+    //padding-top: 5px;
+    color: $cor_3;
+}
+
 
 @media only screen and (max-width: 30.999em) {
 
