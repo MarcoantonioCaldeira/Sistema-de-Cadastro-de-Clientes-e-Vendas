@@ -226,22 +226,22 @@ export default{
 
     methods:{
 
-        EnviarDados(){         
-            const Itens_da_Venda = {
-                vendas_itens: this.Itens_selecionados.map((Item) => ({
-                        cod_referencia: Item.cod_referencia,
-                        obs_item: Item.observacoes,
-                        qtd_caixa: Item.quantidade_caixa,
-                        tipo_do_item: Item.tipo_do_item,
-                        vendas_itens_tamanhos: [{
-                            qtd_tamanho: Item.quantidade_itens,
-                            tamanho: Item.tamanho,
-                            valor_unitario: Item.valor_unitario
-                        }],
-                })) 
-            };
-            this.$emit('formularioItensValidado', Itens_da_Venda)
-        },
+        // EnviarDados(){         
+        //     const Itens_da_Venda = {
+        //         vendas_itens: this.Itens_selecionados.map((Item) => ({
+        //                 cod_referencia: Item.cod_referencia,
+        //                 obs_item: Item.observacoes,
+        //                 qtd_caixa: Item.quantidade_caixa,
+        //                 tipo_do_item: Item.tipo_do_item,
+        //                 vendas_itens_tamanhos: [{
+        //                     qtd_tamanho: Item.quantidade_itens,
+        //                     tamanho: Item.tamanho,
+        //                     valor_unitario: Item.valor_unitario
+        //                 }],
+        //         })) 
+        //     };
+        //     this.$emit('formularioItensValidado', Itens_da_Venda)
+        // },
 
         openModal_S_Item(){
             this.showModal = true;            
