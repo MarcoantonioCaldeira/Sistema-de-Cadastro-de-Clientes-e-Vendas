@@ -259,94 +259,95 @@ export default{
     mounted(){
         this.Requisicao_Vendedores();
     },
+
     methods: {
 
-    add_email() {
-        this.inputs.push({
-            email: null
-        })
-    },
-
-    clearInput(){
-        this.Mostrar_Email = false;
-    },
-
-    async Cadastrar(){
-
-        try {
-            const token = await getToken();
-            const headers = { Authorization: `Bearer ${token}` };
-
-            const clientes = {
-                nome: this.nome,
-                nome_fantasia: this.nome_fantasia,
-                classificacao: this.classificacao,
-                classificacao_entrega: this.classificacao_entrega,
-                cod_cliente: this.cod_cliente,
-                cod_vendedor: this.cod_vendedor,
-                e_mail: this.e_mail,
-                e_mail: this.e_mail_adicional,
-                observacao: this.observacao,
-                e_mail_nfe: this.e_mail_nfe,
-                data_cadastro: this.data_cadastro,
-                telefone_2: this.telefone_2,
-                celular: this.celular,
-                cnpj_cpf: this.cnpj_cpf,
-                cnpj_cpf_entrega: this.cnpj_cpf_entrega,
-                rg: this.inscricao_rg,
-                nascimento: this.nascimento,
-                suframa_tipo: this.suframa_tipo,
-                suframa: this.suframa,
-                inscricao_municipal: this.inscricao_municipal,
-                cliente_enderecos: [{
-                    cep: this.Endereco_1.cep,
-                    endereco: this.Endereco_1.endereco,
-                    end_numero: this.Endereco_1.end_numero,
-                    complemento: this.Endereco_1.complemento,
-                    bairro: this.Endereco_1.bairro,
-                    cidade: this.Endereco_1.cidade,
-                    cod_cidade: this.Endereco_1.cod_cidade,
-                    cod_pais: this.Endereco_1.cod_pais,
-                    estado: this.Endereco_1.estado,
-                    tipo_endereco: this.Endereco_1.tipo_endereco,
-
-                    cep: this.Endereco_2.cep,
-                    endereco: this.Endereco_2.endereco,
-                    end_numero: this.Endereco_2.end_numero,
-                    complemento: this.Endereco_2.complemento,
-                    bairro: this.Endereco_2.bairro,
-                    cidade: this.Endereco_2.cidade,
-                    cod_cidade: this.Endereco_2.cod_cidade,
-                    cod_pais: this.Endereco_2.cod_pais,
-                    estado: this.Endereco_2.estado,
-                    tipo_endereco: this.Endereco_2.tipo_endereco,
-
-                    cep: this.Endereco_3.cep,
-                    endereco: this.Endereco_3.endereco,
-                    end_numero: this.Endereco_3.end_numero,
-                    complemento: this.Endereco_3.complemento,
-                    bairro: this.Endereco_3.bairro,
-                    cidade: this.Endereco_3.cidade,
-                    cod_cidade: this.Endereco_3.cod_cidade,
-                    cod_pais: this.Endereco_3.cod_pais,
-                    estado: this.Endereco_3.estado,
-                    tipo_endereco: this.Endereco_3.tipo_endereco,
-
-                }],
-            }
-
-            var self = this;
-
-            await api.post("/clientes",{ clientes: [clientes]},{ headers })
-            .then(function(){
-                self.msg = "Cliente cadastrado com sucesso"
-                setTimeout(() => self.msg = "", 5000)
-
+        add_email() {
+            this.inputs.push({
+                email: null
             })
-        }catch(error){
-            console.log(error);
-        };
-    },
+        },
+
+        clearInput(){
+            this.Mostrar_Email = false;
+        },
+
+        async Cadastrar(){
+
+            try {
+                const token = await getToken();
+                const headers = { Authorization: `Bearer ${token}` };
+
+                const clientes = {
+                    nome: this.nome,
+                    nome_fantasia: this.nome_fantasia,
+                    classificacao: this.classificacao,
+                    classificacao_entrega: this.classificacao_entrega,
+                    cod_cliente: this.cod_cliente,
+                    cod_vendedor: this.cod_vendedor,
+                    e_mail: this.e_mail,
+                    e_mail: this.e_mail_adicional,
+                    observacao: this.observacao,
+                    e_mail_nfe: this.e_mail_nfe,
+                    data_cadastro: this.data_cadastro,
+                    telefone_2: this.telefone_2,
+                    celular: this.celular,
+                    cnpj_cpf: this.cnpj_cpf,
+                    cnpj_cpf_entrega: this.cnpj_cpf_entrega,
+                    rg: this.inscricao_rg,
+                    nascimento: this.nascimento,
+                    suframa_tipo: this.suframa_tipo,
+                    suframa: this.suframa,
+                    inscricao_municipal: this.inscricao_municipal,
+                    cliente_enderecos: [{
+                        cep: this.Endereco_1.cep,
+                        endereco: this.Endereco_1.endereco,
+                        end_numero: this.Endereco_1.end_numero,
+                        complemento: this.Endereco_1.complemento,
+                        bairro: this.Endereco_1.bairro,
+                        cidade: this.Endereco_1.cidade,
+                        cod_cidade: this.Endereco_1.cod_cidade,
+                        cod_pais: this.Endereco_1.cod_pais,
+                        estado: this.Endereco_1.estado,
+                        tipo_endereco: this.Endereco_1.tipo_endereco,
+
+                        cep: this.Endereco_2.cep,
+                        endereco: this.Endereco_2.endereco,
+                        end_numero: this.Endereco_2.end_numero,
+                        complemento: this.Endereco_2.complemento,
+                        bairro: this.Endereco_2.bairro,
+                        cidade: this.Endereco_2.cidade,
+                        cod_cidade: this.Endereco_2.cod_cidade,
+                        cod_pais: this.Endereco_2.cod_pais,
+                        estado: this.Endereco_2.estado,
+                        tipo_endereco: this.Endereco_2.tipo_endereco,
+
+                        cep: this.Endereco_3.cep,
+                        endereco: this.Endereco_3.endereco,
+                        end_numero: this.Endereco_3.end_numero,
+                        complemento: this.Endereco_3.complemento,
+                        bairro: this.Endereco_3.bairro,
+                        cidade: this.Endereco_3.cidade,
+                        cod_cidade: this.Endereco_3.cod_cidade,
+                        cod_pais: this.Endereco_3.cod_pais,
+                        estado: this.Endereco_3.estado,
+                        tipo_endereco: this.Endereco_3.tipo_endereco,
+
+                    }],
+                }
+
+                var self = this;
+
+                await api.post("/clientes",{ clientes: [clientes]},{ headers })
+                .then(function(){
+                    self.msg = "Cliente cadastrado com sucesso"
+                    setTimeout(() => self.msg = "", 5000)
+
+                })
+            }catch(error){
+                console.log(error);
+            };
+        },
 
         CONSULTA_CEP() {
             var self = this;

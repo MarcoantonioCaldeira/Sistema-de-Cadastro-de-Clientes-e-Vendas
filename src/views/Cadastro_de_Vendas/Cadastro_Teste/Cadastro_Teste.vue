@@ -1,6 +1,6 @@
 <template>
-    <h2>Aqui vou fazer um Cadastro de Vendas Teste</h2>
-    <form   @submit.prevent="Cadastrar_Venda"   style="min-height: 2700px;">
+    <!-- <h2>Aqui vou fazer um Cadastro de Vendas Teste</h2> -->
+    <form  method="POST" @submit.prevent="Cadastrar_Venda"   style="min-height: 2700px;">
         <div id="Formulario">
 
             <h1 class="Titulo_Cadastro_Vendas">Cadastro de Vendas</h1>
@@ -20,31 +20,43 @@
                 <div v-if="showModal" class="modal">
 
                     <div class="modal-content animate">
-                        <!-- X para cancelar -->
-                        <i @click="closeModal" id="fa-solid-li" class="fa-solid fa-circle-xmark"></i>
+
+                        <!--  X para cancelar -->
+                        <i @click="closeModal" id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
 
                         <!-- Campos de pesquisa para o nome do cliente -->
-                        <input class="input_pesquisa_nome_cliente" type="text" v-model="filtro" placeholder="Pesquise pelo nome do cliente" />
+                        <input  class="input_pesquisa_nome_cliente"  type="text" v-model="filtro_cliente"  placeholder="Pesquise pelo nome do cliente" />
 
-                        <!-- A API já deixa todos os nomes pré-carregados -->
+                        <!-- A API ja deixa todos os nomes pre-carregados -->
                         <div class="conteudo_registro">
                             <!-- Tabela com os nomes e outros dados dos clientes -->
-                            <table style="width: 100%;">
-                                <tr>
-                                    <th>Nome do Cliente</th>
-                                    <th>Nome Fantasia</th>
-                                    <th>Cidade</th>
-                                    <th>UF</th>
-                                    <th>CNPJ_CPF</th>
-                                </tr>
-                                <tr v-for="(cliente, index) in Clientes_Filtrados" :key="cliente.codigo" v-on:click="selecionarCliente(cliente)">
-                                    <td>{{ cliente.nome }}</td>
-                                    <td>{{ cliente.nome_fantasia }}</td>
-                                    <td>{{ cliente.cidade }}</td>
-                                    <td>{{ cliente.estado }}</td> 
-                                    <td>{{ cliente.cnpj_cpf }}</td>
-                                </tr>
-                            </table>
+                            <div v-for="(cliente, index) in Clientes_Filtrados" :key="cliente.codigo" v-on:click="selecionarCliente(cliente)">
+                                <table v-if="index == 0"  style="width: 100%;">
+                                    <tr>
+                                        <th>Nome do Cliente</th>
+                                        <th>Nome Fantasia</th>
+                                        <th>Cidade</th>
+                                        <th>UF</th>
+                                        <th>CNPJ_CPF</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{ cliente.nome }}</td>
+                                        <td>{{ cliente.nome_fantasia }}</td>
+                                        <td>{{ cliente.cidade }}</td>
+                                        <td>{{ cliente.estado }}</td> 
+                                        <td>{{ cliente.cnpj_cpf }}</td>
+                                    </tr>
+                                </table>
+                                <table v-else style="width: 100%;">
+                                    <tr>
+                                        <td>{{ cliente.nome }}</td>
+                                        <td>{{ cliente.nome_fantasia }}</td>
+                                        <td>{{ cliente.cidade }}</td>
+                                        <td>{{ cliente.estado }}</td> 
+                                        <td>{{ cliente.cnpj_cpf }}</td>
+                                    </tr>
+                                </table>                          
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -100,12 +112,12 @@
                     <option value="2">2 - Por conta de Terceiros</option>
                     <option value="3">3 - Transporte próprio por conta de remetente</option>
                     <option value="4">4 - Transporte próprio por conta de destinatario</option>
-                    <option value="9">5 - Sem Ocorrência de frete</option>
+                    <option value="5">5 - Sem Ocorrência de frete</option>
                 </select>
 
 
                 <p class="p_data_e">Transportadora Redespacho</p>
-                <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras">
+                <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras" v-model="cod_transportadora_redespacho">
                     <option></option>
                     <option v-for="transportadoras in transportadora"  :value="transportadoras.codigo_transportadoras">{{ transportadoras.nome }}</option>
                 </select>
@@ -117,7 +129,7 @@
                     <option value="2">2 - Por conta de Terceiros</option>
                     <option value="3">3 - Transporte próprio por conta de remetente</option>
                     <option value="4">4 - Transporte próprio por conta de destinatario</option>
-                    <option value="9">5 - Sem Ocorrência de frete</option>
+                    <option value="5">5 - Sem Ocorrência de frete</option>
                 </select>
 
 
@@ -134,7 +146,7 @@
                 <select  v-model="forma_pagto"  :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento">
                     <option value="0">A vista</option>
                     <option value="1">Contra Apresentação</option>
-                    <option value="3">A prazo</option>
+                    <option value="2">A prazo</option>
                 </select>
 
                 <p class="p_data_e">Prazo de pagamento: </p>
@@ -153,7 +165,7 @@
                 <select  v-model="forma_pagto_x"  :disabled="desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento">
                     <option value="0">A vista</option>
                     <option value="1">Contra Apresentação</option>
-                    <option value="3">A prazo</option>
+                    <option value="2">A prazo</option>
                 </select>
 
                 <p class="p_data_e">Prazo de pagamento X: </p>
@@ -191,7 +203,7 @@
                     <p class="p_nome_item">Adicione o Item</p><i  style="margin-left: 18px; margin-top: 2px;"  class="fa-solid fa-circle-plus"></i>
                 </button>
                 
-                <div v-if="showModal" class="modal">
+                <div v-if="showModal_S_Item" class="modal">
 
                     <div class="modal-content animate">
 
@@ -199,7 +211,7 @@
 
                         <div v-if="!showOtherDiv">
                             <!-- Campo para pesquisar os itens -->
-                            <input type="text" class="input_pesquisa_nome_item" :disabled=Item_selecionado :class="{ 'disabled-field': Item_selecionado }" v-model="filtro" placeholder="Pesquisar produto" />
+                            <input type="text" class="input_pesquisa_nome_item" :disabled=Item_selecionado :class="{ 'disabled-field': Item_selecionado }" v-model="filtro_item" placeholder="Pesquisar produto" />
                         
                             <!-- Botão de prosseguir -->
                             <button class="btn_proximo"  v-if="Item_selecionado"  @click="showOtherFields">Prosseguir</button>
@@ -260,8 +272,8 @@
                             <p class="p_tipo_produto">Tipo do Item: </p>
 
                             <select v-model="tipo_produto" class="select_tipo_produto">
-                                <option>Pronta Entrega</option>
-                                <option>Encomenda</option>
+                                <option value="1">Pronta Entrega</option>
+                                <option value="2">Encomenda</option>
                             </select>
 
                             <p class="p_tipo_produto">Observações: </p><br>
@@ -332,6 +344,7 @@
             </div>
 
         </div>
+
         <button type="submit" value="CADASTRAR">Concluir Cadastro</button>    
     </form>
     
@@ -358,7 +371,8 @@ export default{
             tabela_Preco:"",
             Tipo_Venda:"",
             cod_transportadora:"",
-            clienteSelecionado: "",
+            cod_transportadora_redespacho:"",
+            clienteSelecionado: null,
             vendedorSelecionado: "",
             Data_emissao:"",
             Data_Prev_Entrega:"",
@@ -382,6 +396,7 @@ export default{
             observacoes_producao:"",
 
             showModal: false,
+            showModal_S_Item:false,
             vendedores: [],
             precos:[],
             tipo_venda:[],
@@ -432,20 +447,9 @@ export default{
             quantidades:[],    
             ValorTotal:null,
 
-            // cod_referencia: '',
-            //obs_item:'',
             observacoes: '',
             quantidade_caixa:null,
             tipo_produto: null,
-            // qtd_tamanho: '',
-            // tamanho: '',
-            // valor_unitario: '',
-            // cod_referencia: '',
-            // obs_item:'',
-            // qtd_caixa:'',
-            // qtd_tamanho:'',
-            // tamanho:'',
-            // valor_unitario:''
             ItensValidados: false
         }
     },
@@ -462,13 +466,16 @@ export default{
         this.Requisicao_Tipo_Venda();
         this.Consultando_prazos();
         //this.Pesquisar_Cliente();
-        //this.Consulta_de_Itens();
-        //this.selecionarItem();
-        this.BuscarItensClientes();
+        this.Consulta_de_Itens();
+        this.selecionarItem();
+        this.Pesquisar_Cliente();
+        this.Consulta_de_Itens();
     },
 
     created(){        
-        //this.selecionarItem();
+        this.Pesquisar_Cliente();
+        this.Consulta_de_Itens();
+        this.selecionarItem();
     },
 
     computed:{
@@ -497,8 +504,24 @@ export default{
             try{
                 const token = await getToken();
                 const headers = {Authorization: `Bearer ${token}`};
+
+                const itensVenda = this.Itens_selecionados.map(Item => {
+                    return{
+                            cod_referencia: Item.ref_alternativa_cor,
+                            obs_item: Item.Observacoes,
+                            qtd_caixa:Item.tamanhoUnico ? Item.quantidade : Item.quantidade_caixa,
+                            tipo_do_item: Item.tipoProduto,
+                            vendas_itens_tamanhos: Item.tamanhosGrade.map((tamanho, index) => {
+                            return {
+                                qtd_tamanho: Item.quantidades[index],
+                                tamanho: tamanho,
+                                valor_unitario: Item.valorUnitario
+                            };
+                        })
+                    }    
+                })
                 
-                const VendaDados = {
+                const vendas = {
                         cod_empresa: this.cod_empresa,
                         cod_vendedor: this.cod_vendedor,
                         cod_tipo_venda: this.Tipo_Venda,
@@ -526,6 +549,7 @@ export default{
                         obs_producao:this.observacoes_pruducao,
                         vr_frete: this.displayItem,
                         situacao_frete: this.situacao_frete,
+                        codigo_redespacho: this.cod_transportadora_redespacho,
                         redespacho_sit_frete: this.redespacho_situacao_frete,
 
                         cliente:{
@@ -540,7 +564,7 @@ export default{
                                 e_mail_nfe:this.clienteSelecionado.e_mail_nfe,
                                 inscricao_municipal:this.clienteSelecionado.inscricao_municipal,
                                 inscricao_rg:this.clienteSelecionado.inscricao_rg,
-                                nascimento:this.clienteSelecionado.nascimento,
+                                nascimento: JSON.stringify(this.clienteSelecionado.nascimento),
                                 nome:this.clienteSelecionado.nome,
                                 nome_fantasia:this.clienteSelecionado.nome_fantasia,
                                 observacao:this.clienteSelecionado.observacao,
@@ -548,17 +572,17 @@ export default{
                                 suframa_tipo:this.clienteSelecionado.suframa_tipo,
                                 telefone_2:this.clienteSelecionado.telefone_2,
                                 cliente_enderecos:[{
-                                    bairro: this.clienteSelecionado.bairro,
                                     cep: this.clienteSelecionado.cep,
-                                    cidade: this.clienteSelecionado.cidade,
-                                    cod_cidade: this.clienteSelecionado.cod_cidade,
-                                    cod_pais: this.clienteSelecionado.cod_pais,
-                                    complemento: this.clienteSelecionado.complemento,
                                     endereco: this.clienteSelecionado.endereco,
                                     end_numero: this.clienteSelecionado.end_numero,
+                                    complemento: this.clienteSelecionado.complemento,
+                                    bairro: this.clienteSelecionado.bairro,
+                                    cod_cidade: this.clienteSelecionado.cod_cidade,
+                                    cidade: this.clienteSelecionado.cidade,
                                     estado: this.clienteSelecionado.estado,
-                                    fax: this.clienteSelecionado.fax,
-                                    telefone: this.clienteSelecionado.telefone,
+                                    cod_pais: this.clienteSelecionado.cod_pais,
+                                    telefone: this.clienteSelecionado.telefone,                                                                                        
+                                    fax: this.clienteSelecionado.fax,                  
                                     tipo_endereco: this.clienteSelecionado.tipo_endereco
                                 }],
                                 cliente_emails: [{
@@ -571,31 +595,18 @@ export default{
 
                                 }]
                         },
-                        vendas_itens:{
-                            cod_referencia: this.Itens_selecionados.cod_referencia,
-                            obs_item: this.Itens_selecionados.observacoes,
-                            qtd_caixa: this.Itens_selecionados.quantidade_caixa,
-                            tipo_do_item: this.Itens_selecionados.tipo_do_item,
-                            vendas_itens_tamanhos: [{
-                                qtd_tamanho: this.Itens_selecionados.quantidade_itens,
-                                tamanho: this.Itens_selecionados.tamanho,
-                                valor_unitario: this.Itens_selecionados.valor_unitario
-                            }],
-                        }        
+                        vendas_itens:itensVenda       
                 }
 
-                await api.post("/vendas", VendaDados, { headers });
-                console.log("Cadastro de venda concluído com sucesso!");
-                // this.$emit("formularioVendasEnviado", VendaDados);
+                const response = await api.post("/vendas", {vendas: [vendas]}, { headers })
+                console.log(response);
+
             }catch(error){
-                console.log(error)
+                console.error(error)
+                alert("Erro ao cadastrar a venda");
             }     
         },
 
-        async BuscarItensClientes(){
-            await this.Pesquisar_Cliente();
-            await this.Consulta_de_Itens();
-        },
 
         openModal(){
             this.showModal = true;
@@ -750,13 +761,13 @@ export default{
 
         // Metodos dos Itens da Venda
         openModal_S_Item(){
-            this.showModal = true;            
+            this.showModal_S_Item = true;            
         },
 
         closeModal_S_Item(){
-            this.showModal = false;
+            this.showModal_S_Item = false;
             this.showOtherDiv = false;
-            this.filtro = '';
+            this.filtro_item = '';
             this.Item_selecionado = null;
             this.quantidade_caixa = '';
             this.quantidade_itens = '';
