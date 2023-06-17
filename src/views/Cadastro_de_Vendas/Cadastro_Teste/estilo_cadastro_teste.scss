@@ -2,9 +2,14 @@
 @import "@/assets/scss/cores.scss";
 @import "@/assets/scss/buttons.scss";
 
+form{
+  min-height: 1600px;
+}
+
 #Formulario {
     width: 100%;
-    min-height: 1600px;
+    //min-height: 1600px;
+    //background-color: red;
 }
 
 
