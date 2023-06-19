@@ -1,6 +1,7 @@
 <template>
     <!-- <h2>Aqui vou fazer um Cadastro de Vendas Teste</h2> -->
     <form  method="POST" @submit.prevent="Cadastrar_Venda">
+
         <div id="Formulario">
 
             <h1 class="Titulo_Cadastro_Vendas">Cadastro de Vendas</h1>
@@ -103,7 +104,6 @@
                 </select>
 
                 <input type="text" v-model="campo_venda.displayItem"  class="InputForm_Vendas"  placeholder="Valor do Frete" @input="Verificar_Campos_Preenchidos">
-
 
                 <p class="p_data_e">Situação do frete: </p>
                 <select  v-model="campo_venda.situacao_frete"  class="Select_Forma_Pagamento" @input="Verificar_Campos_Preenchidos">
@@ -510,11 +510,11 @@ export default{
     methods:{
 
         Verificar_Campos_Preenchidos(){
-            if(this.campo_venda != ''){
-                this.ItensValidados = true;
-            }else{
-                this.ItensValidados = false;
-            }
+
+            const campos = Object.values(this.campo_venda);
+            const camposPreenchidos = campos.every(campo => campo !== "");
+         
+            this.formulario_Itens_Venda = !camposPreenchidos;  
         },
 
         async Cadastrar_Venda(){
@@ -767,7 +767,7 @@ export default{
 
 
         selecionarCliente(cliente) {
-            this.clienteSelecionado = cliente; 
+            this.campo_venda.clienteSelecionado = cliente; 
             this.closeModal();
         },
 
