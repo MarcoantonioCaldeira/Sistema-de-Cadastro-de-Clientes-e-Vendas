@@ -14,8 +14,8 @@
                     <p class="p_nome_cliente">Selecione o nome do cliente</p><i  style="margin-left: 8px; margin-top: 2px;"  class="fa-solid fa-circle-plus"></i> 
                 </button>
                 <!-- Area onde vai aparecer o nome do cliente selecionado -->
-                <div  id="area_nome_cliente"  v-if="campo_venda.clienteSelecionado" @input="Verificar_Campos_Preenchidos">
-                    <p class="p_nome_cliente_r">Nome: {{ campo_venda.clienteSelecionado.nome }}</p>
+                <div  id="area_nome_cliente"  v-if="clienteSelecionado" @input="Verificar_Campos_Preenchidos">
+                    <p class="p_nome_cliente_r">Nome: {{ clienteSelecionado.nome }}</p>
                 </div>
 
                 <div v-if="showModal" class="modal">
@@ -378,7 +378,6 @@ export default{
                 Tipo_Venda:"",
                 cod_transportadora:"",
                 cod_transportadora_redespacho:"",
-                clienteSelecionado: null,
                 vendedorSelecionado: "",
                 Data_emissao:"",
                 Data_Prev_Entrega:"",
@@ -406,6 +405,7 @@ export default{
             
             tipo_frete: '',
             displayItem: '',
+            clienteSelecionado: null,
 
             redespacho_situacao_frete:null,
 
@@ -584,14 +584,14 @@ export default{
                                 classificacao:this.clienteSelecionado.classificacao,
                                 classificacao_entrega: this.clienteSelecionado.classificacao_entrega,
                                 cnpj_cpf:this.clienteSelecionado.cnpj_cpf,
-                                cnpj_cpf_entrega: this.clienteSelecionado.cnpj_cpf_entrega,
+                                //cnpj_cpf_entrega: this.clienteSelecionado.cnpj_cpf_entrega,
                                 cod_vendedor:this.clienteSelecionado.cod_vendedor,
                                 data_cadastro:this.clienteSelecionado.data_cadastro,
                                 e_mail:this.clienteSelecionado.e_mail,
                                 e_mail_nfe:this.clienteSelecionado.e_mail_nfe,
                                 inscricao_municipal:this.clienteSelecionado.inscricao_municipal,
                                 inscricao_rg:this.clienteSelecionado.inscricao_rg,
-                                nascimento: JSON.stringify(this.clienteSelecionado.nascimento),
+                                //nascimento: JSON.stringify(this.clienteSelecionado.nascimento),
                                 nome:this.clienteSelecionado.nome,
                                 nome_fantasia:this.clienteSelecionado.nome_fantasia,
                                 observacao:this.clienteSelecionado.observacao,
@@ -599,12 +599,12 @@ export default{
                                 suframa_tipo:this.clienteSelecionado.suframa_tipo,
                                 telefone_2:this.clienteSelecionado.telefone_2,
                                 cliente_enderecos:[{
-                                    cep: this.clienteSelecionado.cep,
-                                    endereco: this.clienteSelecionado.endereco,
-                                    end_numero: this.clienteSelecionado.end_numero,
+                                    //cep: this.clienteSelecionado.cep,
+                                    //endereco: this.clienteSelecionado.endereco,
+                                    //end_numero: this.clienteSelecionado.end_numero,
                                     complemento: this.clienteSelecionado.complemento,
-                                    bairro: this.clienteSelecionado.bairro,
-                                    cod_cidade: this.clienteSelecionado.cod_cidade,
+                                    //bairro: this.clienteSelecionado.bairro,
+                                    //cod_cidade: this.clienteSelecionado.cod_cidade,
                                     cidade: this.clienteSelecionado.cidade,
                                     estado: this.clienteSelecionado.estado,
                                     cod_pais: this.clienteSelecionado.cod_pais,
@@ -776,7 +776,7 @@ export default{
 
 
         selecionarCliente(cliente) {
-            this.campo_venda.clienteSelecionado = cliente; 
+            this.clienteSelecionado = cliente; 
             this.closeModal();
         },
 
