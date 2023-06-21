@@ -9,6 +9,11 @@
     
 }
 
+.h1_Cadastro_Cliente, .h1_Cadastro_Venda {
+    text-decoration: none;
+
+  }
+
 .h1-seja-bem-vindo {
     font-family: $font_2;
     display: inline-block;
@@ -23,9 +28,8 @@
     position: absolute;
     font-family: $font_2;
     display: inline-block;
-    text-decoration:underline;
     margin-left: 30%;
-    //padding-top: 5px;
+    padding-top: 85px;
     color: $cor_3 ;
 }
 
@@ -33,9 +37,9 @@
     position: absolute;
     font-family: $font_2;
     display: inline-block;
-    text-decoration:underline;
+    text-decoration:none;
     margin-left: 50%;
-    //padding-top: 5px;
+    padding-top: 85px;
     color: $cor_3;
 }
 
