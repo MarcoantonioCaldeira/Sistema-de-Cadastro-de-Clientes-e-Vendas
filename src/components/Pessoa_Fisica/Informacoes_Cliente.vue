@@ -341,7 +341,7 @@ export default{
                 await api.post("/clientes",{ clientes: [clientes]},{ headers })
                 .then(function(){
                     self.msg = "Cliente cadastrado com sucesso"
-                    setTimeout(() => self.msg = "", 5000)
+                    setTimeout(() => self.msg = "", 2000)
 
                 })
             }catch(error){
