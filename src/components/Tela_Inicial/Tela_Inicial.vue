@@ -6,12 +6,12 @@
             <div style="width: 100%; margin-top: 5%;">
                 <img src="../../assets/images/icone_cliente.png" style="width: 5%; position: absolute; margin-top: -5px; margin-left: 36%;"/>
                 <h2>
-                    <router-link  class="h1_Cadastro_Cliente" to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link>
+                    <router-link  class="h1_Cadastro_Cliente"  @click="barra_prograsso()"  to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link>
                 </h2>
 
                 <img src="../../assets/images/icone_vendas.png" style="width: 5%; position: absolute; margin-top: -5px; margin-left: 56%; "/>
                 <h2>
-                    <router-link  class="h1_Cadastro_Venda" to="Cadastro_Teste">Cadastro de Vendas</router-link>
+                    <router-link  class="h1_Cadastro_Venda" @click="barra_prograsso()" to="Cadastro_Teste">Cadastro de Vendas</router-link>
                 </h2>
             </div>
             
@@ -22,11 +22,18 @@
 
 <script>
 import Footer from '../Footer.vue';
+import Menu from '../Menu.vue'
  
 export default{
     name: 'Tela_Inicial',
     components:{
         Footer
+    },
+
+    methods:{
+        barra_prograsso(){
+            Menu.methods.barra_prograsso();
+        }
     }
 }
 
