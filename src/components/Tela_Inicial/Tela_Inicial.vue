@@ -3,13 +3,13 @@
            
             <h1 class="h1-seja-bem-vindo">Seja bem-vindo</h1>
            
-            <div style="width: 100%; margin-top: 5%;">
-                <img src="../../assets/images/icone_cliente.png" style="width: 5%; position: absolute; margin-top: -5px; margin-left: 36%;"/>
+            <div class="opcoes_tela_inicio">
+                <img  class="img_icone_cliente"  src="../../assets/images/icone_cliente.png"/>
                 <h2>
                     <router-link  class="h1_Cadastro_Cliente"  @click="barra_prograsso()"  to="Selecao_Tipo_Pessoa">Cadastro de Clientes</router-link>
                 </h2>
 
-                <img src="../../assets/images/icone_vendas.png" style="width: 5%; position: absolute; margin-top: -5px; margin-left: 56%; "/>
+                <img class="img_icone_vendedor" src="../../assets/images/icone_vendas.png"/>
                 <h2>
                     <router-link  class="h1_Cadastro_Venda" @click="barra_prograsso()" to="Cadastro_Teste">Cadastro de Vendas</router-link>
                 </h2>

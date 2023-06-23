@@ -9,6 +9,11 @@
     
 }
 
+#opcoes_tela_inicio{
+    width: 100%; 
+    margin-top: 5%;
+}
+
 .h1_Cadastro_Cliente, .h1_Cadastro_Venda {
     text-decoration: none;
 
@@ -23,6 +28,12 @@
     color: $cor_3;
 }
 
+.opcoes_tela_inicio{
+    margin-top: 4%;
+    width: 100%;
+    height: 300px;
+    //background-color: blue;
+}
 
 .h1_Cadastro_Cliente{
     position: absolute;
@@ -43,14 +54,65 @@
     color: $cor_3;
 }
 
+.img_icone_cliente{
+    width: 5%; 
+    position: absolute; 
+    margin-top: -5px; 
+    margin-left: 36%;
+}
+
+.img_icone_vendedor{
+    width: 5%; 
+    position: absolute; 
+    margin-top: -5px; 
+    margin-left: 56%;
+}
+
 
 @media only screen and (max-width: 30.999em) {
 
+
+    #Corpo_Tela_Inicial{
+        //background-color: red;
+    }
+
     .h1-seja-bem-vindo {
         //background-color: ;
-        margin-left: 15%;
+        margin-left: 21%;
         margin-top: 150px;
     }
+
+    .opcoes_tela_inicio{
+        //background-color: blue;
+        height: 500px;
+    }
+
+    .img_icone_vendedor{
+        position: absolute;
+        width: 10%;
+        margin-top: 34%;
+        margin-left: 45%;
+    }
+
+    .img_icone_cliente{
+        position:absolute;
+        width: 10%;
+        margin-top: 10%;
+        margin-left: 45%;
+    }
+
+    .h1_Cadastro_Cliente{
+        margin-left: 20%;
+        display: block;
+    }
+
+   .h1_Cadastro_Venda{
+        margin-left: 20%;
+        margin-top: 25%;
+        display: block;
+    }
+
+
 
 }
 
