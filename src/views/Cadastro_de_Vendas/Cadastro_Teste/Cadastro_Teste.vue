@@ -531,7 +531,19 @@ export default{
 
         Verificar_Campos_Preenchidos(){   
             const campos = Object.values(this.campo_venda);
-            this.formulario_Itens_Venda = campos.every(campo => campo !== "");
+
+            const Campos_preenchidos = campos.every(campo => {
+                if(typeof campo === 'object' && campo !== null){
+
+                    return Object.values(campo).every(valor => valor !== "");
+
+                }else{
+
+                    return campo !== "";
+                }
+            })
+
+            this.formulario_Itens_Venda = Campos_preenchidos;
         },
 
         async Cadastrar_Venda(){
@@ -541,6 +553,7 @@ export default{
                 const headers = {Authorization: `Bearer ${token}`};
 
                 const itensVenda = this.Itens_selecionados.map(Item => {
+
                     return{
                             cod_referencia: Item.ref_alternativa_cor,
                             obs_item: Item.Observacoes,

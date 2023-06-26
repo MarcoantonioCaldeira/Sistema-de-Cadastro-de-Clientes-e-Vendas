@@ -18,24 +18,13 @@ const routes = [
     name: 'Cadastro_pt_1_P_Fisica',
     component: () => import('../views/Cadastro_pt_1/Cadastro_pt_1_P_Fisica.vue')
   },
-  {
-    path: '/Informacoes_Venda',
-    name: 'Informacoes_Venda',
-    component: () => import('../views/Cadastro_de_Vendas/Informacoes_Venda.vue')
-  },
-  // Componente pai
+
   {
     path:'/Cadastro_Teste',
     name:'Cadastro_Teste',
     component: () => import('../views/Cadastro_de_Vendas/Cadastro_Teste/Cadastro_Teste.vue')
   },
 
-  {
-    path: '/Itens_da_Venda',
-    name: 'Itens_da_Venda',
-    component: () => import('../views/Cadastro_de_Vendas/Itens_da_Venda/Itens_da_Venda.vue')
-
-  },
   {
     path: '/Cadastro_pt_1_P_Juridica',
     name: 'Cadastro_pt_1_P_Juridica',
