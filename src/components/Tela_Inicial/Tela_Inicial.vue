@@ -10,6 +10,7 @@
                 </h2>
 
                 <img class="img_icone_vendedor" src="../../assets/images/icone_vendas.png"/>
+                
                 <h2>
                     <router-link  class="h1_Cadastro_Venda" @click="barra_prograsso()" to="Cadastro_Teste">Cadastro de Vendas</router-link>
                 </h2>
