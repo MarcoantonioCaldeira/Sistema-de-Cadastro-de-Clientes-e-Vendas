@@ -8,13 +8,13 @@
             <!-- Campos da esquerda do formulario -->
             <div class="Formulario_1">
                 <!-- Esses campos de input são ligagos ao data() com a diretiva v-model -->
-                <input type="text" class="InputForm_Vendas"   placeholder="Codigo da Empresa" v-model="campo_venda.cod_empresa">
+                <input type="text" class="InputForm_Vendas"   placeholder="Codigo da Empresa" v-model="campo_venda.cod_empresa" @change="Verificar_Campos_Preenchidos" />
                 <!-- Botão para selecionar o nome do cliente -->
                 <button class="btn_nome_cliente" v-on:click="openModal">
                     <p class="p_nome_cliente">Selecione o nome do cliente</p><i  style="margin-left: 8px; margin-top: 2px;"  class="fa-solid fa-circle-plus"></i> 
                 </button>
                 <!-- Area onde vai aparecer o nome do cliente selecionado -->
-                <div  id="area_nome_cliente"  v-if="clienteSelecionado">
+                <div  id="area_nome_cliente"  v-if="clienteSelecionado" @change="Verificar_Campos_Preenchidos">
                     <p class="p_nome_cliente_r">Nome: {{ clienteSelecionado.nome }}</p>
                 </div>
 
@@ -64,49 +64,49 @@
                 
                 <!-- Nome do vendedor -->
                 <br><p class="p_data_e">Selecione o nome do vendedor: </p>          
-                <select class="Select_Nome_Vendedor" v-model="campo_venda.cod_vendedor" >
+                <select class="Select_Nome_Vendedor" v-model="campo_venda.cod_vendedor" @change="Verificar_Campos_Preenchidos" >
                     <option  class="option_p" v-for="vendedor in vendedores" :key="vendedor.cod_vendedor" :value="vendedor.cod_vendedor"  :selected="vendedor === vendedorSelecionado">{{ vendedor.nome }}</option>
                 </select>
 
                 <!-- Seleção da tabela de preço -->
                 <p class="p_data_e">Tabela de preço: </p>       
-                <select class="Select_Descricao_Tab_Preco" v-on:click="Requisicao_Descricao_Tab_Preco" v-model="campo_venda.tabela_Preco" >
+                <select class="Select_Descricao_Tab_Preco" v-on:click="Requisicao_Descricao_Tab_Preco" v-model="campo_venda.tabela_Preco" @change="Verificar_Campos_Preenchidos">
                     <option  class="option_p"  v-for=" preco in precos" :key="preco.cod_tab_preco"  :value="preco.cod_tab_preco" >{{ preco.descricao }}</option>
                 </select>
 
                 <!-- Seleção do tipo da Venda -->
                 <p class="p_data_e">Selecione o tipo da Venda</p>
-                <select  class="Select_Tipo_Venda" v-on:click="Requisicao_Tipo_Venda" v-model="campo_venda.Tipo_Venda">
+                <select  class="Select_Tipo_Venda" v-on:click="Requisicao_Tipo_Venda" v-model="campo_venda.Tipo_Venda" @change="Verificar_Campos_Preenchidos">
                     <option v-for="venda in tipo_venda" :value="venda"> {{ venda.desc_tipo_venda }}</option>
                 </select>
 
                 <div>
-                    <p class="p_data_e">Data de Emissão: </p><input v-model="campo_venda.Data_emissao" type="date" class="InputForm_Vendas" placeholder="Data da Emissão">
+                    <p class="p_data_e">Data de Emissão: </p><input v-model="campo_venda.Data_emissao" type="date" class="InputForm_Vendas" placeholder="Data da Emissão" @change="Verificar_Campos_Preenchidos">
                 </div>
 
                 <div>
-                    <p class="p_data_p">Data de Previsão de Entrega da Empresa: </p><input  v-model="campo_venda.Data_Prev_Entrega"  type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
+                    <p class="p_data_p">Data de Previsão de Entrega da Empresa: </p><input  v-model="campo_venda.Data_Prev_Entrega"  type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada" @change="Verificar_Campos_Preenchidos">
                 </div>
                 
                 <div>
-                    <p class="p_data_p">Data de Previsão de Entrega Solicitada: </p><input v-model="campo_venda.Data_Entrega_Solicitada" type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
+                    <p class="p_data_p">Data de Previsão de Entrega Solicitada: </p><input v-model="campo_venda.Data_Entrega_Solicitada" type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada" @change="Verificar_Campos_Preenchidos">
                 </div>     
                 
                 <p class="p_data_e">Transportadora:</p>
-                <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras" v-model="campo_venda.cod_transportadora">
+                <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras" v-model="campo_venda.cod_transportadora" @change="Verificar_Campos_Preenchidos">
                     <option v-for="transportadoras in transportadora"  :value="transportadoras.codigo_transportadoras">{{ transportadoras.nome }}</option>
                 </select>
 
                 <br><br><br><p class="p_data_e">Tipo do Frete: </p>
-                <select  v-model="tipo_frete"  class="Select_Tipo_Frete" >
+                <select  v-model="tipo_frete"  class="Select_Tipo_Frete" @change="Verificar_Campos_Preenchidos">
                     <option value="Valor">Por valor</option>
                     <option value="Percentual">Por percentual</option>
                 </select>
 
-                <input type="text" v-model="displayItem"  class="InputForm_Vendas"  placeholder="Valor do Frete">
+                <input type="text" v-model="displayItem"  class="InputForm_Vendas"  placeholder="Valor do Frete" @change="Verificar_Campos_Preenchidos">
 
                 <p class="p_data_e">Situação do frete: </p>
-                <select v-model="campo_venda.situacao_frete"  class="Select_Forma_Pagamento" >
+                <select v-model="campo_venda.situacao_frete"  class="Select_Forma_Pagamento" @change="Verificar_Campos_Preenchidos">
                     <option value="0">0 - Por conta remetente(CIF)</option>
                     <option value="1">1 - Por conta do destinatario(FOB)</option>
                     <option value="2">2 - Por conta de Terceiros</option>
@@ -117,13 +117,13 @@
 
 
                 <p class="p_data_e">Transportadora Redespacho: </p>
-                <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras" v-model="campo_venda.cod_transportadora_redespacho">
+                <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras" v-model="campo_venda.cod_transportadora_redespacho" @change="Verificar_Campos_Preenchidos">
                     <option></option>
                     <option v-for="transportadoras in transportadora"  :value="transportadoras.codigo_transportadoras">{{ transportadoras.nome }}</option>
                 </select>
 
                 <p class="p_data_e">Situação do Redespacho: </p>
-                <select  v-model="campo_venda.redespacho_situacao_frete"  class="Select_Forma_Pagamento">
+                <select  v-model="campo_venda.redespacho_situacao_frete"  class="Select_Forma_Pagamento" @change="Verificar_Campos_Preenchidos">
                     <option value="0">0 - Por conta remetente(CIF)</option>
                     <option value="1">1 - Por conta do destinatario(FOB)</option>
                     <option value="2">2 - Por conta de Terceiros</option>
@@ -137,39 +137,39 @@
         
             <div class="Formulario_2">
 
-                <input type="text" v-model="campo_venda.desconto_n1" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '100'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '100' }" placeholder="desconto_n1 (%)">
-                <input type="text" v-model="campo_venda.desconto_n2" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '100'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '100' }" placeholder="desconto_n2 (%)">
-                <input type="text" v-model="campo_venda.desconto_n3" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '100'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '100' }" placeholder="desconto_n3 (%)">
-                <input type="text" v-model="campo_venda.desconto_n4" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '100'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '100' }" placeholder="desconto_n4 (R$)">
+                <input type="text" v-model="campo_venda.desconto_n1" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '100'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '100' }" placeholder="desconto_n1 (%)" @change="Verificar_Campos_Preenchidos">
+                <input type="text" v-model="campo_venda.desconto_n2" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '100'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '100' }" placeholder="desconto_n2 (%)" @change="Verificar_Campos_Preenchidos">
+                <input type="text" v-model="campo_venda.desconto_n3" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '100'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '100' }" placeholder="desconto_n3 (%)" @change="Verificar_Campos_Preenchidos">
+                <input type="text" v-model="campo_venda.desconto_n4" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '100'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '100' }" placeholder="desconto_n4 (R$)" @change="Verificar_Campos_Preenchidos">
 
                 <p class="p_data_e">Forma de pagamento: </p>
-                <select  v-model="campo_venda.forma_pagto"  :disabled="campo_venda.desconto_pagto === '100'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '100' }" class="Select_Forma_Pagamento">
+                <select  v-model="campo_venda.forma_pagto"  :disabled="campo_venda.desconto_pagto === '100'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '100' }" class="Select_Forma_Pagamento" @change="Verificar_Campos_Preenchidos">
                     <option value="0">A vista</option>
                     <option value="1">Contra Apresentação</option>
                     <option value="2">A prazo</option>
                 </select>
 
                 <p class="p_data_e">Prazo de pagamento: </p>
-                <select  v-model="campo_venda.prazo_pagamento" class="Select_Forma_Pagamento" v-on:click="Consultando_prazos">
+                <select  v-model="campo_venda.prazo_pagamento" class="Select_Forma_Pagamento" v-on:click="Consultando_prazos" @change="Verificar_Campos_Preenchidos">
                     <option v-for="prazos in prazo" :key="prazos.cod_prazo" :value="prazos.cod_prazo">{{ prazos.descricao }}</option>
                 </select>
 
                 <input type="text" class="InputForm_Vendas"  v-model="campo_venda.desconto_pagto"  placeholder="Desconto de Pagamento">
 
-                <input type="text"  v-model="campo_venda.desconto_s1" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '0'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '0' }" placeholder="desconto_s1 (%)">
-                <input type="text"  v-model="campo_venda.desconto_s2" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '0'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '0' }" placeholder="desconto_s2 (%)">
-                <input type="text"  v-model="campo_venda.desconto_s3" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '0'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '0' }" placeholder="desconto_s3 (%)">
-                <input type="text"  v-model="campo_venda.desconto_s4" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '0'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '0' }" placeholder="desconto_s4 (R$)">
+                <input type="text"  v-model="campo_venda.desconto_s1" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '0'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '0' }" placeholder="desconto_s1 (%)" @change="Verificar_Campos_Preenchidos">
+                <input type="text"  v-model="campo_venda.desconto_s2" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '0'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '0' }" placeholder="desconto_s2 (%)" @change="Verificar_Campos_Preenchidos">
+                <input type="text"  v-model="campo_venda.desconto_s3" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '0'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '0' }" placeholder="desconto_s3 (%)" @change="Verificar_Campos_Preenchidos">
+                <input type="text"  v-model="campo_venda.desconto_s4" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '0'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '0' }" placeholder="desconto_s4 (R$)" @change="Verificar_Campos_Preenchidos">
                 
                 <p class="p_data_e">Forma de pagamento X: </p>
-                <select  v-model="campo_venda.forma_pagto_x"  :disabled="campo_venda.desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento">
+                <select  v-model="campo_venda.forma_pagto_x"  :disabled="campo_venda.desconto_pagto === '100'" :class="{ 'disabled-field': desconto_pagto === '100' }" class="Select_Forma_Pagamento" @change="Verificar_Campos_Preenchidos">
                     <option value="0">A vista</option>
                     <option value="1">Contra Apresentação</option>
                     <option value="2">A prazo</option>
                 </select>
 
                 <p class="p_data_e">Prazo de pagamento X: </p>
-                <select v-model="campo_venda.prazo_pagamento_x"  class="Select_Forma_Pagamento" v-on:click="Consultando_prazos">
+                <select v-model="campo_venda.prazo_pagamento_x"  class="Select_Forma_Pagamento" v-on:click="Consultando_prazos" @change="Verificar_Campos_Preenchidos">
                     <option v-for="prazos in prazo" :key="prazos.cod_prazo">{{ prazos.descricao }}</option>
                 </select>                        
             
@@ -178,22 +178,22 @@
             <div class="Formulario_3">
 
                 <p class="p_data_e">Observação do Pedido</p><br>
-                <textarea  v-model="campo_venda.observacoes_pedido" class="area_obs_pedido"></textarea>
+                <textarea  v-model="campo_venda.observacoes_pedido" class="area_obs_pedido" @change="Verificar_Campos_Preenchidos"></textarea>
 
                 <br><br><p class="p_data_e">Observacao do Faturamento</p><br>
-                <textarea  v-model="campo_venda.observacoes_faturamento" class="area_obs_faturamento"></textarea>
+                <textarea  v-model="campo_venda.observacoes_faturamento" class="area_obs_faturamento" @change="Verificar_Campos_Preenchidos"></textarea>
 
                 <br><br><p class="p_data_e">Observação da Nota Fiscal</p><br>
-                <textarea  v-model="campo_venda.observacoes_nota" class="area_obs_nota"></textarea>
+                <textarea  v-model="campo_venda.observacoes_nota" class="area_obs_nota" @change="Verificar_Campos_Preenchidos"></textarea>
 
                 <br><br><p class="p_data_e">Observação da Produção</p><br>
-                <textarea  v-model="campo_venda.observacoes_producao" class="area_obs_producao"></textarea>
+                <textarea  v-model="campo_venda.observacoes_producao" class="area_obs_producao" @change="Verificar_Campos_Preenchidos"></textarea>
 
             </div>
         </div>
 
         <!-- Itens da Venda -->
-        <div id="Formulario_Itens_Venda" v-if="formulario_Itens_Venda"> 
+        <div id="Formulario_Itens_Venda" v-if="formularioPreenchido"> 
 
             <h1 class="Titulo_Itens_Venda">Itens da Venda</h1>
 
@@ -369,7 +369,7 @@ export default{
     data(){
         return{
             // Controle de Divs
-            formulario_Itens_Venda: false,
+            formularioPreenchido: false,
 
             campo_venda:{
                 cod_empresa: "",
@@ -464,14 +464,14 @@ export default{
     },
 
     watch: {
-        campo_venda:{
-            deep:true,
-            handler(){
-                const camposPreenchidos  = Object.values(this.campo_venda).every(value => value !== "");
-                this.formulario_Itens_Venda = camposPreenchidos;
-                //console.log("Função funcionando")
-            }
-        },
+        // campo_venda:{
+        //     deep:true,
+        //     handler(){
+        //         const camposPreenchidos  = Object.values(this.campo_venda).every(value => value !== "");
+        //         this.formulario_Itens_Venda = camposPreenchidos;
+        //         //console.log("Função funcionando")
+        //     }
+        // },
 
         tipo_frete(newVal){
             this.displayItem = newVal;
@@ -488,6 +488,7 @@ export default{
         this.Requisicao_Tipo_Venda();
         this.Consultando_prazos();
         //this.Pesquisar_Cliente();
+        
         this.Consulta_de_Itens();
         this.selecionarItem();
         this.Pesquisar_Cliente();
@@ -513,6 +514,11 @@ export default{
         //     return null;
         // },
 
+
+        // formularioPreenchido(){
+        //     return Object.values(this.campo_venda).every(value => value !== "");
+        // },  
+
         Itens_Filtrados(){
             return this.produtos.filter(produto => 
                 produto.descricao.toLowerCase().includes(this.filtro_item.toLowerCase())).sort((a, b) => a.descricao.localeCompare(b.descricao))
@@ -523,9 +529,10 @@ export default{
     
     methods:{
 
-        // Verificar_Campos_Preenchidos(){   
-        //     this.formulario_Itens_Venda = !Object.values(this.$data).some(value => value === "");
-        // },
+        Verificar_Campos_Preenchidos(){   
+            const Campos = Object.values(this.campo_venda).every(value => value !== "");
+            this.formularioPreenchido = Campos;
+        },
 
         async Cadastrar_Venda(){
 
