@@ -64,13 +64,13 @@
                 
                 <!-- Nome do vendedor -->
                 <br><p class="p_data_e">Selecione o nome do vendedor: </p>          
-                <select class="Select_Nome_Vendedor" v-model="campo_venda.cod_vendedor" >
-                    <option  class="option_p" v-for="vendedor in vendedores" :key="vendedor.cod_vendedor" :value="vendedor.cod_vendedor"  :selected="vendedor === vendedorSelecionado">{{ vendedor.nome }}</option>
+                <select class="Select_Nome_Vendedor"  v-on:click="Requisicao_Vendedores" v-model="campo_venda.cod_vendedor" @change="selecionarVendedor">
+                    <option  class="option_p" v-for="vendedor in vendedores" :key="vendedor.cod_vendedor" :value="vendedor.cod_vendedor">{{ vendedor.nome }}</option>
                 </select>
 
                 <!-- Seleção da tabela de preço -->
                 <p class="p_data_e">Tabela de preço: </p>       
-                <select class="Select_Descricao_Tab_Preco" v-on:click="Requisicao_Descricao_Tab_Preco" v-model="campo_venda.tabela_Preco">
+                <select class="Select_Descricao_Tab_Preco" v-on:click="Requisicao_Descricao_Tab_Preco" v-model="campo_venda.tabela_Preco" @change="selecionarTeb_Preco">
                     <option  class="option_p"  v-for=" preco in precos" :key="preco.cod_tab_preco"  :value="preco.cod_tab_preco" >{{ preco.descricao }}</option>
                 </select>
 
@@ -375,11 +375,14 @@ export default{
             campo_venda:{
                 cod_empresa: "",
                 cod_vendedor:"",
+
                 tabela_Preco:"",
+                descricaoTabelaPreco: "",
+
                 Tipo_Venda:"",
                 cod_transportadora:"",
+                vendedorSelecionado:"",
                 cod_transportadora_redespacho:"",
-                vendedorSelecionado: "",
                 Data_emissao:"",
                 Data_Prev_Entrega:"",
                 Data_Entrega_Solicitada:"",
@@ -400,18 +403,46 @@ export default{
                 observacoes_faturamento:"",
                 observacoes_nota: "",
                 observacoes_producao:"",
-                situacao_frete: '',   
+                situacao_frete: ''  
             },
+
+            vendedores: [
+                    {cod_vendedor: 1, nome: "AROLDO LUIS BADIN"},
+                    {cod_vendedor: 2, nome: "ALESSANDRA APARECIDA PEIXOTO LEAO"},
+                    {cod_vendedor: 3, nome: "ADRIANO MELLIN"},
+                    {cod_vendedor: 4, nome: "AUGUSTO OTACILIO FARIAS FILHO"},
+                    {cod_vendedor: 5, nome: "BELL RINO REPRESENTAÇAO LTDA"},
+                    {cod_vendedor: 6, nome: "CHAGAS REPRESENTAÇÕES LTDA"},
+                    {cod_vendedor: 7, nome: "EDIMILSON CASTILHO E SANTO"},
+                    {cod_vendedor: 8, nome: "EDUARDO FALKENBACH"},
+                    {cod_vendedor: 9, nome: "GIMEST REPRESENTAÇOES LTDA"},
+                    {cod_vendedor: 10, nome: "JOILSON SILVA DE EVANGELHO"},
+                    {cod_vendedor: 11, nome: "JOSE ANTONIORI"},
+                    {cod_vendedor: 12, nome: "JOSE RODOLFO DA SILVA"},
+                    {cod_vendedor: 13, nome: "JOSE RUY FALKENBACH"},
+                    {cod_vendedor: 14, nome: "LUIZ ANTONIO REPRESENTAÇÕES LTDA"},
+                    {cod_vendedor: 15, nome: "MASEIAS SOUZA SILVA"},
+                    {cod_vendedor: 16, nome: "MARCOS LUIZ SORIANO AZEVEDO"},
+                    {cod_vendedor: 17, nome: "MAURO ANTONIO TONELLO"},
+                    {cod_vendedor: 18, nome: "OSCAR FALKENBACH"},
+                    {cod_vendedor: 19, nome: "OSMAR DA SILVA LIMA"},
+                    {cod_vendedor: 20, nome: "PLANTAO REPRESENTAÇÃO LTDA"},
+                    {cod_vendedor: 22, nome: "SILVIO CLAUDIO ROCHA D'AVILA"},
+                    {cod_vendedor: 23, nome: "VOGUE REPRESENTAÇÕES COMERCIAIS LTDA"},
+                    {cod_vendedor: 24, nome: "JORGE GARCEZ"},
+                    {cod_vendedor: 25, nome:  "F.L. INDUSTRIA E COMERCIO DE CALÇADOS LT"},
+            ],
       
             tipo_frete: '',
             displayItem: '',
             clienteSelecionado: null,
+           
 
             redespacho_situacao_frete:null,
 
             showModal: false,
             showModal_S_Item:false,
-            vendedores: [],
+
             precos:[],
             tipo_venda:[],
             prazo:[],
@@ -528,10 +559,101 @@ export default{
     
     methods:{
 
-        Verificar_Campos_Preenchidos(){   
-            const Campos = Object.values(this.campo_venda).every(value => value !== "");
-            this.formularioPreenchido = Campos;
+        gerarPDF(){
+            const doc = new jsPDF();
+            const {campo_venda} = this;
+
+            //Acessar as propriedades do campo_venda
+            const { cod_empresa,
+                    cod_vendedor,
+
+                    tabela_Preco,
+                    descricaoTabelaPreco,
+
+                    Tipo_Venda,
+                    cod_transportadora,
+                    cod_transportadora_redespacho,
+                    vendedorSelecionado,
+                    Data_emissao,
+                    Data_Prev_Entrega,
+                    Data_Entrega_Solicitada,
+                    desconto_n1,
+                    desconto_n2,
+                    desconto_n3,
+                    desconto_n4,
+                    forma_pagto,
+                    prazo_pagamento,
+                    desconto_pagto,
+                    desconto_s1,
+                    desconto_s2,
+                    desconto_s3,
+                    desconto_s4,
+                    forma_pagto_x,
+                    prazo_pagamento_x,
+                    observacoes_pedido,
+                    observacoes_faturamento,
+                    observacoes_nota,
+                    observacoes_producao,
+                    situacao_frete,
+                    //vendedores:[]
+                } = campo_venda;
+
+
+                doc.text(`Codigo da Empresa: ${cod_empresa}`, 10, 10);
+                doc.text(`Nome do Vendedor: ${vendedorSelecionado.nome}`, 10, 20);
+                doc.text(`Tebela de preço: ${descricaoTabelaPreco}`, 10, 30);
+                doc.text(`Tipo da Venda: ${Tipo_Venda}`, 10, 40);
+                doc.text(`Codigo da Transportadora: ${cod_transportadora}`, 10, 50);
+                doc.text(`Codigo de Redespacho da transportadora: ${cod_transportadora_redespacho}`, 10, 60);
+                doc.text(`Nome do cliente: ${this.clienteSelecionado.nome}`, 10, 70);
+                doc.text(`Data da emissão: ${Data_emissao}`, 10, 80);
+                doc.text(`Data da previsão de entrega: ${Data_Prev_Entrega}`, 10, 90);
+                doc.text(`Data da Solicitação de entrega: ${Data_Entrega_Solicitada}`, 10, 100);
+                doc.text(`Desconto N1: ${desconto_n1}`, 10, 110);
+                doc.text(`Desconto N2: ${desconto_n2}`, 10, 120);
+                doc.text(`Desconto N3: ${desconto_n3}`, 10, 130);
+                doc.text(`Desconto N4: ${desconto_n4}`, 10, 140);
+                doc.text(`Forma de pagamento: ${forma_pagto}`, 10, 150);
+                doc.text(`Prazo de pagamento: ${prazo_pagamento}`, 10, 160);
+                doc.text(`Desconto de pagamento: ${desconto_pagto}`, 10, 170);
+                doc.text(`Desconto S1: ${desconto_s1}`, 10, 180);
+                doc.text(`Desconto S2: ${desconto_s2}`, 10, 190);
+                doc.text(`Desconto S3: ${desconto_s3}`, 10, 200);
+                doc.text(`Desconto S4: ${desconto_s4}`, 10, 210);
+                doc.text(`Forma de pagamento x: ${forma_pagto_x}`, 10, 220);
+                doc.text(`Prazo de pagamento x: ${prazo_pagamento_x}`, 10, 230);
+                doc.text(`Observações do pedido: ${observacoes_pedido}`, 10, 240);
+                doc.text(`Observações de faturamento: ${observacoes_faturamento}`, 10, 250);
+                doc.text(`Observações da nota: ${observacoes_nota}`, 10, 260);
+                doc.text(`Observações de produção: ${observacoes_producao}`, 10, 270);
+                doc.text(`Situação do frete: ${situacao_frete}`, 10, 280);
+
+
+                doc.save('formulario.pdf');
         },
+
+        // Verificar_Campos_Preenchidos(){   
+        //     const Campos = Object.values(this.campo_venda).every(value => value !== "");
+        //     this.formularioPreenchido = Campos;
+        // },
+
+        selecionarCliente(cliente) {
+            this.clienteSelecionado = cliente; 
+            this.closeModal();
+        },
+
+        selecionarVendedor() {
+            const { campo_venda, vendedores } = this;
+            const selectedVendedor = vendedores.find(v => v.cod_vendedor === campo_venda.cod_vendedor);
+            campo_venda.vendedorSelecionado = selectedVendedor;
+        },
+
+        selecionarTeb_Preco() {
+            const { campo_venda, precos } = this;
+            const selectTab_Preco = precos.find(tab => tab.cod_tab_preco === campo_venda.tabela_Preco);
+            campo_venda.descricaoTabelaPreco = selectTab_Preco ? selectTab_Preco.descricao: "";
+        },
+
 
         async Cadastrar_Venda(){
 
@@ -781,16 +903,6 @@ export default{
             }
         },
 
-
-
-        selecionarCliente(cliente) {
-            this.clienteSelecionado = cliente; 
-            this.closeModal();
-        },
-
-        selecionarVendedor(vendedor){
-            this.vendedorSelecionado = vendedor;
-        },
 
 
 
