@@ -76,7 +76,7 @@
 
                 <!-- Seleção do tipo da Venda -->
                 <p class="p_data_e">Selecione o tipo da Venda</p>
-                <select  class="Select_Tipo_Venda" v-on:click="Requisicao_Tipo_Venda" v-model="campo_venda.Tipo_Venda">
+                <select  class="Select_Tipo_Venda" v-on:click="Requisicao_Tipo_Venda" v-model="campo_venda.Tipo_Venda" @change="Selecionar_Tipo_Venda">
                     <option v-for="venda in tipo_venda" :value="venda"> {{ venda.desc_tipo_venda }}</option>
                 </select>
 
@@ -93,7 +93,7 @@
                 </div>     
                 
                 <p class="p_data_e">Transportadora:</p>
-                <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras" v-model="campo_venda.cod_transportadora">
+                <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras" v-model="campo_venda.cod_transportadora" @change="Selecionar_Transportadora">
                     <option v-for="transportadoras in transportadora"  :value="transportadoras.codigo_transportadoras">{{ transportadoras.nome }}</option>
                 </select>
 
@@ -380,7 +380,12 @@ export default{
                 descricaoTabelaPreco: "",
 
                 Tipo_Venda:"",
+                Requisicao_Venda:"",
+
+
                 cod_transportadora:"",
+                Requisicao_Transportadora:"",
+                 
                 vendedorSelecionado:"",
                 cod_transportadora_redespacho:"",
                 Data_emissao:"",
@@ -571,7 +576,11 @@ export default{
                     descricaoTabelaPreco,
 
                     Tipo_Venda,
+                    Requisicao_Venda,
+
                     cod_transportadora,
+                    Requisicao_Transportadora,
+
                     cod_transportadora_redespacho,
                     vendedorSelecionado,
                     Data_emissao,
@@ -602,8 +611,8 @@ export default{
                 doc.text(`Codigo da Empresa: ${cod_empresa}`, 10, 10);
                 doc.text(`Nome do Vendedor: ${vendedorSelecionado.nome}`, 10, 20);
                 doc.text(`Tebela de preço: ${descricaoTabelaPreco}`, 10, 30);
-                doc.text(`Tipo da Venda: ${Tipo_Venda}`, 10, 40);
-                doc.text(`Codigo da Transportadora: ${cod_transportadora}`, 10, 50);
+                doc.text(`Tipo da Venda: ${Requisicao_Venda}`, 10, 40);
+                doc.text(`Transportadora: ${Requisicao_Transportadora}`, 10, 50);
                 doc.text(`Codigo de Redespacho da transportadora: ${cod_transportadora_redespacho}`, 10, 60);
                 doc.text(`Nome do cliente: ${this.clienteSelecionado.nome}`, 10, 70);
                 doc.text(`Data da emissão: ${Data_emissao}`, 10, 80);
@@ -628,7 +637,7 @@ export default{
                 doc.text(`Observações de produção: ${observacoes_producao}`, 10, 270);
                 doc.text(`Situação do frete: ${situacao_frete}`, 10, 280);
 
-
+ 
                 doc.save('formulario.pdf');
         },
 
@@ -653,6 +662,20 @@ export default{
             const selectTab_Preco = precos.find(tab => tab.cod_tab_preco === campo_venda.tabela_Preco);
             campo_venda.descricaoTabelaPreco = selectTab_Preco ? selectTab_Preco.descricao: "";
         },
+
+        Selecionar_Tipo_Venda(){
+            const {campo_venda, tipo_venda} = this;
+            const selectTipoVenda = tipo_venda.find(t => t === campo_venda.Tipo_Venda);
+            campo_venda.Requisicao_Venda = selectTipoVenda ? selectTipoVenda.desc_tipo_venda: "";
+        },
+
+
+        Selecionar_Transportadora(){
+            const {campo_venda, transportadora} = this;
+            const Selecionar_Transportadora = transportadora.find(transportadora => transportadora.cod_transportadora === campo_venda.cod_transportadora);
+            campo_venda.Requisicao_Transportadora = Selecionar_Transportadora ? Selecionar_Transportadora.nome: "";
+        },
+
 
 
         async Cadastrar_Venda(){
