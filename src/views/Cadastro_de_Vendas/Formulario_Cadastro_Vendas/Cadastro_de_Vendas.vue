@@ -116,11 +116,11 @@
                 </select>
 
 
-                <p class="p_data_e">Transportadora Redespacho: </p>
+                <!-- <p class="p_data_e">Transportadora Redespacho: </p>
                 <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras" v-model="campo_venda.cod_transportadora_redespacho">
                     <option></option>
                     <option v-for="transportadoras in transportadora"  :value="transportadoras.codigo_transportadoras">{{ transportadoras.nome }}</option>
-                </select>
+                </select> -->
 
                 <p class="p_data_e">Situação do Redespacho: </p>
                 <select  v-model="campo_venda.redespacho_situacao_frete"  class="Select_Forma_Pagamento">
@@ -670,9 +670,9 @@ export default{
         },
 
 
-        Selecionar_Transportadora(){
-            const {campo_venda, transportadora} = this;
-            const Selecionar_Transportadora = transportadora.find(transportadora => transportadora.cod_transportadora === campo_venda.cod_transportadora);
+        Selecionar_Transportadora(){ 
+            const { campo_venda, transportadora } = this;
+            const Selecionar_Transportadora = transportadora.find(t => t.codigo_transportadoras === campo_venda.cod_transportadora);
             campo_venda.Requisicao_Transportadora = Selecionar_Transportadora ? Selecionar_Transportadora.nome: "";
         },
 
