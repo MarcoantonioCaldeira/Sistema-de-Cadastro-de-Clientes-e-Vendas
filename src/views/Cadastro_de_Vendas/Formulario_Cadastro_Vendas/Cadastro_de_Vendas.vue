@@ -363,7 +363,7 @@ import jsPDF from 'jspdf';
 //mport { table } from 'console';
 
 export default{
-    name:'Cadastro_Teste',
+    name:'Cadastro_de_Vendas',
     components:{
         Footer
     },
@@ -1078,5 +1078,5 @@ export default{
 
 </script>
 
-<style src="./estilo_cadastro_teste.scss" lang="scss">
+<style src="./estilo_cadastro_de_vendas.scss" lang="scss">
 </style>
