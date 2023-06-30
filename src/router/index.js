@@ -20,9 +20,9 @@ const routes = [
   },
 
   {
-    path:'/Cadastro_Teste',
-    name:'Cadastro_Teste',
-    component: () => import('../views/Cadastro_de_Vendas/Cadastro_Teste/Cadastro_Teste.vue')
+    path:'/Cadastro_de_Vendas',
+    name:'Cadastro_de_Vendas',
+    component: () => import('../views/Cadastro_de_Vendas/Formulario_Cadastro_Vendas/Cadastro_de_Vendas.vue')
   },
 
   {
