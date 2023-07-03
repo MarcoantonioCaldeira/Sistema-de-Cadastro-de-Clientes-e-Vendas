@@ -93,7 +93,7 @@
                 </div>     
                 
                 <p class="p_data_e">Transportadora:</p>
-                <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras" v-model="campo_venda.cod_transportadora" @change="Selecionar_Transportadora">
+                <select class="Select_Trasportadora" @click="Consulta_de_Transpotadoras" v-model="campo_venda.cod_transportadora" @change="Selecionar_Transportadora">
                     <option v-for="transportadoras in transportadora"  :value="transportadoras.codigo_transportadoras">{{ transportadoras.nome }}</option>
                 </select>
 
@@ -116,11 +116,11 @@
                 </select>
 
 
-                <!-- <p class="p_data_e">Transportadora Redespacho: </p>
-                <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras" v-model="campo_venda.cod_transportadora_redespacho">
-                    <option></option>
-                    <option v-for="transportadoras in transportadora"  :value="transportadoras.codigo_transportadoras">{{ transportadoras.nome }}</option>
-                </select> -->
+                <p class="p_data_e">Transportadora Redespacho:</p>
+                <select class="Select_Trasportadora"  @click="Consulta_de_Transpotadoras_Redespacho"  v-model="campo_venda.cod_transportadora_redespacho" @change="Selecionar_Transportadora_Redespacho">
+                    <option value=""></option>
+                    <option v-for="transportadoras in transportadora_redespacho" :value="transportadoras.cod_transportadora_redespacho">{{ transportadoras.nome }}</option>
+                </select>
 
                 <p class="p_data_e">Situação do Redespacho: </p>
                 <select  v-model="campo_venda.redespacho_situacao_frete"  class="Select_Forma_Pagamento">
@@ -387,7 +387,10 @@ export default{
                 Requisicao_Transportadora:"",
                  
                 vendedorSelecionado:"",
+
                 cod_transportadora_redespacho:"",
+                Requisicao_Transportadora_Redespacho:"",
+
                 Data_emissao:"",
                 Data_Prev_Entrega:"",
                 Data_Entrega_Solicitada:"",
@@ -410,48 +413,20 @@ export default{
                 observacoes_producao:"",
                 situacao_frete: ''  
             },
-
-            vendedores: [
-                    {cod_vendedor: 1, nome: "AROLDO LUIS BADIN"},
-                    {cod_vendedor: 2, nome: "ALESSANDRA APARECIDA PEIXOTO LEAO"},
-                    {cod_vendedor: 3, nome: "ADRIANO MELLIN"},
-                    {cod_vendedor: 4, nome: "AUGUSTO OTACILIO FARIAS FILHO"},
-                    {cod_vendedor: 5, nome: "BELL RINO REPRESENTAÇAO LTDA"},
-                    {cod_vendedor: 6, nome: "CHAGAS REPRESENTAÇÕES LTDA"},
-                    {cod_vendedor: 7, nome: "EDIMILSON CASTILHO E SANTO"},
-                    {cod_vendedor: 8, nome: "EDUARDO FALKENBACH"},
-                    {cod_vendedor: 9, nome: "GIMEST REPRESENTAÇOES LTDA"},
-                    {cod_vendedor: 10, nome: "JOILSON SILVA DE EVANGELHO"},
-                    {cod_vendedor: 11, nome: "JOSE ANTONIORI"},
-                    {cod_vendedor: 12, nome: "JOSE RODOLFO DA SILVA"},
-                    {cod_vendedor: 13, nome: "JOSE RUY FALKENBACH"},
-                    {cod_vendedor: 14, nome: "LUIZ ANTONIO REPRESENTAÇÕES LTDA"},
-                    {cod_vendedor: 15, nome: "MASEIAS SOUZA SILVA"},
-                    {cod_vendedor: 16, nome: "MARCOS LUIZ SORIANO AZEVEDO"},
-                    {cod_vendedor: 17, nome: "MAURO ANTONIO TONELLO"},
-                    {cod_vendedor: 18, nome: "OSCAR FALKENBACH"},
-                    {cod_vendedor: 19, nome: "OSMAR DA SILVA LIMA"},
-                    {cod_vendedor: 20, nome: "PLANTAO REPRESENTAÇÃO LTDA"},
-                    {cod_vendedor: 22, nome: "SILVIO CLAUDIO ROCHA D'AVILA"},
-                    {cod_vendedor: 23, nome: "VOGUE REPRESENTAÇÕES COMERCIAIS LTDA"},
-                    {cod_vendedor: 24, nome: "JORGE GARCEZ"},
-                    {cod_vendedor: 25, nome:  "F.L. INDUSTRIA E COMERCIO DE CALÇADOS LT"},
-            ],
-      
             tipo_frete: '',
             displayItem: '',
             clienteSelecionado: null,
-           
-
             redespacho_situacao_frete:null,
-
             showModal: false,
             showModal_S_Item:false,
-
+            vendedores: [],
             precos:[],
             tipo_venda:[],
             prazo:[],
+
             transportadora:[],
+            transportadora_redespacho:[],
+
             codigos_prazo:[
                 1,2,3,4,5,6,7
             ],
@@ -459,6 +434,9 @@ export default{
                 1,2,3,4
             ],
             codigo_transportadoras:[
+                1,2,3,4
+            ],
+            codigo_transportadoras_redespacho:[
                 1,2,3,4
             ],
             codigos:[
@@ -484,15 +462,12 @@ export default{
             showOtherDiv: false,
             showSummary: false,
             showDivResumo:false,
-           
             Itens_selecionados:[], //Array que vai armazenar todos os itens 
             Item_selecionado: null, 
-
             quantidade_itens: null,
             valor_unitario: null,
             quantidades:[],    
             ValorTotal:null,
-
             observacoes: '',
             quantidade_caixa:null,
             tipo_produto: null,
@@ -570,18 +545,15 @@ export default{
 
             //Acessar as propriedades do campo_venda
             const { cod_empresa,
-                    cod_vendedor,
-
-                    tabela_Preco,
                     descricaoTabelaPreco,
-
-                    Tipo_Venda,
                     Requisicao_Venda,
 
                     cod_transportadora,
                     Requisicao_Transportadora,
 
                     cod_transportadora_redespacho,
+                    Requisicao_Transportadora_Redespacho,
+
                     vendedorSelecionado,
                     Data_emissao,
                     Data_Prev_Entrega,
@@ -604,7 +576,6 @@ export default{
                     observacoes_nota,
                     observacoes_producao,
                     situacao_frete,
-                    //vendedores:[]
                 } = campo_venda;
 
 
@@ -613,7 +584,7 @@ export default{
                 doc.text(`Tebela de preço: ${descricaoTabelaPreco}`, 10, 30);
                 doc.text(`Tipo da Venda: ${Requisicao_Venda}`, 10, 40);
                 doc.text(`Transportadora: ${Requisicao_Transportadora}`, 10, 50);
-                doc.text(`Codigo de Redespacho da transportadora: ${cod_transportadora_redespacho}`, 10, 60);
+                doc.text(`Transportadora Redespacho: ${Requisicao_Transportadora_Redespacho}`, 10, 60);
                 doc.text(`Nome do cliente: ${this.clienteSelecionado.nome}`, 10, 70);
                 doc.text(`Data da emissão: ${Data_emissao}`, 10, 80);
                 doc.text(`Data da previsão de entrega: ${Data_Prev_Entrega}`, 10, 90);
@@ -674,6 +645,13 @@ export default{
             const { campo_venda, transportadora } = this;
             const Selecionar_Transportadora = transportadora.find(t => t.codigo_transportadoras === campo_venda.cod_transportadora);
             campo_venda.Requisicao_Transportadora = Selecionar_Transportadora ? Selecionar_Transportadora.nome: "";
+        },
+
+
+        Selecionar_Transportadora_Redespacho(){ 
+            const { campo_venda, transportadora_redespacho } = this;
+            const Selecionar_Transportadora_Redespacho = transportadora_redespacho.find(t => t.codigo_transportadoras_redespacho === campo_venda.cod_transportadora_redespacho);
+            campo_venda.Requisicao_Transportadora_Redespacho = Selecionar_Transportadora_Redespacho ? Selecionar_Transportadora_Redespacho.nome: "";
         },
 
 
@@ -912,12 +890,35 @@ export default{
                 const headers = {Authorization: `Bearer ${token}`};
 
                 const promises = this.codigo_transportadoras.map(async codigo => {
-                    const response = await api.get(`/transportadoras?cod_transportadora=${codigo}`, { headers });
+                    const response = await api.get(`/transportadoras?cod_transportadora=${codigo}`, { headers }); 
                     return response.data;
                 });
 
                 const results = await Promise.all(promises);
                 this.transportadora = results.flat();
+
+            }catch(error){
+                
+                console.log(error);
+                alert("Erro ao buscar o codigo da transportadora");
+            }
+        },
+
+
+
+        async Consulta_de_Transpotadoras_Redespacho(){
+
+            try{
+                const token = await getToken();
+                const headers = {Authorization: `Bearer ${token}`};
+
+                const promises = this.codigo_transportadoras_redespacho.map(async codigo => {
+                    const response = await api.get(`/transportadoras?cod_transportadora=${codigo}`, { headers });
+                    return response.data;
+                });
+
+                const results = await Promise.all(promises);
+                this.transportadora_redespacho = results.flat();
 
             }catch(error){
                 
