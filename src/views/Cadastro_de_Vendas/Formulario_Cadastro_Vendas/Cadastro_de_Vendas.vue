@@ -93,8 +93,8 @@
                 </div>     
                 
                 <p class="p_data_e">Transportadora:</p>
-                <select class="Select_Trasportadora" @click="Consulta_de_Transpotadoras" v-model="campo_venda.cod_transportadora" @change="Selecionar_Transportadora">
-                    <option v-for="transportadoras in transportadora"  :value="transportadoras.codigo_transportadoras">{{ transportadoras.nome }}</option>
+                <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras" v-model="campo_venda.cod_transportadora" @change="Selecionar_Transportadora">
+                    <option v-for="transportadoras in transportadora"  :value="transportadoras">{{ transportadoras.nome }}</option>
                 </select>
 
                 <br><br><br><p class="p_data_e">Tipo do Frete: </p>
@@ -117,9 +117,9 @@
 
 
                 <p class="p_data_e">Transportadora Redespacho:</p>
-                <select class="Select_Trasportadora"  @click="Consulta_de_Transpotadoras_Redespacho"  v-model="campo_venda.cod_transportadora_redespacho" @change="Selecionar_Transportadora_Redespacho">
+                <select class="Select_Trasportadora"  v-on:click="Consulta_de_Transpotadoras_Redespacho"  v-model="campo_venda.cod_transportadora_redespacho" @change="Selecionar_Transportadora_Redespacho">
                     <option value=""></option>
-                    <option v-for="transportadoras in transportadora_redespacho" :value="transportadoras.cod_transportadora_redespacho">{{ transportadoras.nome }}</option>
+                    <option v-for="transportadoras in transportadora_redespacho" :value="transportadoras">{{ transportadoras.nome }}</option>
                 </select>
 
                 <p class="p_data_e">Situação do Redespacho: </p>
@@ -476,12 +476,12 @@ export default{
     },
 
     watch: {
-        campo_venda:{
-            deep:true,
-            handler(){
-                this.Verificar_Campos_Preenchidos();
-            }
-        },
+        // campo_venda:{
+        //     deep:true,
+        //     handler(){
+        //         this.Verificar_Campos_Preenchidos();
+        //     }
+        // },
 
         tipo_frete(newVal){
             this.displayItem = newVal;
@@ -897,8 +897,7 @@ export default{
                 const results = await Promise.all(promises);
                 this.transportadora = results.flat();
 
-            }catch(error){
-                
+            }catch(error){            
                 console.log(error);
                 alert("Erro ao buscar o codigo da transportadora");
             }
