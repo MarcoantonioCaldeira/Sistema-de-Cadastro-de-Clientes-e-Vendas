@@ -579,7 +579,7 @@ export default{
                 } = campo_venda;
 
 
-                doc.text(`Codigo da Empresa: ${cod_empresa}`, 10, 10);
+                doc.text(`Codigo da Empresa: ${cod_empresa}`, 5, 10);
                 doc.text(`Nome do Vendedor: ${vendedorSelecionado.nome}`, 10, 20);
                 doc.text(`Tebela de preço: ${descricaoTabelaPreco}`, 10, 30);
                 doc.text(`Tipo da Venda: ${Requisicao_Venda}`, 10, 40);
@@ -607,6 +607,10 @@ export default{
                 doc.text(`Observações da nota: ${observacoes_nota}`, 10, 260);
                 doc.text(`Observações de produção: ${observacoes_producao}`, 10, 270);
                 doc.text(`Situação do frete: ${situacao_frete}`, 10, 280);
+                doc.text(`Situação do frete: ${situacao_frete}`, 10, 280);
+
+                //doc.text(`Item Selecionado: ${this.Item_selecionado.descricao}`, 10, 290);
+                //doc.text(`Item Selecionado: ${this.Item_selecionado.ref_alternativa_cor}`, 10, 290);
 
  
                 doc.save('formulario.pdf');
@@ -640,20 +644,22 @@ export default{
             campo_venda.Requisicao_Venda = selectTipoVenda ? selectTipoVenda.desc_tipo_venda: "";
         },
 
-
-        Selecionar_Transportadora(){ 
+        Selecionar_Transportadora() {
             const { campo_venda, transportadora } = this;
-            const Selecionar_Transportadora = transportadora.find(t => t.codigo_transportadoras === campo_venda.cod_transportadora);
-            campo_venda.Requisicao_Transportadora = Selecionar_Transportadora ? Selecionar_Transportadora.nome: "";
+            const selecionada = transportadora.find(t => t === campo_venda.cod_transportadora);
+            campo_venda.Requisicao_Transportadora = selecionada ? selecionada.nome: "";
         },
 
-
-        Selecionar_Transportadora_Redespacho(){ 
+        Selecionar_Transportadora_Redespacho() {
             const { campo_venda, transportadora_redespacho } = this;
-            const Selecionar_Transportadora_Redespacho = transportadora_redespacho.find(t => t.codigo_transportadoras_redespacho === campo_venda.cod_transportadora_redespacho);
-            campo_venda.Requisicao_Transportadora_Redespacho = Selecionar_Transportadora_Redespacho ? Selecionar_Transportadora_Redespacho.nome: "";
+            const selecionada = transportadora_redespacho.find(t => t === campo_venda.cod_transportadora_redespacho);
+            campo_venda.Requisicao_Transportadora_Redespacho = selecionada ? selecionada.nome: "";
         },
 
+
+        // Selecionar_Item_Escolhido(){
+            
+        // }
 
 
         async Cadastrar_Venda(){
