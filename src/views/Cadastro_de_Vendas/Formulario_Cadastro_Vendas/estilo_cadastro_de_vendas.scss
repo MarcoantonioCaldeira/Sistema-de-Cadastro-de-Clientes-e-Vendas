@@ -2,9 +2,13 @@
 @import "@/assets/scss/cores.scss";
 @import "@/assets/scss/buttons.scss";
 
-// form{
-//   min-height: 1600px;
-// }
+form{
+
+  min-height: 2600px;
+  height: auto;
+  overflow:scroll;
+  //background-color: #696969;
+}
 
 #Formulario {
     width: 100%;
@@ -760,11 +764,11 @@ td:hover{
 }
 
 .Titulo_Itens_Selecionados{
-    position: absolute;
+    position: relative;
     font-family: $font_1;
     color: $cor_2;
     margin-left: 5.8%;
-    margin-top: 4%;
+    padding-top: 2%;
 }
 
 #conteudos-selecionados{
