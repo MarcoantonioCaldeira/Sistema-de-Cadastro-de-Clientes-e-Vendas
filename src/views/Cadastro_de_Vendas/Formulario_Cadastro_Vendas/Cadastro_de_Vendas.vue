@@ -349,10 +349,10 @@
                 </div>
             </div>
         </div>
-        
+         
     </form>
-    
-<!-- <Footer /> -->
+    <Footer />   
+
 </template>
 
 <script>
@@ -779,8 +779,6 @@ export default{
 
                 const response = await api.post("/vendas", {vendas: [vendas]}, { headers })
                 console.log(response);
-
-                this.mostrar_gerar_pdf = true;
                 
 
             }catch(error){
@@ -1093,6 +1091,7 @@ export default{
 
 
                 this.Mostrar_Botão_Concluir_Cadastro()
+                this.Mostrar_Botão_Gerar_PDF()
                 
            }catch(error){
                 console.log(error);
