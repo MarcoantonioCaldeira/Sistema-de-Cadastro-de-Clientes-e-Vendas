@@ -16,7 +16,7 @@
 .Titulo_Cadastro_Vendas {
     font-family: $font_1;
     color: $cor_2;
-    margin-left: 5.8%;
+    margin-left: 4%;
     margin-top: 5%;
 }
 
@@ -347,12 +347,28 @@ td:hover{
     margin-left: 25px;
 }
 
+.btn_concluir_cadastro{
+  position: absolute;
+  margin-left: 75%;
+  margin-top: -2%;
+  background: $cor_1;
+  font-weight: 100;
+  font-family: $font_2;
+  border-radius: 5px;
+  border-color: $cor_1;
+  border: 1px solid #003A4C;
+  font-family: arial;
+  color: $cor_5;
+  text-align: 20%;
+  height: 56px;
+  width: 120px;
+}
 
-.btn_concluir_cadastro_vendas {
+
+.btn_gerar_pdf {
     position: absolute;
-    margin-left:
-     70px;
-    margin-top: -6%;
+    margin-left:82%;
+    margin-top: -2%;
     background: $cor_1;
     font-weight: 100;
     font-family: $font_2;
