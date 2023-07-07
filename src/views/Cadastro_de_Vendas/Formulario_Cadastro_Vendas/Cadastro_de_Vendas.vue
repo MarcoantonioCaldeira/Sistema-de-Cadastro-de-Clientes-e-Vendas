@@ -204,7 +204,7 @@
                 </button>
 
                 <!-- Botão para Concluir o cadastro que vai aparecer logo apos eu adicionar os itens da venda -->
-                <button  class="btn_concluir_cadastro" v-if="mostrar_concluir_cadastro"  @click="Cadastrar_Venda" type="submit" value="CADASTRAR">Concluir Cadastro</button>    
+                <button  class="btn_concluir_cadastro" v-if="mostrar_concluir_cadastro" type="submit" value="CADASTRAR">Concluir Cadastro</button>    
 
                 <!-- Botão para Gerar o PDF logo apos a conclusão do cadastro-->
                 <button class="btn_gerar_pdf" v-if="mostrar_gerar_pdf"  @click="gerarPDF">Gerar PDF</button>
@@ -351,7 +351,7 @@
         </div>
          
     </form>
-    <Footer />   
+    <Footer style="margin-top: -18px;"/>   
 
 </template>
 
@@ -780,6 +780,7 @@ export default{
                 const response = await api.post("/vendas", {vendas: [vendas]}, { headers })
                 console.log(response);
                 
+                //this.Mostrar_Botão_Gerar_PDF()
 
             }catch(error){
                 console.error(error)
@@ -1092,6 +1093,7 @@ export default{
 
                 this.Mostrar_Botão_Concluir_Cadastro()
                 this.Mostrar_Botão_Gerar_PDF()
+                
                 
            }catch(error){
                 console.log(error);
