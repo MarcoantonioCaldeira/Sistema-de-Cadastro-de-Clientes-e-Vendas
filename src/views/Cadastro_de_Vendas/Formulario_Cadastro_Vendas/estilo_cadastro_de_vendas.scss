@@ -126,7 +126,7 @@ form{
 	background-color: #71806B;
 }
 
-.conteudo_registro{
+.conteudo_registro_1{
     margin-top: 100px;
     font-family: $font_1;
     font-weight: 600;
@@ -145,22 +145,22 @@ form{
     border: 1.5px solid $cor_3;
 }
 
-.conteudo_registro table, th, td {
+.conteudo_registro_1 table, th, td {
     border:1px solid $cor_2;
     width: 200px;
     cursor: pointer;
     text-align: center;
   }
 
-.conteudo_registro th{
+.conteudo_registro_1 th{
     color: #696969;
   }
 
-.conteudo_registro td{
+.conteudo_registro_1 td{
     color: $cor_2;
   }
 
-.conteudo_registro td:hover{
+.conteudo_registro_1 td:hover{
     background-color: $cor_5;
     transition: 0.7s;
 }
@@ -521,8 +521,11 @@ form{
 }
 
 .conteudo_registro{
+    position: relative;
     font-family: $font_1;
+    margin-left: -5%;
     font-weight: 600;
+    //padding-top: 5%;
     //background-color: blue;
 }
 
@@ -556,26 +559,28 @@ form{
   width: 120px;
 }
 
-// table, th, td {
-//   //background-color: red;
-//   border:1px solid $cor_2;
-//   width: 300px;
-//   cursor: pointer;
-//   text-align: center;
-// }
 
-// th{
-//   color: #696969;
-// }
+.modal-content table, th, td{
+  border:1px solid $cor_2;
+  width:300px;
+  cursor: pointer;
+  //margin-top: -100px;
+  text-align: center;
+}
 
-// td{
-//   color: $cor_2;
-// }
+.modal-content th{
+  color: #696969;
+}
 
-// tr:hover{
-//   background-color: $cor_5;
-//   transition: 0.7s;
-// }
+.modal-content td{
+  color: $cor_2;
+}
+
+.modal-content animate tr:hover{
+  background-color: $cor_5;
+  transition: 0.7s;
+}
+
 
 //Animação
 .animate{

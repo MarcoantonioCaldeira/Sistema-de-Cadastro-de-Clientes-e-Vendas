@@ -29,7 +29,7 @@
                         <input  class="input_pesquisa_nome_cliente"  type="text" v-model="filtro_cliente"  placeholder="Pesquise pelo nome do cliente" />
 
                         <!-- A API ja deixa todos os nomes pre-carregados -->
-                        <div class="conteudo_registro">
+                        <div class="conteudo_registro_1">
                             <!-- Tabela com os nomes e outros dados dos clientes -->
                             <div v-for="(cliente, index) in Clientes_Filtrados" :key="cliente.codigo" v-on:click="selecionarCliente(cliente)">
                                 <table v-if="index == 0"  style="width: 100%;">
