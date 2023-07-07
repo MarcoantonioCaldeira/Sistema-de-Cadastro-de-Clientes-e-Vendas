@@ -22,7 +22,7 @@ h4{
     position: absolute; 
     color: white;
     left: 40%;
-    margin-top:10% !important; 
+    margin-top:8% !important; 
     margin: auto;
     font-family: 'Poppins';
 }

@@ -145,22 +145,22 @@ form{
     border: 1.5px solid $cor_3;
 }
 
-table, th, td {
+.conteudo_registro table, th, td {
     border:1px solid $cor_2;
     width: 200px;
     cursor: pointer;
     text-align: center;
   }
 
-th{
+.conteudo_registro th{
     color: #696969;
   }
 
-td{
+.conteudo_registro td{
     color: $cor_2;
   }
 
-td:hover{
+.conteudo_registro td:hover{
     background-color: $cor_5;
     transition: 0.7s;
 }
@@ -557,24 +557,25 @@ td:hover{
 }
 
 // table, th, td {
-//     border:1px solid $cor_2;
-//     width: 300px;
-//     cursor: pointer;
-//     text-align: center;
-//   }
+//   //background-color: red;
+//   border:1px solid $cor_2;
+//   width: 300px;
+//   cursor: pointer;
+//   text-align: center;
+// }
 
-//   th{
-//     color: #696969;
-//   }
+// th{
+//   color: #696969;
+// }
 
-//   td{
-//     color: $cor_2;
-//   }
+// td{
+//   color: $cor_2;
+// }
 
-//   tr:hover{
-//     background-color: $cor_5;
-//     transition: 0.7s;
-//   }
+// tr:hover{
+//   background-color: $cor_5;
+//   transition: 0.7s;
+// }
 
 //Animação
 .animate{
@@ -587,7 +588,7 @@ td:hover{
     to {-webkit-transform: scale(1)}
   }
     
-  @keyframes animatezoom {
+@keyframes animatezoom {
     from {transform: scale(0)} 
     to {transform: scale(1)}
   }

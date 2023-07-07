@@ -16,7 +16,6 @@
 
 .h1_Cadastro_Cliente, .h1_Cadastro_Venda {
     text-decoration: none;
-
   }
 
 .h1-seja-bem-vindo {
@@ -133,7 +132,24 @@
         margin-left: 40%;
         margin-top: 210px;
     }
+    
+}
 
 
+//Telas maiores
+@media screen and (min-width: 93.75em){
+    .img_icone_cliente{
+        width: 5%; 
+        position: absolute; 
+        margin-top: -20px; 
+        margin-left: 660px;
+    }
+    
+    .img_icone_vendedor{
+        width: 5%; 
+        position: absolute; 
+        margin-top: -20px; 
+        margin-left: 1030px;
+    }
     
 }
