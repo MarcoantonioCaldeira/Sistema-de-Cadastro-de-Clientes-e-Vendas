@@ -204,10 +204,10 @@
                 </button>
 
                 <!-- Botão para Concluir o cadastro que vai aparecer logo apos eu adicionar os itens da venda -->
-                <button  class="btn_concluir_cadastro" v-if="mostrar_concluir_cadastro" type="submit" value="CADASTRAR">Concluir Cadastro</button>    
+                <button  class="btn_concluir_cadastro"  type="submit" value="CADASTRAR">Concluir Cadastro</button>    
 
                 <!-- Botão para Gerar o PDF logo apos a conclusão do cadastro-->
-                <button class="btn_gerar_pdf" v-if="mostrar_gerar_pdf"  @click="gerarPDF">Gerar PDF</button>
+                <button class="btn_gerar_pdf" @click="gerarPDF">Gerar PDF</button>
                 
                 <div v-if="showModal_S_Item" class="modal">
 
@@ -269,7 +269,9 @@
                             </div>
 
                             <!-- Se o For Item de Tamanho unico mostramos quantidade de caixa -->
-                            <br><input v-if="mostrarCamposAdicionais" type="text" v-model="quantidade_caixa"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa" >                                 
+                            <br><input v-if="mostrarCamposAdicionais" type="text" v-model="quantidade_caixa"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa" >   
+                            
+                            <!-- <br><input v-if="!mostrarCamposAdicionais" type="text"  v-model="quantidade_caixa" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa valendo 1"> -->
                             
                             <br><input v-if="!mostrarCamposAdicionais" type="text" v-model="quantidade_itens"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens" >
                             
@@ -327,7 +329,7 @@
                         <tr>
                             <th>Referencia alternativa de Cor</th>              
                             <th v-if="Item.tamanhoUnico">Quantidade de Itens</th>
-                            <th v-if="!Item.tamanhoUnico">Quantidade de Caixa</th>
+                            <th v-if="Item.tamanhoUnico">Quantidade de Caixa</th>
                             <th>Valor Unitario</th>
                             <th>Tipo do Produto</th>
                             <th>Observações</th>
@@ -337,7 +339,7 @@
                         <tr>
                             <td>{{ Item.ref_alternativa_cor }}</td>  
                             <td v-if="Item.tamanhoUnico">{{ Item.quantidade }}</td>
-                            <td v-if="!Item.tamanhoUnico">{{ Item.quantidade_caixa }}</td>            
+                            <td v-if="Item.tamanhoUnico">{{ Item.quantidade_caixa }}</td>          
                             <td>{{ Item.valorUnitario }}</td>
                             <td>{{ Item.tipoProduto }}</td>
                             <td>{{ Item.Observacoes }}</td> 
@@ -578,36 +580,47 @@ export default{
                 situacao_frete,
             } = campo_venda;
 
-            doc.setFontSize(12);
+            doc.setFontSize(10);
             doc.text(`Dados da Venda`, 5, 10);
-            doc.text(`Codigo da Empresa: ${cod_empresa}`, 5, 20);
-            doc.text(`Nome do Vendedor: ${vendedorSelecionado.nome}`, 5, 30);
-            doc.text(`Tebela de preço: ${descricaoTabelaPreco}`, 5, 40);
-            doc.text(`Tipo da Venda: ${Requisicao_Venda}`, 5, 50);
-            doc.text(`Transportadora: ${Requisicao_Transportadora}`, 5, 60);
-            doc.text(`Transportadora Redespacho: ${Requisicao_Transportadora_Redespacho}`, 5, 70);
-            doc.text(`Nome do cliente: ${this.clienteSelecionado.nome}`, 5, 80);
-            doc.text(`Data da emissão: ${Data_emissao}`, 5, 90);
-            doc.text(`Data da previsão de entrega: ${Data_Prev_Entrega}`, 5, 100);
-            doc.text(`Data da Solicitação de entrega: ${Data_Entrega_Solicitada}`, 5, 110);
-            doc.text(`Desconto N1: ${desconto_n1}`, 5, 120);
-            doc.text(`Desconto N2: ${desconto_n2}`, 5, 130);
-            doc.text(`Desconto N3: ${desconto_n3}`, 5, 140);
-            doc.text(`Desconto N4: ${desconto_n4}`, 5, 150);
-            doc.text(`Forma de pagamento: ${forma_pagto}`, 5, 160);
-            doc.text(`Prazo de pagamento: ${prazo_pagamento}`, 5, 170);
-            doc.text(`Desconto de pagamento: ${desconto_pagto}`, 5, 180);
-            doc.text(`Desconto S1: ${desconto_s1}`, 5, 190);
-            doc.text(`Desconto S2: ${desconto_s2}`, 5, 200);
-            doc.text(`Desconto S3: ${desconto_s3}`, 5, 210);
-            doc.text(`Desconto S4: ${desconto_s4}`, 5, 220);
-            doc.text(`Forma de pagamento x: ${forma_pagto_x}`, 5, 230);
-            doc.text(`Prazo de pagamento x: ${prazo_pagamento_x}`, 5, 240);
-            doc.text(`Observações do pedido: ${observacoes_pedido}`, 5, 250);
-            doc.text(`Observações de faturamento: ${observacoes_faturamento}`, 5, 260);
-            doc.text(`Observações da nota: ${observacoes_nota}`, 5, 270);
-            doc.text(`Observações de produção: ${observacoes_producao}`, 5, 280);
-            doc.text(`Situação do frete: ${situacao_frete}`, 5, 290);
+            doc.text(`Empresa: 001 - T.I GESTOR SOFTWARE LTDA ME`, 5, 20)
+
+            doc.text(`Dados do Cliente`, 5, 30)
+            doc.text(`Nome do cliente: ${this.clienteSelecionado.nome}`, 5, 40);
+            doc.text(`Nome Fantasia: ${this.clienteSelecionado.nome_fantasia}`, 5, 50);
+            doc.text(`Cidade: ${this.clienteSelecionado.cidade}`, 5, 60);
+            doc.text(`Estado: ${this.clienteSelecionado.estado}`, 5, 70);
+            doc.text(`Dados do Vendedor`, 5, 80)
+            doc.text(`Vendedor: ${vendedorSelecionado.nome}`, 5, 90);
+
+
+            // doc.text(`Codigo da Empresa: ${cod_empresa}`, 5, 20);
+         
+            // doc.text(`Tebela de preço: ${descricaoTabelaPreco}`, 5, 40);
+            // doc.text(`Tipo da Venda: ${Requisicao_Venda}`, 5, 50);
+            // doc.text(`Transportadora: ${Requisicao_Transportadora}`, 5, 60);
+            // doc.text(`Transportadora Redespacho: ${Requisicao_Transportadora_Redespacho}`, 5, 70);
+            
+            // doc.text(`Data da emissão: ${Data_emissao}`, 5, 90);
+            // doc.text(`Data da previsão de entrega: ${Data_Prev_Entrega}`, 5, 100);
+            // doc.text(`Data da Solicitação de entrega: ${Data_Entrega_Solicitada}`, 5, 110);
+            // doc.text(`Desconto N1: ${desconto_n1}`, 5, 120);
+            // doc.text(`Desconto N2: ${desconto_n2}`, 5, 130);
+            // doc.text(`Desconto N3: ${desconto_n3}`, 5, 140);
+            // doc.text(`Desconto N4: ${desconto_n4}`, 5, 150);
+            // doc.text(`Forma de pagamento: ${forma_pagto}`, 5, 160);
+            // doc.text(`Prazo de pagamento: ${prazo_pagamento}`, 5, 170);
+            // doc.text(`Desconto de pagamento: ${desconto_pagto}`, 5, 180);
+            // doc.text(`Desconto S1: ${desconto_s1}`, 5, 190);
+            // doc.text(`Desconto S2: ${desconto_s2}`, 5, 200);
+            // doc.text(`Desconto S3: ${desconto_s3}`, 5, 210);
+            // doc.text(`Desconto S4: ${desconto_s4}`, 5, 220);
+            // doc.text(`Forma de pagamento x: ${forma_pagto_x}`, 5, 230);
+            // doc.text(`Prazo de pagamento x: ${prazo_pagamento_x}`, 5, 240);
+            // doc.text(`Observações do pedido: ${observacoes_pedido}`, 5, 250);
+            // doc.text(`Observações de faturamento: ${observacoes_faturamento}`, 5, 260);
+            // doc.text(`Observações da nota: ${observacoes_nota}`, 5, 270);
+            // doc.text(`Observações de produção: ${observacoes_producao}`, 5, 280);
+            // doc.text(`Situação do frete: ${situacao_frete}`, 5, 290);
 
             doc.text("Itens da Venda", 10, 310);
             doc.text('-----------------------------', 10, 320);
@@ -990,8 +1003,6 @@ export default{
 
             if(gradeTamanho){
                 quantidade = this.quantidades.reduce((acc, value) => acc + parseInt(value), 0);
-            }else{
-                quantidade = gradeTamanho ? this.quantidade_caixa : this.quantidade_itens
             }
 
             const resumoItem = {
@@ -1078,6 +1089,7 @@ export default{
 
                     this.mostrarCamposAdicionais = true;
                     this.tamanhosGrade = tamanhosGrade;
+                    this.quantidade_caixa = '';
 
                     //Conta quantos tamanhos do item vamos ter
                     this.quantidade_tamanho = tamanhosGrade.length;
@@ -1088,6 +1100,7 @@ export default{
                     this.tamanhosGrade = [];
                     this.quantidade_tamanho = 0;
                     this.quantidades = [];
+                    this.quantidade_caixa = 1;
                 }
 
 
