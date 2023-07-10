@@ -271,9 +271,9 @@
                             <!-- Se o For Item de Tamanho unico mostramos quantidade de caixa -->
                             <br><input v-if="mostrarCamposAdicionais" type="text" v-model="quantidade_caixa"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa" >   
                             
-                            <!-- <br><input v-if="!mostrarCamposAdicionais" type="text"  v-model="quantidade_caixa" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa valendo 1"> -->
+                            <!-- <br><input v-if="!mostrarCamposAdicionais" type="text"  v-model="quantidade_caixa" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa valendo 1" desabled> -->
                             
-                            <br><input v-if="!mostrarCamposAdicionais" type="text" v-model="quantidade_itens"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens" >
+                            <br><input type="text" v-model="quantidade_itens"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens" >
                             
                             <input type="text" v-model="valor_unitario"  class="Input_Form_Itens_Venda" placeholder="Valor Unitario">
 
@@ -324,12 +324,14 @@
 
                 <div  id="conteudo-selecionado"  v-for="(Item, index) in Itens_selecionados" :key="index"> 
                     <i v-on:click="Fechar_Resumo(index)" id="fa-solid-li-2"  class="fa-solid fa-circle-xmark"></i>
+                    <br>
+                    <i v-on:click="Editar_Itens(index)" id="fa-solid-li-2"  class="fa-solid fa-pen-to-square"></i>
                     <hr>
                     <table>
                         <tr>
                             <th>Referencia alternativa de Cor</th>              
-                            <th v-if="Item.tamanhoUnico">Quantidade de Itens</th>
-                            <th v-if="Item.tamanhoUnico">Quantidade de Caixa</th>
+                            <th>Quantidade de Itens</th>
+                            <th>Quantidade de Caixa</th>
                             <th>Valor Unitario</th>
                             <th>Tipo do Produto</th>
                             <th>Observações</th>
@@ -338,8 +340,8 @@
                         </tr>
                         <tr>
                             <td>{{ Item.ref_alternativa_cor }}</td>  
-                            <td v-if="Item.tamanhoUnico">{{ Item.quantidade }}</td>
-                            <td v-if="Item.tamanhoUnico">{{ Item.quantidade_caixa }}</td>          
+                            <td>{{ Item.quantidade }}</td>
+                            <td>{{ Item.quantidade_caixa }}</td>          
                             <td>{{ Item.valorUnitario }}</td>
                             <td>{{ Item.tipoProduto }}</td>
                             <td>{{ Item.Observacoes }}</td> 
@@ -348,6 +350,48 @@
                         </tr>
                     </table>
                     <hr>
+
+                    <div v-if="exibirFormularioEdicao && indiceEdicao === index" class="info_item_parte_2">
+
+                        <h2 class="Titulo_Itens_Venda">Editar Item</h2>
+
+                        <br>
+                        <input v-if="mostrarCamposAdicionais" type="text" v-model="Item.quantidade_caixa" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa">
+                        <br>
+                        <input v-if="!mostrarCamposAdicionais" type="text" v-model="Item.quantidade_itens" class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens">
+                        <input type="text" v-model="Item.valor_unitario" class="Input_Form_Itens_Venda" placeholder="Valor Unitario">
+
+                        <p class="p_tipo_produto">Tipo do Item:</p>
+                        <select v-model="Item.tipo_produto" class="select_tipo_produto">
+                            <option value="1">Pronta Entrega</option>
+                            <option value="2">Encomenda</option>
+                        </select>
+
+                        <p class="p_tipo_produto">Observações:</p><br>
+                        <textarea v-model="Item.observacoes" class="area-observacao"></textarea>
+
+                        <div v-if="mostrarCamposAdicionais">
+                            <p class="p_tipo_produto">Grade Corrida:</p>
+                            <br>
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                    <th v-for="(tamanho, index) in Item.tamanhosGrade" :key="index">{{ tamanho.desc_tamanho }}</th>
+                                    </tr>
+                                    <tr>
+                                    <td v-for="(tamanho, index) in Item.tamanhosGrade" :key="index">
+                                        <input class="input_valores" type="text" v-model="Item.quantidades[index]" min="0">
+                                    </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <button class="btn_finalizar" v-on:click="Salvar_Edicao(index)">Salvar</button>
+                        <button class="btn_finalizar" v-on:click="Calcelar_Edicao">Cancelar</button>
+
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -477,7 +521,11 @@ export default{
             tipo_produto: null,
             ItensValidados: false,
             mostrar_concluir_cadastro:false,
-            mostrar_gerar_pdf:false
+            mostrar_gerar_pdf:false,
+            mostrar_edicao: true,
+            exibirFormularioEdicao:false,
+            indiceEdicao: null,
+            ItemEditado:null
         }
     },
 
@@ -997,18 +1045,18 @@ export default{
         Mostrar_resumo(){
 
             const gradeTamanho = this.tamanhosGrade.length > 1;
-
             // Verifica se a quantidade é referente a caixas ou itens
-            let quantidade = 0;
+            let quantidade = this.quantidade_itens;
+            let quantidade_caixa = this.quantidade_caixa;
 
-            if(gradeTamanho){
-                quantidade = this.quantidades.reduce((acc, value) => acc + parseInt(value), 0);
-            }
+            // if(gradeTamanho){
+            //     quantidade = this.quantidades.reduce((acc, value) => acc + parseFloat(value), 0);   
+            // }
 
             const resumoItem = {
                 ref_alternativa_cor: this.Item_selecionado.ref_alternativa_cor,
                 quantidade: quantidade,
-                quantidade_caixa:this.quantidade_caixa,
+                quantidade_caixa:quantidade_caixa,
                 valorUnitario: this.valor_unitario,
                 tipoProduto: this.tipo_produto,
                 Observacoes: this.observacoes,
@@ -1047,14 +1095,20 @@ export default{
 
                 const quant_caixa = parseFloat(Item.quantidade_caixa);
 
-                Item.quantidades.forEach((quantidade) => {
-                    const quantidadeItens = parseFloat(quantidade);
+                if(!isNaN(valor_u) && !isNaN(quant_caixa)){
 
-                    if(!isNaN(quantidadeItens) && !isNaN(valor_u) && !isNaN(quant_caixa)){
-                        resultado += quantidadeItens * valor_u * quant_caixa;
-                    }
-                    
-                });
+                    Item.quantidades.forEach((quantidade) => {
+                        const quantidadeItens = parseFloat(quantidade);
+
+                        if(!isNaN(quantidadeItens)){
+                            resultado += quantidadeItens * valor_u;
+                        }
+                        
+                    });
+
+                    resultado *= quant_caixa;
+                }
+
             }
             // Atualizar o valor total apenas para o item atual
             return resultado;
@@ -1089,11 +1143,11 @@ export default{
 
                     this.mostrarCamposAdicionais = true;
                     this.tamanhosGrade = tamanhosGrade;
-                    this.quantidade_caixa = '';
 
                     //Conta quantos tamanhos do item vamos ter
                     this.quantidade_tamanho = tamanhosGrade.length;
                     this.quantidades = Array(tamanhosGrade.length).fill('');
+                    this.quantidade_caixa = '';
      
                 }else{
                     this.mostrarCamposAdicionais = false;
@@ -1113,6 +1167,51 @@ export default{
            }
            
         },      
+
+
+        Editar_Itens(index){
+
+            this.indiceEdicao = index; // Armazena o índice do item sendo editado
+            const Item = this.Itens_selecionados[index]; // Obtém o item correspondente pelo índice
+
+            this.Item_selecionado = {
+                descricao: Item.descricao,
+                ref_alternativa_cor: Item.ref_alternativa_cor,
+                quantidade_itens: Item.quantidade,
+                quantidade_caixa: Item.quantidade_caixa,
+                valor_unitario: Item.valorUnitario,
+                tipo_produto: Item.tipoProduto,
+                observacoes: Item.Observacoes,
+                mostrarCamposAdicionais: Item.gradeTamanho,
+                tamanhosGrade: Item.tamanhosGrade,
+                quantidades: Item.quantidades
+            }
+
+
+            //this.mostrarCamposAdicionais = Item.gradeTamanho
+            this.ItemEditado = {
+                ...Item
+            }
+
+            this.exibirFormularioEdicao = true;
+        },
+
+
+        Salvar_Edicao(){
+            this.Itens_selecionados[index] = this.Item
+            this.Item = null;
+            this.exibirFormularioEdicao = false;
+            this.indiceEdicao = -1;
+        },
+
+
+        Calcelar_Edicao(){
+            this.exibirFormularioEdicao = false;
+            this.indiceEdicao = null;
+            this.ItemEditado = null;
+        }
+
+
     }
 
 }
