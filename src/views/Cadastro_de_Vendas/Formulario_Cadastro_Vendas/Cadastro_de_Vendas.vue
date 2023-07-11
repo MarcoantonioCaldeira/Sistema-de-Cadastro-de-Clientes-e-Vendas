@@ -325,7 +325,7 @@
                 <div  id="conteudo-selecionado"  v-for="(Item, index) in Itens_selecionados" :key="index"> 
                     <i v-on:click="Fechar_Resumo(index)" id="fa-solid-li-2"  class="fa-solid fa-circle-xmark"></i>
                     <br>
-                    <i v-on:click="Editar_Itens(index)" id="fa-solid-li-2"  class="fa-solid fa-pen-to-square"></i>
+                    <i v-on:click="openModal_S_Item_2()" id="fa-solid-li-2"  class="fa-solid fa-pen-to-square"></i>
                     <hr>
                     <table>
                         <tr>
@@ -351,45 +351,53 @@
                     </table>
                     <hr>
 
-                    <div v-if="exibirFormularioEdicao && indiceEdicao === index" class="info_item_parte_2">
+                    <!-- Modal que vai aparecer para os itens serem editados -->
+                    <div  v-if="showModal_S_Item_2" class="modal">
+                    
+                        <div class="modal-content">
 
-                        <h2 class="Titulo_Itens_Venda">Editar Item</h2>
+                            <div class="info_item_parte_2">
 
-                        <br>
-                        <input v-if="mostrarCamposAdicionais" type="text" v-model="Item.quantidade_caixa" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa">
-                        <br>
-                        <input v-if="!mostrarCamposAdicionais" type="text" v-model="Item.quantidade_itens" class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens">
-                        <input type="text" v-model="Item.valor_unitario" class="Input_Form_Itens_Venda" placeholder="Valor Unitario">
+                                <h2 class="Titulo_Itens_Venda">Editar Item</h2>
 
-                        <p class="p_tipo_produto">Tipo do Item:</p>
-                        <select v-model="Item.tipo_produto" class="select_tipo_produto">
-                            <option value="1">Pronta Entrega</option>
-                            <option value="2">Encomenda</option>
-                        </select>
+                                <br>
+                                <input v-if="mostrarCamposAdicionais" type="text" v-model="Item.quantidade_caixa" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa">
+                                <br>
+                                <input v-if="!mostrarCamposAdicionais" type="text" v-model="Item.quantidade_itens" class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens">
+                                <input type="text" v-model="Item.valor_unitario" class="Input_Form_Itens_Venda" placeholder="Valor Unitario">
 
-                        <p class="p_tipo_produto">Observações:</p><br>
-                        <textarea v-model="Item.observacoes" class="area-observacao"></textarea>
+                                <p class="p_tipo_produto">Tipo do Item:</p>
+                                <select v-model="Item.tipo_produto" class="select_tipo_produto">
+                                    <option value="1">Pronta Entrega</option>
+                                    <option value="2">Encomenda</option>
+                                </select>
 
-                        <div v-if="mostrarCamposAdicionais">
-                            <p class="p_tipo_produto">Grade Corrida:</p>
-                            <br>
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                    <th v-for="(tamanho, index) in Item.tamanhosGrade" :key="index">{{ tamanho.desc_tamanho }}</th>
-                                    </tr>
-                                    <tr>
-                                    <td v-for="(tamanho, index) in Item.tamanhosGrade" :key="index">
-                                        <input class="input_valores" type="text" v-model="Item.quantidades[index]" min="0">
-                                    </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                <p class="p_tipo_produto">Observações:</p><br>
+                                <textarea v-model="Item.observacoes" class="area-observacao"></textarea>
+
+                                <div v-if="mostrarCamposAdicionais">
+                                    <p class="p_tipo_produto">Grade Corrida:</p>
+                                    <br>
+                                    <table class="table">
+                                        <tbody>
+                                            <tr>
+                                                <th v-for="(tamanho, index) in Item.tamanhosGrade" :key="index">{{ tamanho.desc_tamanho }}</th>
+                                            </tr>
+                                            <tr>
+                                                <td v-for="(tamanho, index) in Item.tamanhosGrade" :key="index">
+                                                    <input class="input_valores" type="text" v-model="Item.quantidades[index]" min="0">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <button class="btn_finalizar" v-on:click="Salvar_Edicao(index)">Salvar</button>
+                                <button class="btn_finalizar" v-on:click="Calcelar_Edicao">Cancelar</button>
+
+                            </div>
                         </div>
-
-                        <button class="btn_finalizar" v-on:click="Salvar_Edicao(index)">Salvar</button>
-                        <button class="btn_finalizar" v-on:click="Calcelar_Edicao">Cancelar</button>
-
+                    
                     </div>
 
                 </div>
@@ -467,6 +475,7 @@ export default{
             redespacho_situacao_frete:null,
             showModal: false,
             showModal_S_Item:false,
+            showModal_S_Item_2:false,
             vendedores: [],
             precos:[],
             tipo_venda:[],
@@ -592,6 +601,10 @@ export default{
 
     
     methods:{
+
+        openModal_S_Item_2(){
+            this.showModal_S_Item_2 = true;
+        },
 
         gerarPDF() {
             const doc = new jsPDF();
@@ -1175,16 +1188,16 @@ export default{
             const Item = this.Itens_selecionados[index]; // Obtém o item correspondente pelo índice
 
             this.Item_selecionado = {
-                descricao: Item.descricao,
-                ref_alternativa_cor: Item.ref_alternativa_cor,
-                quantidade_itens: Item.quantidade,
-                quantidade_caixa: Item.quantidade_caixa,
-                valor_unitario: Item.valorUnitario,
-                tipo_produto: Item.tipoProduto,
-                observacoes: Item.Observacoes,
-                mostrarCamposAdicionais: Item.gradeTamanho,
-                tamanhosGrade: Item.tamanhosGrade,
-                quantidades: Item.quantidades
+                //ref_alternativa_cor: this.Item_selecionado.ref_alternativa_cor,
+                quantidade: quantidade,
+                quantidade_caixa:quantidade_caixa,
+                valorUnitario: this.valor_unitario,
+                tipoProduto: this.tipo_produto,
+                Observacoes: this.observacoes,
+                tamanhoUnico: !gradeTamanho,
+                gradeTamanho: gradeTamanho,
+                tamanhosGrade: this.tamanhosGrade.map(tamanho => tamanho.desc_tamanho),
+                quantidades: this.quantidades,
             }
 
 
@@ -1198,17 +1211,24 @@ export default{
 
 
         Salvar_Edicao(){
-            this.Itens_selecionados[index] = this.Item
-            this.Item = null;
-            this.exibirFormularioEdicao = false;
-            this.indiceEdicao = -1;
+
+            if(this.indiceEdicao !== -1){
+
+                this.$set(this.Itens_selecionados, this.indiceEdicao, { ...this.Item });
+
+                this.Item = {};
+                this.exibirFormularioEdicao = false;
+                this.indiceEdicao = -1;
+
+            }
         },
 
-
+        
         Calcelar_Edicao(){
+
+            this.Item = {};
             this.exibirFormularioEdicao = false;
-            this.indiceEdicao = null;
-            this.ItemEditado = null;
+            this.indiceEdicao = -1;
         }
 
 
