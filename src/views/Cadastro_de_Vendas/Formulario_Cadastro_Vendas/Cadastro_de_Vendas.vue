@@ -325,7 +325,7 @@
                 <div  id="conteudo-selecionado"  v-for="(Item, index) in Itens_selecionados" :key="index"> 
                     <i v-on:click="Fechar_Resumo(index)" id="fa-solid-li-2"  class="fa-solid fa-circle-xmark"></i>
                     <br>
-                    <i v-on:click="Editar_Itens(index)" id="fa-solid-li-2"  class="fa-solid fa-pen-to-square"></i>
+                    <i v-on:click="openModal_S_Item_2()" id="fa-solid-li-2"  class="fa-solid fa-pen-to-square"></i>
                     <hr>
                     <table>
                         <tr>
@@ -352,11 +352,11 @@
                     <hr>
 
                     <!-- Modal que vai aparecer para os itens serem editados -->
-                    <div class="modal_2">
+                    <div  v-if="showModal_S_Item_2" class="modal">
                     
-                        <div class="modal-content_2 animate">
+                        <div class="modal-content">
 
-                            <div v-if="exibirFormularioEdicao && indiceEdicao === index" class="info_item_parte_2">
+                            <div class="info_item_parte_2">
 
                                 <h2 class="Titulo_Itens_Venda">Editar Item</h2>
 
@@ -384,16 +384,16 @@
                                                 <th v-for="(tamanho, index) in Item.tamanhosGrade" :key="index">{{ tamanho.desc_tamanho }}</th>
                                             </tr>
                                             <tr>
-                                            <td v-for="(tamanho, index) in Item.tamanhosGrade" :key="index">
-                                                <input class="input_valores" type="text" v-model="Item.quantidades[index]" min="0">
-                                            </td>
+                                                <td v-for="(tamanho, index) in Item.tamanhosGrade" :key="index">
+                                                    <input class="input_valores" type="text" v-model="Item.quantidades[index]" min="0">
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
 
-                                <button class="btn_finalizar" v-on:click="Salvar_Edicao">Salvar</button>
-                                <button class="btn_finalizar" v-on:click="Cancelar_Edicao">Cancelar</button>
+                                <button class="btn_finalizar" v-on:click="Salvar_Edicao(index)">Salvar</button>
+                                <button class="btn_finalizar" v-on:click="Calcelar_Edicao">Cancelar</button>
 
                             </div>
                         </div>
@@ -603,7 +603,7 @@ export default{
     methods:{
 
         openModal_S_Item_2(){
-            showModal_S_Item_2 = true;
+            this.showModal_S_Item_2 = true;
         },
 
         gerarPDF() {
@@ -1184,34 +1184,29 @@ export default{
 
         Editar_Itens(index){
 
-            //this.indiceEdicao = index; // Armazena o índice do item sendo editado
-            //const Item = this.Itens_selecionados[index]; // Obtém o item correspondente pelo índice
+            this.indiceEdicao = index; // Armazena o índice do item sendo editado
+            const Item = this.Itens_selecionados[index]; // Obtém o item correspondente pelo índice
 
-            // this.Item_selecionado = {
-            //     descricao: Item.descricao,
-            //     ref_alternativa_cor: Item.ref_alternativa_cor,
-            //     quantidade_itens: Item.quantidade,
-            //     quantidade_caixa: Item.quantidade_caixa,
-            //     valor_unitario: Item.valorUnitario,
-            //     tipo_produto: Item.tipoProduto,
-            //     observacoes: Item.Observacoes,
-            //     mostrarCamposAdicionais: Item.gradeTamanho,
-            //     tamanhosGrade: Item.tamanhosGrade,
-            //     quantidades: Item.quantidades
-            // }
+            this.Item_selecionado = {
+                //ref_alternativa_cor: this.Item_selecionado.ref_alternativa_cor,
+                quantidade: quantidade,
+                quantidade_caixa:quantidade_caixa,
+                valorUnitario: this.valor_unitario,
+                tipoProduto: this.tipo_produto,
+                Observacoes: this.observacoes,
+                tamanhoUnico: !gradeTamanho,
+                gradeTamanho: gradeTamanho,
+                tamanhosGrade: this.tamanhosGrade.map(tamanho => tamanho.desc_tamanho),
+                quantidades: this.quantidades,
+            }
 
 
             //this.mostrarCamposAdicionais = Item.gradeTamanho
-            // this.ItemEditado = {
-            //     ...Item
-            // }
+            this.ItemEditado = {
+                ...Item
+            }
 
-            // this.exibirFormularioEdicao = true;
-
-            this.Item = {...this.Itens_selecionados[index] };
-            this.indiceEdicao = index;
             this.exibirFormularioEdicao = true;
-
         },
 
 
@@ -1229,11 +1224,14 @@ export default{
         },
 
         
-        Cancelar_Edicao(){
+        Calcelar_Edicao(){
+
             this.Item = {};
             this.exibirFormularioEdicao = false;
             this.indiceEdicao = -1;
         }
+
+
     }
 
 }
