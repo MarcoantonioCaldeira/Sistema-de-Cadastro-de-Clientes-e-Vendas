@@ -1,8 +1,8 @@
 <template>
-    <!-- <h2>Aqui vou fazer um Cadastro de Vendas Teste</h2> -->
+    <!-- Formulario Completa incluindo o Cadastro de Vendas e os Itens da Venda -->
     <form  method="POST" @submit.prevent="Cadastrar_Venda">
-
-        <div id="Formulario">
+        <!-- Primeira parte do Formulario -->
+        <div id="Formulario_Vendas">
 
             <h1 class="Titulo_Cadastro_Vendas">Cadastro de Vendas</h1>
             <!-- Campos da esquerda do formulario -->
@@ -80,23 +80,24 @@
                     <option v-for="venda in tipo_venda" :value="venda"> {{ venda.desc_tipo_venda }}</option>
                 </select>
 
+                <!-- Data de emissão -->
                 <div>
                     <p class="p_data_e">Data de Emissão: </p><input v-model="campo_venda.Data_emissao" type="date" class="InputForm_Vendas" placeholder="Data da Emissão">
                 </div>
-
+                <!-- Data de previsão de entrega -->
                 <div>
                     <p class="p_data_p">Data de Previsão de Entrega da Empresa: </p><input  v-model="campo_venda.Data_Prev_Entrega"  type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
                 </div>
-                
+                <!-- Data de previsão de entrega solicitada -->
                 <div>
                     <p class="p_data_p">Data de Previsão de Entrega Solicitada: </p><input v-model="campo_venda.Data_Entrega_Solicitada" type="date" class="InputForm_Vendas" placeholder="Data da Previsão de Entrega Solicitada">
                 </div>     
-                
+                <!-- Transportadora -->
                 <p class="p_data_e">Transportadora:</p>
                 <select class="Select_Trasportadora" v-on:click="Consulta_de_Transpotadoras" v-model="campo_venda.cod_transportadora" @change="Selecionar_Transportadora">
                     <option v-for="transportadoras in transportadora"  :value="transportadoras">{{ transportadoras.nome }}</option>
                 </select>
-
+                <!-- Tipo do Frete -->
                 <br><br><br><p class="p_data_e">Tipo do Frete: </p>
                 <select  v-model="tipo_frete"  class="Select_Tipo_Frete">
                     <option value="Valor">Por valor</option>
@@ -132,10 +133,9 @@
                     <option value="5">5 - Sem Ocorrência de frete</option>
                 </select>
 
-
             </div>
         
-            <div class="Formulario_2">
+            <div class="Formulario_Descontos">
 
                 <input type="text" v-model="campo_venda.desconto_n1" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '100'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '100' }" placeholder="desconto_n1 (%)">
                 <input type="text" v-model="campo_venda.desconto_n2" class="InputForm_Vendas" :disabled="campo_venda.desconto_pagto === '100'" :class="{ 'disabled-field': campo_venda.desconto_pagto === '100' }" placeholder="desconto_n2 (%)">
@@ -175,7 +175,7 @@
             
             </div>
             
-            <div class="Formulario_3">
+            <div class="Formulario_Observacoes">
 
                 <p class="p_data_e">Observação do Pedido</p><br>
                 <textarea  v-model="campo_venda.observacoes_pedido" class="area_obs_pedido"></textarea>
@@ -223,7 +223,7 @@
                             <button class="btn_proximo"  v-if="Item_selecionado"  @click="showOtherFields">Prosseguir</button>
 
                             <!-- Div para desabilitar a selecao de itens na hora que aparecer a opção de presseguir -->
-                            <div :class="{ 'disabled-field': Item_selecionado }" style="margin-top: 100px;">
+                            <div :class="{ 'disabled-field': Item_selecionado }"  style="margin-top: 100px; min-height: 500px; z-index: 150;">
 
                                 <div v-for="(Item, index) in Itens_Filtrados" :key="Item.referencia" class="conteudo_registro" v-on:click="selecionarItem(Item)">
 
@@ -269,25 +269,20 @@
                             </div>
 
                             <!-- Se o For Item de Tamanho unico mostramos quantidade de caixa -->
-                            <br><input v-if="mostrarCamposAdicionais" type="text" v-model="quantidade_caixa"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa" >   
-                            
-                            <!-- <br><input v-if="!mostrarCamposAdicionais" type="text"  v-model="quantidade_caixa" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa valendo 1" desabled> -->
+                            <br><input v-if="mostrarCamposAdicionais" type="text" v-model="quantidade_caixa"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa" >
                             
                             <br><input type="text" v-model="quantidade_itens"  class="Input_Form_Itens_Venda" placeholder="Quantidade de Itens" >
                             
                             <input type="text" v-model="valor_unitario"  class="Input_Form_Itens_Venda" placeholder="Valor Unitario">
 
                             <p class="p_tipo_produto">Tipo do Item: </p>
-
                             <select v-model="tipo_produto" class="select_tipo_produto">
                                 <option value="1">Pronta Entrega</option>
                                 <option value="2">Encomenda</option>
                             </select>
 
                             <p class="p_tipo_produto">Observações: </p><br>
-                            <textarea  v-model="observacoes" class="area-observacao">
-
-                            </textarea>
+                            <textarea  v-model="observacoes" class="area-observacao"></textarea>
 
                             <!-- Campo de grade de corrida se o produto for de varios tamanhos -->
                             <div v-if="mostrarCamposAdicionais">
@@ -308,7 +303,7 @@
                                 </table>
                             </div>
                         
-                            <button class="btn_finalizar" v-on:click="Mostrar_resumo();  closeModal_S_Item()">Finalizar</button>
+                            <button class="btn_finalizar" v-on:click="Mostrar_resumo(); closeModal_S_Item()">Finalizar</button>
                         
                         </div>
                     </div>
@@ -323,9 +318,8 @@
                 </div>
 
                 <div  id="conteudo-selecionado"  v-for="(Item, index) in Itens_selecionados" :key="index"> 
-                    <i v-on:click="Fechar_Resumo(index)" id="fa-solid-li-2"  class="fa-solid fa-circle-xmark"></i>
-                    <br>
-                    <i v-on:click="openModal_S_Item_2()" id="fa-solid-li-2"  class="fa-solid fa-pen-to-square"></i>
+                    <i v-on:click="Fechar_Resumo(index)" id="fa-solid-li-2"  class="fa-solid fa-circle-xmark"></i><br>
+                    <i v-on:click="openModal_S_Item_Edicao(); Editar_Itens(index)" id="fa-solid-li-2"  class="fa-solid fa-pen-to-square"></i>
                     <hr>
                     <table>
                         <tr>
@@ -355,11 +349,11 @@
                     <div  v-if="showModal_S_Item_2" class="modal">
                     
                         <div class="modal-content">
+                            <i v-on:click="closeModal_S_Item_Edicao" id="fa-solid-li"  class="fa-solid fa-circle-xmark"></i>
 
-                            <div class="info_item_parte_2">
-
+                            <div class="info_item_parte_2">                            
+                                <br>
                                 <h2 class="Titulo_Itens_Venda">Editar Item</h2>
-
                                 <br>
                                 <input v-if="mostrarCamposAdicionais" type="text" v-model="Item.quantidade_caixa" class="Input_Form_Itens_Venda" placeholder="Quantidade de Caixa">
                                 <br>
@@ -397,9 +391,8 @@
 
                             </div>
                         </div>
-                    
                     </div>
-
+                    
                 </div>
             </div>
         </div>
@@ -532,9 +525,11 @@ export default{
             mostrar_concluir_cadastro:false,
             mostrar_gerar_pdf:false,
             mostrar_edicao: true,
+
             exibirFormularioEdicao:false,
-            indiceEdicao: null,
-            ItemEditado:null
+            indiceEdicao: -1,
+            ItemEditado:{},
+            Item:{}
         }
     },
 
@@ -602,10 +597,6 @@ export default{
     
     methods:{
 
-        openModal_S_Item_2(){
-            this.showModal_S_Item_2 = true;
-        },
-
         gerarPDF() {
             const doc = new jsPDF();
             const { campo_venda } = this;
@@ -652,7 +643,26 @@ export default{
             doc.text(`Estado: ${this.clienteSelecionado.estado}`, 5, 70);
             doc.text(`Dados do Vendedor`, 5, 80)
             doc.text(`Vendedor: ${vendedorSelecionado.nome}`, 5, 90);
+            doc.text(`Telefone: ${vendedorSelecionado.telefone}`, 5, 100);
+            doc.text(`Telefone Secundario: ${vendedorSelecionado.telefone2}`, 45, 100);
+            doc.text(`E-mail: ${vendedorSelecionado.e_mail}`, 105, 100);
 
+            doc.text(`Dados da Entrega`, 5, 120);
+            doc.text(`Data da emissão: ${Data_emissao}`, 5, 130);
+            doc.text(`Data da previsão de entrega: ${Data_Prev_Entrega}`, 5, 140);
+            doc.text(`Data da Solicitação de entrega: ${Data_Entrega_Solicitada}`, 5, 150);
+            doc.text(`Forma de pagamento: ${forma_pagto}`, 5, 160);
+
+            doc.text(`Descontos`, 5, 180);
+            doc.text(`Desconto N1: ${desconto_n1}`, 5, 190);
+            doc.text(`Desconto N2: ${desconto_n2}`, 5, 200);
+            doc.text(`Desconto N3: ${desconto_n3}`, 5, 210);
+            doc.text(`Desconto N4: ${desconto_n4}`, 5, 220);
+            doc.text(`Desconto de pagamento: ${desconto_pagto}`, 5, 230);
+            doc.text(`Desconto S1: ${desconto_s1}`, 5, 240);
+            doc.text(`Desconto S2: ${desconto_s2}`, 5, 250);
+            doc.text(`Desconto S3: ${desconto_s3}`, 5, 260);
+            doc.text(`Desconto S4: ${desconto_s4}`, 5, 270);
 
             // doc.text(`Codigo da Empresa: ${cod_empresa}`, 5, 20);
          
@@ -660,21 +670,8 @@ export default{
             // doc.text(`Tipo da Venda: ${Requisicao_Venda}`, 5, 50);
             // doc.text(`Transportadora: ${Requisicao_Transportadora}`, 5, 60);
             // doc.text(`Transportadora Redespacho: ${Requisicao_Transportadora_Redespacho}`, 5, 70);
-            
-            // doc.text(`Data da emissão: ${Data_emissao}`, 5, 90);
-            // doc.text(`Data da previsão de entrega: ${Data_Prev_Entrega}`, 5, 100);
-            // doc.text(`Data da Solicitação de entrega: ${Data_Entrega_Solicitada}`, 5, 110);
-            // doc.text(`Desconto N1: ${desconto_n1}`, 5, 120);
-            // doc.text(`Desconto N2: ${desconto_n2}`, 5, 130);
-            // doc.text(`Desconto N3: ${desconto_n3}`, 5, 140);
-            // doc.text(`Desconto N4: ${desconto_n4}`, 5, 150);
-            // doc.text(`Forma de pagamento: ${forma_pagto}`, 5, 160);
-            // doc.text(`Prazo de pagamento: ${prazo_pagamento}`, 5, 170);
-            // doc.text(`Desconto de pagamento: ${desconto_pagto}`, 5, 180);
-            // doc.text(`Desconto S1: ${desconto_s1}`, 5, 190);
-            // doc.text(`Desconto S2: ${desconto_s2}`, 5, 200);
-            // doc.text(`Desconto S3: ${desconto_s3}`, 5, 210);
-            // doc.text(`Desconto S4: ${desconto_s4}`, 5, 220);
+ 
+    
             // doc.text(`Forma de pagamento x: ${forma_pagto_x}`, 5, 230);
             // doc.text(`Prazo de pagamento x: ${prazo_pagamento_x}`, 5, 240);
             // doc.text(`Observações do pedido: ${observacoes_pedido}`, 5, 250);
@@ -869,6 +866,14 @@ export default{
 
         closeModal(){
             this.showModal = false;
+        },
+
+        openModal_S_Item_Edicao(){
+            this.showModal_S_Item_2 = true;
+        },
+
+        closeModal_S_Item_Edicao(){
+            this.showModal_S_Item_2 = false;
         },
 
         async Requisicao_Vendedores(){                                                     
@@ -1079,7 +1084,17 @@ export default{
                 quantidades: this.quantidades,
             };
 
-            this.Itens_selecionados.push(resumoItem);
+
+            if(this.indiceEdicao !== -1){
+
+                this.$set(this.Itens_selecionados, this.indiceEdicao, resumoItem);
+
+            } else {
+
+                this.Itens_selecionados.push(resumoItem);
+            }
+
+            
 
             //Limpar os campos para um novo item
             this.Item_selecionado = null;
@@ -1089,7 +1104,9 @@ export default{
             this.tipo_produto = 'Pronta Entrega';
             this.observacoes = '';          
             this.quantidades = [];
-            this.closeModal_S_Item();          
+            //this.closeModal_S_Item();
+            this.exibirFormularioEdicao = false;
+            this.indiceEdicao = -1;          
         },
 
         Calcular_Total(Item) {
@@ -1183,51 +1200,43 @@ export default{
 
 
         Editar_Itens(index){
+            //this.indiceEdicao = index; // Armazena o índice do item sendo editado
+            const item = this.Itens_selecionados[index]; // Obtém o item correspondente pelo índice
 
-            this.indiceEdicao = index; // Armazena o índice do item sendo editado
-            const Item = this.Itens_selecionados[index]; // Obtém o item correspondente pelo índice
-
-            this.Item_selecionado = {
+            this.Item = {
                 //ref_alternativa_cor: this.Item_selecionado.ref_alternativa_cor,
-                quantidade: quantidade,
-                quantidade_caixa:quantidade_caixa,
-                valorUnitario: this.valor_unitario,
-                tipoProduto: this.tipo_produto,
-                Observacoes: this.observacoes,
-                tamanhoUnico: !gradeTamanho,
-                gradeTamanho: gradeTamanho,
-                tamanhosGrade: this.tamanhosGrade.map(tamanho => tamanho.desc_tamanho),
-                quantidades: this.quantidades,
+                quantidade_caixa:item.quantidade_caixa,
+                quantidade_itens: item.quantidade_itens,
+                valor_unitario: item.valor_unitario,
+                tipo_produto: item.tipo_produto,
+                observacoes: item.observacoes,
+                mostrarCamposAdicionais: item.gradeTamanho,
+                tamanhosGrade: item.tamanhosGrade,
+                quantidades: item.quantidades,
             }
-
 
             //this.mostrarCamposAdicionais = Item.gradeTamanho
-            this.ItemEditado = {
-                ...Item
-            }
+            // this.ItemEditado = {
+            //     ...Item
+            // }
 
-            this.exibirFormularioEdicao = true;
+            this.indiceEdicao = index;
         },
 
 
         Salvar_Edicao(){
-
-            if(this.indiceEdicao !== -1){
-
+            if(this.indiceEdicao !== -1){             
                 this.$set(this.Itens_selecionados, this.indiceEdicao, { ...this.Item });
 
-                this.Item = {};
-                this.exibirFormularioEdicao = false;
+                this.showModal_S_Item_2 = false;
                 this.indiceEdicao = -1;
-
             }
         },
 
         
         Calcelar_Edicao(){
-
-            this.Item = {};
-            this.exibirFormularioEdicao = false;
+            //this.Item = {};
+            this.showModal_S_Item_2 = false; 
             this.indiceEdicao = -1;
         }
 

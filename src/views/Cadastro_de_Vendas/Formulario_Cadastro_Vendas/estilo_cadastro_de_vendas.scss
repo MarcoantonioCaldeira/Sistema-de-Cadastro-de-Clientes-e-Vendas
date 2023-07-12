@@ -10,7 +10,7 @@ form{
   //background-color: #696969;
 }
 
-#Formulario {
+#Formulario_Vendas {
     width: 100%;
     min-height: 1600px;
     //background-color: red;
@@ -184,7 +184,7 @@ form{
 //////////////////////////////////
 
 
-.Formulario_2 {
+.Formulario_Descontos {
     position: absolute;
     display: inline-block;
     width: 32%;
@@ -329,7 +329,7 @@ form{
 }
 
 
-.Formulario_3{
+.Formulario_Observacoes{
     position: absolute;
     display: inline-block;
     //position: relative;
@@ -853,13 +853,13 @@ form{
 
 @media (max-width: 62.75em){
 
-    #Formulario {
+    #Formulario_Vendas {
         width: 100%;
         //background-color: red;
         height: 1650px;
     }
 
-    .Formulario_2 {
+    .Formulario_Descontos {
         position: absolute;
         display: block;
         width: 32%;
@@ -878,7 +878,7 @@ form{
 
 @media (max-width: 26.938em){
 
-    #Formulario{
+    #Formulario_Vendas{
         height: 2150px;
     }
 
