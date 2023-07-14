@@ -682,15 +682,15 @@ export default{
                 doc.text(`${Item.desc_cor}`, 55, startY);
 
                 if (Item.tamanhosGrade) {
-
                     for (let i = 0; i < Item.tamanhosGrade.length; i++) {
                         doc.text(`${Item.tamanhosGrade[i]}: ${Item.quantidades[i]}`, 75, startY + i * 10);
                     }
                 }
 
                 doc.text(`${Item.valorUnitario}`, 145, startY);
-                doc.text(`${FormatarDinheiro(Calcular_Total(Item))}`, 180, startY + 20);
-
+                const dinheiro = this.Calcular_Total(Item);
+                const total = this.FormatarDinheiro(dinheiro);
+                doc.text(`${total}`, 180, startY);
 
                 startY += 20; // Aumente o valor de startY para posicionar o próximo item   
             });
