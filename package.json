@@ -17,6 +17,7 @@
     "jquery-mask-plugin": "^1.14.16",
     "jsonwebtoken": "^9.0.0",
     "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.31",
     "mem": "^9.0.2",
     "php": "^1.0.2",
     "roboto-fontface": "*",
