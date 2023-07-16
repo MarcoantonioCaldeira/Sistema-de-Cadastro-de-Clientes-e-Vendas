@@ -408,6 +408,8 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import api, { getToken } from '../../../components/services/api';
 import Footer from '@/components/Footer.vue'
 import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+import LogoEmpresa from '../../../assets/images/logo_ti_gestor_pdf.png'
 //import { promises } from 'stream';
 //mport { table } from 'console';
 
@@ -634,8 +636,15 @@ export default{
             } = campo_venda;
 
             doc.setFontSize(10);
-            // doc.text(`Dados da Venda`, 5, 10).setFont(undefined, 'bold');
-            // doc.text(`Empresa: 001 - T.I GESTOR SOFTWARE LTDA ME`, 5, 20);
+          
+            doc.text(`Recibo - T.I GESTOR SOFTWARE LTDA ME`, 5, 10).setFont(undefined, 'bold');
+
+
+            const logo = LogoEmpresa;
+
+
+            doc.addImage(logo, 'PNG', 185, 5, 48,15)
+
 
             // doc.text(`Dados do Cliente`, 5, 30).setFont(undefined, 'bold');
             // doc.text(`Nome do cliente: ${this.clienteSelecionado.nome}`, 5, 40);
@@ -644,67 +653,90 @@ export default{
             // doc.text(`Cidade: ${this.clienteSelecionado.cidade}`, 25, 60);
             // doc.text(`Bairro: ${this.clienteSelecionado.bairro}`, 65, 60);
             // doc.text(`Endereço: ${this.clienteSelecionado.endereco}`, 105, 60);
+            // doc.text(`Telefone: ${this.clienteSelecionado.telefone}`, 5, 70);
+            // doc.text(`E-mail: ${this.clienteSelecionado.e_mail}`, 55, 70);
+            
 
+            // doc.text(`Dados da Entrega`, 5, 90).setFont(undefined, 'bold');
+            // doc.text(`Data da emissão: ${Data_emissao}`, 5, 100);
+            // doc.text(`Data da previsão de entrega: ${Data_Prev_Entrega}`, 5, 110);
+            // doc.text(`Data da Solicitação de entrega: ${Data_Entrega_Solicitada}`, 5, 120);
 
-            // doc.text(`Dados do Vendedor`, 5, 80).setFont(undefined, 'bold');
-            // doc.text(`Vendedor: ${vendedorSelecionado.nome}`, 5, 90);
-            // doc.text(`Telefone: ${vendedorSelecionado.telefone}`, 5, 100);
-            // doc.text(`Telefone Secundario: ${vendedorSelecionado.telefone2}`, 45, 100);
-            // doc.text(`E-mail: ${vendedorSelecionado.e_mail}`, 105, 100);
-
-            // doc.text(`Dados da Entrega`, 5, 120).setFont(undefined, 'bold');
-            // doc.text(`Data da emissão: ${Data_emissao}`, 5, 130);
-            // doc.text(`Data da previsão de entrega: ${Data_Prev_Entrega}`, 5, 140);
-            // doc.text(`Data da Solicitação de entrega: ${Data_Entrega_Solicitada}`, 5, 150);
-
-            // doc.text(`Dados do pagamento`, 5, 170).setFont(undefined, 'bold');
-            // doc.text(`Tebela de preço: ${descricaoTabelaPreco}`, 5, 180);
-            // doc.text(`Forma de pagamento: ${forma_pagto}`, 5, 190);
-            // doc.text(`Descontos:  ${desconto_n1}, ${desconto_n2}, ${desconto_n3}, ${desconto_n4}`, 5, 200);
-            // doc.text(`Desconto de pagamento: ${desconto_pagto}, ${desconto_s1}, ${desconto_s2}, ${desconto_s3}, ${desconto_s4}`, 5, 210);
+            // doc.text(`Dados do pagamento`, 5, 140).setFont(undefined, 'bold');
+            // doc.text(`Vendedor: ${vendedorSelecionado.nome}`, 5, 150);
+            // doc.text(`Tebela de preço: ${descricaoTabelaPreco}`, 5, 160);
+            // doc.text(`Forma de pagamento: ${forma_pagto}`, 55, 160);
+            // doc.text(`Descontos:  ${desconto_n1}, ${desconto_n2}, ${desconto_n3}, ${desconto_n4}`, 5, 170);
+            // doc.text(`Desconto de pagamento: ${desconto_pagto}, ${desconto_s1}, ${desconto_s2}, ${desconto_s3}, ${desconto_s4}`, 55, 170);
             
 
 
-            doc.text(`Itens Selecionados`, 5, 230);
+            // doc.text(`Itens Selecionados`, 5, 230);
             // doc.text(`-----------------------------`, 5, 240);
 
-            doc.text(`Item Referencia`, 5, 240);
-            doc.text(`Cor`, 55, 240);
-            doc.text(`Numeração`, 75, 240);
-            doc.text(`Vr.Unitario`, 145, 240);
-            doc.text(`Total`, 180, 240);
+            // doc.text(`Item Referencia`, 5, 240);
+            // doc.text(`Cor`, 45, 240);
+            // doc.text(`Numeração`, 65, 240);
+            // doc.text(`Vr.Unitario`, 145, 240);
+            // doc.text(`Total`, 180, 240);
 
 
-            let startY = 250;
+            // let startY = 250;
 
-            this.Itens_selecionados.forEach((Item) => {
-                doc.text(`${Item.ref_alternativa_cor}`, 5, startY);
-                doc.text(`${Item.desc_cor}`, 55, startY);
+            // this.Itens_selecionados.forEach((Item) => {
+            //     doc.text(`${Item.ref_alternativa_cor}`, 5, startY);
+            //     doc.text(`${Item.desc_cor}`, 45, startY);
 
-                if (Item.tamanhosGrade) {
-                    for (let i = 0; i < Item.tamanhosGrade.length; i++) {
-                        doc.text(`${Item.tamanhosGrade[i]}: ${Item.quantidades[i]}`, 75, startY + i * 10);
-                    }
-                }
+            //     if (Item.tamanhosGrade) {
 
-                doc.text(`${Item.valorUnitario}`, 145, startY);
-                const dinheiro = this.Calcular_Total(Item);
-                const total = this.FormatarDinheiro(dinheiro);
-                doc.text(`${total}`, 180, startY);
+            //         const tabelaDados = [];
+            //         //const tabelaQuantidades = [];
 
-                startY += 20; // Aumente o valor de startY para posicionar o próximo item   
-            });
+            //         for (let i = 0; i < Item.tamanhosGrade.length; i++){ //Loop para exibir os tamanhos puchados pela API             
+            //             //tabelaTamanhos.push(Item.tamanhosGrade[i]);
+            //             //tabelaTamanhos.push(Item.quantidades[i]);
+            //             const tamanho = Item.tamanhosGrade[i];
+            //             const quantidade = Item.quantidades[i]    
 
-           //doc.text(`Nome do cliente: ${this.clienteSelecionado.nome}`, 5, 40);
+                    //     tabelaDados.push([tamanho, quantidade])
+                    // }
+
+                    // const columnWidths = [50, 50];
+                    
+
+                    // doc.autoTable({
+                    //     startY: startY + 5,
+                    //     head: [['Tamanho', 'Quantidade']],
+                    //     body:tabelaDados,
+                    //     columns: columnWidths,
+                    //     styles: {
+            //                 fontSize: 10,
+
+            //                 cellPadding: { top: 2, right: 2, bottom: 2, left: 2 },
+            //                 minCellHeight: 10,
+            //             },
+
+            //             didDraqPage: (data) => {
+            //                 if(data.startY + data.tableHeight + 20 >= doc.internal.pageSize.height) {
+
+            //                     doc.addPage();
+            //                     startY = 40; 
+            //                 }
+            //             }
+            //         });
+
+            //         startY += tabelaDados.length * 10 + 5;
+            //     }
+
+            //     doc.text(`${Item.valorUnitario}`, 145, startY);
+            //     const dinheiro = this.Calcular_Total(Item);
+            //     const total = this.FormatarDinheiro(dinheiro);
+            //     doc.text(`${total}`, 180, startY);
+
+            //     startY += 20; // Aumente o valor de startY para posicionar o próximo item   
+            // });
             
-            // doc.text(`${}`, 55, 250);
-            // doc.text(`${}`, 75, 250);
-            // doc.text(`${}`, 145, 250);
-            // doc.text(`${}`, 160, 250);
-
-
-
-            doc.save('formulario.pdf');
+           doc.save('formulario.pdf');
         },
 
 
