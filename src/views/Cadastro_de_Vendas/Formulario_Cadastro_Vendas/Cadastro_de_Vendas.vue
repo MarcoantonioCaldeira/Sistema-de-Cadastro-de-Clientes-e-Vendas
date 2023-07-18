@@ -1161,16 +1161,16 @@ export default{
          
             doc.setFillColor(41, 128, 186); // Azul
             
-            doc.rect(0, 0, doc.internal.pageSize.getHeight(), 22, 'F'); // Defina a altura (30) que desejar para a área azul
+            doc.rect(0, 0, doc.internal.pageSize.getHeight(), 18, 'F'); // Defina a altura (30) que desejar para a área azul
 
             doc.setFontSize(15);   
             doc.setTextColor(255, 255, 255);
-            doc.setFont(undefined, 'bold');
-            doc.text(`Recibo - T.I GESTOR SOFTWARE LTDA ME`, 5, 15)
+            doc.setFont(undefined, 'bold'); 
+            doc.text(`Recibo - T.I GESTOR SOFTWARE LTDA ME`, 5, 10)
             const logo = LogoEmpresa;
 
 
-            doc.addImage(logo, 'PNG', 185, 5, 48, 15);
+            doc.addImage(logo, 'PNG', 185, 3, 37, 12);
 
             //doc.line(0, 22, 210, 22); //Linha 
 
@@ -1181,51 +1181,54 @@ export default{
             //Estilização do Titulo
             doc.setTextColor(155, 154, 154);
             doc.setFontSize(15);
-            doc.text(`Dados do Cliente`, 5, 30);
+            doc.text(`Dados do Cliente`, 5, 25);
             doc.setTextColor(0, 0, 0);
             doc.setFontSize(9);
 
-            doc.text(`Nome do cliente: ${this.clienteSelecionado.nome}`, 5, 40);
-            doc.text(`Nome Fantasia: ${this.clienteSelecionado.nome_fantasia}`, 5, 48);
-            doc.text(`Estado: ${this.clienteSelecionado.estado}`, 5, 56);
-            doc.text(`Cidade: ${this.clienteSelecionado.cidade}`, 25, 56);
-            doc.text(`Bairro: ${this.clienteSelecionado.bairro}`, 65, 56);
-            doc.text(`Endereço: ${this.clienteSelecionado.endereco}`, 105, 56);
-            doc.text(`Telefone: ${this.clienteSelecionado.telefone}`, 5, 65);
-            doc.text(`E-mail: ${this.clienteSelecionado.e_mail}`, 55, 65);
+            doc.text(`Nome do cliente: ${this.clienteSelecionado.nome}`, 5, 31);
+            doc.text(`Nome Fantasia: ${this.clienteSelecionado.nome_fantasia}`, 5, 39);
+            doc.text(`Estado: ${this.clienteSelecionado.estado}`, 5, 47);
+            doc.text(`Cidade: ${this.clienteSelecionado.cidade}`, 25, 47);
+            doc.text(`Bairro: ${this.clienteSelecionado.bairro}`, 65, 47);
+            doc.text(`Endereço: ${this.clienteSelecionado.endereco}`, 105, 47);
+            doc.text(`Telefone: ${this.clienteSelecionado.telefone}`, 5, 55);
+            doc.text(`E-mail: ${this.clienteSelecionado.e_mail}`, 55, 55);
+
+             doc.line(0, 60, 210, 60);//Linha
 
             //Estilização do Titulo
             doc.setFontSize(15);
             doc.setTextColor(155, 154, 154);
-            doc.text(`Dados do pagamento`, 5, 78).setFont(undefined, 'bold');
+            doc.text(`Dados do pagamento`, 5, 68).setFont(undefined, 'bold');
             doc.setTextColor(0, 0, 0);
             doc.setFontSize(9);
-            doc.text(`Vendedor: ${vendedorSelecionado.nome}`, 5, 88);
-            doc.text(`Tebela de preço: ${descricaoTabelaPreco}`, 5, 97);
-            doc.text(`Forma de pagamento: ${forma_pagto}`, 55, 97);
-            doc.text(`Descontos:  ${desconto_n1}, ${desconto_n2}, ${desconto_n3}, ${desconto_n4}`, 5, 107);
-            doc.text(`Desconto de pagamento: ${desconto_pagto}, ${desconto_s1}, ${desconto_s2}, ${desconto_s3}, ${desconto_s4}`, 48, 107);
+            doc.text(`Vendedor: ${vendedorSelecionado.nome}`, 5, 75);
+            doc.text(`Tebela de preço: ${descricaoTabelaPreco}`, 55, 75);
+            doc.text(`Forma de pagamento: ${forma_pagto}`, 5, 83);
+            doc.text(`Desconto de pagamento: ${desconto_pagto}`, 55, 83)
+            doc.text(`Descontos n:  ${desconto_n1}, ${desconto_n2}, ${desconto_n3}, ${desconto_n4}`, 5, 91);
+            doc.text(`Desconto s: ${desconto_s1}, ${desconto_s2}, ${desconto_s3}, ${desconto_s4}`, 55, 91);
             
-            doc.line(0, 71, 210, 71);//Linha
+           
             //Estilização do Titulo
             doc.setFontSize(15);
             doc.setTextColor(155, 154, 154);
-            doc.text(`Dados da Venda`, 130, 78).setFont(undefined, 'bold');
+            doc.text(`Dados da Venda`, 140, 68).setFont(undefined, 'bold');
             doc.setTextColor(0, 0, 0);
             doc.setFontSize(9);
-            doc.text(`Emissão: ${Data_emissao}`, 130, 88);
-            doc.text(`Prev/de entrega: ${Data_Prev_Entrega}`, 130, 97);
-            doc.text(`Sol/de entrega: ${Data_Entrega_Solicitada}`, 130, 107);
+            doc.text(`Emissão: ${Data_emissao}`, 140, 75);
+            doc.text(`Prev/de entrega: ${Data_Prev_Entrega}`, 140, 83);
+            doc.text(`Sol/de entrega: ${Data_Entrega_Solicitada}`, 140, 91);
 
-            doc.line(0, 112, 210, 112);//Linha
+            doc.line(0, 97, 210, 97);//Linha
 
             doc.setFontSize(15);
             doc.setTextColor(155, 154, 154);
-            doc.text(`Itens Selecionados`, 80, 120);
+            doc.text(`Itens Selecionados`, 80, 105);
             doc.setTextColor(0, 0, 0);
             doc.setFontSize(9);
 
-            let startY = 120;
+            let startY = 100;
 
             this.Itens_selecionados.forEach((Item) => {
 
