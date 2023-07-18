@@ -853,18 +853,49 @@ form{
 
 @media (max-width: 62.75em){
 
+  form{
+    overflow:unset;
+    //position: absolute;
+    background-color: red;
+    height: 700px;
+  }
+
     #Formulario_Vendas {
+      
         width: 100%;
-        //background-color: red;
-        height: 1650px;
+        background-color: rgb(70, 47, 220);
+        height: 2600px;
+    }
+
+    
+    // .modal-content,.modal, #conteudo_formulario{
+    //   overflow-y: unset;
+    // }
+
+    .Titulo_Cadastro_Vendas{
+      margin-left: 65px;
     }
 
     .Formulario_Descontos {
-        position: absolute;
+        //position: absolute;
         display: block;
         width: 32%;
         margin-left: 50px;
         margin-top: 20px;
+    }
+
+
+    .Formulario_Observacoes{
+      //background-color: #696969;
+      //display: block;
+      //margin-top: 1020px;
+      margin-left: 150px;
+    }
+
+
+    #Formulario_Itens_Venda{
+      //display: none;
+      
     }
 
     .btn_concluir_cadastro_vendas{
@@ -880,6 +911,7 @@ form{
 
     #Formulario_Vendas{
         height: 2150px;
+        background-color: red;
     }
 
 
