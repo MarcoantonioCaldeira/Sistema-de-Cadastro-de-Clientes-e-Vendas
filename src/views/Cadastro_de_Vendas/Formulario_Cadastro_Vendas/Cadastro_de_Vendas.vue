@@ -599,145 +599,6 @@ export default{
     
     methods:{
 
-        gerarPDF() {
-            const doc = new jsPDF();
-            const { campo_venda } = this;
-
-           
-            // Acessar as propriedades do campo_venda
-            const {
-                cod_empresa,
-                descricaoTabelaPreco,
-                Requisicao_Venda,
-                Requisicao_Transportadora,
-                Requisicao_Transportadora_Redespacho,
-                vendedorSelecionado,
-                Data_emissao,
-                Data_Prev_Entrega,
-                Data_Entrega_Solicitada,
-                desconto_n1,
-                desconto_n2,
-                desconto_n3,
-                desconto_n4,
-                forma_pagto,
-                prazo_pagamento,
-                desconto_pagto,
-                desconto_s1,
-                desconto_s2,
-                desconto_s3,
-                desconto_s4,
-                forma_pagto_x,
-                prazo_pagamento_x,
-                observacoes_pedido,
-                observacoes_faturamento,
-                observacoes_nota,
-                observacoes_producao,
-                situacao_frete,
-            } = campo_venda;
-
-            doc.setFontSize(10);
-          
-            doc.text(`Recibo - T.I GESTOR SOFTWARE LTDA ME`, 5, 10).setFont(undefined, 'bold');
-
-
-            const logo = LogoEmpresa;
-
-
-            doc.addImage(logo, 'PNG', 185, 5, 48,15)
-
-
-            // doc.text(`Dados do Cliente`, 5, 30).setFont(undefined, 'bold');
-            // doc.text(`Nome do cliente: ${this.clienteSelecionado.nome}`, 5, 40);
-            // doc.text(`Nome Fantasia: ${this.clienteSelecionado.nome_fantasia}`, 5, 50);
-            // doc.text(`Estado: ${this.clienteSelecionado.estado}`, 5, 60);
-            // doc.text(`Cidade: ${this.clienteSelecionado.cidade}`, 25, 60);
-            // doc.text(`Bairro: ${this.clienteSelecionado.bairro}`, 65, 60);
-            // doc.text(`Endereço: ${this.clienteSelecionado.endereco}`, 105, 60);
-            // doc.text(`Telefone: ${this.clienteSelecionado.telefone}`, 5, 70);
-            // doc.text(`E-mail: ${this.clienteSelecionado.e_mail}`, 55, 70);
-            
-
-            // doc.text(`Dados da Entrega`, 5, 90).setFont(undefined, 'bold');
-            // doc.text(`Data da emissão: ${Data_emissao}`, 5, 100);
-            // doc.text(`Data da previsão de entrega: ${Data_Prev_Entrega}`, 5, 110);
-            // doc.text(`Data da Solicitação de entrega: ${Data_Entrega_Solicitada}`, 5, 120);
-
-            // doc.text(`Dados do pagamento`, 5, 140).setFont(undefined, 'bold');
-            // doc.text(`Vendedor: ${vendedorSelecionado.nome}`, 5, 150);
-            // doc.text(`Tebela de preço: ${descricaoTabelaPreco}`, 5, 160);
-            // doc.text(`Forma de pagamento: ${forma_pagto}`, 55, 160);
-            // doc.text(`Descontos:  ${desconto_n1}, ${desconto_n2}, ${desconto_n3}, ${desconto_n4}`, 5, 170);
-            // doc.text(`Desconto de pagamento: ${desconto_pagto}, ${desconto_s1}, ${desconto_s2}, ${desconto_s3}, ${desconto_s4}`, 55, 170);
-            
-
-
-            // doc.text(`Itens Selecionados`, 5, 230);
-            // doc.text(`-----------------------------`, 5, 240);
-
-            // doc.text(`Item Referencia`, 5, 240);
-            // doc.text(`Cor`, 45, 240);
-            // doc.text(`Numeração`, 65, 240);
-            // doc.text(`Vr.Unitario`, 145, 240);
-            // doc.text(`Total`, 180, 240);
-
-
-            // let startY = 250;
-
-            // this.Itens_selecionados.forEach((Item) => {
-            //     doc.text(`${Item.ref_alternativa_cor}`, 5, startY);
-            //     doc.text(`${Item.desc_cor}`, 45, startY);
-
-            //     if (Item.tamanhosGrade) {
-
-            //         const tabelaDados = [];
-            //         //const tabelaQuantidades = [];
-
-            //         for (let i = 0; i < Item.tamanhosGrade.length; i++){ //Loop para exibir os tamanhos puchados pela API             
-            //             //tabelaTamanhos.push(Item.tamanhosGrade[i]);
-            //             //tabelaTamanhos.push(Item.quantidades[i]);
-            //             const tamanho = Item.tamanhosGrade[i];
-            //             const quantidade = Item.quantidades[i]    
-
-                    //     tabelaDados.push([tamanho, quantidade])
-                    // }
-
-                    // const columnWidths = [50, 50];
-                    
-
-                    // doc.autoTable({
-                    //     startY: startY + 5,
-                    //     head: [['Tamanho', 'Quantidade']],
-                    //     body:tabelaDados,
-                    //     columns: columnWidths,
-                    //     styles: {
-            //                 fontSize: 10,
-
-            //                 cellPadding: { top: 2, right: 2, bottom: 2, left: 2 },
-            //                 minCellHeight: 10,
-            //             },
-
-            //             didDraqPage: (data) => {
-            //                 if(data.startY + data.tableHeight + 20 >= doc.internal.pageSize.height) {
-
-            //                     doc.addPage();
-            //                     startY = 40; 
-            //                 }
-            //             }
-            //         });
-
-            //         startY += tabelaDados.length * 10 + 5;
-            //     }
-
-            //     doc.text(`${Item.valorUnitario}`, 145, startY);
-            //     const dinheiro = this.Calcular_Total(Item);
-            //     const total = this.FormatarDinheiro(dinheiro);
-            //     doc.text(`${total}`, 180, startY);
-
-            //     startY += 20; // Aumente o valor de startY para posicionar o próximo item   
-            // });
-            
-           doc.save('formulario.pdf');
-        },
 
 
         // Verificar_Campos_Preenchidos(){   
@@ -750,35 +611,7 @@ export default{
             this.closeModal();
         },
 
-        selecionarVendedor() {
-            const { campo_venda, vendedores } = this;
-            const selectedVendedor = vendedores.find(v => v.cod_vendedor === campo_venda.cod_vendedor);
-            campo_venda.vendedorSelecionado = selectedVendedor;
-        },
-
-        selecionarTeb_Preco() {
-            const { campo_venda, precos } = this;
-            const selectTab_Preco = precos.find(tab => tab.cod_tab_preco === campo_venda.tabela_Preco);
-            campo_venda.descricaoTabelaPreco = selectTab_Preco ? selectTab_Preco.descricao: "";
-        },
-
-        Selecionar_Tipo_Venda(){
-            const {campo_venda, tipo_venda} = this;
-            const selectTipoVenda = tipo_venda.find(t => t === campo_venda.Tipo_Venda);
-            campo_venda.Requisicao_Venda = selectTipoVenda ? selectTipoVenda.desc_tipo_venda: "";
-        },
-
-        Selecionar_Transportadora() {
-            const { campo_venda, transportadora } = this;
-            const selecionada = transportadora.find(t => t === campo_venda.cod_transportadora);
-            campo_venda.Requisicao_Transportadora = selecionada ? selecionada.nome: "";
-        },
-
-        Selecionar_Transportadora_Redespacho() {
-            const { campo_venda, transportadora_redespacho } = this;
-            const selecionada = transportadora_redespacho.find(t => t === campo_venda.cod_transportadora_redespacho);
-            campo_venda.Requisicao_Transportadora_Redespacho = selecionada ? selecionada.nome: "";
-        },
+    
 
 
         // Selecionar_Item_Escolhido(){
@@ -1285,7 +1118,199 @@ export default{
             //this.Item = {};
             this.showModal_S_Item_2 = false; 
             this.indiceEdicao = -1;
-        }
+        },
+
+
+        gerarPDF() {
+            const doc = new jsPDF();
+            const { campo_venda } = this;
+
+           
+            // Acessar as propriedades do campo_venda
+            const {
+                cod_empresa,
+                descricaoTabelaPreco,
+                Requisicao_Venda,
+                Requisicao_Transportadora,
+                Requisicao_Transportadora_Redespacho,
+                vendedorSelecionado,
+                Data_emissao,
+                Data_Prev_Entrega,
+                Data_Entrega_Solicitada,
+                desconto_n1,
+                desconto_n2,
+                desconto_n3,
+                desconto_n4,
+                forma_pagto,
+                prazo_pagamento,
+                desconto_pagto,
+                desconto_s1,
+                desconto_s2,
+                desconto_s3,
+                desconto_s4,
+                forma_pagto_x,
+                prazo_pagamento_x,
+                observacoes_pedido,
+                observacoes_faturamento,
+                observacoes_nota,
+                observacoes_producao,
+                situacao_frete,
+            } = campo_venda;
+
+            
+         
+            doc.setFillColor(41, 128, 186); // Azul
+            
+            doc.rect(0, 0, doc.internal.pageSize.getHeight(), 22, 'F'); // Defina a altura (30) que desejar para a área azul
+
+            doc.setFontSize(15);   
+            doc.setTextColor(255, 255, 255);
+            doc.setFont(undefined, 'bold');
+            doc.text(`Recibo - T.I GESTOR SOFTWARE LTDA ME`, 5, 15)
+            const logo = LogoEmpresa;
+
+
+            doc.addImage(logo, 'PNG', 185, 5, 48, 15);
+
+            //doc.line(0, 22, 210, 22); //Linha 
+
+            doc.setTextColor(0, 0, 0);
+            //doc.setFontSize(9);   
+            doc.setFont(undefined, 'bold');
+            
+            //Estilização do Titulo
+            doc.setTextColor(155, 154, 154);
+            doc.setFontSize(15);
+            doc.text(`Dados do Cliente`, 5, 30);
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(9);
+
+            doc.text(`Nome do cliente: ${this.clienteSelecionado.nome}`, 5, 40);
+            doc.text(`Nome Fantasia: ${this.clienteSelecionado.nome_fantasia}`, 5, 48);
+            doc.text(`Estado: ${this.clienteSelecionado.estado}`, 5, 56);
+            doc.text(`Cidade: ${this.clienteSelecionado.cidade}`, 25, 56);
+            doc.text(`Bairro: ${this.clienteSelecionado.bairro}`, 65, 56);
+            doc.text(`Endereço: ${this.clienteSelecionado.endereco}`, 105, 56);
+            doc.text(`Telefone: ${this.clienteSelecionado.telefone}`, 5, 65);
+            doc.text(`E-mail: ${this.clienteSelecionado.e_mail}`, 55, 65);
+
+            //Estilização do Titulo
+            doc.setFontSize(15);
+            doc.setTextColor(155, 154, 154);
+            doc.text(`Dados do pagamento`, 5, 78).setFont(undefined, 'bold');
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(9);
+            doc.text(`Vendedor: ${vendedorSelecionado.nome}`, 5, 88);
+            doc.text(`Tebela de preço: ${descricaoTabelaPreco}`, 5, 97);
+            doc.text(`Forma de pagamento: ${forma_pagto}`, 55, 97);
+            doc.text(`Descontos:  ${desconto_n1}, ${desconto_n2}, ${desconto_n3}, ${desconto_n4}`, 5, 107);
+            doc.text(`Desconto de pagamento: ${desconto_pagto}, ${desconto_s1}, ${desconto_s2}, ${desconto_s3}, ${desconto_s4}`, 48, 107);
+            
+            doc.line(0, 71, 210, 71);//Linha
+            //Estilização do Titulo
+            doc.setFontSize(15);
+            doc.setTextColor(155, 154, 154);
+            doc.text(`Dados da Venda`, 130, 78).setFont(undefined, 'bold');
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(9);
+            doc.text(`Emissão: ${Data_emissao}`, 130, 88);
+            doc.text(`Prev/de entrega: ${Data_Prev_Entrega}`, 130, 97);
+            doc.text(`Sol/de entrega: ${Data_Entrega_Solicitada}`, 130, 107);
+
+            doc.line(0, 112, 210, 112);//Linha
+
+            doc.setFontSize(15);
+            doc.setTextColor(155, 154, 154);
+            doc.text(`Itens Selecionados`, 80, 120);
+            doc.setTextColor(0, 0, 0);
+            doc.setFontSize(9);
+
+            let startY = 120;
+
+            this.Itens_selecionados.forEach((Item) => {
+
+                const dinheiro = this.Calcular_Total(Item);
+                const total = this.FormatarDinheiro(dinheiro);
+
+                const tabelaDados = [];
+
+                tabelaDados.push([
+                    Item.ref_alternativa_cor,
+                    Item.desc_cor,
+                    Item.valorUnitario,
+                    total
+                ])
+
+
+                if (Item.tamanhosGrade) {
+
+                    for (let i = 0; i < Item.tamanhosGrade.length; i++){ //Loop para exibir os tamanhos puchados pela API             
+                        const tamanho = Item.tamanhosGrade[i];
+                        const quantidade = Item.quantidades[i]    
+
+                        tabelaDados.push([tamanho, quantidade])
+                    }
+
+                    const nome_colunas = ['Referencia - Grade', 'Desc_Cor - Quantidade', 'Valor Unitario/Produto', 'Total da Venda']
+                    const columnWidths = [40, 40, 40, 40]; //tamanho das conulas da tabela
+                 
+                    doc.autoTable({
+                        startY: startY + 10,
+                        //title:'Itens da Venda',
+                        head: [nome_colunas],
+                        body:tabelaDados,
+                        columns: columnWidths,
+                        styles: {
+                            fontSize: 10,
+                            cellPadding: { top: 2, right: 2, bottom: 2, left: 2 },
+                            minCellHeight: 10,
+                        },
+                            didDrawPage: (data) => {
+                                if(data.startY + data.tableHeight + 20 >= doc.internal.pageSize.height) {
+                                    doc.addPage();
+                                    startY = 40; 
+                                }
+                            },
+                    });
+
+                    startY += tabelaDados.length * 10 + 5;
+                }
+
+                startY += 20; // Aumente o valor de startY para posicionar o próximo item   
+            });
+            
+           doc.save('formulario.pdf');
+        },
+
+        selecionarVendedor() {
+            const { campo_venda, vendedores } = this;
+            const selectedVendedor = vendedores.find(v => v.cod_vendedor === campo_venda.cod_vendedor);
+            campo_venda.vendedorSelecionado = selectedVendedor;
+        },
+
+        selecionarTeb_Preco() {
+            const { campo_venda, precos } = this;
+            const selectTab_Preco = precos.find(tab => tab.cod_tab_preco === campo_venda.tabela_Preco);
+            campo_venda.descricaoTabelaPreco = selectTab_Preco ? selectTab_Preco.descricao: "";
+        },
+
+        Selecionar_Tipo_Venda(){
+            const {campo_venda, tipo_venda} = this;
+            const selectTipoVenda = tipo_venda.find(t => t === campo_venda.Tipo_Venda);
+            campo_venda.Requisicao_Venda = selectTipoVenda ? selectTipoVenda.desc_tipo_venda: "";
+        },
+
+        Selecionar_Transportadora() {
+            const { campo_venda, transportadora } = this;
+            const selecionada = transportadora.find(t => t === campo_venda.cod_transportadora);
+            campo_venda.Requisicao_Transportadora = selecionada ? selecionada.nome: "";
+        },
+
+        Selecionar_Transportadora_Redespacho() {
+            const { campo_venda, transportadora_redespacho } = this;
+            const selecionada = transportadora_redespacho.find(t => t === campo_venda.cod_transportadora_redespacho);
+            campo_venda.Requisicao_Transportadora_Redespacho = selecionada ? selecionada.nome: "";
+        },
 
 
     }
