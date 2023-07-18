@@ -398,7 +398,7 @@
         </div>
          
     </form>
-    <Footer style="margin-top: -18px;"/>   
+    <Footer />   
 
 </template>
 
