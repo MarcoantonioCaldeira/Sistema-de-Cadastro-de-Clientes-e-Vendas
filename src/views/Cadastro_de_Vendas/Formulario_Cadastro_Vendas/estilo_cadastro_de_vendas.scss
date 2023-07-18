@@ -3,10 +3,9 @@
 @import "@/assets/scss/buttons.scss";
 
 form{
-
   min-height: 2600px;
   height: auto;
-  overflow:scroll;
+  //overflow:scroll;
   //background-color: #696969;
 }
 
@@ -400,11 +399,13 @@ form{
 }
 
 #Formulario_Itens_Venda {
+    //background-color: red;
     width: 100%;
-    height: 150px;
+    height: auto;
 }
 
 #conteudo_formulario {
+    //background-color: red;
     margin-top: 3%;
 }
 
@@ -778,13 +779,14 @@ form{
 }
 
 #conteudos-selecionados{
-    //position: relative;
+    //position: absolute;
     //overflow-y: scroll;
+  
     font-family: $font_1;
     width: 100%;
     margin-top: 13%;
-    min-height: 450px;
-    height: auto;
+    min-height: 550px;
+    max-height: auto;
     background-color: $cor_4;
 }
 
@@ -853,83 +855,98 @@ form{
 
 @media (max-width: 62.75em){
 
-  form{
-    overflow:unset;
-    //position: absolute;
-    background-color: red;
-    height: 700px;
-  }
 
     #Formulario_Vendas {
-      
         width: 100%;
-        background-color: rgb(70, 47, 220);
-        height: 2600px;
+        height: 2800px;
     }
-
-    
-    // .modal-content,.modal, #conteudo_formulario{
-    //   overflow-y: unset;
-    // }
 
     .Titulo_Cadastro_Vendas{
       margin-left: 65px;
     }
 
     .Formulario_Descontos {
-        //position: absolute;
         display: block;
         width: 32%;
         margin-left: 50px;
         margin-top: 20px;
     }
 
-
     .Formulario_Observacoes{
-      //background-color: #696969;
-      //display: block;
-      //margin-top: 1020px;
       margin-left: 150px;
     }
 
-
-    #Formulario_Itens_Venda{
-      //display: none;
-      
+    .btn_concluir_cadastro{
+      margin-left: 68%;
     }
 
     .btn_concluir_cadastro_vendas{
         margin-top: -90px;
         margin-left: 50px;
-
     }
             
 }
 
 
-@media (max-width: 26.938em){
+@media (max-width: 45.438em){
 
     #Formulario_Vendas{
-        height: 2150px;
+        height: 3800px;
         background-color: red;
     }
 
+    .Titulo_Cadastro_Vendas{
+      margin-left: 30px;
+      font-size:30px;
+    }
+
+    .btn_nome_cliente{
+      margin-left: 30px;
+    }
 
     .btn_concluir_cadastro_vendas{
         margin-top: -90px;
         margin-left: 50px;
-
     }
 
     .InputForm_Vendas{
         //background-color: blue;
-        width: 340px;
+        width: 300px;
         margin-left: -22px;
     }
 
-    .Select_Nome_Vendedor, .Select_Descricao_Tab_Preco, .Select_Tipo_Venda, .Select_Tipo_Frete, .Select_Forma_Pagamento{
-        width: 370px;
-        margin-left: -22px;
+    .p_data_e{
+      margin-left: -14px;
+    }
+
+
+    .Formulario_Descontos{
+      display: block;
+      width: 32%;
+      margin-left: 50px;
+      margin-top: 20px;
+    }
+
+
+    .Formulario_Observacoes{
+      //background-color: brown;
+      margin-top: 1050px;
+      margin-left: 5px;
+      display: block;
+
+      textarea{
+        width: 300px;
+      }
+
+      .p_data_e{
+        margin-left: 25px;
+      }
+    }
+
+
+    .Select_Nome_Vendedor, .Select_Descricao_Tab_Preco, .Select_Tipo_Venda, .Select_Tipo_Frete, .Select_Forma_Pagamento, .Select_Trasportadora{
+        width: 320px;
+        margin-left: -20px;
     }
 
 }
