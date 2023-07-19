@@ -838,7 +838,11 @@ form{
 
 
 
-@media (min-width: 62.75em) and (max-width: 90em){
+@media (min-width: 62.75em) and (max-width: 115.875em){
+
+    #Formulario_Vendas{
+      //background-color: #696969;
+    }
 
     .Formulario_2 {
         position: absolute;
@@ -850,7 +854,57 @@ form{
         //background-color: aquamarine;
     }
 
-            
+
+    .btn_concluir_cadastro{
+
+      @media(max-width:1742px){
+        //background-color: red;
+        margin-left: 73%;
+      }
+
+
+      @media(max-width:1390px){
+        //background-color: #4a039b;
+        margin-left: 68%;
+      }
+    }
+
+
+    .InputForm_Vendas{ 
+      @media(max-width:1240px){
+        width: 300px;
+      }
+    }
+
+
+    .Select_Nome_Vendedor, 
+    .Select_Forma_Pagamento, 
+    .Select_Tipo_Frete, 
+    .Select_Trasportadora, 
+    .Select_Descricao_Tab_Preco, 
+    .Select_Tipo_Venda{
+      @media(max-width:1240px){
+        width: 325px;
+      }
+    }
+
+
+    .area_obs_pedido, 
+    .area_obs_faturamento, 
+    .area_obs_nota, 
+    .area_obs_producao{
+      @media(max-width:1240px){
+        width: 325px;
+      }
+    }
+
+    #conteudos-selecionados{
+     
+      @media(max-width:1728px){
+        margin-top: 300px; //Vai deixar a div sem espaçamento entre o rodape
+      }
+
+    }
 }
 
 @media (max-width: 62.75em){
@@ -859,6 +913,7 @@ form{
     #Formulario_Vendas {
         width: 100%;
         height: 2800px;
+        //background-color: blue;
     }
 
     .Titulo_Cadastro_Vendas{
@@ -874,10 +929,22 @@ form{
 
     .Formulario_Observacoes{
       margin-left: 150px;
+
+
+      @media(max-width:878px){
+
+        .area_obs_pedido, .area_obs_faturamento, .area_obs_nota, .area_obs_producao{
+          width: 300px;
+        }
+      }
     }
 
     .btn_concluir_cadastro{
       margin-left: 68%;
+
+      @media(max-width:878px){
+        margin-left: 65%;
+      }
     }
 
     .btn_concluir_cadastro_vendas{
@@ -892,7 +959,12 @@ form{
 
     #Formulario_Vendas{
         height: 3800px;
-        background-color: red;
+        //background-color: red;
+
+
+        @media(max-width:484px){
+          width: 4000px;
+        }
     }
 
     .Titulo_Cadastro_Vendas{
@@ -910,7 +982,6 @@ form{
     }
 
     .InputForm_Vendas{
-        //background-color: blue;
         width: 300px;
         margin-left: -22px;
     }
@@ -934,8 +1005,8 @@ form{
       margin-left: 5px;
       display: block;
 
-      textarea{
-        width: 300px;
+      .area_obs_pedido, .area_obs_faturamento, .area_obs_nota, .area_obs_producao{
+        width: 320px;
       }
 
       .p_data_e{
@@ -943,11 +1014,108 @@ form{
       }
     }
 
+    .Titulo_Itens_Venda{
+      margin-left: 30px;
+    }
 
-    .Select_Nome_Vendedor, .Select_Descricao_Tab_Preco, .Select_Tipo_Venda, .Select_Tipo_Frete, .Select_Forma_Pagamento, .Select_Trasportadora{
+    .btn_nome_Item{
+      margin-left: 30px;
+    }
+
+    #conteudo_formulario{
+      @media(max-width:571px){
+        //background-color: #003A4C;
+        min-height: 200px;
+      }
+    }
+
+    .Select_Nome_Vendedor, 
+    .Select_Descricao_Tab_Preco, 
+    .Select_Tipo_Venda, 
+    .Select_Tipo_Frete, 
+    .Select_Forma_Pagamento, 
+    .Select_Trasportadora{
         width: 320px;
         margin-left: -20px;
     }
+
+
+    //Campo na hora de selecionar o item
+    .input_pesquisa_nome_item{
+      //background-color:#4a039b;
+      width: 300px;
+
+      @media(max-width:530px){
+        margin-left: 80px;
+      }
+    }
+
+
+    .btn_proximo{
+      margin-left: -100px;
+      width: 100px;
+      height: 40px;
+    }
+
+
+    .Area_Selecionada{
+      margin-left: 30px;
+      width: 340px;
+    }
+
+    .Input_Form_Itens_Venda{
+      width: 320px;
+      margin-left: 30px;
+    }
+
+    .area-observacao{
+      margin-left: 30px;
+      width:330px
+    }
+
+    .table{
+      margin-left: 30px;
+    }
+
+    .p_tipo_produto{
+      margin-left: 30px;
+    }
+
+    .select_tipo_produto{
+      width: 340px;
+      margin-left: 30px;
+    }
+
+    .btn_finalizar{
+      margin-left: 30px;
+    }
+
+
+    .btn_concluir_cadastro{
+      width: 100px;
+      margin-left: 62%;
+      margin-top: -45px;
+
+
+      @media(max-width:571px){
+          margin-top: 40px;
+          margin-left: 25px;
+          height: 40px;
+      }
+    }
+
+    .btn_gerar_pdf{
+      width: 100px;
+      margin-left: 80%;
+      margin-top: -45px;
+
+        @media(max-width:571px){
+          margin-top: 40px;
+          margin-left: 150px;
+          height: 40px;
+        }
+    }
+
 
 }
 
