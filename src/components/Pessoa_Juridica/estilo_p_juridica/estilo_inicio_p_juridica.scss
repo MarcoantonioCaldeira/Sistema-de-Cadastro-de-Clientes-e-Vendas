@@ -594,146 +594,6 @@ label {
 
 }
 
-//Tamanho para Telas medias
-// @media screen and(max-width: 56.688em) {
-
-//   #corpo_formulario_p_juridica {
-//     width: 100%;
-//     //height: 4000px;
-//   }
-
-//   #h1-titulo {
-//     font-size: 20px;
-//     margin-left: 2%;
-//   }
-
-//   p {
-//     margin-left: 2%;
-//   }
-
-//   .Input_Forma_P_Juridica {
-//     width: 85%;
-//   }
-
-
-//   .Input_Inscricao_Estadual {
-//     width: 68%;
-//   }
-
-//   .Input_Data_Fundacao {
-//     width: 15% !important;
-//   }
-
-//   #h2-informacoes {
-//     font-size: 19px;
-//     margin-top: 10%;
-//   }
-
-//   .input_apelido {
-//     width: 80%;
-//     opacity: 0.8;
-//   }
-
-//   .input_secundario_inscricao {
-//     width: 55%;
-//   }
-
-//   .input_secundario_data {
-//     width: 80%;
-//     margin-left: 5%;
-//   }
-
-//   //Area da Suframa
-//   #AreaSuframa {
-//     // background-color: red;
-//     position: relative;
-//     height: 650px;
-//     width: 100%;
-//     margin-left: 5%;
-//     margin-top: 12%;
-//   }
-
-//   .h2_suframa {
-//     font-size: 100%;
-//   }
-
-//   .select {
-//     width: 89% !important;
-//   }
-
-//   .input_suframa {
-//     width: 86%;
-//   }
-
-
-//   .label_num_incricao {
-//     font-family: $font_2;
-//     color: $cor_4;
-//   }
-
-//   .Input_Inscricao_Municipal {
-//     width: 86%;
-//     margin-top: 2%;
-//   }
-
-//   #AreaObservacoes {
-//     position: relative;
-//     width: 100%;
-//     margin-left: 0;
-//     margin-top: -35%;
-//   }
-
-//   .p_obs {
-//     // margin-top: 10%;
-//     margin-left: 5%;
-//   }
-
-//   .text_area {
-//     margin-left: 5%;
-//     width: 89%;
-//   }
-
-//   #Area_Enderecos {
-//     width: 100%;
-//     height: 2250px;
-//     margin-top: -10%;
-//   }
-
-//   #AreaEnderecoPrincipal {
-//     width: 100%;
-//     margin-left: 0;
-//   }
-
-//   #AreaEnderecoSecundario,
-//   #AreaEnderecoTerciario {
-//     width: 100%;
-//     margin-left: 0;
-//     margin-top: 10%;
-//   }
-
-
-//   .input_cep,
-//   .input_endereco {
-//     width: 85%;
-//   }
-
-//   .btn_proxima_etapa {
-//     margin-top: 10%;
-//     margin-left: 5%;
-//     background: $cor_1;
-//     font-weight: 100;
-//     font-family: 'Poppins';
-//     border-radius: 5px;
-//     border-color: $cor_1;
-//     border: 1px solid #003A4C;
-//     font-family: arial;
-//     color: $cor_5;
-//     text-align: 20%;
-//     height: 56px;
-//     width: 120px;
-//   }
-
-// }
 
 @media(max-width: 75em) {
 
@@ -822,6 +682,18 @@ label {
     width: 100%;
     margin-left: 0;
     margin-top: -35%;
+
+    @media(max-width:1199px){
+      .text_area{
+        width: 72%;
+      }
+    }
+
+    @media(max-width:839px){
+      .text_area{
+        width: 65%;
+      }
+    }
   }
 
   .p_obs {
