@@ -746,3 +746,36 @@ label {
     width: 120px;
   }
 }
+
+
+@media(min-width: 75em) {
+
+  @media(min-width:1470px){
+
+    .select{
+      margin-left: 50px;
+      width: 360px !important;
+    }
+
+    .input_suframa,
+    .label_codigo_suframa,
+    .Input_Inscricao_Municipal, 
+    .label_num_inscricao{
+      width: 330px;
+      margin-left: 60px;
+    }
+
+    .h2_suframa{
+      margin-left: 60px;
+    }
+
+    #AreaObservacoes{
+        @media(min-width:1747px){
+         margin-left: 500px;
+         margin-top: -200px;
+        }
+    }
+
+  }
+
+}

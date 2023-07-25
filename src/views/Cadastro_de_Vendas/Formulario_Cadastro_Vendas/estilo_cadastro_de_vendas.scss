@@ -779,13 +779,10 @@ form{
 }
 
 #conteudos-selecionados{
-    //position: absolute;
-    //overflow-y: scroll;
-  
     font-family: $font_1;
     width: 100%;
     margin-top: 13%;
-    min-height: 550px;
+    height: 550px;
     max-height: auto;
     background-color: $cor_4;
 }
@@ -793,6 +790,7 @@ form{
 
 #conteudos-selecionados table{
   width: 70%;
+  color: #9B9A9A;
   height: 120px;
 }
 
@@ -803,19 +801,19 @@ form{
 
 #conteudo-selecionado:hover{
   background-color: #c7c5c5;
-  transition: 0.5s;
+  transition: 0.7s;
 }
 
 #conteudo-selecionado{
   position: relative;
-  padding-top: 7px;
+  //background-color: red;
 }
 
 #fa-solid-li-2{
   position: absolute; 
   color:#9B9A9A; 
   margin-left: 97%;
-  margin-top: 45px;
+  margin-top: 70px;
 }
 
 .btn_validar_cadastro{

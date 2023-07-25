@@ -386,7 +386,7 @@
                                     </table>
                                 </div>
 
-                                <button class="btn_finalizar" v-on:click="Salvar_Edicao(index)">Salvar</button>
+                                <button class="btn_finalizar" v-on:click="Salvar_Edicao">Salvar</button>
                                 <button class="btn_finalizar" v-on:click="Calcelar_Edicao">Cancelar</button>
 
                             </div>
@@ -516,6 +516,8 @@ export default{
             showDivResumo:false,
             Itens_selecionados:[], //Array que vai armazenar todos os itens 
             Item_selecionado: null, 
+
+            
             quantidade_itens: null,
             valor_unitario: null,
             quantidades:[],    
@@ -523,15 +525,25 @@ export default{
             observacoes: '',
             quantidade_caixa:null,
             tipo_produto: null,
+
             ItensValidados: false,
+
             mostrar_concluir_cadastro:false,
             mostrar_gerar_pdf:false,
             mostrar_edicao: true,
 
             exibirFormularioEdicao:false,
             indiceEdicao: -1,
-            ItemEditado:{},
-            Item:{}
+            ItemEditado:{
+                quantidade_caixa: 0,
+                quantidade_itens: 0,
+                valor_unitario: null,
+                tipo_produto: null,
+                observacoes: '',
+                mostrarCamposAdicionais: false, // Verifique se é inicializado corretamente
+                tamanhosGrade: [], // Verifique se é inicializado corretamente
+                quantidades: []
+            }
         }
     },
 
@@ -964,17 +976,11 @@ export default{
                 quantidades: this.quantidades,
             };
 
-
             if(this.indiceEdicao !== -1){
-
                 this.$set(this.Itens_selecionados, this.indiceEdicao, resumoItem);
-
             } else {
-
                 this.Itens_selecionados.push(resumoItem);
-            }
-
-            
+            }         
 
             //Limpar os campos para um novo item
             this.Item_selecionado = null;
@@ -1080,42 +1086,38 @@ export default{
 
 
         Editar_Itens(index){
-            //this.indiceEdicao = index; // Armazena o índice do item sendo editado
+            this.indiceEdicao = index; // Armazena o índice do item sendo editado
             const item = this.Itens_selecionados[index]; // Obtém o item correspondente pelo índice
 
-            this.Item = {
-                //ref_alternativa_cor: this.Item_selecionado.ref_alternativa_cor,
-                quantidade_caixa:item.quantidade_caixa,
-                quantidade_itens: item.quantidade_itens,
-                valor_unitario: item.valor_unitario,
-                tipo_produto: item.tipo_produto,
-                observacoes: item.observacoes,
-                mostrarCamposAdicionais: item.gradeTamanho,
-                tamanhosGrade: item.tamanhosGrade,
-                quantidades: item.quantidades,
-            }
+            this.ItemEditado = JSON.parse(JSON.stringify(item));
 
-            //this.mostrarCamposAdicionais = Item.gradeTamanho
-            // this.ItemEditado = {
-            //     ...Item
-            // }
-
-            this.indiceEdicao = index;
+            this.showModal_S_Item_2 = true;
         },
 
 
         Salvar_Edicao(){
-            if(this.indiceEdicao !== -1){             
-                this.$set(this.Itens_selecionados, this.indiceEdicao, { ...this.Item });
+            
+            if (this.indiceEdicao !== -1) {
+                const index = this.indiceEdicao;
+                console.log("Itens selecionados ", this.Itens_selecionados)
+                this.Itens_selecionados[index] = {
+                    quantidade_caixa: this.ItemEditado.quantidade_caixa,
+                    quantidade_itens: this.ItemEditado.quantidade_itens,
+                    valor_unitario: this.ItemEditado.valor_unitario,
+                    tipo_produto: this.ItemEditado.tipo_produto,
+                    observacoes: this.ItemEditado.observacoes,
+                    mostrarCamposAdicionais: this.ItemEditado.mostrarCamposAdicionais,
+                    tamanhosGrade: this.ItemEditado.tamanhosGrade,
+                    quantidades: [...this.ItemEditado.quantidades],
+                }; 
 
-                this.showModal_S_Item_2 = false;
+                this.ItemEditado = {};
                 this.indiceEdicao = -1;
+                this.showModal_S_Item_2 = false;
             }
         },
 
-        
         Calcelar_Edicao(){
-            //this.Item = {};
             this.showModal_S_Item_2 = false; 
             this.indiceEdicao = -1;
         },
