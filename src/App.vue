@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Menu />
+      <Menu :isComponenteAAtivo="isComponenteAAtivo" />
       <router-view/>
     </v-main>
   </v-app>
@@ -15,9 +15,19 @@ export default {
   components:{
     Menu
   },
-
-  data: () => ({
-    
-  }),
+  data(){
+    return{
+      isComponenteAAtivo: true
+    }
+  },
+  watch: {
+    $route(to, from) {
+      if(to.path === '/'){
+        this.isComponenteAAtivo = false;
+      }else{
+        this.isComponenteAAtivo = true;
+      }
+    }
+  }
 }
 </script>

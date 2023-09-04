@@ -1,6 +1,6 @@
-<template> 
-<header :class="{ 'scrolled-nav': scrolledNav }">
-  <nav>
+<template > 
+<header :class="{ 'scrolled-nav': scrolledNav }" v-if="!isComponenteAAtivo">
+  <nav >
     <div class="branding">
       <img  class="logo"  src="@/assets/images/logo.png">
     </div>
@@ -35,6 +35,9 @@ import '@fortawesome/fontawesome-free/css/all.css'
 
 export default{
   name: 'Menu',
+  props:{
+    isComponenteAAtivo: Boolean,
+  },
   data(){
     return{
       scrolledNav: null,
