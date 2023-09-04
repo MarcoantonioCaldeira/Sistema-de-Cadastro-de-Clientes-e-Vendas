@@ -20,13 +20,10 @@ export default {
       isComponenteAAtivo: true
     }
   },
-  watch: {
-    $route(to, from) {
-      if(to.path === '/'){
-        this.isComponenteAAtivo = false;
-      }else{
-        this.isComponenteAAtivo = true;
-      }
+  computed: {
+    isComponenteAAtivo() {
+      // Defina a lógica para ativar/desativar o menu com base na rota atual
+      return this.$route.path === '/'; // Desabilita o menu na página de login ("/")
     }
   }
 }

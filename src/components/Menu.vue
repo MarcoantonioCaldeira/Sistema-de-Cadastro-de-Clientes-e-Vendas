@@ -1,6 +1,6 @@
-<template > 
+<template> 
 <header :class="{ 'scrolled-nav': scrolledNav }" v-if="!isComponenteAAtivo">
-  <nav >
+  <nav>
     <div class="branding">
       <img  class="logo"  src="@/assets/images/logo.png">
     </div>
