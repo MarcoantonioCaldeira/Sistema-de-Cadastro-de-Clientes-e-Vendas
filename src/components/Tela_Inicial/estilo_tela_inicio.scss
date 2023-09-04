@@ -68,7 +68,7 @@
 }
 
 
-@media only screen and (max-width: 30.999em) {
+@media only screen and (max-width: 32.000em) {
 
 
     #Corpo_Tela_Inicial{
@@ -76,62 +76,188 @@
     }
 
     .h1-seja-bem-vindo {
-        //background-color: ;
-        margin-left: 21%;
-        margin-top: 150px;
+        //background-color: blue;
+        margin-left: 130px;
+        margin-top: 200px;
+
+        @media(max-width:450px){
+            margin-left: 100px;
+        }
+
+        @media(max-width:380px){
+            margin-left: 50px;
+        }
+
     }
 
     .opcoes_tela_inicio{
-        //background-color: blue;
-        height: 500px;
+        //display: none;
+        //background-color: rgb(59, 232, 174);
+        height: 600px;
+
+        .img_icone_vendedor{
+            margin-top: 80px;
+            margin-left: 350px;
+            width: 70px;
+
+            @media(max-width:450px){
+                //margin-top: 100px;
+                margin-left: 170px;
+                margin-top: 305px;
+            }
+
+            @media(max-width:380px){
+                margin-left: 130px;
+            }
+
+        }
+
+        .img_icone_cliente{
+            margin-top: 80px;
+            margin-left: 100px;
+            width: 70px;
+
+            @media(max-width:450px){
+                //margin-top: 100px;
+                margin-left: 170px;
+            }
+
+            @media(max-width:380px){
+                margin-left: 130px;
+            }
+        }   
+
+        .h1_Cadastro_Cliente{
+            margin-left: 25px;
+            margin-top: 75px;
+            font-size: 20px;
+            display: block;
+
+            @media(max-width:450px){
+                //margin-top: 100px;
+                margin-left: 100px;
+            }
+
+            @media(max-width:380px){
+                margin-left: 70px;
+            }
+        }
+
+        .h1_Cadastro_Venda{
+            margin-left: 275px;
+            margin-top: 75px;
+            font-size: 20px;
+            display: block;
+
+            @media(max-width:450px){
+                margin-top: 300px;
+                margin-left: 100px;
+            }
+
+            @media(max-width:380px){
+                margin-left: 70px;
+            }
+        }
+
     }
-
-    .img_icone_vendedor{
-        position: absolute;
-        width: 10%;
-        margin-top: 34%;
-        margin-left: 45%;
-    }
-
-    .img_icone_cliente{
-        position:absolute;
-        width: 10%;
-        margin-top: 10%;
-        margin-left: 45%;
-    }
-
-    .h1_Cadastro_Cliente{
-        margin-left: 20%;
-        display: block;
-    }
-
-   .h1_Cadastro_Venda{
-        margin-left: 20%;
-        margin-top: 25%;
-        display: block;
-    }
-
-
-
 }
 
-@media only screen and (min-width: 31em){
+@media (min-width: 31em) and (max-width:47em){
 
     .h1-seja-bem-vindo {
-        // color: red;
+       //color: red;
         margin-left: 32%;
         margin-top: 210px;
     }
+
+    .h1_Cadastro_Cliente{
+        margin-left: 40px;
+    }
+
+    .h1_Cadastro_Venda{
+        margin-left: 470px;
+
+        @media(max-width:645px){
+            margin-left: 330px;
+        }
+    }
+
+    .img_icone_cliente{
+        width: 60px;
+        margin-left: 150px;
+    }
+
+    .img_icone_vendedor{
+        width: 60px;
+        margin-left: 550px;
+
+        @media(max-width:645px){
+            margin-left: 430px;
+        }
+    }
+
 }
 
 
 @media only screen and (min-width: 48em){
 
+
     .h1-seja-bem-vindo {
-        // color: blue;
+        //color: blue;
         margin-left: 40%;
         margin-top: 210px;
     }
+
+    .h1_Cadastro_Cliente{
+        @media(max-width:1285px){
+            margin-left:300px;
+        }
+
+        @media(max-width:768px){
+            margin-left:50px;
+        }
+
+    }
+
+    .h1_Cadastro_Venda{
+        @media(max-width:1285px){
+            margin-left:700px;
+        }
+
+        @media(max-width:1138px){
+            margin-left:600px;
+        }
+
+        @media(max-width:768px){
+            margin-left:500px;
+        }
+    }
+
+    .img_icone_cliente{
+        
+        @media(max-width:1138px){
+            margin-left:700px;
+        }
+
+        @media(max-width:768px){
+            margin-left:600px;
+        }
+
+    }
+
+
+    .img_icone_vendedor{
+        margin-left:800px;
+
+        @media(max-width:1138px){
+            margin-left:150px;
+        }
+
+    }
+
+    
+
+
     
 }
 

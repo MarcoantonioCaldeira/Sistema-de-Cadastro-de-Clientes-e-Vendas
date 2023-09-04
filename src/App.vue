@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Menu />
+      <Menu :isComponenteAAtivo="isComponenteAAtivo" />
       <router-view/>
     </v-main>
   </v-app>
@@ -15,9 +15,16 @@ export default {
   components:{
     Menu
   },
-
-  data: () => ({
-    
-  }),
+  data(){
+    return{
+      isComponenteAAtivo: true
+    }
+  },
+  computed: {
+    isComponenteAAtivo() {
+      // Defina a lógica para ativar/desativar o menu com base na rota atual
+      return this.$route.path === '/'; // Desabilita o menu na página de login ("/")
+    }
+  }
 }
 </script>

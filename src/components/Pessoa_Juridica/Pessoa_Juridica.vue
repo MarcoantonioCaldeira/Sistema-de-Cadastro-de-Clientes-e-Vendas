@@ -1,6 +1,6 @@
 <template> 
     <div id="Area_Pessoa_Juridica" v-on:click="pessoa_juridica">
-        <router-link to="Cadastro_pt_1_P_Juridica"><h2 class="h2_p_juridica">Pessoa Juridica</h2></router-link>
+        <router-link to="Cadastro_pt_1_P_Juridica"><h2 class="h2_p_juridica">Pessoa Jurídica</h2></router-link>
     </div>
 </template>
 
@@ -16,8 +16,7 @@ export default{
 
 .h2_p_juridica {
   color: $cor_3;
-  position: center;
-  margin-left: 22%;
+  margin-left: 25%;
   padding-top: 30px;
   text-decoration: none;
 }
