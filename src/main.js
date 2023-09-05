@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import VueSession from 'vue-session'
+import store from '../src/components/services/store'
 import { loadFonts } from './plugins/webfontloader'
 
 // import axios from 'axios'
@@ -14,8 +15,10 @@ import { loadFonts } from './plugins/webfontloader'
 
 loadFonts()
 
-createApp(App)
-  .use(router)
-  .mount('#app')
+const app = createApp(App)
+
+  app.use(store);
+  app.use(router);
+  app.mount('#app');
   app.directive('mask', mask);
   Vue.use(VueSession);
