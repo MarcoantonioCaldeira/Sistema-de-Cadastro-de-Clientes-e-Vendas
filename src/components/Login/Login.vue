@@ -11,14 +11,14 @@
         </div>
 
         <div v-if="tipoPessoa === 'pessoaFisica'">
-            <input  class="ddd"  placeholder="Seu CPF" v-model="cpf"/>
+            <input  class="ddd"  placeholder="Seu CPF" v-model="cpf_cnpj"/>
         </div>
         
         <div v-if="tipoPessoa === 'pessoaJuridica'">
-            <input class="ddd"  placeholder="Seu CNPJ" v-model="cnpj"/>
+            <input class="ddd"  placeholder="Seu CNPJ" v-model="cpf_cnpj"/>
         </div>
         
-        <input type="text" placeholder="Digite a sua senha"/>
+        <input type="text" placeholder="Digite a sua senha"   v-model="senha"/>
 
         <input type="button"   @click="Login" value="Login">
 
@@ -35,30 +35,35 @@ export default {
     data(){
         return{
             tipoPessoa: 'pessoaFisica',
-            cadastroValido:true,
-            cpf: '',
-            cnpj: '', 
+            cpf_cnpj: '',
+            senha: ''
         }
     },
     methods:{
 
         async Login(){
-
             try{
                 const token = await getToken();
-                const headers = { Authorization: `Bearer ${token}` };
+                const headers = { Authorization: `Bearer ${token}` };  
+                const resposta = await api.get(`clientes`, {headers });
 
+                //vendedor
+                const clienteEncontrado = resposta.data.find(cliente => cliente.cnpj_cpf === this.cpf_cnpj);
+            
+                if(clienteEncontrado){
 
-                
-                const resposta = await api.get(`clientes/cnpj_cpf=`+this.cpf, {headers });
-                //return resposta.data;
+                    const senhaDoCliente = clienteEncontrado.cliente_enderecos[0].cep;
 
+                    if(senhaDoCliente === this.senha){
+                        
+                        alert("Deu certo o Login esta funcionando!!!")
 
-                if(resposta.data.cadastroValido){
-                    //this.$router.push()
-                    alert("Deu certo o Login esta funcionando!!!");
+                    }else{
+                        alert("Senha incorreta, tente novamente")
+                    }
                 }else{
                     alert("CPF invalido")
+                    console.log(resposta)
                 }
 
             }catch(error){
