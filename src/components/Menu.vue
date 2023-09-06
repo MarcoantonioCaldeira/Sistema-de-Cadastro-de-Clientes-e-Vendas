@@ -5,7 +5,7 @@
       <img  class="logo"  src="@/assets/images/logo.png">
     </div>
     <ul v-show="!mobile" class="navigation">
-      <li><router-link  class="link"  to="/Tela_Inicial" @click="barra_prograsso()">Inicio</router-link></li>
+      <li><router-link  class="link"  to="Tela_Inicial" @click="barra_prograsso()">Inicio</router-link></li>
       <li><router-link  class="link"  to="Selecao_Tipo_Pessoa" @click="barra_prograsso()">Cadastro de Clientes</router-link></li>
       <li><router-link  class="link"  to="Cadastro_de_Vendas" @click="barra_prograsso()">Cadastro de Vendas</router-link></li>
     </ul>
@@ -17,7 +17,7 @@
     </div>
     <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
-          <li style="margin-top: 40px;"><router-link class="link" to="/Tela_Inicial" onclick="barra_prograsso()">Inicio</router-link></li>
+          <li style="margin-top: 40px;"><router-link class="link" to="Tela_Inicial" onclick="barra_prograsso()">Inicio</router-link></li>
           <li><router-link class="link" to="Selecao_Tipo_Pessoa" onclick="barra_prograsso()">Cadastro de Clientes</router-link></li>
           <li><router-link class="link" to="Cadastro_de_Vendas" onclick="barra_prograsso()">Cadastro de Vendas</router-link></li>
         </ul>
@@ -78,12 +78,12 @@ export default{
     },
 
     barra_prograsso() {
-      var elem = document.getElementById("barra_progresso");
-      var container = document.getElementById("area_barra_progresso");
-      var visibilidade = true;
+      const elem = document.getElementById("barra_progresso");
+      const container = document.getElementById("area_barra_progresso");
+      const visibilidade = true;
 
-      var width = 1;
-      var id = setInterval(frame, 10);
+      const width = 1;
+      const id = setInterval(frame, 10);
 
         function frame() {
           if(visibilidade){

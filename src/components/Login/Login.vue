@@ -1,26 +1,28 @@
 <template>
 
+    <img  class="logo_ti_gestor"  src="../../assets/images/logo.png">
+
     <form>
-        <div>
-            <label>
-                <input type="radio" value="pessoaFisica" v-model="tipoPessoa" />Pessoa Física
-            </label>
-            <label>
-                <input type="radio" value="pessoaJuridica" v-model="tipoPessoa" />Pessoa Jurídica
-            </label>
+        <div id="area_selecao_pessoa">
+            <label>Pessoa Física</label>
+                <input type="radio" value="pessoaFisica" v-model="tipoPessoa" />
+            
+            <label>Pessoa Jurídica</label>
+                <input type="radio" value="pessoaJuridica" v-model="tipoPessoa" />
+            
         </div>
 
         <div v-if="tipoPessoa === 'pessoaFisica'">
-            <input  class="ddd"  placeholder="Seu CPF" v-model="cpf_cnpj"/>
+            <input  class="input"  placeholder="Seu CPF" v-model="cpf_cnpj"/>
         </div>
         
         <div v-if="tipoPessoa === 'pessoaJuridica'">
-            <input class="ddd"  placeholder="Seu CNPJ" v-model="cpf_cnpj"/>
+            <input class="input"  placeholder="Seu CNPJ" v-model="cpf_cnpj"/>
         </div>
         
-        <input type="text" placeholder="Digite a sua senha"   v-model="senha"/>
+        <input  class="input" type="text" placeholder="Digite a sua senha"   v-model="senha"/>
 
-        <input type="button"   @click="Login" value="Login">
+        <input class="btn_login" type="button"   @click="Login" value="Login">
 
     </form>
 
@@ -58,7 +60,7 @@ export default {
                         
                         alert("Deu certo o Login esta funcionando!!!")
 
-                        this.$route.go( '/Tela_Inicial' );
+                        this.$router.push({path: '../Tela_Inicial/Tela_Inicial'});
 
 
                     }else{
@@ -77,6 +79,6 @@ export default {
 }
 
 </script>
-<style>
+<style  src="./estilo_login.scss"  lang="scss">
 
 </style>-
