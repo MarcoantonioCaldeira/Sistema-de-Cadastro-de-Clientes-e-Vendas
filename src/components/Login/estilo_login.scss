@@ -1,0 +1,70 @@
+@import "@/assets/scss/index.scss";
+@import "@/assets/scss/cores.scss";
+@import "@/assets/scss/fonts.scss";
+
+
+.logo_ti_gestor{
+    margin-left: 40%;
+    margin-top: 150px;
+}
+
+#area_selecao_pessoa{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 290px;
+    height: 90px;
+    margin-left: 35%;
+    margin-top: 10%;
+    border-radius: 5px;
+   // align-items: center;
+    background-color: #CECCCC;
+
+    label{
+        position: relative;
+        margin-left: 10px;
+        font-family: $font_2;
+        top: 15px;
+        margin-bottom: 13px;
+        display: block;
+        color: #8B8B8B;
+        font-weight: bold;
+    }
+
+    input[type='radio']{
+        position: absolute;
+        margin-left: 27%;
+        margin-top: -20px;
+        ///top: 2px;
+    }
+}
+
+.input{
+    margin-top: 38px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: block;
+    width: 250px;
+    padding: 12px 20px;
+    //margin: 8px 0;
+    margin-left: 35%;
+    border-radius: 5px;
+    border: 1px solid #CECCCC;
+    background-color:#CECCCC;
+    //letter-spacing: 2px;
+}
+
+
+.btn_login{
+    position: relative;
+    //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 100px;
+    background-color: $cor_1;
+    color: white;
+    left: 44%;
+    top: 20px;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
