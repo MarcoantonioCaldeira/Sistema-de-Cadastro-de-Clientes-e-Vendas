@@ -5,7 +5,7 @@
       <img  class="logo"  src="@/assets/images/logo.png">
     </div>
     <ul v-show="!mobile" class="navigation">
-      <li><router-link  class="link"  to="/" @click="barra_prograsso()">Inicio</router-link></li>
+      <li><router-link  class="link"  to="/Tela_Inicial" @click="barra_prograsso()">Inicio</router-link></li>
       <li><router-link  class="link"  to="Selecao_Tipo_Pessoa" @click="barra_prograsso()">Cadastro de Clientes</router-link></li>
       <li><router-link  class="link"  to="Cadastro_de_Vendas" @click="barra_prograsso()">Cadastro de Vendas</router-link></li>
     </ul>
@@ -17,7 +17,7 @@
     </div>
     <transition name="mobile-nav">
         <ul v-show="mobileNav" class="dropdown-nav">
-          <li style="margin-top: 40px;"><router-link class="link" to="/" onclick="barra_prograsso()">Inicio</router-link></li>
+          <li style="margin-top: 40px;"><router-link class="link" to="/Tela_Inicial" onclick="barra_prograsso()">Inicio</router-link></li>
           <li><router-link class="link" to="Selecao_Tipo_Pessoa" onclick="barra_prograsso()">Cadastro de Clientes</router-link></li>
           <li><router-link class="link" to="Cadastro_de_Vendas" onclick="barra_prograsso()">Cadastro de Vendas</router-link></li>
         </ul>
