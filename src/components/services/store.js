@@ -8,10 +8,16 @@ export default createStore({
         setAuthentication(state, isAuthenticated) {
             state.isAuthenticated = isAuthenticated;
         },
-
-
     },
     actions: {
+        login({ commit }) {
+
+            commit('setAuthentication', true);
+        },
+        logout({commit}) {
+
+            commit('setAuthentication', false);
+        },
         
     }
 

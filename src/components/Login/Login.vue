@@ -28,7 +28,7 @@
 
 <script>
 import api, { getToken } from '../services/api';
-
+import { useRouter } from 'vue-router';
 
 export default {
     name: 'Login',
@@ -58,6 +58,9 @@ export default {
                         
                         alert("Deu certo o Login esta funcionando!!!")
 
+                        this.$route.go( '/Tela_Inicial' );
+
+
                     }else{
                         alert("Senha incorreta, tente novamente")
                     }
@@ -76,4 +79,4 @@ export default {
 </script>
 <style>
 
-</style>
+</style>-
