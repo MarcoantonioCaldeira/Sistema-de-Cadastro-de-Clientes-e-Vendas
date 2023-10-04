@@ -1,30 +1,18 @@
 <template>
   <v-app>
     <v-main>
-      <Menu :isComponenteAAtivo="isComponenteAAtivo" />
       <router-view/>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Menu from './components/Menu'
+import Login from './components/Login/Login.vue'
 
 export default {
   name: 'App',
   components:{
-    Menu
-  },
-  data(){
-    return{
-      isComponenteAAtivo: true
-    }
-  },
-  computed: {
-    isComponenteAAtivo() {
-      // Defina a lógica para ativar/desativar o menu com base na rota atual
-      return this.$route.path === '/'; // Desabilita o menu na página de login ("/")
-    }
+    Login
   }
 }
 </script>

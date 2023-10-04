@@ -60,7 +60,7 @@ export default {
                         
                         alert("Deu certo o Login esta funcionando!!!")
 
-                        this.$router.push({path: '../Tela_Inicial/Tela_Inicial'});
+                        this.$router.push({name: 'Tela_Inicial'});
 
 
                     }else{
