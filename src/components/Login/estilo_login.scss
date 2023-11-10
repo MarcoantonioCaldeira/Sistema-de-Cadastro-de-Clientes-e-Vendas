@@ -3,8 +3,11 @@
 @import "@/assets/scss/fonts.scss";
 
 
+
+
+
 .logo_ti_gestor{
-    margin-left: 40%;
+    margin-left: 45%;
     margin-top: 150px;
 }
 
@@ -12,11 +15,12 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 290px;
     height: 90px;
-    margin-left: 35%;
-    margin-top: 10%;
+    margin-left: 43%;
+    margin-top: 20px;
     border-radius: 5px;
    // align-items: center;
     background-color: #CECCCC;
+    //background-color: red;
 
     label{
         position: relative;
@@ -31,9 +35,8 @@
 
     input[type='radio']{
         position: absolute;
-        margin-left: 27%;
+        margin-left: 260px;
         margin-top: -20px;
-        ///top: 2px;
     }
 }
 
@@ -44,7 +47,7 @@
     width: 250px;
     padding: 12px 20px;
     //margin: 8px 0;
-    margin-left: 35%;
+    margin-left: 43%;
     border-radius: 5px;
     border: 1px solid #CECCCC;
     background-color:#CECCCC;
@@ -58,13 +61,37 @@
     width: 100px;
     background-color: $cor_1;
     color: white;
-    left: 44%;
+    margin-left: 48%;
     top: 20px;
     padding: 14px 20px;
-    margin: 8px 0;
+    //margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+
+    @media(max-width: 1625px){
+        //background-color: red;
+        margin-left: 49%;
+    }
+
+    @media(max-width: 1413px){
+        //background-color: rgb(89, 0, 255);
+        margin-left: 54%;
+    }
+
+    @media(max-width: 551px){
+        //background-color: rgb(255, 0, 157);
+        margin-left: 67%;
+    }
+}
+
+#area_msg{
+    position: relative;
+    top: 500px;
+    //display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
