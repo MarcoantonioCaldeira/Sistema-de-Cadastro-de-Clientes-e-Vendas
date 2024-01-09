@@ -15,6 +15,7 @@
 
 ![SelecaoPesso](https://github.com/MarcoantonioCaldeira/Sistema-de-Cadastro-de-Clientes-e-Vendas/assets/88919003/b30c6352-48bc-4a0e-89f0-6ca09df991d8)
 
+![TelaCadastro](https://github.com/MarcoantonioCaldeira/Sistema-de-Cadastro-de-Clientes-e-Vendas/assets/88919003/a2c4f2fa-28e2-4813-99fa-ef0fcee4b66a)
 
 
 
