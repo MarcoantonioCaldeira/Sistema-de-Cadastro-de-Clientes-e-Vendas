@@ -25,7 +25,7 @@
 > Cadastro de Vendas
 ![CadastroVenda](https://github.com/MarcoantonioCaldeira/Sistema-de-Cadastro-de-Clientes-e-Vendas/assets/88919003/d71700c9-8983-40b3-9db2-626572422879)
 
-> Versão Mobile
+
 ![VersaoMobile](https://github.com/MarcoantonioCaldeira/Sistema-de-Cadastro-de-Clientes-e-Vendas/assets/88919003/b3f0f282-b4e9-48ce-8a29-e86645c2490c)
 
 
