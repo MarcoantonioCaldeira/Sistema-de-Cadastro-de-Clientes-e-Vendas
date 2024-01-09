@@ -17,6 +17,9 @@
 
 ![TelaCadastro](https://github.com/MarcoantonioCaldeira/Sistema-de-Cadastro-de-Clientes-e-Vendas/assets/88919003/a2c4f2fa-28e2-4813-99fa-ef0fcee4b66a)
 
+![CadastroVenda](https://github.com/MarcoantonioCaldeira/Sistema-de-Cadastro-de-Clientes-e-Vendas/assets/88919003/d71700c9-8983-40b3-9db2-626572422879)
+
+
 
 
 ## Funcionalidades
