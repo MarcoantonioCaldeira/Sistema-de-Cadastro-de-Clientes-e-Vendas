@@ -9,16 +9,24 @@
 
 
 ## Imagens do Projeto
+
+> Tela de Login
 ![Tela_de_Login](https://github.com/MarcoantonioCaldeira/Sistema-de-Cadastro-de-Clientes-e-Vendas/assets/88919003/8cafd1ef-80bf-4d05-ad32-b3abb30dda64)
 
+> Tela Inicial
 ![TelaInicial](https://github.com/MarcoantonioCaldeira/Sistema-de-Cadastro-de-Clientes-e-Vendas/assets/88919003/9ce15b3e-49bd-4647-80d5-b5eba0338dff)
 
+> Seleção de Pessoas
 ![SelecaoPesso](https://github.com/MarcoantonioCaldeira/Sistema-de-Cadastro-de-Clientes-e-Vendas/assets/88919003/b30c6352-48bc-4a0e-89f0-6ca09df991d8)
 
+> Tela de Cadastro
 ![TelaCadastro](https://github.com/MarcoantonioCaldeira/Sistema-de-Cadastro-de-Clientes-e-Vendas/assets/88919003/a2c4f2fa-28e2-4813-99fa-ef0fcee4b66a)
 
+> Cadastro de Vendas
 ![CadastroVenda](https://github.com/MarcoantonioCaldeira/Sistema-de-Cadastro-de-Clientes-e-Vendas/assets/88919003/d71700c9-8983-40b3-9db2-626572422879)
 
+> Versão Mobile
+![VersaoMobile](https://github.com/MarcoantonioCaldeira/Sistema-de-Cadastro-de-Clientes-e-Vendas/assets/88919003/b3f0f282-b4e9-48ce-8a29-e86645c2490c)
 
 
 
